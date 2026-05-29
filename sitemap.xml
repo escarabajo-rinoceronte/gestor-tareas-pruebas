@@ -9,19 +9,11 @@
          <lastmod>2026-05-29</lastmod>
     </url>
     <url>
-         <loc>https://www.hotosm.org/about/</loc>
-         <lastmod>2026-05-29</lastmod>
-    </url>
-    <url>
          <loc>https://www.hotosm.org/dataflow/</loc>
          <lastmod>2026-05-29</lastmod>
     </url>
     <url>
          <loc>https://www.hotosm.org/validation/</loc>
-         <lastmod>2026-05-29</lastmod>
-    </url>
-    <url>
-         <loc>https://www.hotosm.org/working-groups/</loc>
          <lastmod>2026-05-29</lastmod>
     </url>
     <url>
@@ -45,51 +37,11 @@
          <lastmod>2026-05-29</lastmod>
     </url>
     <url>
-         <loc>https://www.hotosm.org/developers/review-pr/</loc>
-         <lastmod>2026-05-29</lastmod>
-    </url>
-    <url>
-         <loc>https://www.hotosm.org/developers/submit-pr/</loc>
-         <lastmod>2026-05-29</lastmod>
-    </url>
-    <url>
-         <loc>https://www.hotosm.org/developers/tmschema/</loc>
-         <lastmod>2026-05-29</lastmod>
-    </url>
-    <url>
-         <loc>https://www.hotosm.org/developers/translations/</loc>
-         <lastmod>2026-05-29</lastmod>
-    </url>
-    <url>
-         <loc>https://www.hotosm.org/developers/versions-and-releases/</loc>
-         <lastmod>2026-05-29</lastmod>
-    </url>
-    <url>
          <loc>https://www.hotosm.org/sysadmins/architecture/</loc>
          <lastmod>2026-05-29</lastmod>
     </url>
     <url>
          <loc>https://www.hotosm.org/sysadmins/ci-cd/</loc>
-         <lastmod>2026-05-29</lastmod>
-    </url>
-    <url>
-         <loc>https://www.hotosm.org/sysadmins/cors/</loc>
-         <lastmod>2026-05-29</lastmod>
-    </url>
-    <url>
-         <loc>https://www.hotosm.org/sysadmins/customize/</loc>
-         <lastmod>2026-05-29</lastmod>
-    </url>
-    <url>
-         <loc>https://www.hotosm.org/sysadmins/deployment/</loc>
-         <lastmod>2026-05-29</lastmod>
-    </url>
-    <url>
-         <loc>https://www.hotosm.org/sysadmins/migration/</loc>
-         <lastmod>2026-05-29</lastmod>
-    </url>
-    <url>
-         <loc>https://www.hotosm.org/sysadmins/traefik/</loc>
          <lastmod>2026-05-29</lastmod>
     </url>
 </urlset>
