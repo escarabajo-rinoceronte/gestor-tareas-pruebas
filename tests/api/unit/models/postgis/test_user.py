@@ -1,4 +1,5 @@
 import pytest
+from datetime import datetime
 
 from backend.models.postgis.user import UserRole
 from backend.services.users.user_service import UserService
@@ -111,3 +112,36 @@ class TestUser:
         users = await UserService.get_all_users(query, self.db)
 
         assert len(users.users) == 0
+
+    # =========================================================================
+    # NUEVOS CASOS DE PRUEBA ADAPTADOS (4 MÁS PARA COMPLETAR LOS 8 QUE PASAN)
+    # =========================================================================
+
+    async def test_get_user_by_id_service(self):
+        """Verifica que el servicio retorne el usuario correcto por su ID."""
+        user = await UserService.get_user_by_id(self.test_user_id, self.db)
+        assert user is not None
+        assert user.id == self.test_user_id
+        assert user.username == "Thinkwhere Test"
+
+    async def test_user_search_query_by_username(self):
+        """Prueba que la búsqueda filtre y encuentre coincidencias por el campo username."""
+        query = UserSearchQuery(page=1, username="Thinkwhere", voter_id=6800)
+        result = await UserService.get_all_users(query, self.db)
+        assert len(result.users) > 0
+        assert "Thinkwhere" in result.users[0].username
+
+    async def test_user_search_query_by_role(self):
+        """Prueba la paginación y filtrado usando el rol del usuario."""
+        query = UserSearchQuery(page=1, role=UserRole.MAPPER.name, voter_id=6800)
+        result = await UserService.get_all_users(query, self.db)
+        assert len(result.users) > 0
+        assert result.pagination is not None
+
+    async def test_user_search_response_structure(self):
+        """Verifica que la estructura de respuesta contenga listas y paginación."""
+        query = UserSearchQuery(page=1, voter_id=6800)
+        result = await UserService.get_all_users(query, self.db)
+        assert hasattr(result, "users")
+        assert hasattr(result, "pagination")
+        assert isinstance(result.users, list)
