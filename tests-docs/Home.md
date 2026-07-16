@@ -22,6 +22,21 @@
 
 ---
 
+## 📊 Métricas Clave del Sprint (Hito 2)
+
+El profesor evalúa el progreso basado en números concretos. Aquí está el resumen de nuestro avance:
+
+| Criterio de Evaluación | Estado / Métrica Alcanzada |
+|---|---|
+| **Arquitectura y Stack** | Backend: FastAPI/Python / Frontend: React/Vite |
+| **Cobertura Unitarias (Frontend)** | **85.32%** (1,220 casos exitosos) |
+| **Cobertura Unitarias (Backend)** | *Pendiente consolidación final* |
+| **Pruebas Funcionales (Caja Negra)** | **7** módulos diseñados (128 casos)<br>**3** módulos priorizados ejecutados al 100% (**75 casos con evidencia**) |
+| **Despliegue / CI/CD** | **OK** — Docker Compose operativo, Sincronización CI/CD a Wiki activa |
+| **Avance de Sprint** | **Sprint 2 completado** con evidencia trazable y plan de integración listo |
+
+---
+
 ## Estructura de la documentación
 
 ```
