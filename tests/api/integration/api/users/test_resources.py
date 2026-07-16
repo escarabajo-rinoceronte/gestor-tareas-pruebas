@@ -2,6 +2,8 @@ import base64
 import pytest
 from httpx import AsyncClient
 
+from unittest.mock import patch, AsyncMock
+
 from backend.services.users.authentication_service import AuthenticationService
 from backend.models.postgis.task import Task, TaskStatus
 from backend.models.postgis.statuses import UserGender, UserRole
@@ -59,7 +61,7 @@ class TestUsersQueriesOwnLockedDetailsAPI:
         self.user_session_token = make_token_for_user(self.user.id)
         self.url = "/api/v2/users/queries/tasks/locked/details/"
 
-    async def test_returns_401_without_session_token(self, client: AsyncClient):
+    async def test_returns_403_without_session_token(self, client: AsyncClient):
         resp = await client.get(self.url)
         assert resp.status_code == 403
 
@@ -95,7 +97,7 @@ class TestUsersQueriesUsernameAPI:
         self.user_session_token = make_token_for_user(self.user.id)
         self.url = f"/api/v2/users/queries/{self.user.username}/"
 
-    async def test_returns_401_without_session_token(self, client: AsyncClient):
+    async def test_returns_403_without_session_token(self, client: AsyncClient):
         resp = await client.get(self.url)
         assert resp.status_code == 403
 
@@ -154,7 +156,7 @@ class TestUsersQueriesOwnLockedAPI:
         self.user_session_token = make_token_for_user(self.user.id)
         self.url = "/api/v2/users/queries/tasks/locked/"
 
-    async def test_returns_401_without_session_token(self, client: AsyncClient):
+    async def test_returns_403_without_session_token(self, client: AsyncClient):
         resp = await client.get(self.url)
         assert resp.status_code == 403
 
@@ -194,7 +196,7 @@ class UsersQueriesInterestsAPI:
         self.user_session_token = make_token_for_user(self.user.id)
         self.url = f"/api/v2/users/{self.user.username}/queries/interests/"
 
-    async def test_returns_401_without_session_token(self, client: AsyncClient):
+    async def test_returns_403_without_session_token(self, client: AsyncClient):
         resp = await client.get(self.url)
         assert resp.status_code == 403
 
@@ -217,7 +219,6 @@ class UsersQueriesInterestsAPI:
         i1 = await create_canned_interest(self.db, name="interest_1")
         i2 = await create_canned_interest(self.db, name="interest_2")
 
-        # Use service/DAO to attach interests or insert directly depending on helpers available
         await self.db.execute_many(
             """
             INSERT INTO user_interests (user_id, interest_id) VALUES (:user_id, :interest_id)
@@ -245,7 +246,6 @@ class TestUsersQueriesUsernameFilterAPI:
     @pytest.fixture(autouse=True)
     async def _setup(self, db_connection_fixture):
         self.db = db_connection_fixture
-        # create three users matching original setup
         row1 = await return_canned_user(self.db, TEST_USERNAME, TEST_USER_ID)
         self.user = await create_canned_user(self.db, row1)
         row2 = await return_canned_user(self.db, "user_2", 2222222)
@@ -256,7 +256,7 @@ class TestUsersQueriesUsernameFilterAPI:
         self.user_session_token = make_token_for_user(self.user.id)
         self.url = "/api/v2/users/queries/filter/tes/"
 
-    async def test_returns_401_without_session_token(self, client: AsyncClient):
+    async def test_returns_403_without_session_token(self, client: AsyncClient):
         resp = await client.get(self.url)
         assert resp.status_code == 403
 
@@ -273,7 +273,6 @@ class TestUsersQueriesUsernameFilterAPI:
             self.url, headers={"Authorization": self.user_session_token}
         )
         assert resp.status_code == 200
-        # keep original shape check
         keys = list(resp.json().keys())
         assert "pagination" in keys and "usernames" in keys and "users" in keys
         assert len(resp.json()["usernames"]) == 1
@@ -316,14 +315,13 @@ class TestUsersAllAPI:
         self.user = await create_canned_user(self.db, row)
         self.user_session_token = make_token_for_user(self.user.id)
 
-        # create 30 additional users
         for i in range(30):
             row = await return_canned_user(self.db, f"user_{i}", i)
             await create_canned_user(self.db, row)
 
         self.url = "/api/v2/users/"
 
-    async def test_returns_401_without_session_token(self, client: AsyncClient):
+    async def test_returns_403_without_session_token(self, client: AsyncClient):
         resp = await client.get(self.url)
         assert resp.status_code == 403
 
@@ -404,8 +402,7 @@ class TestUsersAllAPI:
         level_url = "api/v2/levels/"
         levels = await client.get(level_url)
         level_results = levels.json()["levels"]
-        # 3 levels: Beginner, Intermediate and Advanced are always created by migration.
-        test_level = level_results[2]  # Select one level.
+        test_level = level_results[2]
         await self.db.execute(
             "UPDATE users SET mapping_level = :lvl WHERE id = :id",
             {"lvl": test_level["id"], "id": self.user.id},
@@ -433,7 +430,7 @@ class TestUsersRecommendedProjectsAPI:
         self.user_session_token = make_token_for_user(self.user.id)
         self.url = f"/api/v2/users/{self.user.username}/recommended-projects/"
 
-    async def test_returns_401_without_session_token(self, client: AsyncClient):
+    async def test_returns_403_without_session_token(self, client: AsyncClient):
         resp = await client.get(self.url)
         assert resp.status_code == 403
 
@@ -462,7 +459,7 @@ class TestUsersRestAPI:
         self.user_session_token = make_token_for_user(self.user.id)
         self.url = f"/api/v2/users/{self.user.id}/"
 
-    async def test_returns_401_without_session_token(self, client: AsyncClient):
+    async def test_returns_403_without_session_token(self, client: AsyncClient):
         resp = await client.get(self.url)
         assert resp.status_code == 403
 
@@ -507,3 +504,288 @@ class TestUsersRestAPI:
         assert_user_detail_response(
             resp, TEST_USER_ID, TEST_USERNAME, None, None, False
         )
+
+@pytest.mark.anyio
+class TestUsersDeleteUserAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        row = await return_canned_user(self.db, TEST_USERNAME, TEST_USER_ID)
+        self.user = await create_canned_user(self.db, row)
+        self.user_session_token = make_token_for_user(self.user.id)
+        self.url = f"/api/v2/users/{self.user.id}/"
+
+        admin_row = await return_canned_user(self.db, "admin_user", 222222)
+        self.admin = await create_canned_user(self.db, admin_row)
+        await self.db.execute(
+            "UPDATE users SET role = :role WHERE id = :id",
+            {"role": UserRole.ADMIN.value, "id": self.admin.id},
+        )
+        self.admin_session_token = make_token_for_user(self.admin.id)
+
+    async def test_returns_401_if_other_user_requested(self, client: AsyncClient):
+        other_row = await return_canned_user(self.db, "user_2", 333333)
+        other = await create_canned_user(self.db, other_row)
+
+        resp = await client.delete(
+            f"/api/v2/users/{other.id}/",
+            headers={"Authorization": self.user_session_token},
+        )
+        assert resp.status_code == 401
+
+    async def test_returns_200_if_user_deletes_himself(self, client: AsyncClient):
+        temp_row = await return_canned_user(self.db, "self_delete_user", 444444)
+        temp_user = await create_canned_user(self.db, temp_row)
+        temp_token = make_token_for_user(temp_user.id)
+
+        resp = await client.delete(
+            f"/api/v2/users/{temp_user.id}/",
+            headers={"Authorization": temp_token},
+        )
+        assert resp.status_code == 200
+
+    async def test_returns_200_if_admin_deletes_user(self, client: AsyncClient):
+        temp_row = await return_canned_user(self.db, "admin_deletes_user", 555555)
+        temp_user = await create_canned_user(self.db, temp_row)
+
+        resp = await client.delete(
+            f"/api/v2/users/{temp_user.id}/",
+            headers={"Authorization": self.admin_session_token},
+        )
+        assert resp.status_code == 200
+
+    async def test_returns_500_if_user_not_found(self, client: AsyncClient):
+        resp = await client.delete(
+            "/api/v2/users/9999999/",
+            headers={"Authorization": self.admin_session_token},
+        )
+        assert resp.status_code == 500
+
+
+@pytest.mark.anyio
+class TestUsersDeleteUsersAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        row = await return_canned_user(self.db, TEST_USERNAME, TEST_USER_ID)
+        self.user = await create_canned_user(self.db, row)
+        self.user_session_token = make_token_for_user(self.user.id)
+
+        admin_row = await return_canned_user(self.db, "admin_user", 222222)
+        self.admin = await create_canned_user(self.db, admin_row)
+        await self.db.execute(
+            "UPDATE users SET role = :role WHERE id = :id",
+            {"role": UserRole.ADMIN.value, "id": self.admin.id},
+        )
+        self.admin_session_token = make_token_for_user(self.admin.id)
+
+    async def test_returns_401_if_not_admin(self, client: AsyncClient):
+        other_row = await return_canned_user(self.db, "other_user", 333333)
+        other = await create_canned_user(self.db, other_row)
+
+        resp = await client.delete(
+            f"/api/v2/users/{other.id}/",
+            headers={"Authorization": self.user_session_token},
+        )
+        assert resp.status_code == 401
+
+    async def test_returns_405_if_bulk_delete_not_implemented(self, client: AsyncClient):
+        resp = await client.delete(
+            "/api/v2/users/",
+            headers={"Authorization": self.admin_session_token},
+        )
+        assert resp.status_code == 405
+
+
+@pytest.mark.anyio
+class TestGetUserFavoriteProjects:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        row = await return_canned_user(self.db, "fav_user", 88881)
+        self.user = await create_canned_user(self.db, row)
+        self.token = make_token_for_user(self.user.id)
+        self.url = "/api/v2/users/queries/favorites/"
+
+    async def test_returns_200_with_empty_favorites(self, client: AsyncClient):
+        resp = await client.get(self.url, headers={"Authorization": self.token})
+        assert resp.status_code == 200
+        assert resp.json()["favoritedProjects"] == []
+
+    async def test_returns_favorites_when_user_has_projects(self, client: AsyncClient):
+        test_project, test_author, test_project_id = await create_canned_project(
+            self.db
+        )
+
+        await self.db.execute(
+            "INSERT INTO project_favorites (user_id, project_id) VALUES (:user_id, :project_id)",
+            {"user_id": self.user.id, "project_id": test_project_id},
+        )
+
+        resp = await client.get(self.url, headers={"Authorization": self.token})
+        assert resp.status_code == 200
+        body = resp.json()
+        assert len(body["favoritedProjects"]) == 1
+        assert body["favoritedProjects"][0]["projectId"] == test_project_id
+
+    async def test_returns_403_without_token(self, client: AsyncClient):
+        resp = await client.get(self.url)
+        assert resp.status_code == 403
+
+
+@pytest.mark.anyio
+class TestGetUserInterests:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        row = await return_canned_user(self.db, "interests_user", 88882)
+        self.user = await create_canned_user(self.db, row)
+        self.token = make_token_for_user(self.user.id)
+        self.url = f"/api/v2/users/{self.user.username}/queries/interests/"
+
+    async def test_returns_200_with_no_interests(self, client: AsyncClient):
+        resp = await client.get(self.url, headers={"Authorization": self.token})
+        assert resp.status_code == 200
+        assert resp.json()["interests"] == []
+
+    async def test_returns_interests_when_user_has_interests(self, client: AsyncClient):
+        i1 = await create_canned_interest(self.db, interest_id=111, name="test_integration_interest_1")
+        i2 = await create_canned_interest(self.db, interest_id=112, name="test_integration_interest_2")
+
+        await self.db.execute_many(
+            """
+            INSERT INTO user_interests (user_id, interest_id) VALUES (:user_id, :interest_id)
+            """,
+            [
+                {"user_id": self.user.id, "interest_id": i1.id},
+                {"user_id": self.user.id, "interest_id": i2.id},
+            ],
+        )
+
+        resp = await client.get(self.url, headers={"Authorization": self.token})
+        assert resp.status_code == 200
+        body = resp.json()
+        assert len(body["interests"]) == 2
+        assert body["interests"][0]["id"] == i1.id
+        assert body["interests"][0]["name"] == i1.name
+        assert body["interests"][1]["id"] == i2.id
+        assert body["interests"][1]["name"] == i2.name
+
+    async def test_returns_403_without_token(self, client: AsyncClient):
+        resp = await client.get(self.url)
+        assert resp.status_code == 403
+
+
+@pytest.mark.anyio
+class TestUsersFavoritesAndRecommendationsAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        user_row = await return_canned_user(self.db, TEST_USERNAME, TEST_USER_ID)
+        self.user = await create_canned_user(self.db, user_row)
+        self.user_session_token = make_token_for_user(self.user.id)
+
+    async def test_get_user_favorite_projects_success(self, client: AsyncClient):
+        test_project, test_author, test_project_id = await create_canned_project(
+            self.db
+        )
+        await self.db.execute(
+            "INSERT INTO project_favorites (user_id, project_id) VALUES (:user_id, :project_id)",
+            {"user_id": self.user.id, "project_id": test_project_id},
+        )
+
+        url = "/api/v2/users/queries/favorites/"
+        resp = await client.get(url, headers={"Authorization": self.user_session_token})
+        assert resp.status_code == 200
+        assert "favoritedProjects" in resp.json()
+        assert len(resp.json()["favoritedProjects"]) == 1
+
+    async def test_get_recommended_projects_success(self, client: AsyncClient):
+        await create_canned_project(self.db)
+        await create_canned_project(self.db)
+
+        url = f"/api/v2/users/{self.user.username}/recommended-projects/"
+        resp = await client.get(url, headers={"Authorization": self.user_session_token})
+        assert resp.status_code == 200
+        body = resp.json()
+        assert "results" in body
+
+
+@pytest.mark.anyio
+class TestGetAndZeroUserAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        user_row = await return_canned_user(self.db, TEST_USERNAME, TEST_USER_ID)
+        self.user = await create_canned_user(self.db, user_row)
+        self.user_session_token = make_token_for_user(self.user.id)
+
+        other_row = await return_canned_user(self.db, "other_user_test", 99999)
+        self.other_user = await create_canned_user(self.db, other_row)
+        self.other_token = make_token_for_user(self.other_user.id)
+
+        admin_row = await return_canned_user(self.db, "admin_test_user", 88888)
+        self.admin_user = await create_canned_user(self.db, admin_row)
+        await self.db.execute(
+            "UPDATE users SET role = :role WHERE id = :id",
+            {"role": UserRole.ADMIN.value, "id": self.admin_user.id},
+        )
+        self.admin_token = make_token_for_user(self.admin_user.id)
+
+    async def test_get_user_by_id_success(self, client: AsyncClient):
+        url = f"/api/v2/users/{self.user.id}/"
+        resp = await client.get(url, headers={"Authorization": self.user_session_token})
+        assert resp.status_code == 200
+        assert resp.json()["id"] == self.user.id
+
+    async def test_delete_user_unauthorized_if_not_self_or_admin(self, client: AsyncClient):
+        url = f"/api/v2/users/{self.user.id}/"
+        resp = await client.delete(url, headers={"Authorization": self.other_token})
+        assert resp.status_code == 401
+        assert resp.json()["SubCode"] == "UserPermissionError"
+
+    async def test_delete_own_user_success(self, client: AsyncClient):
+        temp_row = await return_canned_user(self.db, "self_delete_temp", 77777)
+        temp_user = await create_canned_user(self.db, temp_row)
+        temp_token = make_token_for_user(temp_user.id)
+
+        url = f"/api/v2/users/{temp_user.id}/"
+        resp = await client.delete(url, headers={"Authorization": temp_token})
+        assert resp.status_code == 200
+
+    async def test_delete_user_by_admin_success(self, client: AsyncClient):
+        temp_row = await return_canned_user(self.db, "admin_deletes_temp", 66666)
+        temp_user = await create_canned_user(self.db, temp_row)
+
+        url = f"/api/v2/users/{temp_user.id}/"
+        resp = await client.delete(url, headers={"Authorization": self.admin_token})
+        assert resp.status_code == 200
+
+    async def test_delete_user_not_found(self, client: AsyncClient):
+        url = "/api/v2/users/99999999/"
+        resp = await client.delete(url, headers={"Authorization": self.admin_token})
+        assert resp.status_code == 500
+
+
+@pytest.mark.anyio
+class TestDeleteUserReturnsNone:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        row = await return_canned_user(self.db, "del_none_user", 55551)
+        self.user = await create_canned_user(self.db, row)
+        await self.db.execute(
+            "UPDATE users SET role = :role WHERE id = :id",
+            {"role": UserRole.ADMIN.value, "id": self.user.id},
+        )
+        self.token = make_token_for_user(self.user.id)
+
+    async def test_delete_user_returns_400_when_service_returns_none(self, client: AsyncClient):
+        with patch("backend.api.users.resources.UserService.delete_user_by_id", new_callable=AsyncMock, return_value=None):
+            resp = await client.delete(
+                f"/api/v2/users/{self.user.id}/",
+                headers={"Authorization": self.token}
+            )
+            assert resp.status_code == 400
+            assert resp.json()["SubCode"] == "UserNotFound"
+

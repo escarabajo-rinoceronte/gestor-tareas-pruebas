@@ -2,6 +2,7 @@ import asyncio
 import base64
 import random
 from datetime import datetime, timedelta
+from unittest.mock import patch, AsyncMock
 
 import pytest
 from httpx import AsyncClient
@@ -39,7 +40,7 @@ class TestUsersStatisticsAPI:
         self.user_session_token = make_token_for_user(self.test_author.id)
         self.url = f"/api/v2/users/{self.test_author.username}/statistics/"
 
-    async def test_returns_401_if_no_token(self, client: AsyncClient):
+    async def test_returns_403_if_no_token(self, client: AsyncClient):
         resp = await client.get(self.url)
         assert resp.status_code == 403
 
@@ -95,7 +96,7 @@ class TestUsersStatisticsAllAPI:
     def generate_random_user_level(self):
         return random.randint(1, 3)
 
-    async def test_returns_401_if_no_token(self, client: AsyncClient):
+    async def test_returns_403_if_no_token(self, client: AsyncClient):
         resp = await client.get(self.url)
         assert resp.status_code == 403
 
@@ -169,3 +170,113 @@ class TestUsersStatisticsAllAPI:
         assert by_level["beginner"] == mapping_level_dict[1]
         assert by_level["intermediate"] == mapping_level_dict[2]
         assert by_level["advanced"] == mapping_level_dict[3]
+
+@pytest.mark.anyio
+class TestUsersStatisticsInterestsAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        self.test_project, self.test_author, self.test_project_id = await create_canned_project(self.db)
+        self.user_session_token = make_token_for_user(self.test_author.id)
+        self.url = f"/api/v2/users/{self.test_author.id}/statistics/interests/"
+
+    async def test_returns_200(self, client: AsyncClient):
+        with patch("backend.api.users.statistics.InterestService.compute_contributions_rate", return_value=[{"id": 1, "name": "Test", "rate": 100}]):
+            resp = await client.get(self.url, headers={"Authorization": self.user_session_token})
+            assert resp.status_code == 200
+
+
+@pytest.mark.anyio
+class TestUsersNextLevelAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        self.test_project, self.test_author, self.test_project_id = await create_canned_project(self.db)
+        self.user_session_token = make_token_for_user(self.test_author.id)
+        self.url = f"/api/v2/users/statistics/nextlevel/?userId={self.test_author.id}"
+
+    async def test_returns_200(self, client: AsyncClient):
+        next_level_data = {
+            "nextLevel": "INTERMEDIATE",
+            "aggregatedProgress": 0.5,
+            "aggregatedGoal": 1.0,
+            "metrics": ["tasksMapped", "tasksValidated"],
+        }
+        with patch("backend.api.users.statistics.UserService.next_level", return_value=next_level_data):
+            resp = await client.get(self.url, headers={"Authorization": self.user_session_token})
+            assert resp.status_code == 200
+
+    async def test_returns_403_if_no_token(self, client: AsyncClient):
+        resp = await client.get(self.url)
+        assert resp.status_code == 403
+
+
+@pytest.mark.anyio
+class TestUsersOhsomeStatsAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        self.test_project, self.test_author, self.test_project_id = await create_canned_project(self.db)
+        self.user_session_token = make_token_for_user(self.test_author.id)
+        self.url = f"/api/v2/users/statistics/ohsome/?userId={self.test_author.id}&topics=building"
+
+    async def test_returns_400_invalid_date(self, client: AsyncClient):
+        resp = await client.get(f"{self.url}&startdate=invalid", headers={"Authorization": self.user_session_token})
+        assert resp.status_code == 400
+
+    async def test_returns_200_mocked_response(self, client: AsyncClient):
+        mock_response = AsyncMock()
+        mock_response.status_code = 200
+        mock_response.json.return_value = {"result": {}}
+        mock_response.raise_for_status = AsyncMock()
+
+        with patch("httpx.AsyncClient.get", return_value=mock_response):
+            with patch("backend.api.users.statistics.UserStats.update", new_callable=AsyncMock):
+                resp = await client.get(self.url, headers={"Authorization": self.user_session_token})
+                assert resp.status_code == 200
+
+    async def test_returns_200_with_startdate_and_enddate(self, client: AsyncClient):
+        mock_response = AsyncMock()
+        mock_response.status_code = 200
+        mock_response.json.return_value = {"result": {}}
+        mock_response.raise_for_status = AsyncMock()
+
+        with patch("httpx.AsyncClient.get", return_value=mock_response):
+            with patch("backend.api.users.statistics.UserStats.update", new_callable=AsyncMock):
+                resp = await client.get(
+                    f"{self.url}&startdate=2024-01-01&enddate=2024-06-30",
+                    headers={"Authorization": self.user_session_token}
+                )
+                assert resp.status_code == 200
+
+    async def test_returns_200_with_hashtag(self, client: AsyncClient):
+        mock_response = AsyncMock()
+        mock_response.status_code = 200
+        mock_response.json.return_value = {"result": {}}
+        mock_response.raise_for_status = AsyncMock()
+
+        with patch("httpx.AsyncClient.get", return_value=mock_response):
+            with patch("backend.api.users.statistics.UserStats.update", new_callable=AsyncMock):
+                resp = await client.get(
+                    f"{self.url}&hashtag=hotosm",
+                    headers={"Authorization": self.user_session_token}
+                )
+                assert resp.status_code == 200
+
+
+@pytest.mark.anyio
+class TestUsersStatisticsAllNoEndDateAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        self.test_project, self.test_author, self.test_project_id = await create_canned_project(self.db)
+        self.user_session_token = make_token_for_user(self.test_author.id)
+        self.url = "/api/v2/users/statistics/"
+
+    async def test_returns_200_without_end_date(self, client: AsyncClient):
+        resp = await client.get(
+            self.url,
+            headers={"Authorization": self.user_session_token},
+            params={"startDate": "2024-01-01"},
+        )
+        assert resp.status_code == 200
