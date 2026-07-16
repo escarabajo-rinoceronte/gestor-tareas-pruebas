@@ -1,7 +1,7 @@
 import base64
 from unittest.mock import AsyncMock, patch
 
-from backend.services.users.user_service import UserService
+from backend.services.users.user_service import UserService, UserServiceError
 import pytest
 from httpx import AsyncClient
 
@@ -199,7 +199,7 @@ class TestUsersActionsVerifyEmailAPI:
             f"Token {base64.b64encode(raw.encode('utf-8')).decode('utf-8')}"
         )
 
-    async def test_returns_401_if_no_token(self, client: AsyncClient):
+    async def test_returns_403_if_no_token(self, client: AsyncClient):
         resp = await client.patch(self.url)
         assert resp.status_code == 403
         assert resp.json() == {"detail": "Not authenticated"}
@@ -319,3 +319,151 @@ class TestUsersActionsSetRoleAPI:
             "SELECT role FROM users WHERE id = :id", {"id": self.test_user.id}
         )
         assert row["role"] == UserRole.MAPPER.value
+
+@pytest.mark.anyio
+class TestUsersActionsSetLevelAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        user_result = await return_canned_user(self.db)
+        self.test_user = await create_canned_user(self.db, user_result)
+        
+        admin_result = await return_canned_user(
+            self.db, username="test_admin", id=222222
+        )
+        self.admin_user = await create_canned_user(self.db, admin_result)
+        
+        # make admin
+        await self.db.execute(
+            "UPDATE users SET role = :role WHERE id = :id",
+            {"role": UserRole.ADMIN.value, "id": self.admin_user.id},
+        )
+        
+        raw_admin = AuthenticationService.generate_session_token_for_user(self.admin_user.id)
+        self.admin_session_token = f"Token {base64.b64encode(raw_admin.encode('utf-8')).decode('utf-8')}"
+        
+        self.url = f"/api/v2/users/{self.test_user.username}/actions/set-level/ADVANCED/"
+
+    async def test_returns_404_if_user_not_found(self, client: AsyncClient):
+        resp = await client.patch(
+            "/api/v2/users/unknown/actions/set-level/ADVANCED/",
+            headers={"Authorization": self.admin_session_token},
+        )
+        assert resp.status_code == 404
+
+    async def test_returns_200_if_level_set(self, client: AsyncClient):
+        resp = await client.patch(
+            self.url, headers={"Authorization": self.admin_session_token}
+        )
+        assert resp.status_code == 200
+        assert resp.json().get("Success") == "Level set"
+
+
+@pytest.mark.anyio
+class TestUsersActionsUpdateStatsAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        user_result = await return_canned_user(self.db)
+        self.test_user = await create_canned_user(self.db, user_result)
+        
+        admin_result = await return_canned_user(
+            self.db, username="test_admin", id=222222
+        )
+        self.admin_user = await create_canned_user(self.db, admin_result)
+        
+        # make admin
+        await self.db.execute(
+            "UPDATE users SET role = :role WHERE id = :id",
+            {"role": UserRole.ADMIN.value, "id": self.admin_user.id},
+        )
+        
+        raw_admin = AuthenticationService.generate_session_token_for_user(self.admin_user.id)
+        self.admin_session_token = f"Token {base64.b64encode(raw_admin.encode('utf-8')).decode('utf-8')}"
+        
+        self.url = f"/api/v2/users/{self.test_user.username}/actions/update-stats"
+
+    async def test_returns_500_if_error_getting_user(self, client: AsyncClient):
+        with patch("backend.api.users.actions.UserService.get_user_by_username", side_effect=UserServiceError("UserServiceError-USER_NOT_FOUND")):
+            resp = await client.patch(
+                self.url, headers={"Authorization": self.admin_session_token}
+            )
+            assert resp.status_code == 500
+
+
+@pytest.mark.anyio
+class TestUsersActionsApproveLevelAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        user_result = await return_canned_user(self.db)
+        self.test_user = await create_canned_user(self.db, user_result)
+        
+        admin_result = await return_canned_user(
+            self.db, username="test_admin", id=222222
+        )
+        self.admin_user = await create_canned_user(self.db, admin_result)
+        
+        # make admin
+        await self.db.execute(
+            "UPDATE users SET role = :role WHERE id = :id",
+            {"role": UserRole.ADMIN.value, "id": self.admin_user.id},
+        )
+        
+        raw_admin = AuthenticationService.generate_session_token_for_user(self.admin_user.id)
+        self.admin_session_token = f"Token {base64.b64encode(raw_admin.encode('utf-8')).decode('utf-8')}"
+        
+        self.url = f"/api/v2/users/{self.test_user.username}/actions/approve-level"
+
+    async def test_returns_400_if_error(self, client: AsyncClient):
+        with patch("backend.api.users.actions.UserService.get_user_by_username", side_effect=UserServiceError("UserServiceError-USER_NOT_FOUND")):
+            resp = await client.patch(
+                self.url, headers={"Authorization": self.admin_session_token}
+            )
+            assert resp.status_code == 400
+
+
+@pytest.mark.anyio
+class TestUsersActionsSetExpertAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        user_result = await return_canned_user(self.db)
+        self.test_user = await create_canned_user(self.db, user_result)
+        
+        admin_result = await return_canned_user(
+            self.db, username="test_admin", id=222222
+        )
+        self.admin_user = await create_canned_user(self.db, admin_result)
+        
+        # make admin
+        await self.db.execute(
+            "UPDATE users SET role = :role WHERE id = :id",
+            {"role": UserRole.ADMIN.value, "id": self.admin_user.id},
+        )
+        
+        raw_admin = AuthenticationService.generate_session_token_for_user(self.admin_user.id)
+        self.admin_session_token = f"Token {base64.b64encode(raw_admin.encode('utf-8')).decode('utf-8')}"
+        
+        self.url = f"/api/v2/users/{self.test_user.username}/actions/set-expert-mode/true/"
+
+    async def test_returns_200_if_mode_set(self, client: AsyncClient):
+        resp = await client.patch(
+            self.url, headers={"Authorization": self.admin_session_token}
+        )
+        assert resp.status_code == 200
+
+    async def test_returns_400_if_error(self, client: AsyncClient):
+        with patch("backend.api.users.actions.UserService.set_user_is_expert", side_effect=UserServiceError("UserServiceError")):
+            resp = await client.patch(
+                self.url, headers={"Authorization": self.admin_session_token}
+            )
+            assert resp.status_code == 400
+
+@pytest.mark.anyio
+class TestUsersActionsRegisterEmailAPIExceptions:
+    async def test_register_returns_400_if_error(self, client: AsyncClient):
+        with patch("backend.api.users.actions.UserService.register_user_with_email", side_effect=ValueError("Error")):
+            resp = await client.post("/api/v2/users/actions/register/", json={"email": "bad@email.com"})
+            assert resp.status_code == 400
+
