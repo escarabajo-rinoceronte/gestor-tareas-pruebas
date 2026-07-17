@@ -17,12 +17,19 @@ class TMAPIDecorators:
         """
 
         def pm_only_decorator(func):
-            @wraps(func)
-            def decorated_function(*args, **kwargs):
-                self.is_pm_only_resource = pm_only_resource
-                return func(*args, **kwargs)
-
-            return decorated_function
+            import inspect
+            if inspect.iscoroutinefunction(func):
+                @wraps(func)
+                async def decorated_function(*args, **kwargs):
+                    self.is_pm_only_resource = pm_only_resource
+                    return await func(*args, **kwargs)
+                return decorated_function
+            else:
+                @wraps(func)
+                def decorated_function(*args, **kwargs):
+                    self.is_pm_only_resource = pm_only_resource
+                    return func(*args, **kwargs)
+                return decorated_function
 
         return pm_only_decorator
 
