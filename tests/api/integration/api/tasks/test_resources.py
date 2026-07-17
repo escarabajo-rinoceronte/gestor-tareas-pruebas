@@ -4,6 +4,7 @@ import xml.etree.ElementTree as ET
 
 import pytest
 from httpx import AsyncClient
+from unittest.mock import patch
 
 from backend.models.postgis.statuses import ProjectStatus, TaskStatus
 from backend.models.postgis.task import Task
@@ -364,3 +365,92 @@ class TestTasksQueriesInvalidatedAPI:
         assert body["invalidatedTasks"][0]["taskId"] == 1
         assert body["invalidatedTasks"][0]["projectId"] == int(self.test_project_id)
 
+@pytest.mark.anyio
+class TestDeleteTasksAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        self.test_project, self.test_author, self.test_project_id = (
+            await create_canned_project(self.db)
+        )
+        self.url = f"/api/v2/projects/{self.test_project_id}/tasks/"
+
+        # normal user
+        payload_normal = await return_canned_user(self.db, "test_user_normal", 9999991)
+        self.normal_user = await create_canned_user(self.db, payload_normal)
+        self.normal_token = _encode_token(AuthenticationService.generate_session_token_for_user(self.normal_user.id))
+
+        # admin user
+        payload_admin = await return_canned_user(self.db, "test_user_admin", 9999992)
+        payload_admin.role = 1 # ADMIN role
+        self.admin_user = await create_canned_user(self.db, payload_admin)
+        self.admin_token = _encode_token(AuthenticationService.generate_session_token_for_user(self.admin_user.id))
+
+    async def test_returns_403_if_not_admin(self, client: AsyncClient):
+        response = await client.request("DELETE", self.url, headers={"Authorization": f"Token {self.normal_token}"})
+        assert response.status_code == 403
+        assert response.json()["SubCode"] == "OnlyAdminAccess"
+
+    async def test_returns_400_if_tasks_not_provided(self, client: AsyncClient):
+        response = await client.request("DELETE", self.url, headers={"Authorization": f"Token {self.admin_token}"}, json={})
+        assert response.status_code == 400
+        assert response.json()["SubCode"] == "InvalidData"
+
+    async def test_returns_400_if_tasks_not_list(self, client: AsyncClient):
+        response = await client.request("DELETE", self.url, headers={"Authorization": f"Token {self.admin_token}"}, json={"tasks": "1,2"})
+        assert response.status_code == 400
+        assert response.json()["SubCode"] == "InvalidData"
+
+    @patch("backend.services.project_service.ProjectService.delete_tasks")
+    async def test_returns_200_if_successful(self, mock_delete, client: AsyncClient):
+        response = await client.request("DELETE", self.url, headers={"Authorization": f"Token {self.admin_token}"}, json={"tasks": [1, 2]})
+        assert response.status_code == 200
+        assert response.json()["Success"] == "Task(s) deleted"
+
+
+@pytest.mark.anyio
+class TestGridIntersectingAPI:
+    @pytest.fixture(autouse=True)
+    async def _setup(self, db_connection_fixture):
+        self.db = db_connection_fixture
+        self.test_project, self.test_author, self.test_project_id = (
+            await create_canned_project(self.db)
+        )
+        self.url = f"/api/v2/projects/{self.test_project_id}/tasks/queries/aoi/"
+        
+        payload_admin = await return_canned_user(self.db, "test_user_admin", 9999992)
+        payload_admin.role = 1 # ADMIN role
+        self.admin_user = await create_canned_user(self.db, payload_admin)
+        self.admin_token = _encode_token(AuthenticationService.generate_session_token_for_user(self.admin_user.id))
+        
+        self.valid_geojson = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [-0.1, 51.5],
+                                [-0.1, 51.51],
+                                [-0.09, 51.51],
+                                [-0.09, 51.5],
+                                [-0.1, 51.5]
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+
+    async def test_returns_400_if_invalid_json(self, client: AsyncClient):
+        # We need authorization because tasks_aoi is @requires("authenticated")
+        response = await client.put(self.url, headers={"Authorization": f"Token {self.admin_token}"}, json={})
+        assert response.status_code == 400
+
+    @patch("backend.services.grid.grid_service.GridService.trim_grid_to_aoi")
+    async def test_returns_200_if_valid(self, mock_trim, client: AsyncClient):
+        mock_trim.return_value = {"type": "FeatureCollection", "features": []}
+        response = await client.put(self.url, headers={"Authorization": f"Token {self.admin_token}"}, json={"grid": self.valid_geojson, "clipToAoi": True, "areaOfInterest": self.valid_geojson})
+        assert response.status_code == 200
