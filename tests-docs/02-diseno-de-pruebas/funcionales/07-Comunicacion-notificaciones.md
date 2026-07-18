@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -298,5 +298,6 @@ En esta tabla, `N/A` significa que la condiciÃ³n no aplica para esa regla. La 
 | **RF-7003** | ESC-7004 | CP-MOD7-008, CP-MOD7-009, CP-MOD7-010 | Tabla de DecisiÃ³n / ParticiÃ³n de Equivalencia |
 
 ---
+
 
 

@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -80,5 +80,6 @@
 | **Vulnerabilidades Graves (CVSS >= 7.0)** | >= 1 hallazgo validado de InyecciÃ³n SQL, EjecuciÃ³n Remota o BOLA. | SuspensiÃ³n obligatoria del *merge* hacia *main*. RecreaciÃ³n empÃ­rica y manual del Payload Ofensivo por QA para descartar falsos positivos de ZAP antes de reportar a IngenierÃ­a. |
 | **FiltraciÃ³n de Credenciales Clave** | IdentificaciÃ³n de *passwords* de PostgreSQL, URLs privadas, o JWT *Secrets* en texto plano. | EmisiÃ³n de alerta P1: Bloqueo de despliegue, rotaciÃ³n obligatoria de los secretos expuestos y reescritura forzada del historial Git involucrado. |
 | **Fuzzing: Stacktraces y CaÃ­das** | El servidor devuelve respuestas HTTP `500` con el volcado completo de la pila (Stacktrace de Python) o el contenedor se detiene (*Crash*). | Las trazas revelan arquitectura interna (paths, nombres de base de datos) a un atacante. FastAPI debe enmascarar excepciones genÃ©ricas (`{"detail": "Internal Server Error"}`) bajo perfiles de producciÃ³n. |
+
 
 

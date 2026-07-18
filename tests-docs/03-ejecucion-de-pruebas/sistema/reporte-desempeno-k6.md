@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -49,5 +49,6 @@ El desglose de cÃ³digos de respuesta demuestra un manejo de concurrencia impec
 ## 4. ConclusiÃ³n
 
 El sistema backend de Tasking Manager **soporta exitosamente 50 usuarios concurrentes** intentando bloquear tareas simultÃ¡neamente. Mantiene una tasa de error inferior al 0.1% y responde al 95% de las peticiones en menos de 1.8 segundos. Se da por **APROBADO** el Atributo 1 de Pruebas de Sistema (DesempeÃ±o y Carga).
+
 
 

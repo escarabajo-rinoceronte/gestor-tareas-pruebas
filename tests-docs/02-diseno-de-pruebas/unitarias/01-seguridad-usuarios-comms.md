@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -104,5 +104,6 @@ Servicios externos utilizados por componentes asociados a usuarios y comunicaci�
 | SMTP Service            | Servicio externo | Validar procesos de verificaciÃ³n de correo electrÃ³nico y generaciÃ³n de mensajes.   |
 | Tokens de autenticaciÃ³n | Seguridad        | Validar integridad y consistencia de autenticaciÃ³n y sesiones.                     |
 | URLs de validaciÃ³n      | ComunicaciÃ³n     | Validar integridad de flujos de verificaciÃ³n de identidad.                         |
+
 
 

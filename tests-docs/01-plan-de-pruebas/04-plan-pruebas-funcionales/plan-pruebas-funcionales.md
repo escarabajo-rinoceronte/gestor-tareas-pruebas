@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -83,5 +83,6 @@ ValidaciÃ³n del ciclo de vida transaccional del mapa, asegurando que las tarea
 *   **Plan de Pruebas Funcionales:** El presente documento estratÃ©gico.
 *   **DiseÃ±o de Casos de Prueba Funcionales:** EspecificaciÃ³n detallada de entradas, pasos y resultados esperados.
 *   **Informe de EjecuciÃ³n de Pruebas Funcionales:** Registro de la ejecuciÃ³n manual en el entorno de QA, detallando Ã©xitos, fallos identificados y adjuntando las capturas de pantalla de la interfaz como evidencias fÃ­sicas.
+
 
 

@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -74,6 +74,7 @@ Para cumplir con el ciclo de vida del estÃ¡ndar, el proyecto se dividirÃ¡ en
 *   **Riesgos Globales:**
     *   *Riesgo:* Cambios abruptos en las APIs externas (OSM, Ohsome) pueden romper las pruebas de integraciÃ³n. 
     *   *MitigaciÃ³n:* Implementar contratos de prueba (Contract Testing) y uso extensivo de Mocks durante las Fases 1 y 2.
+
 
 
 

@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -122,5 +122,6 @@ A continuaciÃ³n, se detallan los requerimientos funcionales extraÃ­dos y ded
 | **RF-7001** | **Comentarios por Tarea** | El sistema debe permitir adjuntar comentarios de texto plano o Markdown asociados al historial de una tarea especÃ­fica. | ACT-02 | MOD-07 | Alta | - |
 | **RF-7002** | **Notificaciones in-app** | El sistema debe notificar al usuario cuando su tarea sea `INVALIDATED`, cuando sea mencionado (`@username`) o cuando suba de nivel de mapeo. | ACT-06 | MOD-07 | Alta | RF-4003 |
 | **RF-7003** | **EnvÃ­o de Emails** | Si el usuario tiene correos habilitados, el sistema debe despachar alertas SMTP para notificaciones crÃ­ticas e hitos de finalizaciÃ³n de proyectos. | ACT-06 | MOD-07 | Media | RF-1004 |
+
 
 

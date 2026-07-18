@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -130,5 +130,6 @@ Aunque no son "roles" de gestiÃ³n, actÃºan como un sistema de **AutorizaciÃ
     *   `services/project_admin_service.py`: Centraliza la lÃ³gica de permisos para determinar quiÃ©n puede editar quÃ©.
 *   **Frontend (React):**
     *   Utiliza el componente `Permissions` y hooks para renderizar condicionalmente elementos de la UI basÃ¡ndose en el objeto `user` obtenido tras el login.
+
 
 

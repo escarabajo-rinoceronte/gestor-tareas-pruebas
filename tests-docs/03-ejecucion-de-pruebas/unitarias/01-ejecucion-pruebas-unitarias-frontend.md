@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -67,5 +67,6 @@ La ejecuciÃ³n final del comando depurado `npm run coverage-rino` arrojÃ³ las
 
 **ConclusiÃ³n:** 
 Se ha sobrepasado holgadamente la meta establecida del 85% de cobertura en el nÃºcleo de los 3 mÃ³dulos asignados. Las mÃ©tricas reflejan que los flujos de "Tasking", "Validation" y "Project Administration" se encuentran asegurados por una sÃ³lida base de pruebas automatizadas y listos para revisiones funcionales y de QA subsecuentes.
+
 
 

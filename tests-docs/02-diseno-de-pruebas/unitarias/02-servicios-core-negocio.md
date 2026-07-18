@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -112,5 +112,6 @@ A continuaciÃ³n, se documentan las brechas identificadas que requieren ser pri
 *   Total de Elementos de Cobertura Identificados (T): 5 (Casos TC-ORG-001 al TC-PRJ-001)
 *   Total de Elementos Ejecutados/Automatizados (N): 3 (Casos ORG)
 *   Cobertura de DiseÃ±o Inicial ($N/T * 100\%$): 60%
+
 
 

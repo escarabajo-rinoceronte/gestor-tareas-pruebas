@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -434,4 +434,5 @@
 | Evidencia |
 | :-- |
 |Cuadro de ConfirmaciÃ³n de ReversiÃ³n Desplegado<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-04-validacion/cp-4003-05-01.jpg" width="800px" alt="CP-4003-05 - Mensaje modal para confirmar deshacer estado"></a><br>Ventana emergente que consulta al usuario si desea continuar con la acciÃ³n para cambiar el estado de la tarea seleccionada de vuelta a "Lista para validar".<br><br>Estado Original Sin Cambios<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-04-validacion/cp-4003-05-02.jpg" width="800px" alt="CP-4003-05 - Estado de tarea se mantiene en terminada"></a><br>Vista del listado de tareas y la cuadrÃ­cula del mapa posterior a la interacciÃ³n, donde se constata que la tarea bajo prueba retiene de forma intacta su estado VALITED, confirmando que la acciÃ³n fue ignorada por el sistema y no se abriÃ³ ningÃºn panel de ediciÃ³n o revalidaciÃ³n complementario.|
+
 

@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -117,5 +117,6 @@ Este documento describe el diseÃ±o de la prueba End-to-End del flujo de valida
 - Requisito funcional: un validador debe poder revisar y validar tareas mapeadas.
 - Flujo de usuario automatizado: `frontend/e2e/flows/validation-flow.spec.js`.
 - Datos de prueba: `scripts/e2e-seed.py`.
+
 
 

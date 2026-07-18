@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -366,5 +366,6 @@ Sin embargo, el mÃ³dulo todavÃ­a presenta oportunidades de mejora. Las princ
 
 **ConclusiÃ³n final:**  
 El mÃ³dulo de GestiÃ³n de Proyectos cuenta con una cobertura de integraciÃ³n aceptable y una ejecuciÃ³n estable de pruebas, pero requiere reforzar los escenarios de partnerships, equipos asociados y comunicaciÃ³n de proyecto para alcanzar una cobertura mÃ¡s alta y equilibrada.
+
 
 

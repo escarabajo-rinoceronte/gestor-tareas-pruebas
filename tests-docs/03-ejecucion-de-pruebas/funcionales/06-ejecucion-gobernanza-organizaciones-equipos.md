@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -96,5 +96,6 @@
 | Evidencia |
 | :-- |
 | RedirecciÃ³n por falta de sesiÃ³n<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-06-gobernanza-organizaciones-equipos/CP-6001-05-redirect-login.png" width="800px" alt="CP-6001-05 - RedirecciÃ³n a la pantalla de Login"></a><br>Barra de direcciones mostrando la ruta de login tras el intento de acceso a la vista de creaciÃ³n de equipos. |
+
 
 

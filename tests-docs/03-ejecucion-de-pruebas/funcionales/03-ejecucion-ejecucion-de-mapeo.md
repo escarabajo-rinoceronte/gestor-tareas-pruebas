@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -433,5 +433,6 @@
 | Evidencia |
 | :-- |
 | Renderizado de mÃ¡scara y advertencia visual<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-03-ejecucion-mapeado/CP-3005-04-guia-visual-permitida.png" width="800px" alt="CP-3005-04 - CreaciÃ³n de nodo en zona ensombrecida con advertencia"></a><br>Lienzo del editor mostrando un nodo reciÃ©n creado en el exterior de los lÃ­mites de la tarea, en coexistencia con el sombreado preventivo inyectado por el Tasking Manager. |
+
 
 

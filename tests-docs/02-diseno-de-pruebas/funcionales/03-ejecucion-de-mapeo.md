@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -317,5 +317,6 @@ Se han incorporado las actualizaciones derivadas de los rediseÃ±os funcionales
 | **RF-3002**, **RF-7001** | **ESC-3005:** InteracciÃ³n CartogrÃ¡fica y VisualizaciÃ³n de Trazabilidad | **CP-3005-01**, **CP-3005-02** | PE-005 (Filtros UI) |
 | **RF-3002**, **RF-7001** | ESC-3005 | **CP-3005-03** | PE-006 (Clase VÃ¡lida Dentro del AOI) |
 | **RF-3002**, **RF-7001** | ESC-3005 | **CP-3005-04** | PE-006 (Clase VÃ¡lida Fuera del AOI) |
+
 
 

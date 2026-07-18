@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -100,5 +100,6 @@ Se sugiere al equipo de desarrollo del backend revisar los siguientes hallazgos 
 
 ## 7. Conclusiones
 El proceso de testing ha sido exitoso en la **estabilizaciÃ³n del entorno local** y en la **identificaciÃ³n de bugs crÃ­ticos** que podrÃ­an haber afectado la integridad de los datos en producciÃ³n. Con una cobertura consolidada del **86% en el Core Module**, el proyecto cuenta ahora con una base sÃ³lida para recibir nuevas funcionalidades. Se recomienda como prÃ³ximo paso enfocarse en la cobertura de los controladores de la API (capa de recursos) para alcanzar el 85% de cobertura total en todo el repositorio.
+
 
 

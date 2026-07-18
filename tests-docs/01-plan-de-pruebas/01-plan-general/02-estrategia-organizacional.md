@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -123,5 +123,6 @@ Adicionalmente a la cobertura de diseÃ±o de la ISO, el equipo recolectarÃ¡ y
 
 ## 5. Estrategia de EvoluciÃ³n del Plan
 Este plan es un artefacto vivo. Se ha programado una sesiÃ³n de reevaluaciÃ³n (Test Strategy Review) al finalizar el ciclo de Pruebas de IntegraciÃ³n (Fase 2) para incorporar los procesos metodolÃ³gicos de los 3 nuevos integrantes y adaptar la estrategia hacia las pruebas de Sistema (Fase 3).
+
 
 

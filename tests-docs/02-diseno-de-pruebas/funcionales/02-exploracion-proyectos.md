@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -187,5 +187,6 @@ Para este escenario, se modela el comportamiento del sistema mediante los compon
 | **CP-2003-02** | 1. Estando en el explorador base, hacer clic en el botÃ³n principal "Log In" de la barra superior (`Usuario inicia sesion`).<br>2. Completar el inicio de sesiÃ³n vÃ­a OAuth (`ValidandoCredenciales`).<br>3. Ingresar al catÃ¡logo usando una cuenta que forme parte activa del equipo del proyecto (`Sistema verifica permisos`). | **Rol de Usuario:** Mapper Autorizado (`ACT-02`).<br>**Credenciales:** Token de sesiÃ³n vÃ¡lido. | La interfaz transiciona al estado `CatalogoRestringido`: la pantalla se refresca asÃ­ncronamente inyectando la tarjeta del proyecto privado con un indicador visual de acceso exclusivo. |
 | **CP-2003-03** | 1. Estando en la vista del catÃ¡logo con las tarjetas restringidas visibles (`CatalogoRestringido`).<br>2. Desplegar el menÃº del perfil de usuario y hacer clic en la opciÃ³n "Log Out" (`Cierre de sesion del usuario`). | **AcciÃ³n UI:** Clic en Cerrar SesiÃ³n. | El navegador elimina el token de autenticaciÃ³n del almacenamiento, la interfaz parpadea borrando las tarjetas privadas y regresa de inmediato al estado `CatalogoPublico`. |
 | **CP-2003-04** | 1. Copiar de forma externa la ruta directa de mapeo de un proyecto privado (ej: `/projects/10/map`).<br>2. Pegarla directamente en la barra de direcciones de una ventana sin autenticar (`Usuario desautorizado fuerza URL`). | **Ruta forzada:** URL interna protegida. | La aplicaciÃ³n interrumpe la carga normal y cambia al estado `AccesoDenegado`: renderiza en pantalla una alerta roja de error "403 No Autorizado" y tras 3 segundos (`Redireccion automatica UI`) redirige al usuario de vuelta al `CatalogoPublico`. |
+
 
 

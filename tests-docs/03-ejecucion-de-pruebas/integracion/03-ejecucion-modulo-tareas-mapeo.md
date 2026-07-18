@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -209,5 +209,6 @@ La iteraciÃ³n sobre los casos de prueba resultÃ³ en la adiciÃ³n de 55 esce
 3. **LÃ³gica de Negocio:** Las pruebas confirmaron que los servicios nÃºcleo operan segÃºn las especificaciones tÃ©cnicas, cubriendo satisfactoriamente validaciones espaciales, transaccionales y de acceso.
 
 El mÃ³dulo de Mapping & Validation cumple con los criterios tÃ©cnicos requeridos, evidenciando resiliencia frente a manipulaciones anÃ³malas y peticiones concurrentes.
+
 
 

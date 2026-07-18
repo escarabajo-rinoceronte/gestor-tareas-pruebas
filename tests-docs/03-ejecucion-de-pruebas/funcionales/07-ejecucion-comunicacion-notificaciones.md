@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -360,5 +360,6 @@ Se evidencia que el sistema permite revisar la vista previa del comentario exten
 </p>
 
 Se evidencia que el sistema registrÃ³ correctamente el comentario extenso dentro de la secciÃ³n de comentarios de la tarea, sin errores visibles ni pÃ©rdida de contenido.
+
 
 
