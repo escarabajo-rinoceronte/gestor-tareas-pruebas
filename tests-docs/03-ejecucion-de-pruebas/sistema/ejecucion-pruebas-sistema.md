@@ -293,7 +293,7 @@ El caso CP-E2E-ADM-001 se ejecutó **exitosamente** contra el backend real. El f
 
 ### 6.3. Evidencia Visual
 
-![Resultados K6 en consola — 100% checks OK, p(95)=1.76s](./k6-results.jpg)
+![Resultados K6 en consola — 100% checks OK, p(95)=1.76s](/tests-docs/03-ejecucion-de-pruebas/sistema/k6-results.jpg)
 
 ### 6.4. Análisis de Contención Transaccional
 
@@ -339,11 +339,11 @@ Durante las rondas de prueba se identificó un cuello de botella crítico:
 
 El pipeline de CI/CD procesó exitosamente las **76,000 líneas de código** del repositorio real.
 
-![Vista general de la organización en SonarCloud mostrando el proyecto analizado](./sonar-01-projects-overview.jpeg)
+![Vista general de la organización en SonarCloud mostrando el proyecto analizado](/tests-docs/03-ejecucion-de-pruebas/sistema/sonar-01-projects-overview.jpeg)
 
 ### 7.3. Dashboard del Proyecto — Estado de Calidad
 
-![Dashboard de estado del proyecto: Quality Gate Failed con 1,595 issues totales](./sonar-02-project-dashboard.jpeg)
+![Dashboard de estado del proyecto: Quality Gate Failed con 1,595 issues totales](/tests-docs/03-ejecucion-de-pruebas/sistema/sonar-02-project-dashboard.jpeg)
 
 **Interpretación del Quality Gate:**
 > El Quality Gate indica **Failed**. Esto es el resultado **esperado y buscado** de una prueba de seguridad efectiva: la herramienta identificó deuda de seguridad real en el código. Una prueba que no encuentra nada en 76k líneas de código real habría sido inefectiva.
@@ -357,7 +357,7 @@ El pipeline de CI/CD procesó exitosamente las **76,000 líneas de código** del
 
 ### 7.4. Snapshot de Seguridad
 
-![Panel de seguridad: Rating E, 9 vulnerabilidades por severidad](./sonar-03-security-snapshot.jpeg)
+![Panel de seguridad: Rating E, 9 vulnerabilidades por severidad](/tests-docs/03-ejecucion-de-pruebas/sistema/sonar-03-security-snapshot.jpeg)
 
 | Métrica de Seguridad | Valor |
 | :--- | :--- |
@@ -371,7 +371,7 @@ El pipeline de CI/CD procesó exitosamente las **76,000 líneas de código** del
 
 ### 7.5. Snapshot de Confiabilidad y Mantenibilidad
 
-![Panel de confiabilidad (234 bugs) y mantenibilidad (1,485 code smells, rating A)](./sonar-04-reliability-maintainability.jpeg)
+![Panel de confiabilidad (234 bugs) y mantenibilidad (1,485 code smells, rating A)](/tests-docs/03-ejecucion-de-pruebas/sistema/sonar-04-reliability-maintainability.jpeg)
 
 | Métrica | Valor | Interpretación |
 | :--- | :--- | :--- |
