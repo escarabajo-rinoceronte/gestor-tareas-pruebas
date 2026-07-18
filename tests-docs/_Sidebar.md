@@ -44,12 +44,16 @@
 
 *   [[00 arquitectura modular]]
 *   [[03 modulo tareas mapeo]]
-*   [[diseno integracion modulo usuarios]]
-*   [[diseno integracion modulo proyectos]]
+*   [[04 modulo usuarios autenticacion]]
+*   [[02 modulo gestion proyectos]]
 
 #### 2.4 Sistema (E2E)
 
-*   [[diseno pruebas sistema]]
+*   [[02 pruebas rendimiento]]
+*   [[03 pruebas seguridad]]
+*   [[01 flujo mapeo]]
+*   [[02 flujo validacion]]
+*   [[03 flujo administracion]]
 
 ---
 
