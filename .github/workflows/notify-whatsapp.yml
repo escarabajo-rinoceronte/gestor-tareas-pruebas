@@ -1,0 +1,105 @@
+name: 📱 Notify WhatsApp
+
+on:
+  # Se dispara cuando cualquiera de estos workflows termine.
+  # Puedes quitar o agregar nombres según lo que quieras reportar.
+  workflow_run:
+    workflows:
+      - "📚 Sync Tests-Docs to Wiki"
+      - "Pruebas de Seguridad (SAST & SonarQube)"
+      - "Generación de Reportes de Pruebas"
+      - "🧪 PR Test Frontend"
+      - "🧪 PR Test Backend"
+      - "Build and Deploy Frontend to Cloudfront"
+      - "Build and Deploy Backend to ECS"
+    types: [completed]
+
+  # También puedes dispararlo a mano para probar el mensaje.
+  workflow_dispatch:
+    inputs:
+      test_message:
+        description: "Mensaje de prueba a enviar al grupo"
+        required: true
+        default: "👋 Hola grupo, esta es una notificación de prueba desde GitHub Actions."
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    # Evita bucles: no se notifica a sí mismo.
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.name != 'Notify WhatsApp' }}
+
+    steps:
+      - name: Enviar notificación a WhatsApp (Evolution API)
+        env:
+          EVOLUTION_API_URL: ${{ vars.EVOLUTION_API_URL }}
+          EVOLUTION_INSTANCE: ${{ vars.EVOLUTION_INSTANCE_NAME }}
+          EVOLUTION_API_KEY: ${{ secrets.EVOLUTION_API_KEY }}
+          WHATSAPP_GROUP_ID: ${{ vars.WHATSAPP_GROUP_ID }}
+          # Cambia a "true" si quieres recibir solo los workflows que terminaron bien.
+          NOTIFY_ONLY_SUCCESS: ${{ vars.NOTIFY_ONLY_SUCCESS || 'false' }}
+        run: |
+          set -e
+
+          # ---------- Mensaje manual (workflow_dispatch) ----------
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            message="${{ github.event.inputs.test_message }}"
+          else
+            # ---------- Datos del workflow_run ----------
+            conclusion="${{ github.event.workflow_run.conclusion }}"
+            name="${{ github.event.workflow_run.name }}"
+            branch="${{ github.event.workflow_run.head_branch }}"
+            commit="${{ github.event.workflow_run.head_sha }}"
+            run_url="${{ github.event.workflow_run.html_url }}"
+            actor="${{ github.event.workflow_run.actor.login }}"
+            commit_short=$(echo "$commit" | cut -c1-7)
+
+            # Filtrar solo éxitos si la variable está en true
+            if [ "$NOTIFY_ONLY_SUCCESS" = "true" ] && [ "$conclusion" != "success" ]; then
+              echo "Notificación omitida porque NOTIFY_ONLY_SUCCESS=true y el resultado fue $conclusion"
+              exit 0
+            fi
+
+            # Emoji según resultado
+            case "$conclusion" in
+              success)   emoji="✅" ;;
+              failure)   emoji="❌" ;;
+              cancelled) emoji="⚠️" ;;
+              *)         emoji="ℹ️" ;;
+            esac
+
+            # ---------- Mensaje formateado para WhatsApp ----------
+            message=$(printf '%s\n\n*Workflow:* %s\n*Estado:* %s\n*Rama:* %s\n*Commit:* %s\n*Autor:* %s\n*Enlace:* %s' \
+              "${emoji} *CI GitHub Actions*" \
+              "$name" "$conclusion" "$branch" "\`$commit_short\`" "$actor" "$run_url")
+          fi
+
+          # ---------- Validar configuración ----------
+          if [ -z "$EVOLUTION_API_URL" ] || [ -z "$EVOLUTION_INSTANCE" ] || [ -z "$EVOLUTION_API_KEY" ] || [ -z "$WHATSAPP_GROUP_ID" ]; then
+            echo "❌ Faltan variables de entorno. Revisa EVOLUTION_API_URL, EVOLUTION_INSTANCE_NAME, EVOLUTION_API_KEY y WHATSAPP_GROUP_ID."
+            exit 1
+          fi
+
+          # ---------- Construir payload JSON ----------
+          payload=$(jq -n \
+            --arg number "$WHATSAPP_GROUP_ID" \
+            --arg text "$message" \
+            '{number: $number, textMessage: {text: $text}}')
+
+          echo "Payload: $payload"
+
+          # ---------- Enviar a Evolution API ----------
+          response=$(curl -s -w "\n%{http_code}" -X POST "${EVOLUTION_API_URL}/message/sendText/${EVOLUTION_INSTANCE}" \
+            -H "Content-Type: application/json" \
+            -H "apikey: ${EVOLUTION_API_KEY}" \
+            -d "$payload")
+
+          http_code=$(echo "$response" | tail -n1)
+          body=$(echo "$response" | sed '$d')
+
+          echo "HTTP code: $http_code"
+          echo "Response: $body"
+
+          if [ "$http_code" -lt 200 ] || [ "$http_code" -ge 300 ]; then
+            echo "❌ Error enviando mensaje a WhatsApp"
+            exit 1
+          fi
