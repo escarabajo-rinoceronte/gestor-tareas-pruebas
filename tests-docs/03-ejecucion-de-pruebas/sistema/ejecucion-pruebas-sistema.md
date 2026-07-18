@@ -66,7 +66,7 @@ El análisis exhaustivo de contención de base de datos e integridad transaccion
 ### 6.3. Pruebas No Funcionales (Seguridad)
 El escaneo de vulnerabilidades mediante SonarQube y SAST en el pipeline CI/CD:
 
-*   ⏳ **Reporte de Seguridad SonarQube** (Pendiente de configuración de Token)
+*   ✅ **[Reporte Formal de Seguridad SonarQube](reporte-seguridad-sonarqube.md)** (Ejecutado por Alexandra)
 
 ---
 
