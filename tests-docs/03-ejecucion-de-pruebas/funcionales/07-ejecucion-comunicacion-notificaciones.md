@@ -29,7 +29,7 @@
 | :------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir ingresar un comentario de texto válido, guardarlo y mostrarlo en el historial o sección de comentarios de la tarea. | El sistema permitió ingresar el comentario, registrarlo correctamente y mostrarlo dentro de la sección correspondiente de la tarea. |
 
-#### Evidencia CP-MOD7-001 â€” Área de comentarios de la tarea
+#### Evidencia CP-MOD7-001 — Área de comentarios de la tarea
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-001-01-area-comentarios-tarea.png" alt="CP-MOD7-001 - Área de comentarios de la tarea" width="300">
@@ -37,7 +37,7 @@
 
 Se observa la pantalla de la tarea donde el sistema permite registrar comentarios asociados al trabajo realizado sobre dicha tarea.
 
-#### Evidencia CP-MOD7-001 â€” Comentario ingresado
+#### Evidencia CP-MOD7-001 — Comentario ingresado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-001-02-comentario-ingresado.png" alt="CP-MOD7-001 - Comentario ingresado" width="300">
@@ -45,7 +45,7 @@ Se observa la pantalla de la tarea donde el sistema permite registrar comentario
 
 Se observa que el usuario ingresó un comentario válido en el campo correspondiente antes de enviarlo.
 
-#### Evidencia CP-MOD7-001 â€” Comentario registrado correctamente
+#### Evidencia CP-MOD7-001 — Comentario registrado correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-001-03-comentario-registrado.png" alt="CP-MOD7-001 - Comentario registrado correctamente" width="500">
@@ -65,7 +65,7 @@ Se evidencia que el sistema registró correctamente el comentario y lo mostró d
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir enviar la tarea sin comentario si el comentario no es obligatorio, siempre que se complete la condición requerida sobre si la tarea está completamente mapeada. | El sistema permitió enviar la tarea sin comentario después de seleccionar la opción obligatoria sobre el estado de mapeo de la tarea, y redirigió correctamente a la vista del proyecto. |
 
-#### Evidencia CP-MOD7-002 â€” Comentario vacío sin opción de mapeo seleccionada
+#### Evidencia CP-MOD7-002 — Comentario vacío sin opción de mapeo seleccionada
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-002-01-comentario-vacio-sin-opcion-mapeo.png" alt="CP-MOD7-002 - Comentario vacío sin opción de mapeo seleccionada" width="300">
@@ -73,7 +73,7 @@ Se evidencia que el sistema registró correctamente el comentario y lo mostró d
 
 Se observa que el campo de comentario se encuentra vacío y que el sistema solicita responder si la tarea está completamente mapeada antes de permitir el envío.
 
-#### Evidencia CP-MOD7-002 â€” Comentario vacío con opción de mapeo seleccionada
+#### Evidencia CP-MOD7-002 — Comentario vacío con opción de mapeo seleccionada
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-002-02-comentario-vacio-con-opcion-mapeo.png" alt="CP-MOD7-002 - Comentario vacío con opción de mapeo seleccionada" width="300">
@@ -81,7 +81,7 @@ Se observa que el campo de comentario se encuentra vacío y que el sistema solic
 
 Se evidencia que, al seleccionar una opción para indicar si la tarea está completamente mapeada, el sistema permite continuar con el envío aun cuando el comentario permanece vacío.
 
-#### Evidencia CP-MOD7-002 â€” Redirección a la vista del proyecto
+#### Evidencia CP-MOD7-002 — Redirección a la vista del proyecto
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-002-03-redireccion-vista-proyecto.png" alt="CP-MOD7-002 - Redirección a la vista del proyecto" width="650">
@@ -101,7 +101,7 @@ Se evidencia que el sistema procesó correctamente el envío de la tarea sin com
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir ingresar un comentario con formato Markdown básico, mostrar una vista previa comprensible y registrar el comentario sin afectar la interfaz. | El sistema permitió ingresar el comentario con formato Markdown, mostró correctamente la vista previa y registró el comentario sin errores visibles. |
 
-#### Evidencia CP-MOD7-003 â€” Comentario Markdown ingresado
+#### Evidencia CP-MOD7-003 — Comentario Markdown ingresado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-003-01-comentario-markdown-ingresado.png" alt="CP-MOD7-003 - Comentario Markdown ingresado" width="350">
@@ -109,7 +109,7 @@ Se evidencia que el sistema procesó correctamente el envío de la tarea sin com
 
 Se observa que el usuario ingresó un comentario con formato Markdown básico en el campo de comentarios de la tarea.
 
-#### Evidencia CP-MOD7-003 â€” Vista previa del formato Markdown
+#### Evidencia CP-MOD7-003 — Vista previa del formato Markdown
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-003-02-vista-previa-markdown.png" alt="CP-MOD7-003 - Vista previa Markdown" width="350">
@@ -117,7 +117,7 @@ Se observa que el usuario ingresó un comentario con formato Markdown básico en
 
 Se evidencia que el sistema muestra una vista previa del contenido con formato Markdown, permitiendo verificar cómo se visualizará el comentario antes de enviarlo.
 
-#### Evidencia CP-MOD7-003 â€” Comentario Markdown registrado correctamente
+#### Evidencia CP-MOD7-003 — Comentario Markdown registrado correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-003-03-comentario-markdown-registrado.png" alt="CP-MOD7-003 - Comentario Markdown registrado" width="300">
@@ -137,7 +137,7 @@ Se evidencia que el sistema registró correctamente el comentario con formato Ma
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir ingresar y registrar un comentario con mención a un usuario existente. Si las notificaciones internas se encuentran habilitadas, el sistema debe generar una notificación para el usuario mencionado. | El sistema permitió ingresar, previsualizar y registrar correctamente el comentario con mención a un usuario existente. Sin embargo, durante la ejecución no se evidenció una notificación in-app asociada a la mención. |
 
-#### Evidencia CP-MOD7-004 â€” Comentario con mención ingresado
+#### Evidencia CP-MOD7-004 — Comentario con mención ingresado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-004-01-comentario-con-mencion-ingresado.png" alt="CP-MOD7-004 - Comentario con mención ingresado" width="350">
@@ -145,7 +145,7 @@ Se evidencia que el sistema registró correctamente el comentario con formato Ma
 
 Se observa que el usuario ingresó un comentario que incluye una mención a un usuario existente mediante el formato `@usuario`.
 
-#### Evidencia CP-MOD7-004 â€” Vista previa de la mención
+#### Evidencia CP-MOD7-004 — Vista previa de la mención
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-004-02-vista-previa-mencion.png" alt="CP-MOD7-004 - Vista previa de la mención" width="300">
@@ -153,7 +153,7 @@ Se observa que el usuario ingresó un comentario que incluye una mención a un u
 
 Se evidencia que el sistema permite visualizar el comentario con la mención antes de enviarlo, sin afectar la interfaz.
 
-#### Evidencia CP-MOD7-004 â€” Comentario con mención registrado correctamente
+#### Evidencia CP-MOD7-004 — Comentario con mención registrado correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-004-03-comentario-con-mencion-registrado.png" alt="CP-MOD7-004 - Comentario con mención registrado" width="300">
@@ -173,7 +173,7 @@ Se evidencia que el sistema registró correctamente el comentario con mención d
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir registrar el comentario sin romper la interfaz. La mención inexistente no debe resolverse como enlace ni generar una notificación válida. | El sistema permitió registrar el comentario correctamente. La mención inexistente se mostró como texto plano y no se evidenció generación de notificación. |
 
-#### Evidencia CP-MOD7-005 â€” Mención inexistente ingresada
+#### Evidencia CP-MOD7-005 — Mención inexistente ingresada
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-005-01-mencion-inexistente-ingresada.png" alt="CP-MOD7-005 - Mención inexistente ingresada" width="350">
@@ -181,7 +181,7 @@ Se evidencia que el sistema registró correctamente el comentario con mención d
 
 Se observa que el usuario ingresó un comentario que incluye una mención a un usuario inexistente.
 
-#### Evidencia CP-MOD7-005 â€” Vista previa de mención inexistente
+#### Evidencia CP-MOD7-005 — Vista previa de mención inexistente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-005-02-vista-previa-mencion-inexistente.png" alt="CP-MOD7-005 - Vista previa de mención inexistente" width="350">
@@ -189,7 +189,7 @@ Se observa que el usuario ingresó un comentario que incluye una mención a un u
 
 Se evidencia que el sistema permite previsualizar el comentario sin romper la interfaz, aun cuando la mención no corresponde a un usuario existente.
 
-#### Evidencia CP-MOD7-005 â€” Comentario con mención inexistente registrado
+#### Evidencia CP-MOD7-005 — Comentario con mención inexistente registrado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-005-03-comentario-mencion-inexistente-registrado.png" alt="CP-MOD7-005 - Comentario con mención inexistente registrado" width="350">
@@ -209,7 +209,7 @@ Se evidencia que el sistema registró correctamente el comentario. La mención i
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe mostrar una notificación in-app para el usuario mencionado cuando se registra un comentario con una mención válida, siempre que las notificaciones se encuentren habilitadas en el entorno. | Se revisó el área de notificaciones después de registrar una mención válida, pero no se evidenció una notificación visible asociada a la mención dentro de la interfaz. |
 
-#### Evidencia CP-MOD7-006 â€” Panel de notificaciones revisado
+#### Evidencia CP-MOD7-006 — Panel de notificaciones revisado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-006-01-panel-notificaciones-revisado.png" alt="CP-MOD7-006 - Panel de notificaciones revisado" width="300">
@@ -217,7 +217,7 @@ Se evidencia que el sistema registró correctamente el comentario. La mención i
 
 Se observa el área de notificaciones del sistema revisada después de haber registrado previamente un comentario con mención a un usuario existente.
 
-#### Evidencia CP-MOD7-006 â€” Mención no visible en notificaciones
+#### Evidencia CP-MOD7-006 — Mención no visible en notificaciones
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-006-02-mencion-no-visible-en-notificaciones.png" alt="CP-MOD7-006 - Mención no visible en notificaciones" width="400">
@@ -241,7 +241,7 @@ Durante la prueba se verificó que la mención a un usuario existente fue regist
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir acceder al área de notificaciones y mostrar el panel correspondiente sin errores, independientemente de si existen notificaciones nuevas. | El sistema permitió acceder correctamente al panel de notificaciones. El panel cargó sin errores visibles, aunque no se mostraron notificaciones nuevas. |
 
-#### Evidencia CP-MOD7-007 â€” Acceso al panel de notificaciones
+#### Evidencia CP-MOD7-007 — Acceso al panel de notificaciones
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-007-01-acceso-panel-notificaciones.png" alt="CP-MOD7-007 - Acceso al panel de notificaciones" width="350">
@@ -249,7 +249,7 @@ Durante la prueba se verificó que la mención a un usuario existente fue regist
 
 Se observa que el usuario accede al área o panel de notificaciones desde la interfaz del sistema.
 
-#### Evidencia CP-MOD7-007 â€” Panel de notificaciones cargado correctamente
+#### Evidencia CP-MOD7-007 — Panel de notificaciones cargado correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-007-02-panel-notificaciones-cargado.png" alt="CP-MOD7-007 - Panel de notificaciones cargado correctamente" width="350">
@@ -269,7 +269,7 @@ Se evidencia que el panel de notificaciones carga correctamente y no presenta er
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | El sistema debe permitir solicitar el reenvío del correo de validación. Si el entorno de correo se encuentra correctamente configurado, el usuario debería recibir el mensaje en su bandeja de entrada. | El sistema mostró el correo electrónico del usuario e indicó que se debía revisar la cuenta para confirmar la dirección. Sin embargo, durante la ejecución no se recibió el correo en la bandeja del usuario. |
 
-#### Evidencia CP-MOD7-008 â€” Correo electrónico pendiente de validación
+#### Evidencia CP-MOD7-008 — Correo electrónico pendiente de validación
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-008-01-correo-electronico-pendiente-validacion.png" alt="CP-MOD7-008 - Correo electrónico pendiente de validación" width="400">
@@ -277,7 +277,7 @@ Se evidencia que el panel de notificaciones carga correctamente y no presenta er
 
 Se observa que el sistema muestra el correo electrónico asociado al usuario y solicita confirmar la dirección mediante un correo de validación.
 
-#### Evidencia CP-MOD7-008 â€” Correo no recibido en bandeja del usuario
+#### Evidencia CP-MOD7-008 — Correo no recibido en bandeja del usuario
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-008-02-correo-no-recibido.png" alt="CP-MOD7-008 - Correo no recibido" width="400">
@@ -301,7 +301,7 @@ Durante la prueba se verificó que la interfaz informa al usuario que debe confi
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir ingresar un comentario con una etiqueta de grupo, registrarlo correctamente y mostrarlo en la sección de comentarios sin errores visibles. | El sistema permitió ingresar y registrar correctamente el comentario con etiqueta de grupo dentro de la tarea, sin presentar errores en la interfaz. |
 
-#### Evidencia CP-MOD7-009 â€” Comentario con etiqueta de grupo ingresado
+#### Evidencia CP-MOD7-009 — Comentario con etiqueta de grupo ingresado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-009-01-comentario-con-etiqueta-grupo-ingresado.png" alt="CP-MOD7-009 - Comentario con etiqueta de grupo ingresado" width="400">
@@ -309,7 +309,7 @@ Durante la prueba se verificó que la interfaz informa al usuario que debe confi
 
 Se observa que el usuario ingresó un comentario utilizando una etiqueta de grupo disponible en el editor de comentarios.
 
-#### Evidencia CP-MOD7-009 â€” Vista previa de etiqueta de grupo
+#### Evidencia CP-MOD7-009 — Vista previa de etiqueta de grupo
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-009-02-vista-previa-etiqueta-grupo.png" alt="CP-MOD7-009 - Vista previa de etiqueta de grupo" width="400">
@@ -317,7 +317,7 @@ Se observa que el usuario ingresó un comentario utilizando una etiqueta de grup
 
 Se evidencia que el sistema permite previsualizar el comentario con la etiqueta de grupo antes de enviarlo.
 
-#### Evidencia CP-MOD7-009 â€” Comentario con etiqueta de grupo registrado correctamente
+#### Evidencia CP-MOD7-009 — Comentario con etiqueta de grupo registrado correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-009-03-comentario-etiqueta-grupo-registrado.png" alt="CP-MOD7-009 - Comentario con etiqueta de grupo registrado" width="400">
@@ -337,7 +337,7 @@ Se evidencia que el comentario con etiqueta de grupo fue registrado correctament
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir ingresar, previsualizar y registrar un comentario extenso dentro de una tarea, manteniendo la legibilidad del contenido y sin romper la interfaz. | El sistema permitió ingresar y registrar correctamente el comentario extenso dentro de la tarea, sin presentar errores visibles en la interfaz. |
 
-#### Evidencia CP-MOD7-010 â€” Comentario extenso ingresado
+#### Evidencia CP-MOD7-010 — Comentario extenso ingresado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-010-01-comentario-extenso-ingresado.png" alt="CP-MOD7-010 - Comentario extenso ingresado" width="400">
@@ -345,7 +345,7 @@ Se evidencia que el comentario con etiqueta de grupo fue registrado correctament
 
 Se observa que el usuario ingresó un comentario extenso en el campo de comentarios de la tarea.
 
-#### Evidencia CP-MOD7-010 â€” Vista previa del comentario extenso
+#### Evidencia CP-MOD7-010 — Vista previa del comentario extenso
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-010-02-vista-previa-comentario-extenso.png" alt="CP-MOD7-010 - Vista previa comentario extenso" width="400">
@@ -353,7 +353,7 @@ Se observa que el usuario ingresó un comentario extenso en el campo de comentar
 
 Se evidencia que el sistema permite revisar la vista previa del comentario extenso antes de enviarlo, manteniendo una visualización comprensible del contenido.
 
-#### Evidencia CP-MOD7-010 â€” Comentario extenso registrado correctamente
+#### Evidencia CP-MOD7-010 — Comentario extenso registrado correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0007-comunicacion-notificaciones/CP-MOD7-010-03-comentario-extenso-registrado.png" alt="CP-MOD7-010 - Comentario extenso registrado" width="400">

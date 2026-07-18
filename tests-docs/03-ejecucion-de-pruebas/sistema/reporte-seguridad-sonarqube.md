@@ -8,21 +8,21 @@
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
   <b>Semestre:</b> VII <br>
-  <b>Proyecto:</b> HOT Tasking Manager — Reporte de Ejecución: Pruebas de Sistema (Seguridad â€” SAST y SCA) <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Reporte de Ejecución: Pruebas de Sistema (Seguridad — SAST y SCA) <br>
   <b>Fecha de Elaboración:</b> 19/07/2026 <br>
   <b>Arequipa — Perú</b>
 </div>
 
 ---
 
-# Reporte de Ejecución: Pruebas de Sistema (Seguridad â€” SAST y SCA)
+# Reporte de Ejecución: Pruebas de Sistema (Seguridad — SAST y SCA)
 
 **Atributo de Calidad:** Seguridad (Security Testing)
 **Responsable de Ejecución:** Alexandra
 **Fecha de Ejecución:** 19 de Julio de 2026
 **Herramientas:** SonarCloud (SCA + SAST) + Gitleaks (Secret Scanning)
 **Integración:** GitHub Actions CI/CD Pipeline (`seguridad-sonarqube.yml`)
-**Estándar de referencia:** ISO/IEC 25010 â€” Atributo de Seguridad; IEEE 829
+**Estándar de referencia:** ISO/IEC 25010 — Atributo de Seguridad; IEEE 829
 
 ---
 
@@ -125,9 +125,9 @@ A pesar de los hallazgos de seguridad, la calificación de **Mantenibilidad A** 
 | **Secret Scanning (Gitleaks)** | âœ… Ningún secreto expuesto detectado |
 | **Análisis SAST ejecutado** | âœ… Exitoso sobre 76k líneas de código |
 | **Vulnerabilidades detectadas** | 9 issues de seguridad (requieren plan de remediación) |
-| **Objetivo de la prueba** | âœ… **APROBADO** â€” la herramienta detectó deuda de seguridad real |
+| **Objetivo de la prueba** | âœ… **APROBADO** — la herramienta detectó deuda de seguridad real |
 
-La Prueba de Sistema â€” Atributo de Seguridad se da por **ejecutada y documentada**. Los hallazgos deben ser ingresados al backlog del proyecto como defectos a remediar en sprints futuros.
+La Prueba de Sistema — Atributo de Seguridad se da por **ejecutada y documentada**. Los hallazgos deben ser ingresados al backlog del proyecto como defectos a remediar en sprints futuros.
 
 
 

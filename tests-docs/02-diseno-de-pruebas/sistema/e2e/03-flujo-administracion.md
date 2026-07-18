@@ -8,20 +8,20 @@
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
   <b>Semestre:</b> VII <br>
-  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas E2E â€” Flujo de Administración / Crear Proyecto (Backend Real) <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas E2E — Flujo de Administración / Crear Proyecto (Backend Real) <br>
   <b>Fecha de Elaboración:</b> 17/07/2026 <br>
   <b>Arequipa — Perú</b>
 </div>
 
 ---
 
-# Diseño de Pruebas E2E â€” Flujo de Administración / Crear Proyecto (Backend Real)
+# Diseño de Pruebas E2E — Flujo de Administración / Crear Proyecto (Backend Real)
 
 **Versión del Documento:** 1.0  
 **Tipo de Documento:** Diseño de Pruebas de Sistema (Caja Negra)  
 **Caso de Prueba Asociado:** CP-E2E-ADM-001  
-**Módulo Funcional Relacionado:** MOD-02 â€” Gestión de Proyectos  
-**Escenario Funcional Relacionado:** ESC-2001 â€” Creación de un Nuevo Proyecto  
+**Módulo Funcional Relacionado:** MOD-02 — Gestión de Proyectos  
+**Escenario Funcional Relacionado:** ESC-2001 — Creación de un Nuevo Proyecto  
 **Estándares de referencia:** IEEE 829, ISO/IEC/IEEE 29119
 
 ---
