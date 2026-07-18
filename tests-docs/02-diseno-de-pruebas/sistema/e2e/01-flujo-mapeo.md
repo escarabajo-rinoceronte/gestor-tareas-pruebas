@@ -1,46 +1,95 @@
-# Diseño de Pruebas E2E — Flujo de Mapeo (Backend Real)
+﻿<style>
+  .cover-page {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    text-align: center;
+    color: #1a1a1a;
+    border-top: 4px solid #8B0000;
+    border-bottom: 4px solid #8B0000;
+  }
+  .cover-page .institucion { font-size: 20px; font-weight: 700; letter-spacing: 0.05em; margin: 0 0 6px; text-transform: uppercase; }
+  .cover-page .facultad, .cover-page .escuela { font-size: 14px; font-weight: 400; color: #444; margin: 0 0 4px; line-height: 1.4; }
+  .cover-page .logo-wrap { margin: 32px auto; width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; }
+  .cover-page .logo-wrap img { max-width: 100%; max-height: 100%; }
+  .cover-page .ficha { display: inline-block; text-align: left; margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px; }
+  .cover-page .ficha table { border-collapse: collapse; }
+  .cover-page .ficha td { padding: 6px 14px 6px 0; font-size: 13px; vertical-align: top; }
+  .cover-page .ficha td.label { color: #777; font-weight: 600; white-space: nowrap; text-transform: uppercase; font-size: 11px; letter-spacing: 0.03em; }
+  .cover-page .ubicacion { margin-top: 36px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8B0000; }
+</style>
 
-**Versión del Documento:** 1.0  
-**Tipo de Documento:** Diseño de Pruebas de Sistema (Caja Negra)  
+<div class="cover-page">
+  <p class="institucion">Universidad Nacional de San Agustín</p>
+  <p class="facultad">Facultad de Ingeniería de Producción y Servicios</p>
+  <p class="escuela">Escuela Profesional de Ingeniería de Sistemas</p>
+
+  <div class="logo-wrap">
+    <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" />
+  </div>
+
+  <div class="ficha">
+    <table>
+      <tr><td class="label">Curso</td><td>Pruebas de Software</td></tr>
+      <tr><td class="label">Docente</td><td>Ing. Robert Edison Arisaca Mamani</td></tr>
+      <tr><td class="label">Semestre</td><td>VII</td></tr>
+      <tr><td class="label">Proyecto</td><td>HOT Tasking Manager — DiseÃ±o de Pruebas E2E â€” Flujo de Mapeo (Backend Real)</td></tr>
+      <tr><td class="label">Fecha</td><td>17/07/2026</td></tr>
+    </table>
+  </div>
+
+  <p class="ubicacion">Arequipa — Perú</p>
+</div>
+
+<br><br>
+
+---
+
+<br><br>
+# DiseÃ±o de Pruebas E2E â€” Flujo de Mapeo (Backend Real)
+
+**VersiÃ³n del Documento:** 1.0  
+**Tipo de Documento:** DiseÃ±o de Pruebas de Sistema (Caja Negra)  
 **Caso de Prueba Asociado:** CP-E2E-MAP-001  
-**Módulo Funcional Relacionado:** MOD-03 — Ejecución de Mapeo (Tasking)  
-**Escenario Funcional Relacionado:** ESC-3001 — Solicitud de Bloqueo e Inicio de Tarea de Mapeo  
-**Estándares de referencia:** IEEE 829, ISO/IEC/IEEE 29119
+**MÃ³dulo Funcional Relacionado:** MOD-03 â€” EjecuciÃ³n de Mapeo (Tasking)  
+**Escenario Funcional Relacionado:** ESC-3001 â€” Solicitud de Bloqueo e Inicio de Tarea de Mapeo  
+**EstÃ¡ndares de referencia:** IEEE 829, ISO/IEC/IEEE 29119
 
 ---
 
 ## 1. Contexto
 
-Este documento describe el diseño de la prueba End-to-End del flujo de mapeo ejecutado contra el backend real de HOT Tasking Manager. El objetivo es validar el "happy path" de un usuario `MAPPER` que inicia sesión, explora proyectos publicados, selecciona una tarea en estado `READY` y la abre en el editor iD, verificando la integración completa frontend-backend-base de datos.
+Este documento describe el diseÃ±o de la prueba End-to-End del flujo de mapeo ejecutado contra el backend real de HOT Tasking Manager. El objetivo es validar el "happy path" de un usuario `MAPPER` que inicia sesiÃ³n, explora proyectos publicados, selecciona una tarea en estado `READY` y la abre en el editor iD, verificando la integraciÃ³n completa frontend-backend-base de datos.
 
-Para el detalle de actores, restricciones y reglas de negocio del módulo de mapeo, referirse al [Diseño de Pruebas Funcionales — MOD-03](/tests-docs/02-diseno-de-pruebas/funcionales/03-ejecucion-de-mapeo.md).
+Para el detalle de actores, restricciones y reglas de negocio del mÃ³dulo de mapeo, referirse al [DiseÃ±o de Pruebas Funcionales â€” MOD-03](/tests-docs/02-diseno-de-pruebas/funcionales/03-ejecucion-de-mapeo.md).
 
-## 2. Estrategia de Diseño
+## 2. Estrategia de DiseÃ±o
 
 ### 2.1. Enfoque general
 
 - Prueba E2E automatizada con Playwright.
-- Navegación real por la interfaz de usuario.
+- NavegaciÃ³n real por la interfaz de usuario.
 - Backend real con base de datos PostgreSQL/PostGIS.
-- Validación de estados y navegación, además de métricas de desempeño.
+- ValidaciÃ³n de estados y navegaciÃ³n, ademÃ¡s de mÃ©tricas de desempeÃ±o.
 
-### 2.2. Técnicas de caja negra aplicadas
+### 2.2. TÃ©cnicas de caja negra aplicadas
 
-| Técnica | Aplicación |
+| TÃ©cnica | AplicaciÃ³n |
 | :--- | :--- |
-| **Transición de estados** | Verificar que la tarea seleccionada pasa de `READY` a `LOCKED_FOR_MAPPING` tras el bloqueo. |
-| **Partición de equivalencia** | Editor web (`iD`) como clase válida; el flujo no evalúa editores locales ni estados inválidos. |
-| **Análisis de valores límite** | Tiempos de respuesta en cada etapa del flujo, con umbrales generosos para entorno de desarrollo. |
+| **TransiciÃ³n de estados** | Verificar que la tarea seleccionada pasa de `READY` a `LOCKED_FOR_MAPPING` tras el bloqueo. |
+| **ParticiÃ³n de equivalencia** | Editor web (`iD`) como clase vÃ¡lida; el flujo no evalÃºa editores locales ni estados invÃ¡lidos. |
+| **AnÃ¡lisis de valores lÃ­mite** | Tiempos de respuesta en cada etapa del flujo, con umbrales generosos para entorno de desarrollo. |
 
-## 3. Características a probar
+## 3. CaracterÃ­sticas a probar
 
-| Característica | Descripción |
+| CaracterÃ­stica | DescripciÃ³n |
 | :--- | :--- |
-| Autenticación de sesión | Login mediante callback `/authorized/` con token de sesión válido. |
-| Exploración de proyectos | Renderizado de tarjetas de proyectos publicados desde `/api/v2/projects/`. |
-| Detalle de proyecto | Navegación a `/projects/{id}` y carga de resumen. |
-| Selección de tarea | Búsqueda de tarea por ID en `/projects/{id}/tasks`. |
-| Apertura de editor | Navegación a `/projects/{id}/map` y carga del contenedor `#id-container`. |
+| AutenticaciÃ³n de sesiÃ³n | Login mediante callback `/authorized/` con token de sesiÃ³n vÃ¡lido. |
+| ExploraciÃ³n de proyectos | Renderizado de tarjetas de proyectos publicados desde `/api/v2/projects/`. |
+| Detalle de proyecto | NavegaciÃ³n a `/projects/{id}` y carga de resumen. |
+| SelecciÃ³n de tarea | BÃºsqueda de tarea por ID en `/projects/{id}/tasks`. |
+| Apertura de editor | NavegaciÃ³n a `/projects/{id}/map` y carga del contenedor `#id-container`. |
 
 ## 4. Condiciones de prueba
 
@@ -49,7 +98,7 @@ Para el detalle de actores, restricciones y reglas de negocio del módulo de map
 1. Backend real y base de datos levantados con `docker-compose.e2e.yml`.
 2. Script `scripts/e2e-seed.py` ejecutado.
 3. Proyecto `E2E Mapping Project` publicado con al menos una tarea en estado `READY`.
-4. Usuario `e2e_mapper` con rol mapper, email verificado y sesión válida.
+4. Usuario `e2e_mapper` con rol mapper, email verificado y sesiÃ³n vÃ¡lida.
 
 ### 4.2. Datos de entrada
 
@@ -58,7 +107,7 @@ Para el detalle de actores, restricciones y reglas de negocio del módulo de map
 | Usuario | `e2e_mapper` | Seed |
 | Proyecto | `E2E Mapping Project` | Seed |
 | Tarea a mapear | `#2` (READY) | Seed |
-| Editor | iD (`#id-container`) | Configuración del proyecto |
+| Editor | iD (`#id-container`) | ConfiguraciÃ³n del proyecto |
 
 ### 4.3. Factores ambientales
 
@@ -68,21 +117,21 @@ Para el detalle de actores, restricciones y reglas de negocio del módulo de map
 
 ## 5. Caso de prueba derivado
 
-| ID Caso | Datos de entrada o escenario | Resultado Esperado | Técnicas Aplicadas |
+| ID Caso | Datos de entrada o escenario | Resultado Esperado | TÃ©cnicas Aplicadas |
 | :--- | :--- | :--- | :--- |
-| **CP-E2E-MAP-001** | Usuario `e2e_mapper`, proyecto `E2E Mapping Project`, tarea `#2` READY, editor iD. | El sistema permite el bloqueo de la tarea (`LOCKED_FOR_MAPPING`) y carga el editor iD. El usuario navega por login → explore → project detail → task selection → map editor. | Transición de estados, Partición de equivalencia |
+| **CP-E2E-MAP-001** | Usuario `e2e_mapper`, proyecto `E2E Mapping Project`, tarea `#2` READY, editor iD. | El sistema permite el bloqueo de la tarea (`LOCKED_FOR_MAPPING`) y carga el editor iD. El usuario navega por login â†’ explore â†’ project detail â†’ task selection â†’ map editor. | TransiciÃ³n de estados, ParticiÃ³n de equivalencia |
 
-## 6. Criterios de aceptación
+## 6. Criterios de aceptaciÃ³n
 
-- El usuario inicia sesión exitosamente.
-- El proyecto de prueba es visible en la página de exploración.
-- La navegación al detalle del proyecto es correcta.
+- El usuario inicia sesiÃ³n exitosamente.
+- El proyecto de prueba es visible en la pÃ¡gina de exploraciÃ³n.
+- La navegaciÃ³n al detalle del proyecto es correcta.
 - La tarea `#2` puede seleccionarse y abrirse en el editor iD.
 - Los tiempos medidos no superan los umbrales establecidos.
 
-## 7. Criterios de éxito adicionales (desempeño)
+## 7. Criterios de Ã©xito adicionales (desempeÃ±o)
 
-| Métrica | Umbral |
+| MÃ©trica | Umbral |
 | :--- | :--- |
 | `loginToExplore` | < 10 000 ms |
 | `exploreToProjectDetail` | < 10 000 ms |
@@ -99,4 +148,5 @@ Para el detalle de actores, restricciones y reglas de negocio del módulo de map
 - Requisito funcional: un mapper debe poder seleccionar y abrir una tarea lista para mapear.
 - Flujo de usuario automatizado: `frontend/e2e/flows/mapping-flow.spec.js`.
 - Datos de prueba: `scripts/e2e-seed.py`.
-- Diseño funcional base: [MOD-03](/tests-docs/02-diseno-de-pruebas/funcionales/03-ejecucion-de-mapeo.md).
+- DiseÃ±o funcional base: [MOD-03](/tests-docs/02-diseno-de-pruebas/funcionales/03-ejecucion-de-mapeo.md).
+

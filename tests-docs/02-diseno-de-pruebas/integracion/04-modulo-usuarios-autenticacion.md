@@ -1,66 +1,115 @@
-# Módulo de Usuarios y Autenticación (User Management)
+﻿<style>
+  .cover-page {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    text-align: center;
+    color: #1a1a1a;
+    border-top: 4px solid #8B0000;
+    border-bottom: 4px solid #8B0000;
+  }
+  .cover-page .institucion { font-size: 20px; font-weight: 700; letter-spacing: 0.05em; margin: 0 0 6px; text-transform: uppercase; }
+  .cover-page .facultad, .cover-page .escuela { font-size: 14px; font-weight: 400; color: #444; margin: 0 0 4px; line-height: 1.4; }
+  .cover-page .logo-wrap { margin: 32px auto; width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; }
+  .cover-page .logo-wrap img { max-width: 100%; max-height: 100%; }
+  .cover-page .ficha { display: inline-block; text-align: left; margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px; }
+  .cover-page .ficha table { border-collapse: collapse; }
+  .cover-page .ficha td { padding: 6px 14px 6px 0; font-size: 13px; vertical-align: top; }
+  .cover-page .ficha td.label { color: #777; font-weight: 600; white-space: nowrap; text-transform: uppercase; font-size: 11px; letter-spacing: 0.03em; }
+  .cover-page .ubicacion { margin-top: 36px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8B0000; }
+</style>
 
-## 1. Criterio de Selección
+<div class="cover-page">
+  <p class="institucion">Universidad Nacional de San Agustín</p>
+  <p class="facultad">Facultad de Ingeniería de Producción y Servicios</p>
+  <p class="escuela">Escuela Profesional de Ingeniería de Sistemas</p>
 
-Para que un archivo de prueba sea considerado parte de este módulo, debe cumplir al menos uno de los siguientes requisitos:
-1.  **Gestión de Identidad y Perfil:** El test debe validar operaciones relacionadas con la creación de la cuenta, actualización de intereses, roles, datos de contacto (email) y visibilidad de información personal.
-2.  **Autenticación y Autorización:** El test debe verificar la conexión con OpenStreetMap (OSM) para el inicio de sesión, la generación y verificación de tokens JWT, o las políticas de roles de acceso.
-3.  **Niveles de Experiencia y Recompensas:** El test debe interactuar con el recálculo de *Mapping Levels* de los mappers o la simulación de insignias (*Badges*).
-4.  **Exposición de Recursos de Usuarios:** El punto de entrada debe ser un endpoint diseñado para consultar o mutar perfiles ubicado en `backend/api/users/`.
+  <div class="logo-wrap">
+    <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" />
+  </div>
+
+  <div class="ficha">
+    <table>
+      <tr><td class="label">Curso</td><td>Pruebas de Software</td></tr>
+      <tr><td class="label">Docente</td><td>Ing. Robert Edison Arisaca Mamani</td></tr>
+      <tr><td class="label">Semestre</td><td>VII</td></tr>
+      <tr><td class="label">Proyecto</td><td>HOT Tasking Manager — MÃ³dulo de Usuarios y AutenticaciÃ³n (User Management)</td></tr>
+      <tr><td class="label">Fecha</td><td>15/07/2026</td></tr>
+    </table>
+  </div>
+
+  <p class="ubicacion">Arequipa — Perú</p>
+</div>
+
+<br><br>
 
 ---
 
-## 2. Listado de suites de pruebas de integración actuales
+<br><br>
+# MÃ³dulo de Usuarios y AutenticaciÃ³n (User Management)
 
-El conjunto completo para el módulo **Usuarios y Autenticación** consta de **8 archivos**.
+## 1. Criterio de SelecciÃ³n
+
+Para que un archivo de prueba sea considerado parte de este mÃ³dulo, debe cumplir al menos uno de los siguientes requisitos:
+1.  **GestiÃ³n de Identidad y Perfil:** El test debe validar operaciones relacionadas con la creaciÃ³n de la cuenta, actualizaciÃ³n de intereses, roles, datos de contacto (email) y visibilidad de informaciÃ³n personal.
+2.  **AutenticaciÃ³n y AutorizaciÃ³n:** El test debe verificar la conexiÃ³n con OpenStreetMap (OSM) para el inicio de sesiÃ³n, la generaciÃ³n y verificaciÃ³n de tokens JWT, o las polÃ­ticas de roles de acceso.
+3.  **Niveles de Experiencia y Recompensas:** El test debe interactuar con el recÃ¡lculo de *Mapping Levels* de los mappers o la simulaciÃ³n de insignias (*Badges*).
+4.  **ExposiciÃ³n de Recursos de Usuarios:** El punto de entrada debe ser un endpoint diseÃ±ado para consultar o mutar perfiles ubicado en `backend/api/users/`.
+
+---
+
+## 2. Listado de suites de pruebas de integraciÃ³n actuales
+
+El conjunto completo para el mÃ³dulo **Usuarios y AutenticaciÃ³n** consta de **8 archivos**.
 
 ### Archivos Incluidos
 
-| Archivo de Prueba | Justificación de Inclusión |
+| Archivo de Prueba | JustificaciÃ³n de InclusiÃ³n |
 | :--- | :--- |
-| `api/users/test_actions.py` | Valida acciones restrictivas sobre el usuario: asignación de rol por administradores, verificación de correos y permisos HTTP 403. |
+| `api/users/test_actions.py` | Valida acciones restrictivas sobre el usuario: asignaciÃ³n de rol por administradores, verificaciÃ³n de correos y permisos HTTP 403. |
 | `api/users/test_openstreetmap.py` | Cubre el flujo de callbacks, autorizaciones y manejo de errores 502 al interactuar con el login de OSM. |
-| `api/users/test_resources.py` | Valida las reglas de privacidad de datos, obtención de perfil ajeno frente a propio y filtros paginados. |
-| `api/users/test_statistics.py` | Valida la recuperación temporal del historial de mapeo y lectura del estado de la experiencia del mapper. |
-| `services/users/test_authentication_service.py` | Prueba la lógica aislada de login; determina si el usuario existe o si es su primer registro (*User Create*). |
-| `services/users/test_osm_service.py` | Evalúa las llamadas directas de sincronización al servicio externo de OpenStreetMap. |
+| `api/users/test_resources.py` | Valida las reglas de privacidad de datos, obtenciÃ³n de perfil ajeno frente a propio y filtros paginados. |
+| `api/users/test_statistics.py` | Valida la recuperaciÃ³n temporal del historial de mapeo y lectura del estado de la experiencia del mapper. |
+| `services/users/test_authentication_service.py` | Prueba la lÃ³gica aislada de login; determina si el usuario existe o si es su primer registro (*User Create*). |
+| `services/users/test_osm_service.py` | EvalÃºa las llamadas directas de sincronizaciÃ³n al servicio externo de OpenStreetMap. |
 | `services/users/test_user_service.py` | Prueba el algoritmo central de salto de nivel (*Mapping Level*), simulando hitos de mapeo sin dependencia de red HTTP. |
-| `models/test_user.py` | Evalúa directamente la serialización segura a DTO (Data Transfer Object), asegurando que el correo electrónico no sea expuesto públicamente. |
+| `models/test_user.py` | EvalÃºa directamente la serializaciÃ³n segura a DTO (Data Transfer Object), asegurando que el correo electrÃ³nico no sea expuesto pÃºblicamente. |
 
 ### Archivos Excluidos
 
-*   `api/projects/*`: Se excluyen porque administran el ciclo de vida, campañas y gestión de proyectos, lo que pertenece al **Módulo de Gestión de Proyectos**.
-*   `api/tasks/*`: Se excluyen porque validan la creación, división y estado cartográfico de una tarea en el editor geográfico, no la identidad del usuario en sí.
+*   `api/projects/*`: Se excluyen porque administran el ciclo de vida, campaÃ±as y gestiÃ³n de proyectos, lo que pertenece al **MÃ³dulo de GestiÃ³n de Proyectos**.
+*   `api/tasks/*`: Se excluyen porque validan la creaciÃ³n, divisiÃ³n y estado cartogrÃ¡fico de una tarea en el editor geogrÃ¡fico, no la identidad del usuario en sÃ­.
 
 ---
 
-## 3. Análisis Funcional por Archivo
+## 3. AnÃ¡lisis Funcional por Archivo
 
-### A. Autenticación y Login (`api/users/test_openstreetmap.py`, `services/users/test_authentication_service.py`)
-*   **Objetivo:** Garantizar que la entrada al sistema mediante OAuth sea robusta y las sesiones se validen criptográficamente.
-*   **Flujos Cubiertos:** Callback de OSM, creación transparente de usuario al primer login, generación de JWT, validación de token.
+### A. AutenticaciÃ³n y Login (`api/users/test_openstreetmap.py`, `services/users/test_authentication_service.py`)
+*   **Objetivo:** Garantizar que la entrada al sistema mediante OAuth sea robusta y las sesiones se validen criptogrÃ¡ficamente.
+*   **Flujos Cubiertos:** Callback de OSM, creaciÃ³n transparente de usuario al primer login, generaciÃ³n de JWT, validaciÃ³n de token.
 *   **Componentes:** `AuthenticationService`, `OSMService`, endpoints de login en OSM.
 
 ### B. Consulta de Perfiles y Privacidad (`api/users/test_resources.py`, `models/test_user.py`)
-*   **Objetivo:** Verificar que el acceso a datos sensibles (correo, género) respete las reglas de propiedad y se ejecuten consultas correctas.
-*   **Flujos Cubiertos:** Petición del propio perfil, ocultación de datos a terceros, listado general de contribuidores.
+*   **Objetivo:** Verificar que el acceso a datos sensibles (correo, gÃ©nero) respete las reglas de propiedad y se ejecuten consultas correctas.
+*   **Flujos Cubiertos:** PeticiÃ³n del propio perfil, ocultaciÃ³n de datos a terceros, listado general de contribuidores.
 *   **Componentes:** `UserService`, `User` (Modelo PostGIS).
 
-### C. Administración y Acciones del Usuario (`api/users/test_actions.py`)
+### C. AdministraciÃ³n y Acciones del Usuario (`api/users/test_actions.py`)
 *   **Objetivo:** Comprobar que los cambios de estado interno y roles administrativos funcionen correctamente.
-*   **Flujos Cubiertos:** Cambios de rol (Mappers a Admins), validación de correos, actualización de intereses, control de roles inválidos.
-*   **Componentes:** `UserService`, middlewares de autorización.
+*   **Flujos Cubiertos:** Cambios de rol (Mappers a Admins), validaciÃ³n de correos, actualizaciÃ³n de intereses, control de roles invÃ¡lidos.
+*   **Componentes:** `UserService`, middlewares de autorizaciÃ³n.
 
 ### D. Reglas de Negocio de Identidad y Experiencia (`services/users/test_user_service.py`)
-*   **Objetivo:** Probar el core del dominio, específicamente la progresión del *Mapper*.
-*   **Flujos Cubiertos:** Salto de nivel (*Beginner* a *Intermediate*), asignación de atributos y actualización de perfiles en la base de datos.
+*   **Objetivo:** Probar el core del dominio, especÃ­ficamente la progresiÃ³n del *Mapper*.
+*   **Flujos Cubiertos:** Salto de nivel (*Beginner* a *Intermediate*), asignaciÃ³n de atributos y actualizaciÃ³n de perfiles en la base de datos.
 *   **Componentes:** `UserService`, simulaciones de `MappingBadge`.
 
 ---
 
-## 4. Diagrama de Interacción de las Pruebas de Integración
+## 4. Diagrama de InteracciÃ³n de las Pruebas de IntegraciÃ³n
 
-Este diagrama muestra cómo los tests de este módulo ejercen múltiples capas y componentes del sistema:
+Este diagrama muestra cÃ³mo los tests de este mÃ³dulo ejercen mÃºltiples capas y componentes del sistema:
 
 ```mermaid
 sequenceDiagram
@@ -92,28 +141,28 @@ sequenceDiagram
 
 ## 5. Alcance
 
-El alcance actual de las pruebas de integración para el módulo **Usuarios y Autenticación** es **excelente** en la capa de seguridad perimetral, pero presenta áreas de mejora en el procesamiento de búsquedas y recompensas.
+El alcance actual de las pruebas de integraciÃ³n para el mÃ³dulo **Usuarios y AutenticaciÃ³n** es **excelente** en la capa de seguridad perimetral, pero presenta Ã¡reas de mejora en el procesamiento de bÃºsquedas y recompensas.
 
-| Dimensión | Alcance | Nivel de Confianza | Observaciones |
+| DimensiÃ³n | Alcance | Nivel de Confianza | Observaciones |
 | :--- | :--- | :--- | :--- |
-| **Inicio de Sesión y Autenticación** | 90% | **Muy Alto** | La suma de `openstreetmap.py` y `authentication_service.py` brinda gran seguridad en la puerta de entrada. |
-| **Persistencia de Entidad de Usuario** | 81% | **Alto** | `user.py` se validó exhaustivamente, asegurando que los datos sensibles (ej. correo) no se fuguen. |
-| **Gestión de Roles Administrativos** | 70% | **Medio-Alto** | Se aseguran las respuestas HTTP 403 para proteger roles críticos. |
-| **Cálculo de Mapping Levels** | 65% | **Medio** | Cubre progresiones normales, pero ignora fluctuaciones extremas de estadísticas. |
-| **Búsqueda y Paginación** | 45% | **Bajo** | Gran parte de las mutaciones de queries HTTP están sin probar en `resources.py`. |
+| **Inicio de SesiÃ³n y AutenticaciÃ³n** | 90% | **Muy Alto** | La suma de `openstreetmap.py` y `authentication_service.py` brinda gran seguridad en la puerta de entrada. |
+| **Persistencia de Entidad de Usuario** | 81% | **Alto** | `user.py` se validÃ³ exhaustivamente, asegurando que los datos sensibles (ej. correo) no se fuguen. |
+| **GestiÃ³n de Roles Administrativos** | 70% | **Medio-Alto** | Se aseguran las respuestas HTTP 403 para proteger roles crÃ­ticos. |
+| **CÃ¡lculo de Mapping Levels** | 65% | **Medio** | Cubre progresiones normales, pero ignora fluctuaciones extremas de estadÃ­sticas. |
+| **BÃºsqueda y PaginaciÃ³n** | 45% | **Bajo** | Gran parte de las mutaciones de queries HTTP estÃ¡n sin probar en `resources.py`. |
 | **Otorgamiento de Badges** | 10% | **Bajo** | Alta dependencia en simulaciones (*mocks*) para la persistencia transaccional de recompensas. |
 
-**Conclusión del Estado Actual:**
-Las pruebas de integración actuales establecen un cerco de seguridad perimetral excelente sobre el Módulo de Usuarios y Autenticación. Garantizan que los colaboradores y sus accesos iniciales estén blindados (ej. 100% en flujos OAuth con OSM). Sin embargo, para escalar a un modelo de excelencia técnica superior, el módulo requiere abandonar las simulaciones transaccionales en el otorgamiento de insignias (*Badges*) e implementar casos de prueba combinados para los filtros de búsqueda de contribuidores.
+**ConclusiÃ³n del Estado Actual:**
+Las pruebas de integraciÃ³n actuales establecen un cerco de seguridad perimetral excelente sobre el MÃ³dulo de Usuarios y AutenticaciÃ³n. Garantizan que los colaboradores y sus accesos iniciales estÃ©n blindados (ej. 100% en flujos OAuth con OSM). Sin embargo, para escalar a un modelo de excelencia tÃ©cnica superior, el mÃ³dulo requiere abandonar las simulaciones transaccionales en el otorgamiento de insignias (*Badges*) e implementar casos de prueba combinados para los filtros de bÃºsqueda de contribuidores.
 
 ---
 
-## 6. Ejecución de pruebas funcionales previa
+## 6. EjecuciÃ³n de pruebas funcionales previa
 
-Hemos ejecutado las pruebas de integración previamente para cobertura del módulo.
+Hemos ejecutado las pruebas de integraciÃ³n previamente para cobertura del mÃ³dulo.
 
 ```sh
-PS E:\Ing. Sistemas\4to_año\PS\Proyecto_Final\gestor-tareas-pruebas> docker compose exec tm-backend coverage run -m pytest tests/api/integration/api/users/test_resources.py tests/api/integration/api/users/test_actions.py tests/api/integration/api/users/test_statistics.py tests/api/integration/api/users/test_openstreetmap.py tests/api/integration/services/users/test_authentication_service.py tests/api/integration/services/users/test_user_service.py tests/api/integration/services/users/test_osm_service.py tests/api/integration/models/test_user.py -p no:warnings
+PS E:\Ing. Sistemas\4to_aÃ±o\PS\Proyecto_Final\gestor-tareas-pruebas> docker compose exec tm-backend coverage run -m pytest tests/api/integration/api/users/test_resources.py tests/api/integration/api/users/test_actions.py tests/api/integration/api/users/test_statistics.py tests/api/integration/api/users/test_openstreetmap.py tests/api/integration/services/users/test_authentication_service.py tests/api/integration/services/users/test_user_service.py tests/api/integration/services/users/test_osm_service.py tests/api/integration/models/test_user.py -p no:warnings
 time="2026-07-04T02:40:42-05:00" level=warning msg="The \"DEFAULT_VALIDATOR_TEAM_ID\" variable is not set. Defaulting to a blank string."
 time="2026-07-04T02:40:42-05:00" level=warning msg="The \"DEFAULT_VALIDATOR_TEAM_ID\" variable is not set. Defaulting to a blank string."
 ==================================================== test session starts =====================================================
@@ -136,7 +185,7 @@ tests/api/integration/models/test_user.py ..                                    
 ```
 
 ```sh
-PS E:\Ing. Sistemas\4to_año\PS\Proyecto_Final\gestor-tareas-pruebas> docker compose exec tm-backend coverage report -m --include="backend/api/users/actions.py,backend/api/users/openstreetmap.py,backend/api/users/resources.py,backend/api/users/statistics.py,backend/services/users/authentication_service.py,backend/services/users/osm_service.py,backend/services/users/user_service.py,backend/models/postgis/user.py"
+PS E:\Ing. Sistemas\4to_aÃ±o\PS\Proyecto_Final\gestor-tareas-pruebas> docker compose exec tm-backend coverage report -m --include="backend/api/users/actions.py,backend/api/users/openstreetmap.py,backend/api/users/resources.py,backend/api/users/statistics.py,backend/services/users/authentication_service.py,backend/services/users/osm_service.py,backend/services/users/user_service.py,backend/models/postgis/user.py"
 time="2026-07-04T02:42:36-05:00" level=warning msg="The \"DEFAULT_VALIDATOR_TEAM_ID\" variable is not set. Defaulting to a blank string."
 time="2026-07-04T02:42:36-05:00" level=warning msg="The \"DEFAULT_VALIDATOR_TEAM_ID\" variable is not set. Defaulting to a blank string."
 Name                                               Stmts   Miss  Cover   Missing
@@ -154,3 +203,4 @@ backend/services/users/user_service.py               470    190    60%   107-113
 --------------------------------------------------------------------------------
 TOTAL                                               1326    451    66%
 ```
+

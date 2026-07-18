@@ -1,67 +1,116 @@
-# Ejecución de Casos de Prueba del MOD-01: Autenticación y Perfil
+﻿<style>
+  .cover-page {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    text-align: center;
+    color: #1a1a1a;
+    border-top: 4px solid #8B0000;
+    border-bottom: 4px solid #8B0000;
+  }
+  .cover-page .institucion { font-size: 20px; font-weight: 700; letter-spacing: 0.05em; margin: 0 0 6px; text-transform: uppercase; }
+  .cover-page .facultad, .cover-page .escuela { font-size: 14px; font-weight: 400; color: #444; margin: 0 0 4px; line-height: 1.4; }
+  .cover-page .logo-wrap { margin: 32px auto; width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; }
+  .cover-page .logo-wrap img { max-width: 100%; max-height: 100%; }
+  .cover-page .ficha { display: inline-block; text-align: left; margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px; }
+  .cover-page .ficha table { border-collapse: collapse; }
+  .cover-page .ficha td { padding: 6px 14px 6px 0; font-size: 13px; vertical-align: top; }
+  .cover-page .ficha td.label { color: #777; font-weight: 600; white-space: nowrap; text-transform: uppercase; font-size: 11px; letter-spacing: 0.03em; }
+  .cover-page .ubicacion { margin-top: 36px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8B0000; }
+</style>
 
-## 1. ESC-1001: Autenticación Delegada de Usuario vía OAuth 2.0 con OSM
+<div class="cover-page">
+  <p class="institucion">Universidad Nacional de San Agustín</p>
+  <p class="facultad">Facultad de Ingeniería de Producción y Servicios</p>
+  <p class="escuela">Escuela Profesional de Ingeniería de Sistemas</p>
 
-### 1.1. Ejecución de CP-1001-01
+  <div class="logo-wrap">
+    <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" />
+  </div>
 
-| ID | Descripción | Tipo | Estado | Defectos |
-| :-- | :-- | :-- | :-- | :-- |
-| **CP-1001-01** | Validar ciclo de inicio de sesión exitoso autorizando el acceso en la interfaz externa de OSM. | Manual | Exitoso | Ninguno |
+  <div class="ficha">
+    <table>
+      <tr><td class="label">Curso</td><td>Pruebas de Software</td></tr>
+      <tr><td class="label">Docente</td><td>Ing. Robert Edison Arisaca Mamani</td></tr>
+      <tr><td class="label">Semestre</td><td>VII</td></tr>
+      <tr><td class="label">Proyecto</td><td>HOT Tasking Manager — EjecuciÃ³n de Casos de Prueba del MOD-01: AutenticaciÃ³n y Perfil</td></tr>
+      <tr><td class="label">Fecha</td><td>12/06/2026</td></tr>
+    </table>
+  </div>
 
-| Resultado esperado | Resultado obtenido |
-| :-- | :-- |
-| El sistema completa la transición a `Autenticacion exitosa`, cargando la interfaz local en el estado `SesionActiva` con el Dashboard de mapeo disponible. | La interfaz cargó el Dashboard correctamente y mostró el avatar del usuario en la barra superior. |
+  <p class="ubicacion">Arequipa — Perú</p>
+</div>
 
-| Evidencia |
-| :-- |
-| Redirección y Autorización en OSM<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1001-01-osm-auth.png" width="800px" alt="CP-1001-01 - Redirección y autorización en OpenStreetMap"></a><br>Vista de la interfaz externa de OpenStreetMap solicitando permisos de acceso. |
-| Dashboard con Sesión Activa<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1001-01-dashboard.png" width="800px" alt="CP-1001-01 - Dashboard con sesión activa"></a><br>Interfaz del Tasking Manager en estado SesionActiva con el perfil del Mapper cargado. |
+<br><br>
 
 ---
 
-### 1.2. Ejecución de CP-1001-02
+<br><br>
+# EjecuciÃ³n de Casos de Prueba del MOD-01: AutenticaciÃ³n y Perfil
 
-| ID | Descripción | Tipo | Estado | Defectos |
+## 1. ESC-1001: AutenticaciÃ³n Delegada de Usuario vÃ­a OAuth 2.0 con OSM
+
+### 1.1. EjecuciÃ³n de CP-1001-01
+
+| ID | DescripciÃ³n | Tipo | Estado | Defectos |
+| :-- | :-- | :-- | :-- | :-- |
+| **CP-1001-01** | Validar ciclo de inicio de sesiÃ³n exitoso autorizando el acceso en la interfaz externa de OSM. | Manual | Exitoso | Ninguno |
+
+| Resultado esperado | Resultado obtenido |
+| :-- | :-- |
+| El sistema completa la transiciÃ³n a `Autenticacion exitosa`, cargando la interfaz local en el estado `SesionActiva` con el Dashboard de mapeo disponible. | La interfaz cargÃ³ el Dashboard correctamente y mostrÃ³ el avatar del usuario en la barra superior. |
+
+| Evidencia |
+| :-- |
+| RedirecciÃ³n y AutorizaciÃ³n en OSM<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1001-01-osm-auth.png" width="800px" alt="CP-1001-01 - RedirecciÃ³n y autorizaciÃ³n en OpenStreetMap"></a><br>Vista de la interfaz externa de OpenStreetMap solicitando permisos de acceso. |
+| Dashboard con SesiÃ³n Activa<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1001-01-dashboard.png" width="800px" alt="CP-1001-01 - Dashboard con sesiÃ³n activa"></a><br>Interfaz del Tasking Manager en estado SesionActiva con el perfil del Mapper cargado. |
+
+---
+
+### 1.2. EjecuciÃ³n de CP-1001-02
+
+| ID | DescripciÃ³n | Tipo | Estado | Defectos |
 | :-- | :-- | :-- | :-- | :-- |
 | **CP-1001-02** | Validar el comportamiento de la interfaz al denegar o cancelar los permisos en la plataforma externa de OSM. | Manual | Exitoso | Ninguno |
 
 | Resultado esperado | Resultado obtenido |
 | :-- | :-- |
-| Al pasar al estado `AutenticandoOSM`, el sistema detecta la denegación y ejecuta la transición `Cancelacion o error`, devolviendo de inmediato la interfaz del usuario al estado inicial de `NoAutenticado`. | El sistema interceptó la cancelación y regresó a la Landing Page pública sin loguear. |
+| Al pasar al estado `AutenticandoOSM`, el sistema detecta la denegaciÃ³n y ejecuta la transiciÃ³n `Cancelacion o error`, devolviendo de inmediato la interfaz del usuario al estado inicial de `NoAutenticado`. | El sistema interceptÃ³ la cancelaciÃ³n y regresÃ³ a la Landing Page pÃºblica sin loguear. |
 
 | Evidencia |
 | :-- |
-| Cancelación de Autorización<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1001-02-cancel.png" width="800px" alt="CP-1001-02 - Cancelación de autorización en OSM"></a><br>Clic en el botón 'Denegar' dentro de la pasarela de OSM. |
+| CancelaciÃ³n de AutorizaciÃ³n<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1001-02-cancel.png" width="800px" alt="CP-1001-02 - CancelaciÃ³n de autorizaciÃ³n en OSM"></a><br>Clic en el botÃ³n 'Denegar' dentro de la pasarela de OSM. |
 
 ---
 
-### 1.3. Ejecución de CP-1001-03
+### 1.3. EjecuciÃ³n de CP-1001-03
 
-| ID | Descripción | Tipo | Estado | Defectos |
+| ID | DescripciÃ³n | Tipo | Estado | Defectos |
 | :-- | :-- | :-- | :-- | :-- |
-| **CP-1001-03** | Validar la destrucción de la sesión local al seleccionar la opción de Log Out. | Manual | Exitoso | Ninguno |
+| **CP-1001-03** | Validar la destrucciÃ³n de la sesiÃ³n local al seleccionar la opciÃ³n de Log Out. | Manual | Exitoso | Ninguno |
 
 | Resultado esperado | Resultado obtenido |
 | :-- | :-- |
-| La aplicación destruye la sesión de forma local y redirige la interfaz del usuario de regreso al estado inicial de `NoAutenticado` (Landing Page pública). | Se limpió el token del navegador y la UI regresó instantáneamente a la vista pública de invitado. |
+| La aplicaciÃ³n destruye la sesiÃ³n de forma local y redirige la interfaz del usuario de regreso al estado inicial de `NoAutenticado` (Landing Page pÃºblica). | Se limpiÃ³ el token del navegador y la UI regresÃ³ instantÃ¡neamente a la vista pÃºblica de invitado. |
 
 | Evidencia |
 | :-- |
-| Cierre de Sesión Exitoso<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1001-03-logout.png" width="800px" alt="CP-1001-03 - Cierre de sesión exitoso"></a><br>Confirmación visual de la Landing Page pública tras destruir la sesión local. |
+| Cierre de SesiÃ³n Exitoso<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1001-03-logout.png" width="800px" alt="CP-1001-03 - Cierre de sesiÃ³n exitoso"></a><br>ConfirmaciÃ³n visual de la Landing Page pÃºblica tras destruir la sesiÃ³n local. |
 
 ---
 
-## 2. ESC-1002: Clasificación Automatizada y Visualización del Nivel del Mapper
+## 2. ESC-1002: ClasificaciÃ³n Automatizada y VisualizaciÃ³n del Nivel del Mapper
 
-### 2.1. Ejecución de CP-1002-01
+### 2.1. EjecuciÃ³n de CP-1002-01
 
-| ID | Descripción | Tipo | Estado | Defectos |
+| ID | DescripciÃ³n | Tipo | Estado | Defectos |
 | :-- | :-- | :-- | :-- | :-- |
-| **CP-1002-01** | Validar que la interfaz cargue y muestre explícitamente la etiqueta BEGINNER con el valor base de 0 cambios. | Manual | Exitoso | Ninguno |
+| **CP-1002-01** | Validar que la interfaz cargue y muestre explÃ­citamente la etiqueta BEGINNER con el valor base de 0 cambios. | Manual | Exitoso | Ninguno |
 
 | Resultado esperado | Resultado obtenido |
 | :-- | :-- |
-| La interfaz gráfica de usuario carga el perfil mostrando explícitamente la etiqueta con el texto **BEGINNER**. | La UI procesó el valor base de forma limpia, renderizando la medalla de nivel en gris con la palabra BEGINNER junto al contador en cero. |
+| La interfaz grÃ¡fica de usuario carga el perfil mostrando explÃ­citamente la etiqueta con el texto **BEGINNER**. | La UI procesÃ³ el valor base de forma limpia, renderizando la medalla de nivel en gris con la palabra BEGINNER junto al contador en cero. |
 
 | Evidencia |
 | :-- |
@@ -69,85 +118,85 @@
 
 ---
 
-### 2.2. Ejecución de CP-1002-02
+### 2.2. EjecuciÃ³n de CP-1002-02
 
-| ID | Descripción | Tipo | Estado | Defectos |
+| ID | DescripciÃ³n | Tipo | Estado | Defectos |
 | :-- | :-- | :-- | :-- | :-- |
 | **CP-1002-02** | Validar que la interfaz mantenga la consistencia visual de la etiqueta BEGINNER en el tope exacto de 250 cambios. | Manual | Exitoso | Ninguno |
 
 | Resultado esperado | Resultado obtenido |
 | :-- | :-- |
-| La interfaz gráfica de usuario carga el perfil mostrando explícitamente la etiqueta con el texto **BEGINNER**. | La pantalla procesó el límite superior de la primera clase, manteniendo la etiqueta de BEGINNER fija y visualizando la barra de progreso al 100%. |
+| La interfaz grÃ¡fica de usuario carga el perfil mostrando explÃ­citamente la etiqueta con el texto **BEGINNER**. | La pantalla procesÃ³ el lÃ­mite superior de la primera clase, manteniendo la etiqueta de BEGINNER fija y visualizando la barra de progreso al 100%. |
 
 | Evidencia |
 | :-- |
-| Perfil en Límite Superior Beginner<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1002-02-nivel-beginner-tope.png" width="800px" alt="CP-1002-02 - Perfil en límite superior BEGINNER"></a><br>Captura de la interfaz de usuario con 250 cambios reflejando el tope del rango inicial. |
+| Perfil en LÃ­mite Superior Beginner<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1002-02-nivel-beginner-tope.png" width="800px" alt="CP-1002-02 - Perfil en lÃ­mite superior BEGINNER"></a><br>Captura de la interfaz de usuario con 250 cambios reflejando el tope del rango inicial. |
 
 ---
 
-### 2.3. Ejecución de CP-1002-03
+### 2.3. EjecuciÃ³n de CP-1002-03
 
-| ID | Descripción | Tipo | Estado | Defectos |
+| ID | DescripciÃ³n | Tipo | Estado | Defectos |
 | :-- | :-- | :-- | :-- | :-- |
-| **CP-1002-03** | Validar que la interfaz mute automáticamente la medalla a INTERMEDIATE al superar la frontera con 251 cambios. | Manual | Exitoso | Ninguno |
+| **CP-1002-03** | Validar que la interfaz mute automÃ¡ticamente la medalla a INTERMEDIATE al superar la frontera con 251 cambios. | Manual | Exitoso | Ninguno |
 
 | Resultado esperado | Resultado obtenido |
 | :-- | :-- |
-| El sistema calcula la transición y la interfaz del usuario cambia de forma automática la medalla a la categoría **INTERMEDIATE**. | Al detectar el cambio número 251, la interfaz actualizó asíncronamente el componente visual, inyectando la etiqueta INTERMEDIATE con su respectivo color distintivo. |
+| El sistema calcula la transiciÃ³n y la interfaz del usuario cambia de forma automÃ¡tica la medalla a la categorÃ­a **INTERMEDIATE**. | Al detectar el cambio nÃºmero 251, la interfaz actualizÃ³ asÃ­ncronamente el componente visual, inyectando la etiqueta INTERMEDIATE con su respectivo color distintivo. |
 
 | Evidencia |
 | :-- |
-| Transición a Nivel Intermediate<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1002-03-cambio-intermediate.png" width="800px" alt="CP-1002-03 - Interfaz con medalla INTERMEDIATE"></a><br>Captura de la medalla actualizada a INTERMEDIATE inmediatamente tras cruzar el límite fronterizo. |
+| TransiciÃ³n a Nivel Intermediate<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1002-03-cambio-intermediate.png" width="800px" alt="CP-1002-03 - Interfaz con medalla INTERMEDIATE"></a><br>Captura de la medalla actualizada a INTERMEDIATE inmediatamente tras cruzar el lÃ­mite fronterizo. |
 
 ---
 
-### 2.4. Ejecución de CP-1002-04
+### 2.4. EjecuciÃ³n de CP-1002-04
 
-| ID | Descripción | Tipo | Estado | Defectos |
+| ID | DescripciÃ³n | Tipo | Estado | Defectos |
 | :-- | :-- | :-- | :-- | :-- |
-| **CP-1002-04** | Validar la consistencia visual de la etiqueta INTERMEDIATE en su límite estricto de 1000 cambios. | Manual | Exitoso | Ninguno |
+| **CP-1002-04** | Validar la consistencia visual de la etiqueta INTERMEDIATE en su lÃ­mite estricto de 1000 cambios. | Manual | Exitoso | Ninguno |
 
 | Resultado esperado | Resultado obtenido |
 | :-- | :-- |
-| La interfaz gráfica de usuario mantiene la consistencia visual mostrando la etiqueta fija de **INTERMEDIATE**. | El sistema mantuvo la estabilidad visual del perfil sin saltos erráticos, renderizando correctamente la medalla INTERMEDIATE fija en el valor tope del rango medio. |
+| La interfaz grÃ¡fica de usuario mantiene la consistencia visual mostrando la etiqueta fija de **INTERMEDIATE**. | El sistema mantuvo la estabilidad visual del perfil sin saltos errÃ¡ticos, renderizando correctamente la medalla INTERMEDIATE fija en el valor tope del rango medio. |
 
 | Evidencia |
 | :-- |
-| Perfil en Límite de Clase Intermedia<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1002-04-intermediate-tope.png" width="800px" alt="CP-1002-04 - Perfil en tope de INTERMEDIATE"></a><br>Vista del perfil del Mapper con el contador exactamente en 1000 cambios y la etiqueta intermedia estable. |
+| Perfil en LÃ­mite de Clase Intermedia<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1002-04-intermediate-tope.png" width="800px" alt="CP-1002-04 - Perfil en tope de INTERMEDIATE"></a><br>Vista del perfil del Mapper con el contador exactamente en 1000 cambios y la etiqueta intermedia estable. |
 
 ---
 
-### 2.5. Ejecución de CP-1002-05
+### 2.5. EjecuciÃ³n de CP-1002-05
 
-| ID | Descripción | Tipo | Estado | Defectos |
+| ID | DescripciÃ³n | Tipo | Estado | Defectos |
 | :-- | :-- | :-- | :-- | :-- |
-| **CP-1002-05** | Validar la mutación inmediata en la interfaz a la etiqueta ADVANCED al registrar 1001 cambios mappers. | Manual | Exitoso | Ninguno |
+| **CP-1002-05** | Validar la mutaciÃ³n inmediata en la interfaz a la etiqueta ADVANCED al registrar 1001 cambios mappers. | Manual | Exitoso | Ninguno |
 
 | Resultado esperado | Resultado obtenido |
 | :-- | :-- |
-| El sistema evalúa el cambio de rango de forma inmediata y la interfaz de usuario renderiza la etiqueta de máximo nivel: **ADVANCED**. | La pantalla asimiló la ruptura del límite intermedio por un dígito, renderizando instantáneamente la medalla dorada de máximo rango con el texto ADVANCED. |
+| El sistema evalÃºa el cambio de rango de forma inmediata y la interfaz de usuario renderiza la etiqueta de mÃ¡ximo nivel: **ADVANCED**. | La pantalla asimilÃ³ la ruptura del lÃ­mite intermedio por un dÃ­gito, renderizando instantÃ¡neamente la medalla dorada de mÃ¡ximo rango con el texto ADVANCED. |
 
 | Evidencia |
 | :-- |
-| Medalla de Máximo Nivel Advanced<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1002-05-nivel-advanced.png" width="800px" alt="CP-1002-05 - Interfaz con medalla ADVANCED"></a><br>Captura de pantalla de la barra de usuario mostrando la insignia final de ADVANCED activa en la UI. |
+| Medalla de MÃ¡ximo Nivel Advanced<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1002-05-nivel-advanced.png" width="800px" alt="CP-1002-05 - Interfaz con medalla ADVANCED"></a><br>Captura de pantalla de la barra de usuario mostrando la insignia final de ADVANCED activa en la UI. |
 
 ---
 
-## 3. ESC-1003: Restricción de Contribución por Aceptación de Licencias de Proyecto
+## 3. ESC-1003: RestricciÃ³n de ContribuciÃ³n por AceptaciÃ³n de Licencias de Proyecto
 
-### 3.1. Ejecución de CP-1003-01
+### 3.1. EjecuciÃ³n de CP-1003-01
 
-| ID | Descripción | Tipo | Estado | Defectos |
+| ID | DescripciÃ³n | Tipo | Estado | Defectos |
 | :-- | :-- | :-- | :-- | :-- |
-| **CP-1003-01** | Validar que el sistema bloquee la carga de la interfaz del proyecto restrictivo si el usuario no está autenticado. | Manual | Exitoso | Ninguno |
+| **CP-1003-01** | Validar que el sistema bloquee la carga de la interfaz del proyecto restrictivo si el usuario no estÃ¡ autenticado. | Manual | Exitoso | Ninguno |
 
 | Resultado esperado | Resultado obtenido |
 | :-- | :-- |
-| El sistema bloquea la carga de la interfaz del proyecto, redirige de inmediato al usuario a la Landing Page pública (`CS-1 = V`) y solicita el login vía OSM. | La interfaz interrumpió el acceso directo a la URL protegida, redirigiendo de forma forzada a la Landing Page e invocando la alerta de inicio de sesión requerido. |
+| El sistema bloquea la carga de la interfaz del proyecto, redirige de inmediato al usuario a la Landing Page pÃºblica (`CS-1 = V`) y solicita el login vÃ­a OSM. | La interfaz interrumpiÃ³ el acceso directo a la URL protegida, redirigiendo de forma forzada a la Landing Page e invocando la alerta de inicio de sesiÃ³n requerido. |
 
 | Evidencia |
 | :-- |
-| **Redirección Forzada por Falta de Sesión**<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1003-01-redireccion-login.png" width="800px" alt="CP-1003-01 - Redirección forzada a Landing Page"></a><br>Captura de la pantalla pública tras el intento de acceso directo sin un token de sesión activo.<br><br>**Pantalla de Autenticación Requerida**<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1003-01-login1.png" width="800px" alt="CP-1003-01 - Formulario de login requerido"></a><br>Detalle del modal o vista de inicio de sesión que se le presenta al usuario para recuperar el acceso. |
+| **RedirecciÃ³n Forzada por Falta de SesiÃ³n**<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1003-01-redireccion-login.png" width="800px" alt="CP-1003-01 - RedirecciÃ³n forzada a Landing Page"></a><br>Captura de la pantalla pÃºblica tras el intento de acceso directo sin un token de sesiÃ³n activo.<br><br>**Pantalla de AutenticaciÃ³n Requerida**<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-01-ejecucion-autenticacion-perfil/CP-1003-01-login1.png" width="800px" alt="CP-1003-01 - Formulario de login requerido"></a><br>Detalle del modal o vista de inicio de sesiÃ³n que se le presenta al usuario para recuperar el acceso. |
 
 
 
