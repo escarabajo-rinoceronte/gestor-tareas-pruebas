@@ -1,52 +1,20 @@
-﻿<style>
-  .cover-page {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 60px 50px;
-    font-family: 'Georgia', 'Times New Roman', serif;
-    text-align: center;
-    color: #1a1a1a;
-    border-top: 4px solid #8B0000;
-    border-bottom: 4px solid #8B0000;
-  }
-  .cover-page .institucion { font-size: 20px; font-weight: 700; letter-spacing: 0.05em; margin: 0 0 6px; text-transform: uppercase; }
-  .cover-page .facultad, .cover-page .escuela { font-size: 14px; font-weight: 400; color: #444; margin: 0 0 4px; line-height: 1.4; }
-  .cover-page .logo-wrap { margin: 32px auto; width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; }
-  .cover-page .logo-wrap img { max-width: 100%; max-height: 100%; }
-  .cover-page .ficha { display: inline-block; text-align: left; margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px; }
-  .cover-page .ficha table { border-collapse: collapse; }
-  .cover-page .ficha td { padding: 6px 14px 6px 0; font-size: 13px; vertical-align: top; }
-  .cover-page .ficha td.label { color: #777; font-weight: 600; white-space: nowrap; text-transform: uppercase; font-size: 11px; letter-spacing: 0.03em; }
-  .cover-page .ubicacion { margin-top: 36px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8B0000; }
-</style>
-
-<div class="cover-page">
-  <p class="institucion">Universidad Nacional de San Agustín</p>
-  <p class="facultad">Facultad de Ingeniería de Producción y Servicios</p>
-  <p class="escuela">Escuela Profesional de Ingeniería de Sistemas</p>
-
-  <div class="logo-wrap">
-    <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" />
-  </div>
-
-  <div class="ficha">
-    <table>
-      <tr><td class="label">Curso</td><td>Pruebas de Software</td></tr>
-      <tr><td class="label">Docente</td><td>Ing. Robert Edison Arisaca Mamani</td></tr>
-      <tr><td class="label">Semestre</td><td>VII</td></tr>
-      <tr><td class="label">Proyecto</td><td>HOT Tasking Manager — DiseÃ±o de Pruebas Funcionales: MOD-02 - ExploraciÃ³n de Proyectos</td></tr>
-      <tr><td class="label">Fecha</td><td>12/06/2026</td></tr>
-    </table>
-  </div>
-
-  <p class="ubicacion">Arequipa — Perú</p>
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — DiseÃ±o de Pruebas Funcionales: MOD-02 - ExploraciÃ³n de Proyectos <br>
+  <b>Fecha de Elaboración:</b> 12/06/2026 <br>
+  <b>Arequipa — Perú</b>
 </div>
-
-<br><br>
 
 ---
 
-<br><br>
 # DiseÃ±o de Pruebas Funcionales: MOD-02 - ExploraciÃ³n de Proyectos
 **VersiÃ³n del Documento:** 1.0
 **Tipo de AnÃ¡lisis:** DiseÃ±o de Pruebas de Sistema (Caja Negra)
@@ -219,4 +187,5 @@ Para este escenario, se modela el comportamiento del sistema mediante los compon
 | **CP-2003-02** | 1. Estando en el explorador base, hacer clic en el botÃ³n principal "Log In" de la barra superior (`Usuario inicia sesion`).<br>2. Completar el inicio de sesiÃ³n vÃ­a OAuth (`ValidandoCredenciales`).<br>3. Ingresar al catÃ¡logo usando una cuenta que forme parte activa del equipo del proyecto (`Sistema verifica permisos`). | **Rol de Usuario:** Mapper Autorizado (`ACT-02`).<br>**Credenciales:** Token de sesiÃ³n vÃ¡lido. | La interfaz transiciona al estado `CatalogoRestringido`: la pantalla se refresca asÃ­ncronamente inyectando la tarjeta del proyecto privado con un indicador visual de acceso exclusivo. |
 | **CP-2003-03** | 1. Estando en la vista del catÃ¡logo con las tarjetas restringidas visibles (`CatalogoRestringido`).<br>2. Desplegar el menÃº del perfil de usuario y hacer clic en la opciÃ³n "Log Out" (`Cierre de sesion del usuario`). | **AcciÃ³n UI:** Clic en Cerrar SesiÃ³n. | El navegador elimina el token de autenticaciÃ³n del almacenamiento, la interfaz parpadea borrando las tarjetas privadas y regresa de inmediato al estado `CatalogoPublico`. |
 | **CP-2003-04** | 1. Copiar de forma externa la ruta directa de mapeo de un proyecto privado (ej: `/projects/10/map`).<br>2. Pegarla directamente en la barra de direcciones de una ventana sin autenticar (`Usuario desautorizado fuerza URL`). | **Ruta forzada:** URL interna protegida. | La aplicaciÃ³n interrumpe la carga normal y cambia al estado `AccesoDenegado`: renderiza en pantalla una alerta roja de error "403 No Autorizado" y tras 3 segundos (`Redireccion automatica UI`) redirige al usuario de vuelta al `CatalogoPublico`. |
+
 
