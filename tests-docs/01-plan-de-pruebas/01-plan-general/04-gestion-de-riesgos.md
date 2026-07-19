@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -42,5 +42,6 @@ Estos riesgos contemplan las dinÃ¡micas del equipo de QA, la estructura del pr
 
 ## 4. Plan de Seguimiento de Riesgos
 Esta matriz no es estÃ¡tica. Test Lead es el responsable de monitorear el estado de estos riesgos y agregar nuevos hallazgos durante las sesiones de evaluaciÃ³n que se realizarÃ¡n al finalizar cada iteraciÃ³n o sprint de pruebas.
+
 
 

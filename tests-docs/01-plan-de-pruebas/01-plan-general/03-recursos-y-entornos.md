@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -47,5 +47,6 @@ El proyecto confÃ­a en **GitHub Actions** como orquestador de pruebas.
 ## 4. Limitaciones TÃ©cnicas y Restricciones
 *   **LÃ­mites de Tasa (Rate Limiting) de OSM:** Tasking Manager consume datos reales de OSM. Durante las pruebas E2E y de IntegraciÃ³n, el equipo QA debe tener cuidado de no ser baneado por exceder el *rate limit* de la API pÃºblica de OSM. El uso de *Mocks* es obligatorio en Fases 1 y 2.
 *   **Datos Espaciales (Test Data):** La generaciÃ³n manual de polÃ­gonos GeoJSON (multipolygon) para pruebas es compleja. El equipo deberÃ¡ mantener un banco de datos estÃ¡ticos en `tests/fixtures/` con geometrÃ­as pre-validadas.
+
 
 

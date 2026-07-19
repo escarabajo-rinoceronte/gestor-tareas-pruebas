@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -81,5 +81,6 @@
 | :--- | :--- | :--- |
 | **Agotamiento del Connection Pool** | Si los 50 VUs exceden las conexiones permitidas por AsyncPG, el middleware de la API colgarÃ¡ transacciones esperando hilos libres (Timeout interno). | Configurar la variable `POOL_SIZE` en `tasking-manager.env` con un valor `>= 50` previo al inicio, garantizando que el lÃ­mite evaluado sea el de procesamiento y no un estrangulamiento artificial de la BD. |
 | **Interferencia de IOps del Host** | Sistemas de archivos locales lentos ralentizan los `fsync` del WAL de PostgreSQL, contaminando las latencias medidas. | Asegurar que el entorno de ejecuciÃ³n k6 resida sobre almacenamiento NVMe/SSD, o usar `tmpfs` para el volumen de datos de Docker si Ãºnicamente se requiere medir el rendimiento puramente computacional de la API. |
+
 
 

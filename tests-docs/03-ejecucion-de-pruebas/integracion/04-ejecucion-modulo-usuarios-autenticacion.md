@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -169,4 +169,5 @@ Para las prÃ³ximas fases de desarrollo, las actividades de pruebas complementa
 
 - La simulaciÃ³n de fallas de red en `backend/services/users/osm_service.py` para capturar respuestas inestables de la API de OpenStreetMap.
 - Expandir las combinaciones de criterios de ordenamiento en el endpoint de recursos (`resources.py`).
+
 

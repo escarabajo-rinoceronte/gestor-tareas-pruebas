@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -163,5 +163,6 @@ El diseÃ±o de las pruebas para este mÃ³dulo se ha regido por estÃ¡ndares r
 | **Operaciones GeomÃ©tricas (`SplitService`)** | **Extremo (100%)** | Un fallo algorÃ­tmico en la subdivisiÃ³n espacial provocarÃ­a una corrupciÃ³n permanente de la topologÃ­a cartogrÃ¡fica almacenada. |
 | **Operaciones Masivas (Bulk Actions)** | **Muy Alto (>90%)** | Dado su impacto sistÃ©mico, una falla inadvertida en este componente posee el potencial de invalidar miles de aportes comunitarios simultÃ¡neamente. |
 | **LÃ³gica Transaccional (Locks / Estados)** | **Muy Alto (>90%)** | La precisiÃ³n en los bloqueos es el mecanismo primario para evitar colisiones operativas y superposiciÃ³n de trabajos concurrentes sobre un mismo polÃ­gono territorial. |
+
 
 

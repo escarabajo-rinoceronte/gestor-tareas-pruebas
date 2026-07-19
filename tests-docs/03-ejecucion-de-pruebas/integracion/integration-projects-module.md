@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -332,5 +332,6 @@ Con la incorporaciÃ³n de las nuevas pruebas de integraciÃ³n se logrÃ³ alca
 El avance mÃ¡s significativo se produjo en `backend/api/projects/actions.py`, que aumentÃ³ de **63% a 92%** al cubrir flujos de permisos, Ã©xito y errores en acciones administrativas. AdemÃ¡s, `backend/models/postgis/project_chat.py` alcanzÃ³ **98%**, fortaleciendo la confianza sobre el manejo de mensajes asociados a proyectos.
 
 El mÃ³dulo queda con un nivel de confianza alto en sus funcionalidades principales: gestiÃ³n administrativa, clonaciÃ³n, bÃºsqueda, permisos, partnerships y chat. Las oportunidades futuras se concentran en `resources.py`, `activities.py`, `teams.py` y ramas complejas de `project_service.py`.
+
 
 

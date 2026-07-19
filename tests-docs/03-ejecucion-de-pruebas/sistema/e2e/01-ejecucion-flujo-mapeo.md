@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -163,5 +163,6 @@ El caso de prueba CP-E2E-MAP-001 se ejecutÃ³ exitosamente contra el backend re
 
 - Mantener el seed idempotente para que las ejecuciones repetidas de la suite completa partan del mismo estado.
 - Evaluar la estabilidad de la suite en modo CI con retries y captura de evidencias.
+
 
 

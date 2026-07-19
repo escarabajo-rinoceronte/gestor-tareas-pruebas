@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -62,5 +62,6 @@ El flujo de los estados en GitHub Projects reflejarÃ¡ el proceso metodolÃ³gi
 La coordinaciÃ³n entre los analistas funcionales y la arquitectura tÃ©cnica se gestionarÃ¡ mediante ciclos de sincronizaciÃ³n semanales. Durante estas iteraciones, el objetivo principal serÃ¡ poblar la matriz de trazabilidad con los hallazgos estructurales. La comunicaciÃ³n y el seguimiento del cronograma dependerÃ¡n enteramente de las fechas de vencimiento configuradas en los *Milestones* de GitHub.
 
 Cualquier desviaciÃ³n en el esfuerzo estimado por parte de los Test Analysts deberÃ¡ ser documentada en los comentarios del *Issue* correspondiente, permitiendo al Test Lead ajustar la vista de cronograma de manera dinÃ¡mica sin afectar la ruta crÃ­tica del proyecto. La transiciÃ³n formal hacia la fase de diseÃ±o de pruebas detalladas solo ocurrirÃ¡ cuando los tres dominios funcionales hayan sido completamente delimitados y mapeados contra el cÃ³digo fuente existente en el repositorio.
+
 
 

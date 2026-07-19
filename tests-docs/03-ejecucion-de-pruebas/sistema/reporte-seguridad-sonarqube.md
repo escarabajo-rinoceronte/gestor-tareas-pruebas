@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -128,5 +128,6 @@ A pesar de los hallazgos de seguridad, la calificaciÃ³n de **Mantenibilidad A*
 | **Objetivo de la prueba** | âœ… **APROBADO** â€” la herramienta detectÃ³ deuda de seguridad real |
 
 La Prueba de Sistema â€” Atributo de Seguridad se da por **ejecutada y documentada**. Los hallazgos deben ser ingresados al backlog del proyecto como defectos a remediar en sprints futuros.
+
 
 

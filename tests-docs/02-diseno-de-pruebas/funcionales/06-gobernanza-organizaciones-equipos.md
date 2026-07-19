@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -200,5 +200,6 @@ Garantiza la cobertura total de las reglas de negocio y facilita el anÃ¡lisis 
 | **RF-6002** | ESC-6002 | **CP-6002-05** | TransiciÃ³n de Estados (InvÃ¡lidas) |
 | **RF-6003** | **ESC-6003:** ResoluciÃ³n de Permisos y Privilegios en Proyectos | **CP-6003-01** | Tabla de DecisiÃ³n (Happy Path / CombinaciÃ³n A) |
 | **RF-6003** | ESC-6003 | **CP-6003-02**, **CP-6003-03**, **CP-6003-04** | Tabla de DecisiÃ³n (Restricciones / Combinaciones B, C, D) |
+
 
 

@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -152,4 +152,5 @@ Las pruebas se centrarÃ¡n en corroborar los controles de acceso (usuario apto 
 | **RF-4002** | ESC-4001 | CP-4001-02, CP-4001-05, CP-4001-10 | ParticiÃ³n de Equivalencia |
 | **RF-4003** | ESC-4002 | CP-4002-01, CP-4002-02, CP-4002-03, CP-4002-04, CP-4002-05, CP-4002-06, CP-4002-07, CP-4002-08, CP-4002-09, CP-4002-10 | ParticiÃ³n de Equivalencia, TransiciÃ³n Estados|
 | **RF-4004** | ESC-4003 | CP-4003-01, CP-4003-02, CP-4003-03, CP-4003-04, CP-4003-05| TransiciÃ³n de Estados |
+
 

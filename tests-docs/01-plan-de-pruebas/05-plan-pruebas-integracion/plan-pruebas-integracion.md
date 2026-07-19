@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -149,5 +149,6 @@ Se considerarÃ¡ aprobado el plan de integraciÃ³n de un mÃ³dulo o hito cuan
 - Se haya alcanzado un **Pass Rate** > 95%.
 - Se reporte la cobertura real (excluyendo tests duplicados unitarios) superando los umbrales definidos por mÃ³dulo (80-85%).
 - Los resultados y volcados de consola estÃ©n anexados en el respectivo Reporte de EjecuciÃ³n.
+
 
 

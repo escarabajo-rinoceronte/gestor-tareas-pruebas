@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -97,5 +97,6 @@ EvaluaciÃ³n focalizada en Inyecciones SQL (PostGIS), controles de acceso a niv
 * **DiseÃ±os de Prueba:** Archivos detallados en `tests-docs/02-diseno-de-pruebas/sistema/`.
 * **Scripts Automatizados:** Configurados en el repositorio (`frontend/e2e`).
 * **Reportes de EjecuciÃ³n:** Informes resultantes tras la integraciÃ³n en GitHub Actions (CI/CD).
+
 
 

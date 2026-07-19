@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -186,5 +186,6 @@ Instancia de PostgreSQL + PostGIS.
 1.  **Error de ConexiÃ³n a la DB:** Si el backend falla al iniciar, verifique que `tm-migration` haya terminado exitosamente. A veces la DB tarda mÃ¡s en estar lista; Docker Compose tiene un `healthcheck` configurado para mitigar esto.
 2.  **Error de OAuth/Login:** Verifique que el `TM_APP_BASE_URL` en el archivo `.env` coincida exactamente con la URL que usa en el navegador (usualmente `http://127.0.0.1:3000`).
 3.  **Puertos ocupados:** Si el puerto 3000 estÃ¡ en uso por otra aplicaciÃ³n, cÃ¡mbielo en el archivo `.env` mediante la variable `TM_DEV_PORT`.
+
 
 

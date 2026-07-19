@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -92,4 +92,5 @@ LÃ³gica interna acoplada a las entidades del sistema encargada de restringir d
 ### Requisitos funcionales validados
 * Restricciones de integridad a nivel de datos (control de mutaciÃ³n de roles, flujos de estados de tareas y reglas de unicidad).
 * Estructuras de intercambio de informaciÃ³n robustas mediante DTOs para motores de bÃºsqueda, filtros avanzados y paginaciÃ³n integrada.
+
 

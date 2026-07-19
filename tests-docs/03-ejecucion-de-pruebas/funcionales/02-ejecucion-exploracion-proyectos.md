@@ -3,7 +3,7 @@
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
   <br>
-  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
   <br><br>
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
@@ -80,4 +80,5 @@
 | Evidencia |
 | :-- |
 | **SelecciÃ³n de los Tres Filtros**<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-02-ejecucion-exploracion-proyectos/CP-2001-04-interseccion-tres-filtros.png" width="800px" alt="CP-2001-04 - Aplicando los tres filtros en la interfaz"></a><br>Captura del momento de ejecuciÃ³n aplicando los tres criterios simultÃ¡neos (Activo, Easy y CampaÃ±a Malaria) en la barra superior.<br><br>**Resultado de la Grilla con "0 de 0"**<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-02-ejecucion-exploracion-proyectos/CP-2001-04-resultado-cero.png" width="800px" alt="CP-2001-04 - Grilla vacÃ­a con contador mostrando 0 de 0"></a><br>Vista final de la interfaz tras procesar la consulta; se verifica que las tarjetas se ocultaron y el indicador visual numÃ©rico marca 0 de 0 resultados. |
+
 
