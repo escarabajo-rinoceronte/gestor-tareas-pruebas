@@ -34,6 +34,33 @@ Las Pruebas de Sistema del HOT Tasking Manager se ejecutaron sobre un entorno co
 | Desempeño y Carga (50 VUs, 12 min) | Grafana K6 | Alexandra | ✅ APROBADO |
 | Seguridad SAST (76k líneas de código) | SonarCloud + Gitleaks | Alexandra | ✅ EJECUTADO — Hallazgos documentados |
 
+### 1.1. Alcance: Casos de Prueba por Atributo de Calidad (ISO/IEC 25010)
+
+Se seleccionaron **3 atributos de calidad** y se diseñaron y ejecutaron **8 casos de prueba de sistema** en total. Todos son **automatizados y reproducibles** en el pipeline CI/CD.
+
+**Atributo 1 — Funcionalidad (E2E con Playwright)**
+
+| # | ID | Escenario | Estado |
+| :--- | :--- | :--- | :--- |
+| 1 | CP-E2E-MAP-001 | Flujo completo de Mapeo: login → explorar → seleccionar tarea READY → abrir editor iD | ✅ Ejecutado |
+| 2 | CP-E2E-VAL-001 | Flujo completo de Validación: login → seleccionar tarea MAPPED → validar → enviar | ✅ Ejecutado |
+| 3 | CP-E2E-ADM-001 | Flujo completo de Administración: login → panel manage → crear proyecto → guardar borrador | ✅ Ejecutado |
+
+**Atributo 2 — Eficiencia de Desempeño (Grafana K6)**
+
+| # | ID | Escenario | Estado |
+| :--- | :--- | :--- | :--- |
+| 4 | PERF-K6-001 | Carga sostenida: 50 usuarios virtuales durante 12 minutos — p(95) < 2,000 ms, tasa de error < 5% | ✅ Ejecutado |
+| 5 | PERF-K6-002 | Contención transaccional: 50 VUs compitiendo por la misma tarea — verificación de Race Condition prevention (HTTP 403) | ✅ Ejecutado |
+
+**Atributo 3 — Seguridad (SonarCloud + Gitleaks en GitHub Actions)**
+
+| # | ID | Escenario | Estado |
+| :--- | :--- | :--- | :--- |
+| 6 | SEC-SAST-001 | Análisis estático de vulnerabilidades (SAST) sobre 76,000 líneas de código con SonarCloud | ✅ Ejecutado |
+| 7 | SEC-SECRET-001 | Escaneo de secretos y credenciales expuestas en el repositorio con Gitleaks | ✅ Ejecutado |
+| 8 | SEC-CICD-001 | Integración continua de seguridad: pipeline automático en cada push a `develop` | ✅ Ejecutado |
+
 ---
 
 ## 2. Entorno de Ejecución
