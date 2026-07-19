@@ -45,11 +45,11 @@ Las Pruebas de Sistema del HOT Tasking Manager se ejecutaron sobre un entorno co
 
 | Tipo de Prueba | Herramienta | Responsable | Resultado |
 | :--- | :--- | :--- | :--- |
-| E2E — Flujo de Mapeo | Playwright | Jhonatan | âœ… APROBADO |
-| E2E — Flujo de Validación | Playwright | Jhonatan | âœ… APROBADO |
-| E2E — Flujo de Administración | Playwright | Jhonatan | âœ… APROBADO |
-| Desempeño y Carga (50 VUs, 12 min) | Grafana K6 | Alexandra | âœ… APROBADO |
-| Seguridad SAST (76k líneas de código) | SonarCloud + Gitleaks | Alexandra | âœ… EJECUTADO — Hallazgos documentados |
+| E2E — Flujo de Mapeo | Playwright | Jhonatan | ✅ APROBADO |
+| E2E — Flujo de Validación | Playwright | Jhonatan | ✅ APROBADO |
+| E2E — Flujo de Administración | Playwright | Jhonatan | ✅ APROBADO |
+| Desempeño y Carga (50 VUs, 12 min) | Grafana K6 | Alexandra | ✅ APROBADO |
+| Seguridad SAST (76k líneas de código) | SonarCloud + Gitleaks | Alexandra | ✅ EJECUTADO — Hallazgos documentados |
 
 ### 1.1. Alcance: Casos de Prueba por Atributo de Calidad (ISO/IEC 25010)
 
@@ -59,24 +59,24 @@ Se seleccionaron **3 atributos de calidad** y se diseñaron y ejecutaron **8 cas
 
 | # | ID | Escenario | Estado |
 | :--- | :--- | :--- | :--- |
-| 1 | CP-E2E-MAP-001 | Flujo completo de Mapeo: login â†’ explorar â†’ seleccionar tarea READY â†’ abrir editor iD | âœ… Ejecutado |
-| 2 | CP-E2E-VAL-001 | Flujo completo de Validación: login â†’ seleccionar tarea MAPPED â†’ validar â†’ enviar | âœ… Ejecutado |
-| 3 | CP-E2E-ADM-001 | Flujo completo de Administración: login â†’ panel manage â†’ crear proyecto â†’ guardar borrador | âœ… Ejecutado |
+| 1 | CP-E2E-MAP-001 | Flujo completo de Mapeo: login â†’ explorar â†’ seleccionar tarea READY â†’ abrir editor iD | ✅ Ejecutado |
+| 2 | CP-E2E-VAL-001 | Flujo completo de Validación: login â†’ seleccionar tarea MAPPED â†’ validar â†’ enviar | ✅ Ejecutado |
+| 3 | CP-E2E-ADM-001 | Flujo completo de Administración: login â†’ panel manage â†’ crear proyecto â†’ guardar borrador | ✅ Ejecutado |
 
 **Atributo 2 — Eficiencia de Desempeño (Grafana K6)**
 
 | # | ID | Escenario | Estado |
 | :--- | :--- | :--- | :--- |
-| 4 | PERF-K6-001 | Carga sostenida: 50 usuarios virtuales durante 12 minutos — p(95) < 2,000 ms, tasa de error < 5% | âœ… Ejecutado |
-| 5 | PERF-K6-002 | Contención transaccional: 50 VUs compitiendo por la misma tarea — verificación de Race Condition prevention (HTTP 403) | âœ… Ejecutado |
+| 4 | PERF-K6-001 | Carga sostenida: 50 usuarios virtuales durante 12 minutos — p(95) < 2,000 ms, tasa de error < 5% | ✅ Ejecutado |
+| 5 | PERF-K6-002 | Contención transaccional: 50 VUs compitiendo por la misma tarea — verificación de Race Condition prevention (HTTP 403) | ✅ Ejecutado |
 
 **Atributo 3 — Seguridad (SonarCloud + Gitleaks en GitHub Actions)**
 
 | # | ID | Escenario | Estado |
 | :--- | :--- | :--- | :--- |
-| 6 | SEC-SAST-001 | Análisis estático de vulnerabilidades (SAST) sobre 76,000 líneas de código con SonarCloud | âœ… Ejecutado |
-| 7 | SEC-SECRET-001 | Escaneo de secretos y credenciales expuestas en el repositorio con Gitleaks | âœ… Ejecutado |
-| 8 | SEC-CICD-001 | Integración continua de seguridad: pipeline automático en cada push a `develop` | âœ… Ejecutado |
+| 6 | SEC-SAST-001 | Análisis estático de vulnerabilidades (SAST) sobre 76,000 líneas de código con SonarCloud | ✅ Ejecutado |
+| 7 | SEC-SECRET-001 | Escaneo de secretos y credenciales expuestas en el repositorio con Gitleaks | ✅ Ejecutado |
+| 8 | SEC-CICD-001 | Integración continua de seguridad: pipeline automático en cada push a `develop` | ✅ Ejecutado |
 
 ---
 
@@ -118,7 +118,7 @@ Se seleccionaron **3 atributos de calidad** y se diseñaron y ejecutaron **8 cas
 
 | ID | Descripción | Tipo | Estado | Defectos |
 | :--- | :--- | :--- | :--- | :--- |
-| **CP-E2E-MAP-001** | Flujo completo de mapeo con backend real: login â†’ explorar proyecto â†’ seleccionar tarea READY â†’ abrir editor iD. | Automatizado | âœ… Exitoso | Ninguno |
+| **CP-E2E-MAP-001** | Flujo completo de mapeo con backend real: login â†’ explorar proyecto â†’ seleccionar tarea READY â†’ abrir editor iD. | Automatizado | ✅ Exitoso | Ninguno |
 
 ### 3.3. Resultado Esperado vs. Obtenido
 
@@ -140,10 +140,10 @@ Se seleccionaron **3 atributos de calidad** y se diseñaron y ejecutaron **8 cas
 
 | Métrica | Valor obtenido | Umbral | Estado |
 | :--- | :--- | :--- | :--- |
-| `loginToExplore` | 3,497.27 ms | < 10,000 ms | âœ… Aprobado |
-| `exploreToProjectDetail` | 375.18 ms | < 10,000 ms | âœ… Aprobado |
-| `projectDetailToTaskSelection` | 516.04 ms | < 10,000 ms | âœ… Aprobado |
-| `taskSelectionToEditor` | 6,752.44 ms | < 90,000 ms | âœ… Aprobado |
+| `loginToExplore` | 3,497.27 ms | < 10,000 ms | ✅ Aprobado |
+| `exploreToProjectDetail` | 375.18 ms | < 10,000 ms | ✅ Aprobado |
+| `projectDetailToTaskSelection` | 516.04 ms | < 10,000 ms | ✅ Aprobado |
+| `taskSelectionToEditor` | 6,752.44 ms | < 90,000 ms | ✅ Aprobado |
 
 ### 3.6. Salida de Consola
 
@@ -154,7 +154,7 @@ Timings (ms): {
   projectDetailToTaskSelection: 516.0429999999978,
   taskSelectionToEditor: 6752.4382000000005
 }
-  âœ“  2 [chromium] â€º e2e\flows\mapping-flow.spec.js:56:3 â€º Flujo de Mapeo (desempeño) â€º login -> buscar proyecto -> seleccionar tarea -> abrir editor de mapeo (11.5s)
+  ✓  2 [chromium] › e2e\flows\mapping-flow.spec.js:56:3 › Flujo de Mapeo (desempeño) › login -> buscar proyecto -> seleccionar tarea -> abrir editor de mapeo (11.5s)
 ```
 
 ### 3.7. Conclusión
@@ -180,7 +180,7 @@ El caso CP-E2E-MAP-001 se ejecutó **exitosamente** contra el backend real. El f
 
 | ID | Descripción | Tipo | Estado | Defectos |
 | :--- | :--- | :--- | :--- | :--- |
-| **CP-E2E-VAL-001** | Flujo completo de validación con backend real: login â†’ seleccionar tarea MAPPED â†’ bloquear para validación â†’ seleccionar VALIDATED â†’ enviar. | Automatizado | âœ… Exitoso | Ninguno |
+| **CP-E2E-VAL-001** | Flujo completo de validación con backend real: login â†’ seleccionar tarea MAPPED â†’ bloquear para validación â†’ seleccionar VALIDATED â†’ enviar. | Automatizado | ✅ Exitoso | Ninguno |
 
 ### 4.3. Resultado Esperado vs. Obtenido
 
@@ -204,9 +204,9 @@ El caso CP-E2E-MAP-001 se ejecutó **exitosamente** contra el backend real. El f
 
 | Métrica | Valor obtenido | Umbral | Estado |
 | :--- | :--- | :--- | :--- |
-| `loginToExplore` | 16,706.65 ms | < 20,000 ms | âœ… Aprobado |
-| `taskSelectionToValidation` | 5,868.77 ms | < 90,000 ms | âœ… Aprobado |
-| `validationToSubmit` | 672.01 ms | < 30,000 ms | âœ… Aprobado |
+| `loginToExplore` | 16,706.65 ms | < 20,000 ms | ✅ Aprobado |
+| `taskSelectionToValidation` | 5,868.77 ms | < 90,000 ms | ✅ Aprobado |
+| `validationToSubmit` | 672.01 ms | < 30,000 ms | ✅ Aprobado |
 
 ### 4.6. Salida de Consola
 
@@ -216,7 +216,7 @@ Timings (ms): {
   taskSelectionToValidation: 5868.771199999996,
   validationToSubmit: 672.0126999999993
 }
-  âœ“  3 [chromium] â€º e2e\flows\validation-flow.spec.js:56:3 â€º Flujo de Validación (funcional / usabilidad) â€º login como validador -> seleccionar tarea mapeada -> validar tarea (23.7s)
+  ✓  3 [chromium] › e2e\flows\validation-flow.spec.js:56:3 › Flujo de Validación (funcional / usabilidad) › login como validador -> seleccionar tarea mapeada -> validar tarea (23.7s)
 ```
 
 ### 4.7. Conclusión
@@ -242,7 +242,7 @@ El caso CP-E2E-VAL-001 se ejecutó **exitosamente** contra el backend real. El f
 
 | ID | Descripción | Tipo | Estado | Defectos |
 | :--- | :--- | :--- | :--- | :--- |
-| **CP-E2E-ADM-001** | Flujo completo de creación de proyecto con backend real: login â†’ panel manage â†’ wizard de creación â†’ guardar borrador. | Automatizado | âœ… Exitoso | Ninguno |
+| **CP-E2E-ADM-001** | Flujo completo de creación de proyecto con backend real: login â†’ panel manage â†’ wizard de creación â†’ guardar borrador. | Automatizado | ✅ Exitoso | Ninguno |
 
 ### 5.3. Resultado Esperado vs. Obtenido
 
@@ -266,8 +266,8 @@ El caso CP-E2E-VAL-001 se ejecutó **exitosamente** contra el backend real. El f
 
 | Métrica | Valor obtenido | Umbral | Estado |
 | :--- | :--- | :--- | :--- |
-| `loginToManage` | 5,436.39 ms | < 20,000 ms | âœ… Aprobado |
-| `createProjectWizard` | 5,627.15 ms | < 120,000 ms | âœ… Aprobado |
+| `loginToManage` | 5,436.39 ms | < 20,000 ms | ✅ Aprobado |
+| `createProjectWizard` | 5,627.15 ms | < 120,000 ms | ✅ Aprobado |
 
 ### 5.6. Salida de Consola
 
@@ -276,7 +276,7 @@ Timings (ms): {
   loginToManage: 5436.3946000000005,
   createProjectWizard: 5627.154399999999
 }
-  âœ“  1 [chromium] â€º e2e\flows\admin-create-project-flow.spec.js:31:3 â€º Flujo de Administración (funcional / usabilidad) â€º login como admin -> panel manage -> crear proyecto -> importar AOI -> guardar borrador (13.5s)
+  ✓  1 [chromium] › e2e\flows\admin-create-project-flow.spec.js:31:3 › Flujo de Administración (funcional / usabilidad) › login como admin -> panel manage -> crear proyecto -> importar AOI -> guardar borrador (13.5s)
 ```
 
 ### 5.7. Conclusión
@@ -307,10 +307,10 @@ El caso CP-E2E-ADM-001 se ejecutó **exitosamente** contra el backend real. El f
 â–ˆ THRESHOLDS
 
   http_req_duration
-  âœ“ 'p(95)<2000' p(95)=1.76s
+  ✓ 'p(95)<2000' p(95)=1.76s
 
   http_req_failed
-  âœ“ 'rate<0.05' rate=0.04%
+  ✓ 'rate<0.05' rate=0.04%
 
 â–ˆ TOTAL RESULTS
 
@@ -318,8 +318,8 @@ El caso CP-E2E-ADM-001 se ejecutó **exitosamente** contra el backend real. El f
   checks_succeeded...: 100.00% 9330 out of 9330
   checks_failed......: 0.00%   0 out of 9330
 
-  âœ“ GET tasks status is 200
-  âœ“ POST lock: respuesta valida del sistema
+  ✓ GET tasks status is 200
+  ✓ POST lock: respuesta valida del sistema
 
   CUSTOM
   lock_200_ok....................: 1033   1.422229/s
@@ -411,7 +411,7 @@ El pipeline de CI/CD procesó exitosamente las **76,000 líneas de código** del
 | High | 11% |
 | Medium | 56% |
 | Low | 22% |
-| Security Hotspots Reviewed | 100% âœ… |
+| Security Hotspots Reviewed | 100% ✅ |
 
 ### 7.5. Snapshot de Confiabilidad y Mantenibilidad
 
@@ -421,7 +421,7 @@ El pipeline de CI/CD procesó exitosamente las **76,000 líneas de código** del
 | :--- | :--- | :--- |
 | **Reliability Rating** | E | 234 bugs potenciales identificados |
 | Reliability Issues | 234 | Mayoría Medium (56%) y Low (32%) |
-| **Maintainability Rating** | A âœ… | Excelente para un proyecto de 76k líneas |
+| **Maintainability Rating** | A ✅ | Excelente para un proyecto de 76k líneas |
 | Maintainability Issues | 1,485 | Baja densidad de deuda técnica |
 
 ### 7.6. Análisis
@@ -430,17 +430,17 @@ El pipeline de CI/CD procesó exitosamente las **76,000 líneas de código** del
 
 **Punto positivo:** La calificación de **Mantenibilidad A** es notable. Para 76,000 líneas de código real de un sistema open-source de producción, solo 1,485 code smells representan una densidad muy baja de deuda técnica.
 
-**Gitleaks:** No detectó secretos ni credenciales expuestas en el repositorio. âœ…
+**Gitleaks:** No detectó secretos ni credenciales expuestas en el repositorio. ✅
 
 ### 7.7. Conclusión
 
 | Aspecto | Resultado |
 | :--- | :--- |
-| Pipeline CI/CD integrado | âœ… Funciona en cada push a `develop` |
-| Secret Scanning (Gitleaks) | âœ… Ningún secreto expuesto |
-| Análisis SAST ejecutado | âœ… Exitoso sobre 76k líneas |
+| Pipeline CI/CD integrado | ✅ Funciona en cada push a `develop` |
+| Secret Scanning (Gitleaks) | ✅ Ningún secreto expuesto |
+| Análisis SAST ejecutado | ✅ Exitoso sobre 76k líneas |
 | Vulnerabilidades detectadas | 9 issues (requieren plan de remediación) |
-| Objetivo de la prueba | âœ… **EJECUTADO** — Hallazgos documentados para backlog |
+| Objetivo de la prueba | ✅ **EJECUTADO** — Hallazgos documentados para backlog |
 
 ---
 
@@ -450,17 +450,17 @@ El pipeline de CI/CD procesó exitosamente las **76,000 líneas de código** del
 
 | ID Caso | Tipo | Responsable | Criterio | Resultado |
 | :--- | :--- | :--- | :--- | :--- |
-| CP-E2E-MAP-001 | E2E Funcional | Jhonatan | Todos los pasos exitosos + métricas < umbral | âœ… APROBADO |
-| CP-E2E-VAL-001 | E2E Funcional | Jhonatan | Todos los pasos exitosos + métricas < umbral | âœ… APROBADO |
-| CP-E2E-ADM-001 | E2E Funcional | Jhonatan | Todos los pasos exitosos + métricas < umbral | âœ… APROBADO |
-| PERF-K6-001 | Desempeño/Carga | Alexandra | p(95) < 2000ms Â· rate < 5% | âœ… APROBADO |
-| SEC-SONAR-001 | Seguridad SAST | Alexandra | Pipeline ejecutado, hallazgos documentados | âœ… EJECUTADO |
+| CP-E2E-MAP-001 | E2E Funcional | Jhonatan | Todos los pasos exitosos + métricas < umbral | ✅ APROBADO |
+| CP-E2E-VAL-001 | E2E Funcional | Jhonatan | Todos los pasos exitosos + métricas < umbral | ✅ APROBADO |
+| CP-E2E-ADM-001 | E2E Funcional | Jhonatan | Todos los pasos exitosos + métricas < umbral | ✅ APROBADO |
+| PERF-K6-001 | Desempeño/Carga | Alexandra | p(95) < 2000ms Â· rate < 5% | ✅ APROBADO |
+| SEC-SONAR-001 | Seguridad SAST | Alexandra | Pipeline ejecutado, hallazgos documentados | ✅ EJECUTADO |
 
 ### 8.2. Defectos Encontrados
 
 | ID | Tipo | Descripción | Estado |
 | :--- | :--- | :--- | :--- |
-| DEF-SYS-PERF-001 | Cuello de botella | `DB_MAX_CONNECTIONS=8` insuficiente para 50 VUs concurrentes | âœ… Resuelto (elevado a 30) |
+| DEF-SYS-PERF-001 | Cuello de botella | `DB_MAX_CONNECTIONS=8` insuficiente para 50 VUs concurrentes | ✅ Resuelto (elevado a 30) |
 | DEF-SYS-SEC-001 a 009 | Seguridad | 9 vulnerabilidades SAST detectadas por SonarCloud | ðŸ”´ Pendiente remediación en sprints futuros |
 
 ### 8.3. Conclusión Final

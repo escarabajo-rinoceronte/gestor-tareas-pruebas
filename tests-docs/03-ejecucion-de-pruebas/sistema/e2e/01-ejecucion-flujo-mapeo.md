@@ -124,10 +124,10 @@ E2E_BACKEND=real yarn test:e2e --grep "Flujo de Mapeo"
 
 | Métrica | Valor obtenido | Umbral | Estado |
 | :--- | :--- | :--- | :--- |
-| `loginToExplore` | 3 497.27 ms | < 10 000 ms | âœ… Aprobado |
-| `exploreToProjectDetail` | 375.18 ms | < 10 000 ms | âœ… Aprobado |
-| `projectDetailToTaskSelection` | 516.04 ms | < 10 000 ms | âœ… Aprobado |
-| `taskSelectionToEditor` | 6 752.44 ms | < 90 000 ms | âœ… Aprobado |
+| `loginToExplore` | 3 497.27 ms | < 10 000 ms | ✅ Aprobado |
+| `exploreToProjectDetail` | 375.18 ms | < 10 000 ms | ✅ Aprobado |
+| `projectDetailToTaskSelection` | 516.04 ms | < 10 000 ms | ✅ Aprobado |
+| `taskSelectionToEditor` | 6 752.44 ms | < 90 000 ms | ✅ Aprobado |
 
 ## 7. Salida de la Ejecución
 
@@ -140,7 +140,7 @@ Timings (ms): {
   projectDetailToTaskSelection: 516.0429999999978,
   taskSelectionToEditor: 6752.4382000000005
 }
-  âœ“  2 [chromium] â€º e2e\flows\mapping-flow.spec.js:56:3 â€º Flujo de Mapeo (desempeño) â€º login -> buscar proyecto -> seleccionar tarea -> abrir editor de mapeo (11.5s)
+  ✓  2 [chromium] › e2e\flows\mapping-flow.spec.js:56:3 › Flujo de Mapeo (desempeño) › login -> buscar proyecto -> seleccionar tarea -> abrir editor de mapeo (11.5s)
 ```
 
 ## 8. Evidencias
