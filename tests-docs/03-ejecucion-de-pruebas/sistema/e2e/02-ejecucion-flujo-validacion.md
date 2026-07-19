@@ -126,9 +126,9 @@ E2E_BACKEND=real yarn test:e2e --grep "Flujo de Validación"
 
 | Métrica | Valor obtenido | Umbral | Estado |
 | :--- | :--- | :--- | :--- |
-| `loginToExplore` | 16 706.65 ms | < 20 000 ms | âœ… Aprobado |
-| `taskSelectionToValidation` | 5 868.77 ms | < 90 000 ms | âœ… Aprobado |
-| `validationToSubmit` | 672.01 ms | < 30 000 ms | âœ… Aprobado |
+| `loginToExplore` | 16 706.65 ms | < 20 000 ms | ✅ Aprobado |
+| `taskSelectionToValidation` | 5 868.77 ms | < 90 000 ms | ✅ Aprobado |
+| `validationToSubmit` | 672.01 ms | < 30 000 ms | ✅ Aprobado |
 
 ## 7. Salida de la Ejecución
 
@@ -140,7 +140,7 @@ Timings (ms): {
   taskSelectionToValidation: 5868.771199999996,
   validationToSubmit: 672.0126999999993
 }
-  âœ“  3 [chromium] â€º e2e\flows\validation-flow.spec.js:56:3 â€º Flujo de Validación (funcional / usabilidad) â€º login como validador -> seleccionar tarea mapeada -> validar tarea (23.7s)
+  ✓  3 [chromium] › e2e\flows\validation-flow.spec.js:56:3 › Flujo de Validación (funcional / usabilidad) › login como validador -> seleccionar tarea mapeada -> validar tarea (23.7s)
 ```
 
 ## 8. Evidencias

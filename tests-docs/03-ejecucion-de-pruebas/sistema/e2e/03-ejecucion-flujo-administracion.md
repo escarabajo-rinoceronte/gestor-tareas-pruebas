@@ -126,8 +126,8 @@ E2E_BACKEND=real yarn test:e2e --grep "Flujo de Administración"
 
 | Métrica | Valor obtenido | Umbral | Estado |
 | :--- | :--- | :--- | :--- |
-| `loginToManage` | 5 436.39 ms | < 20 000 ms | âœ… Aprobado |
-| `createProjectWizard` | 5 627.15 ms | < 120 000 ms | âœ… Aprobado |
+| `loginToManage` | 5 436.39 ms | < 20 000 ms | ✅ Aprobado |
+| `createProjectWizard` | 5 627.15 ms | < 120 000 ms | ✅ Aprobado |
 
 ## 7. Salida de la Ejecución
 
@@ -138,7 +138,7 @@ Timings (ms): {
   loginToManage: 5436.3946000000005,
   createProjectWizard: 5627.154399999999
 }
-  âœ“  1 [chromium] â€º e2e\flows\admin-create-project-flow.spec.js:31:3 â€º Flujo de Administración (funcional / usabilidad) â€º login como admin -> panel manage -> crear proyecto -> importar AOI -> guardar borrador (13.5s)
+  ✓  1 [chromium] › e2e\flows\admin-create-project-flow.spec.js:31:3 › Flujo de Administración (funcional / usabilidad) › login como admin -> panel manage -> crear proyecto -> importar AOI -> guardar borrador (13.5s)
 ```
 
 ## 8. Evidencias

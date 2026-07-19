@@ -80,7 +80,7 @@ La figura siguiente muestra el panel de seguridad, con los hallazgos clasificado
 | **High** | 11% | Corrección en el próximo sprint |
 | **Medium** | 56% | Planificar corrección |
 | **Low** | 22% | Monitorear |
-| **Security Hotspots Reviewed** | 100% âœ… | Todos los puntos sensibles marcados para revisión |
+| **Security Hotspots Reviewed** | 100% ✅ | Todos los puntos sensibles marcados para revisión |
 
 ---
 
@@ -96,7 +96,7 @@ La figura siguiente muestra el análisis de confiabilidad (bugs) y mantenibilida
 | :--- | :--- | :--- |
 | **Reliability Rating** | E | 234 bugs potenciales en el código |
 | **Reliability Issues** | 234 | Mayormente Medium (56%) y Low (32%) |
-| **Maintainability Rating** | A âœ… | Excelente para un proyecto de 76k líneas |
+| **Maintainability Rating** | A ✅ | Excelente para un proyecto de 76k líneas |
 | **Maintainability Issues** | 1,485 | Código funcional pero mejorable (code smells) |
 | **Duplications** | 1.2% | Dentro del rango aceptable |
 
@@ -121,11 +121,11 @@ A pesar de los hallazgos de seguridad, la calificación de **Mantenibilidad A** 
 
 | Aspecto | Resultado |
 | :--- | :--- |
-| **Pipeline CI/CD integrado** | âœ… Funciona en cada push a `develop` |
-| **Secret Scanning (Gitleaks)** | âœ… Ningún secreto expuesto detectado |
-| **Análisis SAST ejecutado** | âœ… Exitoso sobre 76k líneas de código |
+| **Pipeline CI/CD integrado** | ✅ Funciona en cada push a `develop` |
+| **Secret Scanning (Gitleaks)** | ✅ Ningún secreto expuesto detectado |
+| **Análisis SAST ejecutado** | ✅ Exitoso sobre 76k líneas de código |
 | **Vulnerabilidades detectadas** | 9 issues de seguridad (requieren plan de remediación) |
-| **Objetivo de la prueba** | âœ… **APROBADO** — la herramienta detectó deuda de seguridad real |
+| **Objetivo de la prueba** | ✅ **APROBADO** — la herramienta detectó deuda de seguridad real |
 
 La Prueba de Sistema — Atributo de Seguridad se da por **ejecutada y documentada**. Los hallazgos deben ser ingresados al backlog del proyecto como defectos a remediar en sprints futuros.
 
