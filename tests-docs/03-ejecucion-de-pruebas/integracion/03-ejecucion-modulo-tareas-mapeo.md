@@ -249,3 +249,49 @@ TOTAL                                     1798    283    84%
 Con la reestructuración logramos el hito de incrementar el nivel de confianza de los tres servicios operativos núcleo a **>90%** (`actions.py` al 90%, `mapping_service.py` al 92% y `validator_service.py` al 93%). 
 
 Adicionalmente, el test de auditoría inyectado nos permitió aislar y resolver una vulnerabilidad crítica en `resources.py`, y el motor geográfico `split_service.py` mantiene su consistencia técnica casi a la perfección (99%). La cobertura general del módulo subió orgánicamente al **84%**, tras probar con total éxito los 206 escenarios transaccionales e integrales del backend.
+
+## 8. Ejecución de pruebas post-reestructuración (Fase 3 - Cobertura 85%)
+
+Durante la ejecución de las pruebas previas, se identificó que el controlador HTTP de consultas y recursos (`backend/api/tasks/resources.py`) era el último obstáculo para alcanzar el objetivo global del **85%**. 
+
+### Nuevas suites y correcciones implementadas
+
+- **Adición de `TestDeleteTasksAPI`:** Implementada en `test_resources.py` para probar exhaustivamente el endpoint de eliminación múltiple de tareas de un proyecto (`DELETE /api/v2/projects/{project_id}/tasks/`). Se verificaron validaciones de autenticación de administradores y estructuras de datos anómalas.
+- **Adición de `TestGridIntersectingAPI`:** Implementada para validar el motor de consultas geoespaciales de cuadrículas a partir de áreas de interés (`PUT /api/v2/projects/{project_id}/tasks/queries/aoi/`).
+- **Resolución de Errores de Serialización ASGI/FastAPI:** Durante el desarrollo de estas pruebas, se descubrió que los decoradores de seguridad de la aplicación (como `@tm.pm_only()`) y las respuestas HTTP no estaban debidamente refactorizados para su ejecución asíncrona dentro de FastAPI, provocando el error `ValueError: [TypeError("'coroutine' object is not iterable")]` en la serialización. Esto fue exitosamente parcheado en `backend/api/utils.py` y `backend/api/tasks/resources.py`, elevando la robustez operativa de toda la API.
+
+### Resultado general actualizado (Final)
+
+| Métrica | Resultado |
+| :--- | :--- |
+| Módulo evaluado | Mapping & Validation (Tareas) |
+| Tipo de pruebas | Integración |
+| Pruebas ejecutadas | 240 |
+| Pruebas exitosas | 240 |
+| Pruebas fallidas | 0 |
+| Archivos medidos | 11 |
+| Líneas ejecutables analizadas | 1800 |
+| Líneas no cubiertas | 262 |
+| Cobertura total | **85%** |
+| Tiempo de ejecución | 70.42 s |
+
+### Cobertura por archivo post-implementación (Final)
+
+| Archivo | Stmts | Miss | Cover |
+| :--- | ---: | ---: | ---: |
+| `backend/api/tasks/__init__.py` | 0 | 0 | 100% |
+| `backend/api/tasks/actions.py` | 251 | 24 | 90% |
+| `backend/api/tasks/resources.py` | 121 | 13 | **89%** |
+| `backend/api/tasks/statistics.py` | 24 | 0 | 100% |
+| `backend/models/dtos/grid_dto.py` | 14 | 0 | 100% |
+| `backend/models/dtos/mapping_dto.py` | 85 | 7 | 92% |
+| `backend/models/dtos/validator_dto.py` | 123 | 25 | 80% |
+| `backend/models/postgis/task.py` | 604 | 158 | 74% |
+| `backend/services/grid/split_service.py` | 130 | 1 | 99% |
+| `backend/services/mapping_service.py` | 215 | 18 | 92% |
+| `backend/services/validator_service.py` | 233 | 16 | 93% |
+| **TOTAL** | **1800** | **262** | **85%** |
+
+### Conclusión Final
+
+Con la cobertura consolidada en el **85%** general y un **89%** explícitamente en `resources.py` (lo que supone una mejora de 31 puntos porcentuales frente al diseño original del 58%), el módulo de Tareas y Mapeo puede considerarse estructuralmente sano y rigurosamente validado, garantizando operaciones fiables frente a transaccionalidad, vulnerabilidades de acceso y manipulación espacial.
