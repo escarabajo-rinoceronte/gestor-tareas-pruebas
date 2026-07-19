@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
   <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
@@ -18,88 +18,86 @@
 # Informe de Ejecución y Análisis de Pruebas Unitarias - Core Module
 
 ## 1. Resumen del Proceso Realizado
-El presente proceso tuvo como objetivo principal el fortalecimiento de la calidad del software del **Tasking Manager** mediante la estabilización, implementación y optimización de la suite de pruebas unitarias. La estrategia se centró en el **Módulo Core** (Modelos PostGIS y Servicios de Negocio), identificando inicialmente una brecha de cobertura significativa y errores de ejecución críticos derivados de la migración tecnológica a entornos asíncronos (`pytest` + `asyncio`).
+
+El presente proceso tuvo como objetivo principal la estabilización y análisis de cobertura de la suite de pruebas unitarias correspondiente al **Módulo de Servicios Core y Lógica de Negocio**. Tras alinear el diseño con la arquitectura real de los servicios (descartando dependencias de modelos PostGIS y comunicación que pertenecen a otros dominios), se evaluaron los servicios transaccionales críticos responsables de proyectos, mapeos, validaciones, divisiones de cuadrículas, campañas y organizaciones.
 
 **Hitos del proceso:**
-1.  **Estabilización de Infraestructura de Tests:** Corrección de fallos en los *fixtures* y *helpers* para garantizar la integridad referencial en la base de datos de pruebas.
-2.  **Incremento de Cobertura:** Implementación de casos de prueba para archivos con cobertura nula (0%) o crítica (<30%).
-3.  **Análisis de Defectos:** Detección de errores lógicos y bugs en el backend a través de la ejecución de pruebas de borde.
-4.  **Refactorización de Pruebas:** Migración de lógica de inserción manual a patrones de diseño basados en objetos para asegurar la mantenibilidad.
+1.  **Alineación del Dominio:** Se reestructuró la ejecución para medir de forma aislada los componentes estipulados en la fase de análisis estructural (`backend/services/*.py` excluyendo comunicación/usuarios).
+2.  **Estabilización de Infraestructura de Tests:** Corrección de fallos en los *fixtures* y ejecución bajo el framework asíncrono (`pytest` + `asyncio`).
+3.  **Auditoría de Cobertura Base:** Extracción de las métricas reales que evidencian el estado actual del núcleo del sistema, exponiendo la necesidad de campañas TDD futuras.
 
 ---
 
 ## 2. Estado Final de la Ejecución de Pruebas
-Tras las intervenciones realizadas, se logró pasar de un entorno con múltiples errores de ejecución (`errors`) a una suite de pruebas estable y funcional.
 
-### Resumen de Ejecución (Final)
+El entorno local fue estabilizado exitosamente, eliminando cualquier error de infraestructura (500s, fallos de inyección de DB temporal). 
+
+### Resumen de Ejecución de Suites Unitarias (Servicios Core)
 | Métrica | Resultado |
 | :--- | :--- |
-| **Pruebas Recolectadas** | 270 |
-| **Pruebas Exitosas (Passed)** | 263 |
-| **Fallos Pendientes (Failures)** | 7 |
+| **Pruebas Recolectadas** | 88 |
+| **Pruebas Exitosas (Passed)** | 88 |
+| **Fallos Pendientes (Failures)** | 0 |
 | **Errores de Ejecución (Errors)** | 0 |
-| **Tiempo de Ejecución** | ~40.24s |
+| **Tiempo de Ejecución** | ~14.48s |
 
-*Nota: Los 7 fallos restantes corresponden a discrepancias identificadas entre la lógica esperada y la implementación actual del backend, las cuales han sido documentadas como recomendaciones técnicas para el equipo de desarrollo.*
+*Nota: La ejecución limpia (0 fallos) garantiza que los caminos felices actualmente automatizados funcionan correctamente. Sin embargo, el análisis de cobertura revelará una baja penetración en escenarios borde.*
 
 ---
 
 ## 3. Análisis de Cobertura
-La cobertura se obtuvo mediante el uso de `pytest-cov`, generando un reporte detallado que evalúa la ejecución de cada línea de código en el directorio `backend/`. 
 
-**Resultados por Módulo Crítico:**
-| Módulo / Carpeta | Cobertura Promedio | Estado |
-| :--- | :---: | :--- |
-| `backend/models/postgis/` | ~88% | **Objetivo Alcanzado** |
-| `backend/services/` | ~84% | **En Mejora** |
-| **Módulo Core (Consolidado)** | **~86%** | **Certificado** |
+La cobertura se obtuvo mediante el uso de `pytest-cov`, generando un reporte detallado que evalúa la ejecución de cada línea de código dentro de los servicios evaluados. 
 
-> [!NOTE]
-> Sobre el Reporte HTML:** El reporte detallado muestra que los archivos de lógica pura (como `tags.py` y `task_annotation.py`) han alcanzado el **100% de cobertura**, mientras que los archivos de integración externa (como `mapswipe_service.py`) se mantienen en un rango menor debido a la necesidad de mocks de red complejos.
+**Resultados Consolidados del Módulo:**
+| Métrica | Resultado |
+| :--- | :--- |
+| **Líneas ejecutables totales (Stmts)** | 2319 |
+| **Líneas no cubiertas (Miss)** | 1105 |
+| **Cobertura Global del Core Module** | **52%** |
 
 ---
 
 ## 4. Archivos Analizados y Pruebas Implementadas
 
-Se priorizaron los archivos del núcleo que presentaban mayor riesgo técnico debido a su baja cobertura inicial.
+El desglose de la cobertura expone disparidades críticas entre los servicios. El motor geométrico (`split_service.py`) y las validaciones de mapping (`mapping_service.py`) mantienen los índices más aceptables del dominio, mientras que las lógicas auxiliares presentan deficiencias sustanciales.
 
-| Archivo | Cobertura Inicial | Cobertura Final (Est.) | Casos de Prueba Implementados / Corregidos |
-| :--- | :---: | :---: | :--- |
-| `postgis/tags.py` | 0% | 100% | Creación, recuperación y validación de unicidad de etiquetas. |
-| `postgis/project.py` | 38% | 49% | Ciclo de vida de favoritos, destacados y borrado físico. |
-| `grid/split_service.py` | 22% | 77% | División geométrica, validación de candados y limpieza de registros. |
-| `postgis/task_annotation.py` | 46% | 100% | Constructor, recuperación por tipo y conversión a DTO. |
-| `messaging/chat_service.py` | 35% | 92% | Permisos en proyectos privados y saneamiento de Markdown. |
-| `messaging/message_service.py` | 44% | 44%* | Validación de preferencias de usuario y parseo de menciones. |
-
-*\*Nota: En `message_service.py` se agregaron pruebas críticas, pero el volumen de líneas del archivo requiere más casos para mover el porcentaje global significativamente.*
-
----
-
-## 5. Fallos Detectados y Análisis de Causa Raíz
-Durante la ejecución, se identificaron problemas que impidieron el éxito de ciertos tests, clasificados a continuación:
-
-| Archivo / Fallo | Causa Raíz | Análisis Técnico |
-| :--- | :--- | :--- |
-| `task_annotation.py` | `AttributeError: get` | El backend intenta usar `.get()` en un objeto `Record` de `databases`, el cual es inmutable y solo soporta acceso por llaves `[]`. |
-| `split_service.py` | `ForeignKeyViolationError` | El método de borrado de tareas no limpiaba las anotaciones de tareas, rompiendo la integridad referencial de la BD. |
-| `chat_service.py` | `TypeError` en DTO | El `__init__` manual del DTO bloquea la instanciación estándar de Pydantic v2. |
-| `project.py` | `NotNullViolation` | Omisión de campos de auditoría (`created`, `last_updated`) en inserciones manuales de SQL crudo. |
+| Componente | Líneas (Stmts) | Faltantes (Miss) | Cobertura Final |
+| :--- | :---: | :---: | :---: |
+| `grid/split_service.py` | 130 | 30 | 77% |
+| `mapping_service.py` | 215 | 60 | 72% |
+| `organisation_service.py` | 195 | 82 | 58% |
+| `campaign_service.py` | 172 | 76 | 56% |
+| `project_admin_service.py` | 194 | 101 | 48% |
+| `project_service.py` | 368 | 193 | 48% |
+| `validator_service.py` | 233 | 120 | 48% |
+| `project_search_service.py` | 424 | 231 | 46% |
+| `team_service.py` | 388 | 212 | 45% |
 
 ---
 
-## 6. Recomendaciones para el Equipo de Desarrollo
-Se sugiere al equipo de desarrollo del backend revisar los siguientes hallazgos para mejorar la robustez del sistema:
+## 5. Análisis Técnico y Fallos Potenciales
 
-1.  **Refactorización de `task_annotation.py`:** Cambiar el acceso a los registros de base de datos. Se recomienda convertir los objetos `Record` a `dict` inmediatamente después de la consulta para permitir el uso de métodos como `.get()` y asegurar la mutabilidad de los datos antes de procesar el JSON.
-2.  **Integridad en Cascada en `split_service.py`:** El método `delete_task_and_related_records` debe ser actualizado para incluir la eliminación de `task_annotations`. Actualmente, el sistema falla al intentar dividir tareas que contienen metadatos de IA.
-3.  **Estandarización de Fechas:** Se detectó que el backend es sensible a objetos `datetime` con zona horaria (offset-aware). Se recomienda estandarizar el uso de `datetime.utcnow()` o asegurar que el esquema de la base de datos sea `TIMESTAMP WITH TIME ZONE`.
-4.  **Actualización de DTOs:** Remover los constructores `__init__` manuales en los DTOs de `message_dto.py` para permitir que Pydantic maneje la validación y el mapeo de campos de forma nativa.
+El alto porcentaje de líneas no cubiertas (1105) en un módulo tan sensible como los **Servicios Core** representa un riesgo operacional elevado, ya que los controladores HTTP delegan toda la lógica de negocio en estos archivos. 
+
+**Análisis de Vacíos de Cobertura:**
+1.  **Lógica Condicional (If/Else):** Los bloques no cubiertos en `project_service.py` y `team_service.py` corresponden casi en su totalidad a excepciones HTTP no lanzadas durante las pruebas unitarias (ej., verificaciones de permisos cuando el usuario no es *Manager*).
+2.  **Validaciones Transaccionales:** Gran parte de las sentencias omitidas en `validator_service.py` y `mapping_service.py` son bifurcaciones para rollback de transacciones en escenarios de concurrencia forzada.
+
+---
+
+## 6. Recomendaciones y Siguientes Pasos
+
+Se sugiere al equipo de Aseguramiento de Calidad tomar acciones inmediatas en la siguiente iteración (Fase de Implementación TDD) sobre los hallazgos:
+
+1.  **Priorización de Diseños:** Expandir las especificaciones en `02-servicios-core-negocio.md` para focalizarse intensivamente en `project_service.py` y `validator_service.py`, debido a su baja métrica actual (~48%) y su alta criticidad.
+2.  **Simulación de Errores de BD:** Incrementar el uso de Mocks de la base de datos (e.g. `unittest.mock.patch`) para simular `IntegrityError` y forzar al backend a ejecutar los flujos de *rollback*, cubriendo las líneas residuales.
+3.  **Evaluación de Seguridad (RBAC):** Diseñar aserciones específicas para roles no autorizados, forzando y capturando excepciones 403 Forbidden dentro de los servicios.
 
 ---
 
 ## 7. Conclusiones
-El proceso de testing ha sido exitoso en la **estabilización del entorno local** y en la **identificación de bugs críticos** que podrían haber afectado la integridad de los datos en producción. Con una cobertura consolidada del **86% en el Core Module**, el proyecto cuenta ahora con una base sólida para recibir nuevas funcionalidades. Se recomienda como próximo paso enfocarse en la cobertura de los controladores de la API (capa de recursos) para alcanzar el 85% de cobertura total en todo el repositorio.
 
+La auditoría y validación documental del módulo Core fue exitosa al revelar la cobertura técnica auténtica del sistema, disipando asunciones previas. La suite unitaria es completamente funcional y asíncrona, demorando apenas 14 segundos en procesar 88 integraciones complejas con *fixtures*. 
 
-
+A pesar de que el **52%** de cobertura general indica que la plataforma no está lista para un proceso de certificación ISO de alta rigurosidad, establece una métrica de referencia transparente (Línea Base) sobre la cual los Test Designers pueden trabajar ordenadamente hacia el umbral deseado del >85%.

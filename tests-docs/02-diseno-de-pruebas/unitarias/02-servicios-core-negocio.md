@@ -39,7 +39,7 @@ El siguiente diagrama ilustra cómo se estructura la ejecución de una prueba un
 
 ### 1.2. Análisis Detallado de Componentes Críticos
 
-El repositorio revela que la lógica de negocio se encuentra fragmentada en servicios altamente especializados ubicados en el directorio `backend/services/`. Entre los componentes más críticos que exigen cobertura estructural se encuentran el servicio de proyectos (`project_service.py`), el servicio de tareas (`task_service.py`) y el servicio de organizaciones (`organisation_service.py`). 
+El repositorio revela que la lógica de negocio se encuentra fragmentada en servicios altamente especializados ubicados en el directorio `backend/services/`. Entre los componentes más críticos que exigen cobertura estructural se encuentran el servicio de proyectos (`project_service.py`), los servicios de tareas (`mapping_service.py` y `validator_service.py`), el motor de división geométrica (`grid/split_service.py`), además de los servicios auxiliares (`project_admin_service.py`, `team_service.py`, `campaign_service.py` y `project_search_service.py`). 
 
 La criticidad del servicio de tareas radica en el manejo de la concurrencia. Cuando múltiples mapeadores intentan bloquear un mismo polígono espacial simultáneamente, el servicio debe prevenir condiciones de carrera (Race Conditions) mediante bloqueos transaccionales seguros. Cualquier brecha funcional en este componente resultaría en la corrupción de los datos de contribución. Por su parte, los servicios de proyectos y organizaciones actúan como guardianes del control de acceso, requiriendo un análisis profundo sobre la segregación de roles.
 
@@ -70,7 +70,7 @@ A través de esta suite automatizada, el proyecto actualmente previene y mitiga 
 
 A pesar de la solidez técnica evidenciada en las pruebas del servicio de organizaciones, el análisis holístico del módulo revela áreas funcionales con baja cobertura. Actualmente, el repositorio exhibe una sólida cobertura sobre los "caminos felices" (Happy Paths) y la validación básica de roles. No obstante, existe un vacío documental y procedimental respecto a escenarios transaccionales límite.
 
-La estrategia a implementar por los Test Designers en la próxima iteración consistirá en aplicar técnicas de diseño de caja negra, como el Análisis de Valores Límite, sobre los algoritmos de división geométrica en el `project_service.py` y técnicas de Tabla de Decisiones para los estados de transición en el `task_service.py`. Estas pruebas serán especificadas funcionalmente en esta Wiki para que los desarrolladores las implementen posteriormente utilizando TDD.
+La estrategia a implementar por los Test Designers en la próxima iteración consistirá en aplicar técnicas de diseño de caja negra, como el Análisis de Valores Límite, sobre los algoritmos de división geométrica en el `project_service.py` y técnicas de Tabla de Decisiones para los estados de transición en `mapping_service.py` y `validator_service.py`. Estas pruebas serán especificadas funcionalmente en esta Wiki para que los desarrolladores las implementen posteriormente utilizando TDD.
 
 ## 2. Condiciones de Prueba (TD2) y Cobertura (TD3)
 
