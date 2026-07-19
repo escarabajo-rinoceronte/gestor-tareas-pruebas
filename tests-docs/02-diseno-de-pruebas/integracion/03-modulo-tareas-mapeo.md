@@ -102,6 +102,26 @@ Se han modelado los siguientes escenarios lógicos de integración. Cada escenar
 
 ---
 
+### INT-MAP-08: Gestión de Eliminación de Tareas
+| Atributo | Especificación Técnica |
+| :--- | :--- |
+| **Interfaces Evaluadas** | HTTP Endpoint (`resources.py`) ➔ `ProjectService` ➔ Base de Datos |
+| **Precondiciones** | Proyecto con tareas generadas; un usuario autenticado con credenciales de Administrador. |
+| **Entrada Requerida** | Petición `DELETE` a `/api/v2/projects/{project_id}/tasks/` incluyendo listado de IDs. |
+| **Criterios de Aceptación** | **1.** Restricción perimetral: rechazo total con código HTTP 403 para usuarios sin privilegios administrativos.<br>**2.** Validaciones estrictas del esquema JSON de entrada (rechazando estructuras ausentes o mal formadas).<br>**3.** Confirmación exitosa de la eliminación vía `ProjectService`. |
+
+### INT-MAP-09: Intersección Geoespacial de Cuadrículas
+| Atributo | Especificación Técnica |
+| :--- | :--- |
+| **Interfaces Evaluadas** | HTTP Endpoint (`resources.py`) ➔ `GridService` |
+| **Precondiciones** | Archivo GeoJSON válido especificando un polígono de área de interés (AOI). |
+| **Entrada Requerida** | Petición `PUT` a `/api/v2/projects/{project_id}/tasks/queries/aoi/` con los esquemas cartográficos. |
+| **Criterios de Aceptación** | **1.** Parseo y validación de tipos rigurosos usando los modelos de Pydantic (`GridDTO`).<br>**2.** Recorte (trimming) espacial exitoso retornando `FeatureCollection` válidos.<br>**3.** Aseguramiento de la serialización asíncrona de la API compatible con Starlette. |
+
+*(Nota: Los escenarios INT-MAP-08 e INT-MAP-09 fueron diseñados e integrados durante la Fase 3 para elevar los indicadores de cobertura a los umbrales exigidos, permitiendo además descubrir y subsanar bugs críticos de asincronía y delegación de estado en los decoradores perimetrales `pm_only`).*
+
+---
+
 ## 5. Diseño y Arquitectura de las Suites de Integración
 
 Con el objetivo de preservar una alta cohesión y facilitar el mantenimiento continuo, los escenarios descritos se han segmentado lógicamente en las siguientes suites de pruebas:
