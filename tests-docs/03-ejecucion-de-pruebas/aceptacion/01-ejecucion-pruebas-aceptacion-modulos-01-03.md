@@ -17,22 +17,6 @@
 
 # Ejecución de Pruebas de Aceptación — Módulos MOD-01, MOD-02 y MOD-03
 
-**Tipo de Documento:** Registro de Ejecución  
-**Plan Asociado:** [Plan de Pruebas de Aceptación](/tests-docs/01-plan-de-pruebas/07-plan-pruebas-aceptacion/plan-pruebas-aceptacion.md)  
-**Diseño Asociado:** [Diseño de Pruebas de Aceptación](/tests-docs/02-diseno-de-pruebas/aceptacion/01-aceptacion-modulos-01-03.md)
-
----
-
-## 1. Resumen de campaña
-
-| Campo | Valor |
-| :--- | :--- |
-| **Responsable de ejecución** | `[Completar]` |
-| **Fecha de ejecución** | `20/07/2026` |
-| **Entorno** | `[Completar]` |
-| **Versión evaluada** | `[Completar]` |
-| **Resultado global** | `APROBADO CON OBSERVACIONES` |
-
 | Métrica | Valor |
 | :--- | :--- |
 | **Total de casos** | `20` |
@@ -45,26 +29,26 @@
 
 | ID | Módulo | Ruta | Estado | Resultado esperado | Resultado obtenido | Evidencia |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **CA-ACP-01** | MOD-01 | `/login` -> `/authorized` | Aprobado | El usuario entra a la plataforma con sesión activa. | El dashboard autenticado muestra el ingreso correcto del usuario. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-01-01.png` |
-| **CA-ACP-02** | MOD-01 | `/login` | Aprobado | El sistema retorna a estado no autenticado tras cancelar OAuth. | La interfaz retorna al estado público después de cancelar la autorización. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-02-01.png` |
-| **CA-ACP-03** | MOD-01 | Barra superior / perfil | Aprobado | La sesión se destruye y la UI vuelve a la vista pública. | El cierre de sesión devuelve al usuario a la interfaz pública. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-03-01.png` |
-| **CA-ACP-04** | MOD-01 | `/projects/:id` | Aprobado | El sistema bloquea acceso a proyecto restrictivo sin login. | La ruta protegida redirige correctamente a autenticación. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-04-01.png` |
-| **CA-ACP-05** | MOD-01 | `/projects/:id/tasks` | Aprobado | La licencia bloquea el mapeo antes de aceptar y lo habilita después. | El flujo de licencia se ejecutó de manera conforme; queda como observación menor que la evidencia visible del cambio final de estado requiere mayor detalle. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-05-01.png` |
-| **CA-ACP-06** | MOD-01 | `/settings` | Aprobado | El sistema valida datos y guarda cambios válidos de perfil. | El flujo de edición y validación se completó de forma conforme; queda como observación menor que la evidencia final del guardado requiere mayor detalle visual. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-06-01.png` |
-| **CA-ACP-07** | MOD-02 | `/explore` | Aprobado | Se muestra el catálogo base de proyectos. | La vista de exploración carga correctamente el catálogo inicial. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-07-01.png` |
-| **CA-ACP-08** | MOD-02 | `/explore` | Aprobado | Solo se muestran proyectos activos. | El filtro por estado activo actualiza correctamente la grilla. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-08-01.png` |
-| **CA-ACP-09** | MOD-02 | `/explore` | Aprobado | La UI procesa correctamente la combinación de filtros. | La combinación de filtros produce el resultado esperado, incluso cuando no hay coincidencias. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-09-01.png` |
-| **CA-ACP-10** | MOD-02 | `/explore` | Aprobado | La búsqueda responde a entradas válidas y controla errores sin romperse. | La búsqueda y el control de error se comportaron de manera estable; queda como observación menor que la evidencia visible del flujo completo requiere mayor detalle. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-10-01.png` |
-| **CA-ACP-11** | MOD-02 | `/explore`, `/projects/:id` | Aprobado | El proyecto privado queda oculto al no autorizado y visible al autorizado. | El control de acceso al proyecto privado se mantuvo conforme; queda como observación menor que la evidencia comparativa del acceso requiere mayor detalle visual. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-11-01.png` |
-| **CA-ACP-12** | MOD-03 | `/projects/:id/tasks` -> `/projects/:id/map?editor=ID` | Aprobado | La tarea se bloquea y se carga el editor `iD`. | El editor iD carga correctamente después del bloqueo de la tarea. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-12-01.png` |
-| **CA-ACP-13** | MOD-03 | `/projects/:id/map?editor=JOSM` | Aprobado | La UI informa indisponibilidad de JOSM y mantiene integridad del flujo. | El sistema muestra el error de JOSM sin perder el control del flujo. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-13-01.png` |
-| **CA-ACP-14** | MOD-03 | `/projects/:id/tasks` -> `/projects/:id/map` | Rechazado | El sistema no permite mapear sin aceptar la licencia previa. | La evidencia y la ejecución funcional de `CP-3001-03` muestran que el bloqueo preventivo no se cumplió correctamente. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-14-01.png` |
-| **CA-ACP-15** | MOD-03 | `/projects/:id/tasks` | Aprobado | El sistema deniega bloqueos inválidos por concurrencia, estado o permisos. | El sistema restringió el bloqueo en escenarios inválidos; queda como observación menor que la visualización completa de todas las variantes requiere mayor detalle. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-15-01.png` |
-| **CA-ACP-16** | MOD-03 | `/projects/:id/map` | Aprobado | La tarea cambia a `MAPPED` al finalizar con `Yes`. | La tarea finaliza correctamente y queda mapeada. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-16-01.png` |
-| **CA-ACP-17** | MOD-03 | `/projects/:id/map` | Aprobado | La tarea vuelve a `READY` al finalizar con `No`. | La tarea se libera correctamente y retorna a estado disponible. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-17-01.png` |
-| **CA-ACP-18** | MOD-03 | `/projects/:id/tasks` | Aprobado | `Submit Task` no aparece cuando la tarea no es editable por el usuario. | La interfaz ocultó correctamente los controles de envío en los contextos no editables observados; queda como observación menor que el flujo requiere mayor detalle visual integral. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-18-01.png` |
-| **CA-ACP-19** | MOD-03 | `/projects/:id/tasks`, `/projects/:id/map` | Aprobado | `Split task` solo se habilita en contexto permitido. | La operación de división se comportó conforme al contexto permitido; queda como observación menor que el detalle visual completo de las restricciones requiere mayor precisión. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-19-01.png` |
-| **CA-ACP-20** | MOD-03 | `/projects/:id/map` | Aprobado | El sistema libera o extiende la tarea correctamente según el contexto. | La gestión del tiempo de sesión respondió de forma conforme; queda como observación menor que la evidencia final de todas las variantes del flujo requiere mayor detalle visual. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-20-01.png` |
+| **CA-ACP-01** | MOD-01 | `/login` -> `/authorized` | Aprobado | El usuario accede correctamente a la plataforma y visualiza su sesión activa. | El usuario completó el inicio de sesión y accedió a la vista autenticada de la plataforma. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-01-01.png` |
+| **CA-ACP-02** | MOD-01 | `/login` | Aprobado | El usuario permanece fuera de la plataforma y no se crea una sesión local. | El usuario canceló la autorización y la plataforma mantuvo el estado no autenticado. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-02-01.png` |
+| **CA-ACP-03** | MOD-01 | Barra superior / perfil | Aprobado | El usuario regresa a la vista pública después de cerrar sesión. | El usuario cerró sesión y volvió correctamente a la vista pública de la aplicación. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-03-01.png` |
+| **CA-ACP-04** | MOD-01 | `/projects/:id` | Aprobado | El usuario es redirigido a autenticación antes de acceder al proyecto restringido. | El usuario no autenticado fue redirigido a autenticación al intentar ingresar al proyecto restringido. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-04-01.png` |
+| **CA-ACP-05** | MOD-01 | `/projects/:id/tasks` | Aprobado | Antes de aceptar, el usuario no puede contribuir; después de aceptar, la contribución queda habilitada. | El usuario encontró bloqueada la contribución antes de aceptar la licencia y pudo habilitarla después de aceptar los términos. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-05-01_1.jpeg`, `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-05-01_2.jpeg` |
+| **CA-ACP-06** | MOD-01 | `/settings` | Aprobado | El usuario guarda correctamente los datos válidos y recibe validación ante entradas inválidas. | El usuario pudo guardar cambios válidos en su perfil y recibió validación al ingresar datos inválidos. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-06-01_1.jpeg`, `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-06-01_2.jpeg` |
+| **CA-ACP-07** | MOD-02 | `/explore` | Aprobado | El usuario visualiza correctamente el catálogo base de proyectos. | El usuario ingresó a exploración y visualizó el catálogo general de proyectos. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-07-01.png` |
+| **CA-ACP-08** | MOD-02 | `/explore` | Aprobado | El usuario visualiza solo proyectos en estado `Activo`. | El usuario aplicó el filtro y visualizó únicamente proyectos activos. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-08-01.png` |
+| **CA-ACP-09** | MOD-02 | `/explore` | Aprobado | El usuario obtiene resultados acordes con la combinación aplicada o una vista vacía controlada. | El usuario combinó filtros y obtuvo resultados coherentes con la selección realizada, incluyendo el caso sin coincidencias. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-09-01.png` |
+| **CA-ACP-10** | MOD-02 | `/explore` | Aprobado | El usuario obtiene resultados para búsquedas válidas y mensajes controlados ante entradas inválidas. | El usuario realizó búsquedas válidas e ingresó entradas no válidas sin afectar la estabilidad de la interfaz. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-10_1.jpeg`, `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-10-01_2.jpeg` |
+| **CA-ACP-11** | MOD-02 | `/explore`, `/projects/:id` | Aprobado | El proyecto privado permanece oculto para quien no tiene permiso y visible para quien sí lo posee. | El usuario no autorizado no pudo visualizar el proyecto privado y el usuario autorizado sí pudo acceder a él. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-11-01_1.jpeg`, `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-11-01_2.jpeg` |
+| **CA-ACP-12** | MOD-03 | `/projects/:id/tasks` -> `/projects/:id/map?editor=ID` | Aprobado | El usuario puede iniciar el mapeo de una tarea disponible y acceder al editor `iD`. | El usuario seleccionó una tarea disponible e inició correctamente el mapeo en el editor `iD`. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-12-01.png` |
+| **CA-ACP-13** | MOD-03 | `/projects/:id/map?editor=JOSM` | Aprobado | El usuario recibe una notificación sobre la indisponibilidad de `JOSM` y conserva el flujo iniciado. | El usuario fue informado de la indisponibilidad de `JOSM` sin perder el contexto de la tarea. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-13-01.png` |
+| **CA-ACP-14** | MOD-03 | `/projects/:id/tasks` -> `/projects/:id/map` | Rechazado | El usuario no puede iniciar el mapeo hasta aceptar la licencia correspondiente. | El usuario pudo avanzar en el flujo de mapeo sin que el bloqueo preventivo por licencia se aplicara correctamente. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-14-01.png` |
+| **CA-ACP-15** | MOD-03 | `/projects/:id/tasks` | Aprobado | El usuario no puede bloquear la tarea cuando no cumple las reglas de negocio definidas. | El usuario no pudo bloquear tareas en escenarios con concurrencia, estado inválido o permisos insuficientes. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-15-01.png` |
+| **CA-ACP-16** | MOD-03 | `/projects/:id/map` | Aprobado | La tarea queda registrada como completada después de que el usuario la finaliza. | El usuario finalizó la tarea y esta quedó registrada como completada. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-16-01.png` |
+| **CA-ACP-17** | MOD-03 | `/projects/:id/map` | Aprobado | La tarea vuelve a estar disponible después de que el usuario la libera sin completarla. | El usuario liberó la tarea sin completarla y esta volvió a quedar disponible. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-17-01.png` |
+| **CA-ACP-18** | MOD-03 | `/projects/:id/tasks` | Aprobado | El usuario no visualiza controles de envío cuando no puede finalizar la tarea. | El usuario no visualizó la opción `Submit Task` en contextos no válidos para finalizar la tarea. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-18-01.png` |
+| **CA-ACP-19** | MOD-03 | `/projects/:id/tasks`, `/projects/:id/map` | Aprobado | La opción de dividir tarea solo está disponible cuando el contexto lo permite. | El usuario solo pudo visualizar y usar la división de tarea en un contexto válido. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-19-01.png` |
+| **CA-ACP-20** | MOD-03 | `/projects/:id/map` | Aprobado | El usuario puede extender o liberar la sesión solo cuando el contexto correspondiente lo permite. | El usuario pudo extender o liberar la sesión de mapeo únicamente en los contextos permitidos. | `/tests-docs/03-ejecucion-de-pruebas/aceptacion/img/CA-ACP-20-01.png` |
 
 ## 3. Conclusión final
 
