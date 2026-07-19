@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
   <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
@@ -68,27 +68,31 @@ A través de esta suite automatizada, el proyecto actualmente previene y mitiga 
 
 ### 1.4. Identificación de Vacíos y Estrategia de Expansión
 
-A pesar de la solidez técnica evidenciada en las pruebas del servicio de organizaciones, el análisis holístico del módulo revela áreas funcionales con baja cobertura. Actualmente, el repositorio exhibe una sólida cobertura sobre los "caminos felices" (Happy Paths) y la validación básica de roles. No obstante, existe un vacío documental y procedimental respecto a escenarios transaccionales límite.
+El análisis holístico derivado de la ejecución (que reveló una cobertura global del 52% en la capa Core) expone deficiencias críticas en la evaluación de escenarios límite, el manejo de excepciones de base de datos y la seguridad a nivel funcional.
 
-La estrategia a implementar por los Test Designers en la próxima iteración consistirá en aplicar técnicas de diseño de caja negra, como el Análisis de Valores Límite, sobre los algoritmos de división geométrica en el `project_service.py` y técnicas de Tabla de Decisiones para los estados de transición en `mapping_service.py` y `validator_service.py`. Estas pruebas serán especificadas funcionalmente en esta Wiki para que los desarrolladores las implementen posteriormente utilizando TDD.
+La estrategia de expansión adoptada consistirá en inyectar fallos transaccionales (simulando excepciones como `IntegrityError` mediante Mocks) y aserciones de control de roles (captura de errores `403 Forbidden` / `AuthorizationError`). Se aplicarán técnicas de partición de equivalencia y tablas de decisiones para garantizar que componentes como `project_search_service.py` (filtros dinámicos) y `team_service.py` (jerarquías) validen las reglas de negocio en su totalidad, mitigando vulnerabilidades críticas como el *Broken Access Control*.
 
 ## 2. Condiciones de Prueba (TD2) y Cobertura (TD3)
 
-A partir del análisis funcional, se establecen las siguientes condiciones lógicas transversales que deberán ser garantizadas por los scripts de prueba a lo largo del ciclo de vida del módulo.
+A partir del análisis funcional y la revisión de cobertura, se establecen las siguientes condiciones lógicas transversales que deberán ser garantizadas por los scripts de prueba.
 
 | ID Condición | Funcionalidad Core a Evaluar | Técnica ISO 29119-4 Aplicable |
 | :--- | :--- | :--- |
 | COND-CORE-01 | Visualización de organizaciones limitada al rol de *Manager* frente a rol *Admin*. | Tabla de Decisiones |
 | COND-CORE-02 | Captura controlada de excepciones al consultar entidades inexistentes. | Partición de Equivalencia |
 | COND-CORE-03 | Prevención de bloqueos simultáneos sobre una misma tarea cartográfica (Concurrencia). | Casos de Uso / Diagrama de Transición de Estados |
+| COND-CORE-04 | Validación combinada de filtros dinámicos en búsquedas de proyectos. | Partición de Equivalencia |
+| COND-CORE-05 | Aislamiento y denegación de privilegios no autorizados en jerarquías y modificaciones. | Tabla de Decisiones |
+| COND-CORE-06 | Rollback seguro ante fallos transaccionales en base de datos. | Transición de Estados / Partición |
+| COND-CORE-07 | Integridad referencial ante intento de eliminación de entidades acopladas (borrado físico). | Análisis de Valores Límite |
 
 ## 3. Casos de Prueba (TD4 y TD6)
 
-La siguiente sección registra la trazabilidad de los casos de prueba que ya han sido desarrollados en el código fuente, validando las condiciones analizadas previamente. El diseño exhaustivo de los casos límite faltantes se ejecutará en las siguientes semanas del cronograma funcional.
+La siguiente sección registra la trazabilidad de los casos de prueba implementados y por implementar, asegurando que las nuevas especificaciones impacten directamente en la robustez y cobertura de los componentes del módulo.
 
 ### 3.1. Pruebas Implementadas Existentes (Test Scripts)
 
-El siguiente registro asegura que los esfuerzos de desarrollo actuales posean un respaldo funcional documentado, permitiendo conectar el requisito de negocio con el comportamiento automatizado.
+El siguiente registro asegura que los esfuerzos de desarrollo actuales (línea base) posean un respaldo funcional documentado.
 
 | ID Caso | ID Condición | Comportamiento Esperado y Validado | Componente Automatizado | Estado |
 | :--- | :--- | :--- | :--- | :--- |
@@ -98,20 +102,26 @@ El siguiente registro asegura que los esfuerzos de desarrollo actuales posean un
 
 ### 3.2. Brechas Funcionales (Nuevas Pruebas a Implementar)
 
-A continuación, se documentan las brechas identificadas que requieren ser priorizadas en las próximas asignaciones de TDD.
+A continuación, se documentan los nuevos escenarios diseñados para subsanar los vacíos de cobertura identificados (incremento esperado del 52% al >85%). Estas pruebas guiarán las futuras iteraciones de TDD y priorizan las nuevas suites identificadas.
 
-| ID Caso | ID Condición | Descripción de la Restricción Lógica | Resultado Esperado | Estado QA |
-| :--- | :--- | :--- | :--- | :--- |
-| TC-TSK-001 | COND-CORE-03 | Mapeador intenta bloquear una tarea que fue bloqueada hace menos de 1 segundo por otro usuario. | Excepción `TaskAlreadyLocked` | Pendiente TDD |
-| TC-PRJ-001 | N/A | Administrador intenta crear un proyecto de mapeo sin definir un polígono GeoJSON válido. | Error de validación de entidad (400) | Pendiente TDD |
+| ID Caso | ID Condición | Componente Evaluado | Comportamiento y Justificación (Propósito) | Resultado Esperado | Estado |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| TC-TSK-001 | COND-CORE-03 | `mapping_service.py` | **Concurrencia:** Mapeador intenta bloquear una tarea bloqueada hace menos de 1 segundo. Justificación: Prevención de Race Conditions en el mapeo activo. | Excepción `TaskAlreadyLocked` | Pendiente TDD |
+| TC-PRJ-001 | N/A | `project_service.py` | **Geometría:** Crear proyecto de mapeo sin polígono GeoJSON válido. Justificación: Salvaguardar integridad de datos PostGIS. | Error 400 (Invalid GeoJSON) | Pendiente TDD |
+| TC-SRC-001 | COND-CORE-04 | `project_search_service.py` | **Filtros Múltiples:** Construcción dinámica de consulta usando combinaciones de nivel, rol y texto. Justificación: Cubrir las ramas `if` de los queries dinámicos. | Lista filtrada de DTOs | Pendiente TDD |
+| TC-SRC-002 | COND-CORE-04 | `project_search_service.py` | **Filtros Inválidos:** Inyección de parámetros de búsqueda corruptos o inexistentes. Justificación: Validación de entradas y prevención de caídas HTTP 500. | Colección vacía controlada | Pendiente TDD |
+| TC-TEA-001 | COND-CORE-05 | `team_service.py` | **Broken Access Control:** Usuario sin rol intenta añadir miembros a un equipo ajeno. Justificación: Forzar el control de roles RBAC en jerarquías críticas. | Excepción `403 Forbidden` | Pendiente TDD |
+| TC-TEA-002 | COND-CORE-07 | `team_service.py` | **Integridad Relacional:** Borrado físico de un equipo vinculado a proyectos en ejecución. Justificación: Asegurar desconexión de relaciones Many-to-Many. | Retorno seguro / Modificación | Pendiente TDD |
+| TC-VAL-001 | COND-CORE-06 | `validator_service.py` | **Rollback Seguro:** Inyección de `IntegrityError` (Mock) durante la validación masiva. Justificación: Confirmar propiedad ACID de las transacciones (ejecución del bloque except). | Excepción controlada (Rollback) | Pendiente TDD |
+| TC-ADM-001 | COND-CORE-07 | `project_admin_service.py` | **Borrado Temerario:** Intento de eliminación (`delete`) de un proyecto con tareas ya mapeadas. Justificación: Probar protección de dependencias foráneas. | Excepción de Restricción | Pendiente TDD |
+| TC-PRJ-002 | COND-CORE-05 | `project_service.py` | **Mutación No Autorizada:** Modificación de metadatos de un proyecto de mapeo sin privilegios de Manager. Justificación: Seguridad a nivel de controlador. | Excepción `403 Forbidden` | Pendiente TDD |
+
+*(Nota: Las nuevas suites automatizadas como `test_project_search_service.py`, `test_team_service.py` y `test_project_admin_service.py` adoptarán estos escenarios como objetivo central durante su expansión).*
 
 ## 4. Métricas Base de Cobertura de Diseño
 
-*Nota: Estas métricas reflejan únicamente la porción auditada del servicio de organizaciones y evolucionarán a medida que los Test Analysts completen el mapeo del servicio de tareas y proyectos.*
+*Nota: Estas métricas reflejan la línea base identificada más el conjunto de expansiones requeridas.*
 
-*   Total de Elementos de Cobertura Identificados (T): 5 (Casos TC-ORG-001 al TC-PRJ-001)
+*   Total de Elementos de Cobertura Identificados (T): 12 (Casos automatizados + nuevos diseños)
 *   Total de Elementos Ejecutados/Automatizados (N): 3 (Casos ORG)
-*   Cobertura de Diseño Inicial ($N/T * 100\%$): 60%
-
-
-
+*   Cobertura de Diseño Inicial ($N/T * 100\%$): 25% (Refleja la madurez documentada al término de la fase analítica).
