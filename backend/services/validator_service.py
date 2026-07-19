@@ -120,18 +120,19 @@ class ValidatorService:
 
         # Lock all tasks for validation
         dtos = []
-        for task in tasks_to_lock:
-            await Task.lock_task_for_validating(
-                task.id, validation_dto.project_id, validation_dto.user_id, db
-            )
-            dtos.append(
-                await Task.as_dto_with_instructions(
-                    task.id,
-                    validation_dto.project_id,
-                    db,
-                    validation_dto.preferred_locale,
+        async with db.transaction():
+            for task in tasks_to_lock:
+                await Task.lock_task_for_validating(
+                    task.id, validation_dto.project_id, validation_dto.user_id, db
                 )
-            )
+                dtos.append(
+                    await Task.as_dto_with_instructions(
+                        task.id,
+                        validation_dto.project_id,
+                        db,
+                        validation_dto.preferred_locale,
+                    )
+                )
         task_dtos = TaskDTOs()
         task_dtos.tasks = dtos
 
