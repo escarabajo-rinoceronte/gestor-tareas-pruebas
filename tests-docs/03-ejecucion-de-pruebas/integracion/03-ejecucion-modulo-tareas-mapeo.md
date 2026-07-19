@@ -1,16 +1,33 @@
-# Reporte de Ejecución de Pruebas: Módulo de Tareas, Mapeo y Validación (Mapping & Validation)
-
-Este documento registra el proceso de ejecución y la evolución de la cobertura de las pruebas de integración correspondientes al módulo de Tareas y Mapeo, estructurado conforme a las prácticas de documentación técnica. El reporte detalla la medición del estado base, las iteraciones de ampliación de casos de prueba y los resultados de cobertura en su fase final.
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Reporte de EjecuciÃ³n de Pruebas: MÃ³dulo de Tareas, Mapeo y ValidaciÃ³n (Mapping & Validation) <br>
+  <b>Fecha de Elaboración:</b> 15/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
 
 ---
 
-## 1. Fase Inicial: Medición del Estado Base
+# Reporte de EjecuciÃ³n de Pruebas: MÃ³dulo de Tareas, Mapeo y ValidaciÃ³n (Mapping & Validation)
 
-### 1.1. Alcance de la ejecución
+Este documento registra el proceso de ejecuciÃ³n y la evoluciÃ³n de la cobertura de las pruebas de integraciÃ³n correspondientes al mÃ³dulo de Tareas y Mapeo, estructurado conforme a las prÃ¡cticas de documentaciÃ³n tÃ©cnica. El reporte detalla la mediciÃ³n del estado base, las iteraciones de ampliaciÃ³n de casos de prueba y los resultados de cobertura en su fase final.
 
-La evaluación inicial se focalizó sobre el código fuente operativo del dominio de **Mapping & Validation**. Se ejecutaron 13 suites de pruebas de integración, aislando el análisis sobre los componentes: servicios de tareas, controladores HTTP, modelo ORM (PostGIS) y los objetos de transferencia de datos (DTOs) involucrados en el módulo.
+---
 
-### 1.2. Procedimiento de Ejecución (Fase Inicial)
+## 1. Fase Inicial: MediciÃ³n del Estado Base
+
+### 1.1. Alcance de la ejecuciÃ³n
+
+La evaluaciÃ³n inicial se focalizÃ³ sobre el cÃ³digo fuente operativo del dominio de **Mapping & Validation**. Se ejecutaron 13 suites de pruebas de integraciÃ³n, aislando el anÃ¡lisis sobre los componentes: servicios de tareas, controladores HTTP, modelo ORM (PostGIS) y los objetos de transferencia de datos (DTOs) involucrados en el mÃ³dulo.
+
+### 1.2. Procedimiento de EjecuciÃ³n (Fase Inicial)
 
 Para recopilar la cobertura base, se ejecutaron las pruebas con el siguiente comando en el entorno de contenedores:
 
@@ -18,7 +35,7 @@ Para recopilar la cobertura base, se ejecutaron las pruebas con el siguiente com
 docker compose exec -T tm-backend coverage run -m pytest tests/api/integration/services/test_mapping_service.py tests/api/integration/services/test_validation_service.py tests/api/integration/services/grid/test_split_service.py tests/api/integration/api/tasks/ tests/api/integration/api/projects/test_activities.py tests/api/integration/api/projects/test_contributions.py tests/api/integration/api/users/test_tasks.py tests/api/integration/api/users/test_resources.py tests/api/integration/api/users/test_statistics.py tests/api/integration/api/projects/test_statistics.py tests/api/integration/api/system/test_statistics.py -p no:warnings
 ```
 
-Y para la generación del reporte técnico acotado al módulo:
+Y para la generaciÃ³n del reporte tÃ©cnico acotado al mÃ³dulo:
 
 ```sh
 docker compose exec -T tm-backend coverage report -m --include="backend/api/tasks/*.py,backend/services/mapping_service.py,backend/services/validator_service.py,backend/services/grid/split_service.py,backend/models/postgis/task.py,backend/models/dtos/mapping_dto.py,backend/models/dtos/validator_dto.py,backend/models/dtos/grid_dto.py"
@@ -39,86 +56,86 @@ tests/api/integration/api/tasks/test_resources.py .................      [ 59%]
 ======================== 185 passed in 67.51s (0:01:07) ========================
 ```
 
-### 1.3. Resultados de ejecución y cobertura base
+### 1.3. Resultados de ejecuciÃ³n y cobertura base
 
-| Métrica | Resultado |
+| MÃ©trica | Resultado |
 | :--- | :--- |
-| Módulo evaluado | Mapping & Validation (Tareas) |
-| Nivel de pruebas | Integración |
+| MÃ³dulo evaluado | Mapping & Validation (Tareas) |
+| Nivel de pruebas | IntegraciÃ³n |
 | Pruebas ejecutadas | 185 |
 | Pruebas fallidas | 0 |
 | Componentes evaluados | 11 archivos |
-| Líneas ejecutables totales | 1766 |
-| Líneas no cubiertas | 361 |
+| LÃ­neas ejecutables totales | 1766 |
+| LÃ­neas no cubiertas | 361 |
 | Cobertura de sentencias | 80% |
-| Tiempo de ejecución | 67.51 s |
+| Tiempo de ejecuciÃ³n | 67.51 s |
 
 ### 1.4. Cobertura por componente (Estado Inicial)
 
-| Componente | Stmts | Miss | Cover | Observación Técnica |
+| Componente | Stmts | Miss | Cover | ObservaciÃ³n TÃ©cnica |
 | :--- | ---: | ---: | ---: | :--- |
-| `backend/api/tasks/__init__.py` | 0 | 0 | 100% | Inicialización del módulo, sin lógica. |
-| `backend/api/tasks/actions.py` | 251 | 69 | 73% | Carencia de validación en bifurcaciones de error. |
-| `backend/api/tasks/resources.py` | 109 | 46 | 58% | Ausencia de comprobaciones en filtros y parámetros HTTP. |
-| `backend/api/tasks/statistics.py` | 24 | 0 | 100% | Validación integral confirmada. |
-| `backend/models/dtos/grid_dto.py` | 14 | 0 | 100% | Validación integral confirmada. |
+| `backend/api/tasks/__init__.py` | 0 | 0 | 100% | InicializaciÃ³n del mÃ³dulo, sin lÃ³gica. |
+| `backend/api/tasks/actions.py` | 251 | 69 | 73% | Carencia de validaciÃ³n en bifurcaciones de error. |
+| `backend/api/tasks/resources.py` | 109 | 46 | 58% | Ausencia de comprobaciones en filtros y parÃ¡metros HTTP. |
+| `backend/api/tasks/statistics.py` | 24 | 0 | 100% | ValidaciÃ³n integral confirmada. |
+| `backend/models/dtos/grid_dto.py` | 14 | 0 | 100% | ValidaciÃ³n integral confirmada. |
 | `backend/models/dtos/mapping_dto.py` | 85 | 7 | 92% | Cobertura alta en transformaciones de entrada. |
-| `backend/models/dtos/validator_dto.py` | 126 | 27 | 79% | Casos de excepción de validación omitidos. |
-| `backend/models/postgis/task.py` | 604 | 161 | 73% | Trazabilidad histórica (TaskHistory) parcialmente evaluada. |
-| `backend/services/grid/split_service.py` | 129 | 1 | 99% | Validación matemática geoespacial verificada. |
-| `backend/services/mapping_service.py` | 215 | 18 | 92% | Cobertura sólida en manejo transaccional. |
-| `backend/services/validator_service.py` | 209 | 32 | 85% | Validación de estado operativo confirmada. |
+| `backend/models/dtos/validator_dto.py` | 126 | 27 | 79% | Casos de excepciÃ³n de validaciÃ³n omitidos. |
+| `backend/models/postgis/task.py` | 604 | 161 | 73% | Trazabilidad histÃ³rica (TaskHistory) parcialmente evaluada. |
+| `backend/services/grid/split_service.py` | 129 | 1 | 99% | ValidaciÃ³n matemÃ¡tica geoespacial verificada. |
+| `backend/services/mapping_service.py` | 215 | 18 | 92% | Cobertura sÃ³lida en manejo transaccional. |
+| `backend/services/validator_service.py` | 209 | 32 | 85% | ValidaciÃ³n de estado operativo confirmada. |
 
-### 1.5. Interpretación técnica
+### 1.5. InterpretaciÃ³n tÃ©cnica
 
-El análisis del estado base evidenció una cobertura estable en la capa de servicios, contrastando con varianzas significativas en la capa de exposición (controladores HTTP). Los componentes `backend/api/tasks/resources.py` y `actions.py` presentaban áreas de ejecución omitidas en relación a peticiones mal formadas y restricciones de autorización. Con base en este diagnóstico, se determinó la factibilidad técnica de ampliar los escenarios de prueba.
+El anÃ¡lisis del estado base evidenciÃ³ una cobertura estable en la capa de servicios, contrastando con varianzas significativas en la capa de exposiciÃ³n (controladores HTTP). Los componentes `backend/api/tasks/resources.py` y `actions.py` presentaban Ã¡reas de ejecuciÃ³n omitidas en relaciÃ³n a peticiones mal formadas y restricciones de autorizaciÃ³n. Con base en este diagnÃ³stico, se determinÃ³ la factibilidad tÃ©cnica de ampliar los escenarios de prueba.
 
 ---
 
-## 2. Fase Intermedia: Ampliación de Escenarios de Prueba
+## 2. Fase Intermedia: AmpliaciÃ³n de Escenarios de Prueba
 
-A partir de los resultados iniciales, se integraron nuevos casos de prueba orientados a operaciones funcionales complejas, flujos masivos y gestión de auditorías.
+A partir de los resultados iniciales, se integraron nuevos casos de prueba orientados a operaciones funcionales complejas, flujos masivos y gestiÃ³n de auditorÃ­as.
 
 ### 2.1. Escenarios incorporados e incidentes detectados
 
-- **Adición de `test_bulk_actions.py`**: Suites enfocadas en procesamiento masivo (`map-all`, `validate-all`, `invalidate-all`, `reset-all`). Su ejecución amplió la trazabilidad de sentencias en el componente `actions.py`.
-- **Adición de `test_reversions.py`**: Pruebas dirigidas a flujos de control inverso (reversiones de tareas) y extensiones de vida útil de bloqueos de base de datos.
-- **Auditoría en `test_resources.py`**: Se agregaron aserciones sobre endpoints de consulta. Durante esta ejecución se detectó un incidente de control de acceso defectuoso en `get_invalidated_tasks`. La incidencia fue documentada y subsanada, restableciendo las políticas de seguridad en la lectura de historiales.
+- **AdiciÃ³n de `test_bulk_actions.py`**: Suites enfocadas en procesamiento masivo (`map-all`, `validate-all`, `invalidate-all`, `reset-all`). Su ejecuciÃ³n ampliÃ³ la trazabilidad de sentencias en el componente `actions.py`.
+- **AdiciÃ³n de `test_reversions.py`**: Pruebas dirigidas a flujos de control inverso (reversiones de tareas) y extensiones de vida Ãºtil de bloqueos de base de datos.
+- **AuditorÃ­a en `test_resources.py`**: Se agregaron aserciones sobre endpoints de consulta. Durante esta ejecuciÃ³n se detectÃ³ un incidente de control de acceso defectuoso en `get_invalidated_tasks`. La incidencia fue documentada y subsanada, restableciendo las polÃ­ticas de seguridad en la lectura de historiales.
 
-### 2.2. Resultados de ejecución (Fase Intermedia)
+### 2.2. Resultados de ejecuciÃ³n (Fase Intermedia)
 
-| Métrica | Resultado |
+| MÃ©trica | Resultado |
 | :--- | :--- |
-| Módulo evaluado | Mapping & Validation (Tareas) |
-| Nivel de pruebas | Integración |
+| MÃ³dulo evaluado | Mapping & Validation (Tareas) |
+| Nivel de pruebas | IntegraciÃ³n |
 | Pruebas ejecutadas | 206 (+21) |
 | Pruebas fallidas | 0 |
-| Líneas ejecutables totales | 1798 |
-| Líneas no cubiertas | 283 |
+| LÃ­neas ejecutables totales | 1798 |
+| LÃ­neas no cubiertas | 283 |
 | Cobertura de sentencias | 84% (+4%) |
-| Tiempo de ejecución | 78.71 s |
+| Tiempo de ejecuciÃ³n | 78.71 s |
 
 ---
 
-## 3. Fase Final: Resolución ASGI e Intersecciones Geoespaciales
+## 3. Fase Final: ResoluciÃ³n ASGI e Intersecciones Geoespaciales
 
-Las pruebas finales se diseñaron para abarcar flujos de eliminación estructurada, peticiones complejas con formatos cartográficos y la estabilidad del pipeline asíncrono.
+Las pruebas finales se diseÃ±aron para abarcar flujos de eliminaciÃ³n estructurada, peticiones complejas con formatos cartogrÃ¡ficos y la estabilidad del pipeline asÃ­ncrono.
 
-### 3.1. Escenarios finales y refactorización técnica
+### 3.1. Escenarios finales y refactorizaciÃ³n tÃ©cnica
 
-- **Verificación de eliminación (`TestDeleteTasksAPI`)**: Se implementaron aserciones sobre `DELETE /api/v2/projects/{project_id}/tasks/`, verificando el comportamiento del sistema ante fallos de autorización y discrepancias en la estructura de datos (JSON schemas).
-- **Consultas espaciales (`TestGridIntersectingAPI`)**: Se validó el procesamiento del payload GeoJSON para la intersección de cuadrículas en `PUT /api/v2/projects/{project_id}/tasks/queries/aoi/`.
-- **Mitigación de bloqueos asíncronos**: Durante la ejecución de los nuevos endpoints transaccionales, se presentó el error técnico `TypeError("'coroutine' object is not iterable")` en el proceso de serialización ASGI (FastAPI). El análisis determinó que decoradores de seguridad personalizados (como `@tm.pm_only()`) no procesaban correctamente firmas `async def`. El fallo fue parcheado refactorizando la inspección de corrutinas en `backend/api/utils.py`, lo que restableció la integridad de la API.
+- **VerificaciÃ³n de eliminaciÃ³n (`TestDeleteTasksAPI`)**: Se implementaron aserciones sobre `DELETE /api/v2/projects/{project_id}/tasks/`, verificando el comportamiento del sistema ante fallos de autorizaciÃ³n y discrepancias en la estructura de datos (JSON schemas).
+- **Consultas espaciales (`TestGridIntersectingAPI`)**: Se validÃ³ el procesamiento del payload GeoJSON para la intersecciÃ³n de cuadrÃ­culas en `PUT /api/v2/projects/{project_id}/tasks/queries/aoi/`.
+- **MitigaciÃ³n de bloqueos asÃ­ncronos**: Durante la ejecuciÃ³n de los nuevos endpoints transaccionales, se presentÃ³ el error tÃ©cnico `TypeError("'coroutine' object is not iterable")` en el proceso de serializaciÃ³n ASGI (FastAPI). El anÃ¡lisis determinÃ³ que decoradores de seguridad personalizados (como `@tm.pm_only()`) no procesaban correctamente firmas `async def`. El fallo fue parcheado refactorizando la inspecciÃ³n de corrutinas en `backend/api/utils.py`, lo que restableciÃ³ la integridad de la API.
 
-### 3.2. Procedimiento de Ejecución y Evidencia (Fase Final)
+### 3.2. Procedimiento de EjecuciÃ³n y Evidencia (Fase Final)
 
-La ejecución final se llevó a cabo conservando los parámetros de integración (omitiendo warnings y activando la cobertura detallada):
+La ejecuciÃ³n final se llevÃ³ a cabo conservando los parÃ¡metros de integraciÃ³n (omitiendo warnings y activando la cobertura detallada):
 
 ```sh
 docker compose exec -T tm-backend coverage run -m pytest tests/api/integration/services/test_mapping_service.py tests/api/integration/services/test_validation_service.py tests/api/integration/services/grid/test_split_service.py tests/api/integration/api/tasks/ tests/api/integration/api/projects/test_activities.py tests/api/integration/api/projects/test_contributions.py tests/api/integration/api/users/test_tasks.py tests/api/integration/api/users/test_resources.py tests/api/integration/api/users/test_statistics.py tests/api/integration/api/projects/test_statistics.py tests/api/integration/api/system/test_statistics.py -p no:warnings -q
 ```
 
-Generación del reporte final:
+GeneraciÃ³n del reporte final:
 
 ```sh
 docker compose exec -T tm-backend coverage report -m --include="backend/api/tasks/*.py,backend/services/mapping_service.py,backend/services/validator_service.py,backend/services/grid/split_service.py,backend/models/postgis/task.py,backend/models/dtos/mapping_dto.py,backend/models/dtos/validator_dto.py,backend/models/dtos/grid_dto.py"
@@ -149,23 +166,23 @@ backend/services/validator_service.py      233     16    93%   117-138, 153, 404
 TOTAL                                     1800    262    85%
 ```
 
-### 3.3. Resultados de ejecución (Final)
+### 3.3. Resultados de ejecuciÃ³n (Final)
 
-| Métrica | Resultado | Variación Total (Vs. Inicial) |
+| MÃ©trica | Resultado | VariaciÃ³n Total (Vs. Inicial) |
 | :--- | :--- | :--- |
-| Módulo evaluado | Mapping & Validation (Tareas) | - |
-| Nivel de pruebas | Integración | - |
+| MÃ³dulo evaluado | Mapping & Validation (Tareas) | - |
+| Nivel de pruebas | IntegraciÃ³n | - |
 | Pruebas ejecutadas | 240 | +55 pruebas ejecutadas |
 | Pruebas fallidas | 0 | - |
 | Componentes evaluados | 11 archivos | - |
-| Líneas ejecutables totales | 1800 | +34 líneas modificadas/añadidas |
-| Líneas no cubiertas | 262 | -99 líneas residuales cubiertas |
+| LÃ­neas ejecutables totales | 1800 | +34 lÃ­neas modificadas/aÃ±adidas |
+| LÃ­neas no cubiertas | 262 | -99 lÃ­neas residuales cubiertas |
 | Cobertura de sentencias | 85% | +5% cobertura global |
-| Tiempo de ejecución | 70.42 s | Mantenido estable |
+| Tiempo de ejecuciÃ³n | 70.42 s | Mantenido estable |
 
 ### 3.4. Cobertura por componente (Final)
 
-| Componente | Stmts | Miss | Cover | Variación de Cobertura |
+| Componente | Stmts | Miss | Cover | VariaciÃ³n de Cobertura |
 | :--- | ---: | ---: | ---: | :--- |
 | `backend/api/tasks/__init__.py` | 0 | 0 | 100% | 0% |
 | `backend/api/tasks/actions.py` | 251 | 24 | 90% | +17% |
@@ -182,13 +199,16 @@ TOTAL                                     1800    262    85%
 
 ---
 
-## 4. Conclusiones Técnicas de la Ejecución
+## 4. Conclusiones TÃ©cnicas de la EjecuciÃ³n
 
-La iteración sobre los casos de prueba resultó en la adición de 55 escenarios funcionales. Se verificó el funcionamiento correcto de las transacciones de mapeo, manejo de polígonos y control de acceso.
+La iteraciÃ³n sobre los casos de prueba resultÃ³ en la adiciÃ³n de 55 escenarios funcionales. Se verificÃ³ el funcionamiento correcto de las transacciones de mapeo, manejo de polÃ­gonos y control de acceso.
 
-**Interpretación de la Evolución Técnica:**
-1. **Capa de Controladores:** La refactorización y adición de pruebas en la interfaz HTTP (`resources.py` y `actions.py`) resultó en incrementos de cobertura del 31% y 17% respectivamente, comprobando las respuestas del enrutador ante entradas anómalas.
-2. **Estabilidad Asíncrona:** La inyección de pruebas integrales permitió la detección de bloqueos de serialización ASGI. Tras las correcciones en los decoradores, el sistema maneja flujos asíncronos concurrentes de forma estable.
-3. **Lógica de Negocio:** Las pruebas confirmaron que los servicios núcleo operan según las especificaciones técnicas, cubriendo satisfactoriamente validaciones espaciales, transaccionales y de acceso.
+**InterpretaciÃ³n de la EvoluciÃ³n TÃ©cnica:**
+1. **Capa de Controladores:** La refactorizaciÃ³n y adiciÃ³n de pruebas en la interfaz HTTP (`resources.py` y `actions.py`) resultÃ³ en incrementos de cobertura del 31% y 17% respectivamente, comprobando las respuestas del enrutador ante entradas anÃ³malas.
+2. **Estabilidad AsÃ­ncrona:** La inyecciÃ³n de pruebas integrales permitiÃ³ la detecciÃ³n de bloqueos de serializaciÃ³n ASGI. Tras las correcciones en los decoradores, el sistema maneja flujos asÃ­ncronos concurrentes de forma estable.
+3. **LÃ³gica de Negocio:** Las pruebas confirmaron que los servicios nÃºcleo operan segÃºn las especificaciones tÃ©cnicas, cubriendo satisfactoriamente validaciones espaciales, transaccionales y de acceso.
 
-El módulo de Mapping & Validation cumple con los criterios técnicos requeridos, evidenciando resiliencia frente a manipulaciones anómalas y peticiones concurrentes.
+El mÃ³dulo de Mapping & Validation cumple con los criterios tÃ©cnicos requeridos, evidenciando resiliencia frente a manipulaciones anÃ³malas y peticiones concurrentes.
+
+
+
