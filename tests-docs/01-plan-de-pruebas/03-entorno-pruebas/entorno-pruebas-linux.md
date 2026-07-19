@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Guía de Configuración del Entorno de Desarrollo Local <br>
+  <b>Fecha de Elaboración:</b> 15/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Guía de Configuración del Entorno de Desarrollo Local
 
 ## 1. Requisitos Previos del Sistema
@@ -152,7 +169,7 @@ Instancia de PostgreSQL + PostGIS.
     docker compose logs -f tm-db
     ```
 
-### D. Comandos Globales Útiles
+### D. Comandos Globales Ãštiles
 *   **Ver estado de salud de todos los servicios:**
     ```bash
     docker compose ps
@@ -169,3 +186,6 @@ Instancia de PostgreSQL + PostGIS.
 1.  **Error de Conexión a la DB:** Si el backend falla al iniciar, verifique que `tm-migration` haya terminado exitosamente. A veces la DB tarda más en estar lista; Docker Compose tiene un `healthcheck` configurado para mitigar esto.
 2.  **Error de OAuth/Login:** Verifique que el `TM_APP_BASE_URL` en el archivo `.env` coincida exactamente con la URL que usa en el navegador (usualmente `http://127.0.0.1:3000`).
 3.  **Puertos ocupados:** Si el puerto 3000 está en uso por otra aplicación, cámbielo en el archivo `.env` mediante la variable `TM_DEV_PORT`.
+
+
+

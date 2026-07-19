@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Ejecución de casos de pruebas del MOD-03: Ejecución de Mapeo (Tasking) <br>
+  <b>Fecha de Elaboración:</b> 23/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Ejecución de casos de pruebas del MOD-03: Ejecución de Mapeo (Tasking)
 
 ## Resumen de Ejecución (Métricas)
@@ -416,3 +433,6 @@
 | Evidencia |
 | :-- |
 | Renderizado de máscara y advertencia visual<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-03-ejecucion-mapeado/CP-3005-04-guia-visual-permitida.png" width="800px" alt="CP-3005-04 - Creación de nodo en zona ensombrecida con advertencia"></a><br>Lienzo del editor mostrando un nodo recién creado en el exterior de los límites de la tarea, en coexistencia con el sombreado preventivo inyectado por el Tasking Manager. |
+
+
+

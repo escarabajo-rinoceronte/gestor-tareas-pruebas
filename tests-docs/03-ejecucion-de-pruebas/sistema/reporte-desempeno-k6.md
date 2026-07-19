@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Reporte de Ejecución: Pruebas de Sistema (Desempeño y Carga) <br>
+  <b>Fecha de Elaboración:</b> 19/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Reporte de Ejecución: Pruebas de Sistema (Desempeño y Carga)
 
 **Atributo de Calidad:** Desempeño y Carga (Performance Testing)
@@ -32,3 +49,6 @@ El desglose de códigos de respuesta demuestra un manejo de concurrencia impecab
 ## 4. Conclusión
 
 El sistema backend de Tasking Manager **soporta exitosamente 50 usuarios concurrentes** intentando bloquear tareas simultáneamente. Mantiene una tasa de error inferior al 0.1% y responde al 95% de las peticiones en menos de 1.8 segundos. Se da por **APROBADO** el Atributo 1 de Pruebas de Sistema (Desempeño y Carga).
+
+
+

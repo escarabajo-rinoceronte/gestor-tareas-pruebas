@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Informe de Ejecución y Análisis de Pruebas Unitarias - Core Module <br>
+  <b>Fecha de Elaboración:</b> 24/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Informe de Ejecución y Análisis de Pruebas Unitarias - Core Module
 
 ## 1. Resumen del Proceso Realizado
@@ -83,3 +100,6 @@ Se sugiere al equipo de desarrollo del backend revisar los siguientes hallazgos 
 
 ## 7. Conclusiones
 El proceso de testing ha sido exitoso en la **estabilización del entorno local** y en la **identificación de bugs críticos** que podrían haber afectado la integridad de los datos en producción. Con una cobertura consolidada del **86% en el Core Module**, el proyecto cuenta ahora con una base sólida para recibir nuevas funcionalidades. Se recomienda como próximo paso enfocarse en la cobertura de los controladores de la API (capa de recursos) para alcanzar el 85% de cobertura total en todo el repositorio.
+
+
+

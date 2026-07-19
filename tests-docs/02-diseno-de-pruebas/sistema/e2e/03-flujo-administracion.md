@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas E2E — Flujo de Administración / Crear Proyecto (Backend Real) <br>
+  <b>Fecha de Elaboración:</b> 17/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Diseño de Pruebas E2E — Flujo de Administración / Crear Proyecto (Backend Real)
 
 **Versión del Documento:** 1.0  
@@ -28,7 +45,7 @@ Este documento describe el diseño de la prueba End-to-End del flujo de administ
 | :--- | :--- |
 | **Flujo de trabajo** | Recorrer secuencialmente los 4 pasos del wizard (AOI, tamaño de tareas, recorte y revisión). |
 | **Partición de equivalencia** | AOI válido en formato GeoJSON; se descartan formatos inválidos y AOIs fuera de límites. |
-| **Análisis de valores límite** | AOI pequeño (≈1 km²) que genera una única tarea, acotando el tiempo de procesamiento. |
+| **Análisis de valores límite** | AOI pequeño (â‰ˆ1 kmÂ²) que genera una única tarea, acotando el tiempo de procesamiento. |
 
 ## 3. Características a probar
 
@@ -98,3 +115,6 @@ Este documento describe el diseño de la prueba End-to-End del flujo de administ
 - Requisito funcional: un administrador debe poder crear proyectos en el sistema.
 - Flujo de usuario automatizado: `frontend/e2e/flows/admin-create-project-flow.spec.js`.
 - Datos de prueba: `scripts/e2e-seed.py` y `frontend/e2e/fixtures/test-aoi.geojson`.
+
+
+

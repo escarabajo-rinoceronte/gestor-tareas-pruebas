@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Plan de Pruebas de Sistema <br>
+  <b>Fecha de Elaboración:</b> 03/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Plan de Pruebas de Sistema
 **Proyecto:** HOT OSM Tasking Manager
 **Versión del Documento:** 2.0
@@ -80,3 +97,6 @@ Evaluación focalizada en Inyecciones SQL (PostGIS), controles de acceso a nivel
 * **Diseños de Prueba:** Archivos detallados en `tests-docs/02-diseno-de-pruebas/sistema/`.
 * **Scripts Automatizados:** Configurados en el repositorio (`frontend/e2e`).
 * **Reportes de Ejecución:** Informes resultantes tras la integración en GitHub Actions (CI/CD).
+
+
+

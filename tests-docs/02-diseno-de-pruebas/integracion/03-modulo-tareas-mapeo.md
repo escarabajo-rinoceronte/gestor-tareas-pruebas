@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas de Integración: Módulo de Tareas, Mapeo y Validación <br>
+  <b>Fecha de Elaboración:</b> 03/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Diseño de Pruebas de Integración: Módulo de Tareas, Mapeo y Validación
 
 ## 1. Criterios de Selección y Alcance del Módulo
@@ -47,7 +64,7 @@ Se han modelado los siguientes escenarios lógicos de integración. Cada escenar
 ### INT-MAP-01: Bloqueo Transaccional Exitoso
 | Atributo | Especificación Técnica |
 | :--- | :--- |
-| **Interfaces Evaluadas** | HTTP Endpoint ➔ `MappingService` ➔ Base de Datos (ORM + SQL) |
+| **Interfaces Evaluadas** | HTTP Endpoint âž” `MappingService` âž” Base de Datos (ORM + SQL) |
 | **Precondiciones** | Proyecto publicado; tarea en estado `READY`; usuario con rol `MAPPER` autenticado. |
 | **Entrada Requerida** | Petición `POST` a `/lock-for-mapping/{task_id}` con token de sesión válido. |
 | **Criterios de Aceptación** | **1.** Respuesta HTTP 200 OK.<br>**2.** Transición de estado a `LOCKED_FOR_MAPPING` confirmada en PostGIS.<br>**3.** Registro de auditoría correctamente insertado en `task_history`. |
@@ -55,7 +72,7 @@ Se han modelado los siguientes escenarios lógicos de integración. Cada escenar
 ### INT-MAP-02: Gestión de Concurrencia (Race Condition)
 | Atributo | Especificación Técnica |
 | :--- | :--- |
-| **Interfaces Evaluadas** | HTTP Endpoint ➔ `MappingService` ➔ Transaccionalidad de Base de Datos |
+| **Interfaces Evaluadas** | HTTP Endpoint âž” `MappingService` âž” Transaccionalidad de Base de Datos |
 | **Precondiciones** | Tarea previamente bloqueada (estado `LOCKED_FOR_MAPPING`) por el Usuario A. |
 | **Entrada Requerida** | Petición concurrente `POST` a `/lock-for-mapping/{task_id}` originada por el Usuario B. |
 | **Criterios de Aceptación** | **1.** Respuesta de rechazo (HTTP 409 Conflict o 403 Forbidden).<br>**2.** Preservación del estado y asignación original en la base de datos.<br>**3.** Ausencia de anomalías en el historial de transacciones de la tarea. |
@@ -63,7 +80,7 @@ Se han modelado los siguientes escenarios lógicos de integración. Cada escenar
 ### INT-MAP-03: Subdivisión de Geometrías (Split)
 | Atributo | Especificación Técnica |
 | :--- | :--- |
-| **Interfaces Evaluadas** | HTTP Endpoint ➔ `SplitService` ➔ Motor Espacial PostGIS |
+| **Interfaces Evaluadas** | HTTP Endpoint âž” `SplitService` âž” Motor Espacial PostGIS |
 | **Precondiciones** | Tarea activa con un polígono geométrico que supera el umbral de área definido. |
 | **Entrada Requerida** | Petición `POST` a `/split/{task_id}`. |
 | **Criterios de Aceptación** | **1.** Respuesta HTTP 200 OK.<br>**2.** Inhabilitación de la tarea matriz original.<br>**3.** Creación en PostGIS de 4 nuevas tareas derivadas, con geometrías SRID 4326 cuya sumatoria de áreas equivale con exactitud al polígono de la tarea matriz. |
@@ -71,7 +88,7 @@ Se han modelado los siguientes escenarios lógicos de integración. Cada escenar
 ### INT-MAP-04: Exportación de Interfaz Externa JOSM (XML)
 | Atributo | Especificación Técnica |
 | :--- | :--- |
-| **Interfaces Evaluadas** | HTTP Endpoint ➔ `MappingService` ➔ Serializador XML |
+| **Interfaces Evaluadas** | HTTP Endpoint âž” `MappingService` âž” Serializador XML |
 | **Precondiciones** | Tarea con delimitación geográfica consolidada en la Base de Datos. |
 | **Entrada Requerida** | Petición `GET` solicitando los recursos cartográficos en formato XML. |
 | **Criterios de Aceptación** | **1.** Respuesta con cabecera `Content-Type: application/xml`.<br>**2.** Cumplimiento estricto del esquema de validación XML requerido por JOSM.<br>**3.** Concordancia exacta entre el atributo *Bounds* del XML y la geometría original de PostGIS. |
@@ -79,7 +96,7 @@ Se han modelado los siguientes escenarios lógicos de integración. Cada escenar
 ### INT-MAP-05: Ejecución de Operaciones Masivas (Bulk Actions)
 | Atributo | Especificación Técnica |
 | :--- | :--- |
-| **Interfaces Evaluadas** | HTTP Endpoint (`actions.py`) ➔ `ValidatorService` / `MappingService` ➔ Base de Datos |
+| **Interfaces Evaluadas** | HTTP Endpoint (`actions.py`) âž” `ValidatorService` / `MappingService` âž” Base de Datos |
 | **Precondiciones** | Proyecto publicado con múltiples tareas en estados transicionales. Usuario autenticado con privilegios de Administración o Gestión de Proyectos (PM). |
 | **Entrada Requerida** | Peticiones HTTP a los endpoints masivos (`map-all`, `validate-all`, `reset-all`). |
 | **Criterios de Aceptación** | **1.** Verificación estricta de permisos administrativos.<br>**2.** Mutación masiva exitosa del estado de todas las tareas elegibles.<br>**3.** Sincronización precisa de los contadores estadísticos maestros del proyecto. |
@@ -87,7 +104,7 @@ Se han modelado los siguientes escenarios lógicos de integración. Cada escenar
 ### INT-MAP-06: Mecanismos de Reversión y Control Temporal
 | Atributo | Especificación Técnica |
 | :--- | :--- |
-| **Interfaces Evaluadas** | HTTP Endpoint (`actions.py`) ➔ `ValidatorService` / `MappingService` ➔ Base de Datos |
+| **Interfaces Evaluadas** | HTTP Endpoint (`actions.py`) âž” `ValidatorService` / `MappingService` âž” Base de Datos |
 | **Precondiciones** | Existencia de tareas en estado de revisión, marcadas con imágenes defectuosas (`BADIMAGERY`), o con bloqueos próximos a caducar. |
 | **Entrada Requerida** | Peticiones HTTP para la extensión de bloqueos (`extend-lock-time`) o solicitudes administrativas de reversión de asignaciones de un usuario en particular (`revert-user-tasks`). |
 | **Criterios de Aceptación** | **1.** Para reversiones por calidad, retorno íntegro de las tareas al estado `READY`.<br>**2.** Para extensiones de tiempo, ampliación exitosa del margen transaccional garantizando la persistencia del bloqueo original sin interrupciones. |
@@ -95,7 +112,7 @@ Se han modelado los siguientes escenarios lógicos de integración. Cada escenar
 ### INT-MAP-07: Consultas de Auditoría e Historial Protegido
 | Atributo | Especificación Técnica |
 | :--- | :--- |
-| **Interfaces Evaluadas** | HTTP Endpoint (`resources.py`) ➔ `ValidatorService` ➔ SQLAlchemy |
+| **Interfaces Evaluadas** | HTTP Endpoint (`resources.py`) âž” `ValidatorService` âž” SQLAlchemy |
 | **Precondiciones** | Historial poblado de tareas mapeadas por un usuario y consecuentemente invalidadas por validadores. |
 | **Entrada Requerida** | Petición HTTP a `/queries/own/invalidated/` con provisión de cabecera `Authorization`. |
 | **Criterios de Aceptación** | **1.** Validación de identidad del token contra el usuario solicitado, emitiendo HTTP 401/403 en caso de discrepancia (protección de privacidad).<br>**2.** Ensamblaje correcto de la paginación y cruce de datos históricos retornando un DTO estructuralmente coherente. |
@@ -105,7 +122,7 @@ Se han modelado los siguientes escenarios lógicos de integración. Cada escenar
 ### INT-MAP-08: Gestión de Eliminación de Tareas
 | Atributo | Especificación Técnica |
 | :--- | :--- |
-| **Interfaces Evaluadas** | HTTP Endpoint (`resources.py`) ➔ `ProjectService` ➔ Base de Datos |
+| **Interfaces Evaluadas** | HTTP Endpoint (`resources.py`) âž” `ProjectService` âž” Base de Datos |
 | **Precondiciones** | Proyecto con tareas generadas; un usuario autenticado con credenciales de Administrador. |
 | **Entrada Requerida** | Petición `DELETE` a `/api/v2/projects/{project_id}/tasks/` incluyendo listado de IDs. |
 | **Criterios de Aceptación** | **1.** Restricción perimetral: rechazo total con código HTTP 403 para usuarios sin privilegios administrativos.<br>**2.** Validaciones estrictas del esquema JSON de entrada (rechazando estructuras ausentes o mal formadas).<br>**3.** Confirmación exitosa de la eliminación vía `ProjectService`. |
@@ -113,7 +130,7 @@ Se han modelado los siguientes escenarios lógicos de integración. Cada escenar
 ### INT-MAP-09: Intersección Geoespacial de Cuadrículas
 | Atributo | Especificación Técnica |
 | :--- | :--- |
-| **Interfaces Evaluadas** | HTTP Endpoint (`resources.py`) ➔ `GridService` |
+| **Interfaces Evaluadas** | HTTP Endpoint (`resources.py`) âž” `GridService` |
 | **Precondiciones** | Archivo GeoJSON válido especificando un polígono de área de interés (AOI). |
 | **Entrada Requerida** | Petición `PUT` a `/api/v2/projects/{project_id}/tasks/queries/aoi/` con los esquemas cartográficos. |
 | **Criterios de Aceptación** | **1.** Parseo y validación de tipos rigurosos usando los modelos de Pydantic (`GridDTO`).<br>**2.** Recorte (trimming) espacial exitoso retornando `FeatureCollection` válidos.<br>**3.** Aseguramiento de la serialización asíncrona de la API compatible con Starlette. |
@@ -146,3 +163,6 @@ El diseño de las pruebas para este módulo se ha regido por estándares riguros
 | **Operaciones Geométricas (`SplitService`)** | **Extremo (100%)** | Un fallo algorítmico en la subdivisión espacial provocaría una corrupción permanente de la topología cartográfica almacenada. |
 | **Operaciones Masivas (Bulk Actions)** | **Muy Alto (>90%)** | Dado su impacto sistémico, una falla inadvertida en este componente posee el potencial de invalidar miles de aportes comunitarios simultáneamente. |
 | **Lógica Transaccional (Locks / Estados)** | **Muy Alto (>90%)** | La precisión en los bloqueos es el mecanismo primario para evitar colisiones operativas y superposición de trabajos concurrentes sobre un mismo polígono territorial. |
+
+
+

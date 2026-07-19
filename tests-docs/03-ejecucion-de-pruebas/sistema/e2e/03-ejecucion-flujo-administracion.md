@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Ejecución de Casos de Prueba E2E — Flujo de Administración / Crear Proyecto (Backend Real) <br>
+  <b>Fecha de Elaboración:</b> 17/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Ejecución de Casos de Prueba E2E — Flujo de Administración / Crear Proyecto (Backend Real)
 
 **Versión del Documento:** 1.0  
@@ -84,7 +101,7 @@ E2E_BACKEND=real yarn test:e2e --grep "Flujo de Administración"
 
 | ID | Descripción | Tipo | Estado | Defectos |
 | :--- | :--- | :--- | :--- | :--- |
-| **CP-E2E-ADM-001** | Validar el flujo completo de creación de proyecto con backend real: login → panel manage → wizard de creación → guardar borrador. | Automatizado | Exitoso | Ninguno |
+| **CP-E2E-ADM-001** | Validar el flujo completo de creación de proyecto con backend real: login â†’ panel manage â†’ wizard de creación â†’ guardar borrador. | Automatizado | Exitoso | Ninguno |
 
 ### 5.1. Resultado esperado vs. obtenido
 
@@ -146,3 +163,6 @@ El caso de prueba CP-E2E-ADM-001 se ejecutó exitosamente contra el backend real
 
 - Mantener el seed idempotente para que las ejecuciones repetidas de la suite completa partan del mismo estado.
 - Considerar un `globalSetup` o `test.beforeAll` que ejecute el seed cuando se corra la suite completa.
+
+
+

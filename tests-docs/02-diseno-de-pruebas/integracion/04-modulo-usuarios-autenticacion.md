@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Módulo de Usuarios y Autenticación (User Management) <br>
+  <b>Fecha de Elaboración:</b> 15/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Módulo de Usuarios y Autenticación (User Management)
 
 ## 1. Criterio de Selección
@@ -154,3 +171,6 @@ backend/services/users/user_service.py               470    190    60%   107-113
 --------------------------------------------------------------------------------
 TOTAL                                               1326    451    66%
 ```
+
+
+

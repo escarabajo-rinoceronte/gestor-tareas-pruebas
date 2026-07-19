@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas Funcionales: MOD-06 - Gobernanza (Organizaciones y Equipos) <br>
+  <b>Fecha de Elaboración:</b> 12/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Diseño de Pruebas Funcionales: MOD-06 - Gobernanza (Organizaciones y Equipos)
 **Versión del Documento:** 1.0
 **Tipo de Análisis:** Diseño de Pruebas de Sistema (Caja Negra)
@@ -183,3 +200,6 @@ Garantiza la cobertura total de las reglas de negocio y facilita el análisis de
 | **RF-6002** | ESC-6002 | **CP-6002-05** | Transición de Estados (Inválidas) |
 | **RF-6003** | **ESC-6003:** Resolución de Permisos y Privilegios en Proyectos | **CP-6003-01** | Tabla de Decisión (Happy Path / Combinación A) |
 | **RF-6003** | ESC-6003 | **CP-6003-02**, **CP-6003-03**, **CP-6003-04** | Tabla de Decisión (Restricciones / Combinaciones B, C, D) |
+
+
+

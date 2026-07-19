@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas Funcionales: MOD-0005 - Administración de Proyectos <br>
+  <b>Fecha de Elaboración:</b> 12/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Diseño de Pruebas Funcionales: MOD-0005 - Administración de Proyectos
 
 **Proyecto:** HOTOSM Tasking Manager  
@@ -314,3 +331,6 @@ El flujo de clonación esperado es:
 
 
 ---
+
+
+

@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Proceso de Validación: Ejecución de casos de pruebas del MOD-04 <br>
+  <b>Fecha de Elaboración:</b> 23/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Proceso de Validación: Ejecución de casos de pruebas del MOD-04
 
 ## Resumen de Ejecución (Métricas)
@@ -417,3 +434,5 @@
 | Evidencia |
 | :-- |
 |Cuadro de Confirmación de Reversión Desplegado<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-04-validacion/cp-4003-05-01.jpg" width="800px" alt="CP-4003-05 - Mensaje modal para confirmar deshacer estado"></a><br>Ventana emergente que consulta al usuario si desea continuar con la acción para cambiar el estado de la tarea seleccionada de vuelta a "Lista para validar".<br><br>Estado Original Sin Cambios<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-04-validacion/cp-4003-05-02.jpg" width="800px" alt="CP-4003-05 - Estado de tarea se mantiene en terminada"></a><br>Vista del listado de tareas y la cuadrícula del mapa posterior a la interacción, donde se constata que la tarea bajo prueba retiene de forma intacta su estado VALITED, confirmando que la acción fue ignorada por el sistema y no se abrió ningún panel de edición o revalidación complementario.|
+
+

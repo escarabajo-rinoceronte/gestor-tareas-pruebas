@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas E2E — Flujo de Validación (Backend Real) <br>
+  <b>Fecha de Elaboración:</b> 17/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Diseño de Pruebas E2E — Flujo de Validación (Backend Real)
 
 **Versión del Documento:** 1.0  
@@ -26,7 +43,7 @@ Este documento describe el diseño de la prueba End-to-End del flujo de validaci
 
 | Técnica | Aplicación |
 | :--- | :--- |
-| **Transición de estados** | Verificar que la tarea pasa de `MAPPED` → `LOCKED_FOR_VALIDATION` → `VALIDATED`. |
+| **Transición de estados** | Verificar que la tarea pasa de `MAPPED` â†’ `LOCKED_FOR_VALIDATION` â†’ `VALIDATED`. |
 | **Partición de equivalencia** | Validación individual de una tarea (`VALIDATED` / `INVALIDATED`); el flujo no evalúa validación masiva. |
 | **Análisis de valores límite** | Tiempos de respuesta en cada etapa, con umbrales generosos para entorno de desarrollo. |
 
@@ -100,3 +117,6 @@ Este documento describe el diseño de la prueba End-to-End del flujo de validaci
 - Requisito funcional: un validador debe poder revisar y validar tareas mapeadas.
 - Flujo de usuario automatizado: `frontend/e2e/flows/validation-flow.spec.js`.
 - Datos de prueba: `scripts/e2e-seed.py`.
+
+
+

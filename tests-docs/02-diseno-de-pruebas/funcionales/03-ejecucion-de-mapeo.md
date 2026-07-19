@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas Funcionales: MOD-03 - Ejecución de Mapeo (Tasking) <br>
+  <b>Fecha de Elaboración:</b> 12/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Diseño de Pruebas Funcionales: MOD-03 - Ejecución de Mapeo (Tasking)
 **Versión del Documento:** 1.0
 **Tipo de Análisis:** Diseño de Pruebas de Sistema (Caja Negra)
@@ -300,3 +317,6 @@ Se han incorporado las actualizaciones derivadas de los rediseños funcionales, 
 | **RF-3002**, **RF-7001** | **ESC-3005:** Interacción Cartográfica y Visualización de Trazabilidad | **CP-3005-01**, **CP-3005-02** | PE-005 (Filtros UI) |
 | **RF-3002**, **RF-7001** | ESC-3005 | **CP-3005-03** | PE-006 (Clase Válida Dentro del AOI) |
 | **RF-3002**, **RF-7001** | ESC-3005 | **CP-3005-04** | PE-006 (Clase Válida Fuera del AOI) |
+
+
+

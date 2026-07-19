@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Plan de Pruebas de Integración <br>
+  <b>Fecha de Elaboración:</b> 12/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Plan de Pruebas de Integración
 
 **Proyecto:** HOT OSM Tasking Manager  
@@ -132,3 +149,6 @@ Se considerará aprobado el plan de integración de un módulo o hito cuando:
 - Se haya alcanzado un **Pass Rate** > 95%.
 - Se reporte la cobertura real (excluyendo tests duplicados unitarios) superando los umbrales definidos por módulo (80-85%).
 - Los resultados y volcados de consola estén anexados en el respectivo Reporte de Ejecución.
+
+
+

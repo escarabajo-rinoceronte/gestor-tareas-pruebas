@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Módulo de Gestión de Proyectos (Project Management) <br>
+  <b>Fecha de Elaboración:</b> 04/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Módulo de Gestión de Proyectos (Project Management)
 
 ## 1. Criterio de Selección
@@ -349,3 +366,6 @@ Sin embargo, el módulo todavía presenta oportunidades de mejora. Las principal
 
 **Conclusión final:**  
 El módulo de Gestión de Proyectos cuenta con una cobertura de integración aceptable y una ejecución estable de pruebas, pero requiere reforzar los escenarios de partnerships, equipos asociados y comunicación de proyecto para alcanzar una cobertura más alta y equilibrada.
+
+
+

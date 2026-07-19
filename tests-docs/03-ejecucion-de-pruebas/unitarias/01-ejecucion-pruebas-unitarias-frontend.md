@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Ejecución de Pruebas Unitarias - Frontend <br>
+  <b>Fecha de Elaboración:</b> 17/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Ejecución de Pruebas Unitarias - Frontend
 
 Este documento describe la estrategia, el alcance y los resultados finales de las pruebas unitarias aplicadas al frontend del sistema, centrándose exclusivamente en los **tres módulos prioritarios** acordados por el equipo de testing.
@@ -50,3 +67,6 @@ La ejecución final del comando depurado `npm run coverage-rino` arrojó las sig
 
 **Conclusión:** 
 Se ha sobrepasado holgadamente la meta establecida del 85% de cobertura en el núcleo de los 3 módulos asignados. Las métricas reflejan que los flujos de "Tasking", "Validation" y "Project Administration" se encuentran asegurados por una sólida base de pruebas automatizadas y listos para revisiones funcionales y de QA subsecuentes.
+
+
+

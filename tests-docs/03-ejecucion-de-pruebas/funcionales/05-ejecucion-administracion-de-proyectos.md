@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Documento de Pruebas <br>
+  <b>Fecha de Elaboración:</b> 23/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 ### MOD-0005: Administración de Proyectos
 
 ## Resumen de Ejecución (Métricas)
@@ -259,7 +276,7 @@ Se evidencia que el sistema bloqueó el guardado del proyecto y mostró un mensa
 
 | Resultado esperado                                                                                                                                          | Resultado obtenido                                                                                                                                                 |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| El sistema debe permitir guardar el proyecto cuando los campos obligatorios se encuentran completos y válidos, mostrando una confirmación de actualización exitosa. | El sistema guardó correctamente la configuración del proyecto y mostró el mensaje **“Proyecto actualizado correctamente.”**. |
+| El sistema debe permitir guardar el proyecto cuando los campos obligatorios se encuentran completos y válidos, mostrando una confirmación de actualización exitosa. | El sistema guardó correctamente la configuración del proyecto y mostró el mensaje **“Proyecto actualizado correctamente.â€**. |
 
 #### Evidencia CP-MOD5-009 — Campos obligatorios completados
 
@@ -290,7 +307,7 @@ Se observa que el usuario completó las secciones obligatorias del proyecto: des
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-009-04-proyecto-guardado-exitosamente.png" alt="CP-MOD5-009 - Proyecto guardado exitosamente" width="400">
 </p>
 
-Se evidencia que el sistema aceptó la información ingresada y mostró el mensaje **“Proyecto actualizado correctamente.”**, confirmando que el proyecto fue guardado sin defectos.
+Se evidencia que el sistema aceptó la información ingresada y mostró el mensaje **“Proyecto actualizado correctamente.â€**, confirmando que el proyecto fue guardado sin defectos.
 ### 5.2.3. Modificación del nombre del proyecto
 
 **CP-MOD5-010**
@@ -478,7 +495,7 @@ Se observa que el usuario seleccionó el estado **Publicado** como nuevo estado 
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-014-03-proyecto-publicado-guardado.png" alt="CP-MOD5-014 - Proyecto publicado correctamente" width="450">
 </p>
 
-Se evidencia que el sistema guardó correctamente el cambio de estado y confirmó la actualización del proyecto. Esto demuestra que la transición **Borrador → Publicado** fue realizada correctamente desde la interfaz.
+Se evidencia que el sistema guardó correctamente el cambio de estado y confirmó la actualización del proyecto. Esto demuestra que la transición **Borrador â†’ Publicado** fue realizada correctamente desde la interfaz.
 ### 5.3.2. Intento de publicar proyecto con campos obligatorios incompletos
 
 **CP-MOD5-015**
@@ -895,6 +912,9 @@ Se evidencia que la operación de eliminación fue cancelada y que el proyecto c
 #### Observación de ejecución
 
 Durante la ejecución se comprobó que el sistema solicita confirmación antes de eliminar un proyecto. Al cancelar la operación, el proyecto no fue eliminado y se mantuvo disponible, evitando una eliminación accidental.
+
+
+
 
 
 

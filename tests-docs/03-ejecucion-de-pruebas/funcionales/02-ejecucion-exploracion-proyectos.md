@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Ejecución de Casos de Prueba del MOD-02: Exploración de Proyectos <br>
+  <b>Fecha de Elaboración:</b> 12/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Ejecución de Casos de Prueba del MOD-02: Exploración de Proyectos
 
 ## 1. ESC-2001: Motor de Búsqueda y Combinación de Filtros Avanzados
@@ -63,3 +80,5 @@
 | Evidencia |
 | :-- |
 | **Selección de los Tres Filtros**<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-02-ejecucion-exploracion-proyectos/CP-2001-04-interseccion-tres-filtros.png" width="800px" alt="CP-2001-04 - Aplicando los tres filtros en la interfaz"></a><br>Captura del momento de ejecución aplicando los tres criterios simultáneos (Activo, Easy y Campaña Malaria) en la barra superior.<br><br>**Resultado de la Grilla con "0 de 0"**<br><a href="#--------"><img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-02-ejecucion-exploracion-proyectos/CP-2001-04-resultado-cero.png" width="800px" alt="CP-2001-04 - Grilla vacía con contador mostrando 0 de 0"></a><br>Vista final de la interfaz tras procesar la consulta; se verifica que las tarjetas se ocultaron y el indicador visual numérico marca 0 de 0 resultados. |
+
+

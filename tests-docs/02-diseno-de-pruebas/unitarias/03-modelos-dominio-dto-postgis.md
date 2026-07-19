@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — 1. Base de Pruebas (Test Basis) <br>
+  <b>Fecha de Elaboración:</b> 19/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Especificación de Pruebas Unitarias: Modelos de Dominio, Entidades PostGIS y DTOs
 # 1. Base de Pruebas (Test Basis)
 
@@ -68,10 +85,12 @@ Lógica interna acoplada a las entidades del sistema encargada de restringir de 
 
 ## 1.4 Cobertura de objetivos del proyecto
 
-### Épicas y Objetos de Negocio Asociados
+### Ã‰picas y Objetos de Negocio Asociados
 * Gestión del ciclo de vida y persistencia de datos de colaboradores, proyectos, tareas y configuraciones del sistema.
 * Integridad, consistencia relacional y almacenamiento seguro de información descriptiva y geográfica (PostGIS).
 
 ### Requisitos funcionales validados
 * Restricciones de integridad a nivel de datos (control de mutación de roles, flujos de estados de tareas y reglas de unicidad).
 * Estructuras de intercambio de información robustas mediante DTOs para motores de búsqueda, filtros avanzados y paginación integrada.
+
+

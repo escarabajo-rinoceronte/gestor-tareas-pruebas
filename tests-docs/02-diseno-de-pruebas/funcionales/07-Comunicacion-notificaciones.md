@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas Funcionales: MOD-0007 - Comunicación y Notificaciones <br>
+  <b>Fecha de Elaboración:</b> 12/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Diseño de Pruebas Funcionales: MOD-0007 - Comunicación y Notificaciones
 
 **Versión del Documento:** 1.0  
@@ -281,3 +298,6 @@ En esta tabla, `N/A` significa que la condición no aplica para esa regla. La ma
 | **RF-7003** | ESC-7004 | CP-MOD7-008, CP-MOD7-009, CP-MOD7-010 | Tabla de Decisión / Partición de Equivalencia |
 
 ---
+
+
+

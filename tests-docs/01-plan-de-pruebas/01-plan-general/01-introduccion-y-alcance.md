@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Plan Maestro de Pruebas: Introducción y Alcance <br>
+  <b>Fecha de Elaboración:</b> 11/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Plan Maestro de Pruebas: Introducción y Alcance
 
 **Proyecto:** HOT OSM Tasking Manager  
@@ -57,4 +74,7 @@ Para cumplir con el ciclo de vida del estándar, el proyecto se dividirá en las
 *   **Riesgos Globales:**
     *   *Riesgo:* Cambios abruptos en las APIs externas (OSM, Ohsome) pueden romper las pruebas de integración. 
     *   *Mitigación:* Implementar contratos de prueba (Contract Testing) y uso extensivo de Mocks durante las Fases 1 y 2.
+
+
+
 

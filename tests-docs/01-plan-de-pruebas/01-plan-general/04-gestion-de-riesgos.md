@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Plan General de Pruebas: Gestión de Riesgos <br>
+  <b>Fecha de Elaboración:</b> 11/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Plan General de Pruebas: Gestión de Riesgos
 
 **Proyecto:** HOT OSM Tasking Manager  
@@ -25,3 +42,6 @@ Estos riesgos contemplan las dinámicas del equipo de QA, la estructura del proy
 
 ## 4. Plan de Seguimiento de Riesgos
 Esta matriz no es estática. Test Lead es el responsable de monitorear el estado de estos riesgos y agregar nuevos hallazgos durante las sesiones de evaluación que se realizarán al finalizar cada iteración o sprint de pruebas.
+
+
+

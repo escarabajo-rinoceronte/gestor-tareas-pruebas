@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Plan Maestro de Pruebas: Estrategia Organizacional <br>
+  <b>Fecha de Elaboración:</b> 11/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Plan Maestro de Pruebas: Estrategia Organizacional
 
 **Proyecto:** HOT OSM Tasking Manager  
@@ -40,7 +57,7 @@ El flujo de trabajo colaborativo debe seguir estos pasos:
 ### 3.2. Criterios de Aceptación Documental (DoD de QA)
 Un Pull Request documental solo será aprobado si cumple los siguientes criterios:
 *   **Consistencia Estructural:** Utiliza la plantilla oficial sin alterar las secciones obligatorias.
-*   **Trazabilidad Garantizada:** Todos los hipervínculos a requisitos (Épicas/Issues) y a scripts de código (`.py`, `.js`) son funcionales y precisos.
+*   **Trazabilidad Garantizada:** Todos los hipervínculos a requisitos (Ã‰picas/Issues) y a scripts de código (`.py`, `.js`) son funcionales y precisos.
 *   **Cero Ambigüedad:** Los pasos de las pruebas o condiciones lógicas están redactados de forma determinista (un único resultado esperado claro).
 *   **Alineamiento ISO:** Las técnicas de diseño (*Valores Límite*, *Particiones de Equivalencia*) están explícitamente declaradas.
 
@@ -64,7 +81,7 @@ Para cumplir con la **Parte 4 (Medición y Técnicas)** y **Parte 2 (Procesos de
 La trazabilidad es el eje central del QA profesional. Asegura que ningún requisito de Tasking Manager carezca de cobertura de pruebas, y que ninguna prueba exista sin justificación de negocio.
 
 Se establece la siguiente cadena de trazabilidad bidireccional (registrada en `matriz-trazabilidad-unitaria.md`):
-1.  **Requisito de Negocio / Épica** (Origen en GitHub Projects).
+1.  **Requisito de Negocio / Ã‰pica** (Origen en GitHub Projects).
 2.  **Módulo de Código** (Archivo fuente en `hotosm/tasking-manager`).
 3.  **Especificación de Diseño de Prueba** (Caso documentado en la Wiki `/tests-docs`).
 4.  **Test Script Automatizado** (Prueba automatizada en el repositorio).
@@ -95,7 +112,7 @@ Adicionalmente a la cobertura de diseño de la ISO, el equipo recolectará y ana
 **Tasa de Ejecución de Pruebas:**
 *   *Definición:* Refleja el estado operacional de la suite de pruebas.
 *   *Desglose:*
-    *   % Éxito (Passed): $(Pruebas Exitosas / Total Ejecutadas) \times 100$.
+    *   % Ã‰xito (Passed): $(Pruebas Exitosas / Total Ejecutadas) \times 100$.
     *   % Fallo (Failed): $(Pruebas Fallidas / Total Ejecutadas) \times 100$.
     *   % Bloqueadas (Blocked): Pruebas que no pudieron ejecutarse por dependencias caídas o errores de entorno.
 
@@ -106,3 +123,6 @@ Adicionalmente a la cobertura de diseño de la ISO, el equipo recolectará y ana
 
 ## 5. Estrategia de Evolución del Plan
 Este plan es un artefacto vivo. Se ha programado una sesión de reevaluación (Test Strategy Review) al finalizar el ciclo de Pruebas de Integración (Fase 2) para incorporar los procesos metodológicos de los 3 nuevos integrantes y adaptar la estrategia hacia las pruebas de Sistema (Fase 3).
+
+
+

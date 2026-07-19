@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas E2E — Flujo de Mapeo (Backend Real) <br>
+  <b>Fecha de Elaboración:</b> 17/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Diseño de Pruebas E2E — Flujo de Mapeo (Backend Real)
 
 **Versión del Documento:** 1.0  
@@ -70,7 +87,7 @@ Para el detalle de actores, restricciones y reglas de negocio del módulo de map
 
 | ID Caso | Datos de entrada o escenario | Resultado Esperado | Técnicas Aplicadas |
 | :--- | :--- | :--- | :--- |
-| **CP-E2E-MAP-001** | Usuario `e2e_mapper`, proyecto `E2E Mapping Project`, tarea `#2` READY, editor iD. | El sistema permite el bloqueo de la tarea (`LOCKED_FOR_MAPPING`) y carga el editor iD. El usuario navega por login → explore → project detail → task selection → map editor. | Transición de estados, Partición de equivalencia |
+| **CP-E2E-MAP-001** | Usuario `e2e_mapper`, proyecto `E2E Mapping Project`, tarea `#2` READY, editor iD. | El sistema permite el bloqueo de la tarea (`LOCKED_FOR_MAPPING`) y carga el editor iD. El usuario navega por login â†’ explore â†’ project detail â†’ task selection â†’ map editor. | Transición de estados, Partición de equivalencia |
 
 ## 6. Criterios de aceptación
 
@@ -100,3 +117,6 @@ Para el detalle de actores, restricciones y reglas de negocio del módulo de map
 - Flujo de usuario automatizado: `frontend/e2e/flows/mapping-flow.spec.js`.
 - Datos de prueba: `scripts/e2e-seed.py`.
 - Diseño funcional base: [MOD-03](/tests-docs/02-diseno-de-pruebas/funcionales/03-ejecucion-de-mapeo.md).
+
+
+

@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas Funcionales: MOD-01 - Autenticación y Perfil <br>
+  <b>Fecha de Elaboración:</b> 12/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Diseño de Pruebas Funcionales: MOD-01 - Autenticación y Perfil
 **Versión del Documento:** 1.0
 **Tipo de Análisis:** Diseño de Pruebas de Sistema (Caja Negra)
@@ -210,3 +227,6 @@ Para este escenario, se modela el comportamiento del sistema mediante los compon
 | **CP-1004-01** | 1. Ingresar a la sección "Ajustes de Perfil" (`PerfilConsultado`).<br>2. Cambiar el "Editor por defecto" de ID Editor a JOSM (`Usuario modifica campo`).<br>3. Hacer clic en el botón activo "Guardar Cambios" (`Clic en Guardar Cambios`).<br>4. Esperar el procesamiento asíncrono de la pantalla (`GuardandoCambios`). | **Editor seleccionado:** JOSM.<br>**Acción:** Enviar cambios de preferencias. | El sistema procesa la actualización (`Confirmacion exitosa del backend`), la interfaz despliega un mensaje Toast emergente de éxito y el formulario regresa al estado base de `PerfilConsultado`. |
 | **CP-1004-02** | 1. Ingresar a la sección "Ajustes de Perfil" (`PerfilConsultado`).<br>2. Borrar el correo electrónico actual y escribir el texto "usuario_mapeo" sin dominio (`Introduce dato invalido`). | **Correo ingresado:** usuario_mapeo<br>*(Sintaxis incorrecta)* | La interfaz cambia al estado `FormularioInvalido`: el botón "Guardar Cambios" se deshabilita automáticamente y aparece un mensaje de error en texto rojo indicando el fallo de formato. |
 | **CP-1004-03** | 1. Estando en la pantalla de perfil con el error visual de correo electrónico activo (`FormularioInvalido`).<br>2. Completar la dirección agregando "@gmail.com" al input (`Corrige dato en input`). | **Correo corregido:** usuario_mapeo@gmail.com | La aplicación detecta el cambio en tiempo real, borra la alerta roja de la pantalla y transiciona al estado `PerfilEnEdicion`, reactivando visualmente el botón "Guardar Cambios". |
+
+
+

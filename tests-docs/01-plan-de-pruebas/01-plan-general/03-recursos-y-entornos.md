@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Plan General de Pruebas: Recursos y Entornos <br>
+  <b>Fecha de Elaboración:</b> 11/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Plan General de Pruebas: Recursos y Entornos
 
 **Proyecto:** HOT OSM Tasking Manager  
@@ -30,3 +47,6 @@ El proyecto confía en **GitHub Actions** como orquestador de pruebas.
 ## 4. Limitaciones Técnicas y Restricciones
 *   **Límites de Tasa (Rate Limiting) de OSM:** Tasking Manager consume datos reales de OSM. Durante las pruebas E2E y de Integración, el equipo QA debe tener cuidado de no ser baneado por exceder el *rate limit* de la API pública de OSM. El uso de *Mocks* es obligatorio en Fases 1 y 2.
 *   **Datos Espaciales (Test Data):** La generación manual de polígonos GeoJSON (multipolygon) para pruebas es compleja. El equipo deberá mantener un banco de datos estáticos en `tests/fixtures/` con geometrías pre-validadas.
+
+
+

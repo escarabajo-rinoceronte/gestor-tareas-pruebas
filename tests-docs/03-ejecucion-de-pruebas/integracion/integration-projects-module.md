@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Reporte de Ejecución: Módulo de Gestión de Proyectos (Project Management) <br>
+  <b>Fecha de Elaboración:</b> 16/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Reporte de Ejecución: Módulo de Gestión de Proyectos (Project Management)
 
 Este documento contiene los resultados de la ejecución de las pruebas de integración diseñadas y ampliadas para el módulo de **Gestión de Proyectos**.
@@ -315,3 +332,6 @@ Con la incorporación de las nuevas pruebas de integración se logró alcanzar e
 El avance más significativo se produjo en `backend/api/projects/actions.py`, que aumentó de **63% a 92%** al cubrir flujos de permisos, éxito y errores en acciones administrativas. Además, `backend/models/postgis/project_chat.py` alcanzó **98%**, fortaleciendo la confianza sobre el manejo de mensajes asociados a proyectos.
 
 El módulo queda con un nivel de confianza alto en sus funcionalidades principales: gestión administrativa, clonación, búsqueda, permisos, partnerships y chat. Las oportunidades futuras se concentran en `resources.py`, `activities.py`, `teams.py` y ramas complejas de `project_service.py`.
+
+
+

@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Reporte de Ejecución: Pruebas de Sistema (Seguridad — SAST y SCA) <br>
+  <b>Fecha de Elaboración:</b> 19/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Reporte de Ejecución: Pruebas de Sistema (Seguridad — SAST y SCA)
 
 **Atributo de Calidad:** Seguridad (Security Testing)
@@ -111,3 +128,6 @@ A pesar de los hallazgos de seguridad, la calificación de **Mantenibilidad A** 
 | **Objetivo de la prueba** | ✅ **APROBADO** — la herramienta detectó deuda de seguridad real |
 
 La Prueba de Sistema — Atributo de Seguridad se da por **ejecutada y documentada**. Los hallazgos deben ser ingresados al backlog del proyecto como defectos a remediar en sprints futuros.
+
+
+

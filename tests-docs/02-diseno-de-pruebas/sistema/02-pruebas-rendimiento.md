@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Especificación Técnica: Pruebas de Rendimiento <br>
+  <b>Fecha de Elaboración:</b> 17/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Especificación Técnica: Pruebas de Rendimiento
 **Proyecto:** HOT OSM Tasking Manager
 **Componentes Evaluados:** API REST (FastAPI) y Motor Geoespacial (PostgreSQL/PostGIS)
@@ -28,7 +45,7 @@
 | **Límites de Contenedores** | Restringir el servicio `tm-backend` en `docker-compose.yml` obligatoriamente a `cpus: "1"` y `memory: "1500M"`. Condición sine qua non para reflejar el entorno de staging. |
 | **Población Inicial (Seed)** | Ejecutar `docker compose exec tm-backend python scripts/e2e-seed.py` pre-iniciando 1 proyecto con 1000 tareas para dotar a PostGIS de índices B-Tree y GiST realistas. |
 | **Pool de Autenticación** | Pre-firmar 100 tokens JWT. Exportarlos a un archivo `tokens.json` para que k6 rote aleatoriamente las cabeceras `Authorization: Bearer <token>`, evitando el caché de sesión del backend en un solo usuario. |
-| **Cargas Útiles Geoespaciales** | Proveer arreglos de multipolígonos GeoJSON (mínimo 500 vértices) en `/tests-docs/02-diseno-de-pruebas/sistema/payloads/` para estresar el motor de intersección espacial. |
+| **Cargas Ãštiles Geoespaciales** | Proveer arreglos de multipolígonos GeoJSON (mínimo 500 vértices) en `/tests-docs/02-diseno-de-pruebas/sistema/payloads/` para estresar el motor de intersección espacial. |
 
 ## 4. Escenarios de Prueba y Configuración de k6
 
@@ -64,3 +81,6 @@
 | :--- | :--- | :--- |
 | **Agotamiento del Connection Pool** | Si los 50 VUs exceden las conexiones permitidas por AsyncPG, el middleware de la API colgará transacciones esperando hilos libres (Timeout interno). | Configurar la variable `POOL_SIZE` en `tasking-manager.env` con un valor `>= 50` previo al inicio, garantizando que el límite evaluado sea el de procesamiento y no un estrangulamiento artificial de la BD. |
 | **Interferencia de IOps del Host** | Sistemas de archivos locales lentos ralentizan los `fsync` del WAL de PostgreSQL, contaminando las latencias medidas. | Asegurar que el entorno de ejecución k6 resida sobre almacenamiento NVMe/SSD, o usar `tmpfs` para el volumen de datos de Docker si únicamente se requiere medir el rendimiento puramente computacional de la API. |
+
+
+

@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Plan de Pruebas Funcionales (Caja Negra) <br>
+  <b>Fecha de Elaboración:</b> 11/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Plan de Pruebas Funcionales (Caja Negra)
 
 **Proyecto:** HOT OSM Tasking Manager  
@@ -66,3 +83,6 @@ Validación del ciclo de vida transaccional del mapa, asegurando que las tareas 
 *   **Plan de Pruebas Funcionales:** El presente documento estratégico.
 *   **Diseño de Casos de Prueba Funcionales:** Especificación detallada de entradas, pasos y resultados esperados.
 *   **Informe de Ejecución de Pruebas Funcionales:** Registro de la ejecución manual en el entorno de QA, detallando éxitos, fallos identificados y adjuntando las capturas de pantalla de la interfaz como evidencias físicas.
+
+
+

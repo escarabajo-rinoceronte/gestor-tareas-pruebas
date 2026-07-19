@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — 1. Base de Pruebas (Test Basis) <br>
+  <b>Fecha de Elaboración:</b> 29/05/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Especificación de Pruebas Unitarias: Seguridad, Usuarios y Comunicación
 # 1. Base de Pruebas (Test Basis)
 
@@ -87,3 +104,6 @@ Servicios externos utilizados por componentes asociados a usuarios y comunicaci�
 | SMTP Service            | Servicio externo | Validar procesos de verificación de correo electrónico y generación de mensajes.   |
 | Tokens de autenticación | Seguridad        | Validar integridad y consistencia de autenticación y sesiones.                     |
 | URLs de validación      | Comunicación     | Validar integridad de flujos de verificación de identidad.                         |
+
+
+

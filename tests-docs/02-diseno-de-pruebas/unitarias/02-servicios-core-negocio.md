@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Especificación de Pruebas Unitarias: Suite de Servicios Core y Lógica de Negocio <br>
+  <b>Fecha de Elaboración:</b> 29/05/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Especificación de Pruebas Unitarias: Suite de Servicios Core y Lógica de Negocio
 
 **Responsable:** Test Analyst (Integrante 2)  
@@ -95,3 +112,6 @@ A continuación, se documentan las brechas identificadas que requieren ser prior
 *   Total de Elementos de Cobertura Identificados (T): 5 (Casos TC-ORG-001 al TC-PRJ-001)
 *   Total de Elementos Ejecutados/Automatizados (N): 3 (Casos ORG)
 *   Cobertura de Diseño Inicial ($N/T * 100\%$): 60%
+
+
+

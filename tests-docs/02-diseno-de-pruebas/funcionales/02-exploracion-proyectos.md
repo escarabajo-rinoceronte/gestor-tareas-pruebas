@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas Funcionales: MOD-02 - Exploración de Proyectos <br>
+  <b>Fecha de Elaboración:</b> 12/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Diseño de Pruebas Funcionales: MOD-02 - Exploración de Proyectos
 **Versión del Documento:** 1.0
 **Tipo de Análisis:** Diseño de Pruebas de Sistema (Caja Negra)
@@ -170,3 +187,6 @@ Para este escenario, se modela el comportamiento del sistema mediante los compon
 | **CP-2003-02** | 1. Estando en el explorador base, hacer clic en el botón principal "Log In" de la barra superior (`Usuario inicia sesion`).<br>2. Completar el inicio de sesión vía OAuth (`ValidandoCredenciales`).<br>3. Ingresar al catálogo usando una cuenta que forme parte activa del equipo del proyecto (`Sistema verifica permisos`). | **Rol de Usuario:** Mapper Autorizado (`ACT-02`).<br>**Credenciales:** Token de sesión válido. | La interfaz transiciona al estado `CatalogoRestringido`: la pantalla se refresca asíncronamente inyectando la tarjeta del proyecto privado con un indicador visual de acceso exclusivo. |
 | **CP-2003-03** | 1. Estando en la vista del catálogo con las tarjetas restringidas visibles (`CatalogoRestringido`).<br>2. Desplegar el menú del perfil de usuario y hacer clic en la opción "Log Out" (`Cierre de sesion del usuario`). | **Acción UI:** Clic en Cerrar Sesión. | El navegador elimina el token de autenticación del almacenamiento, la interfaz parpadea borrando las tarjetas privadas y regresa de inmediato al estado `CatalogoPublico`. |
 | **CP-2003-04** | 1. Copiar de forma externa la ruta directa de mapeo de un proyecto privado (ej: `/projects/10/map`).<br>2. Pegarla directamente en la barra de direcciones de una ventana sin autenticar (`Usuario desautorizado fuerza URL`). | **Ruta forzada:** URL interna protegida. | La aplicación interrumpe la carga normal y cambia al estado `AccesoDenegado`: renderiza en pantalla una alerta roja de error "403 No Autorizado" y tras 3 segundos (`Redireccion automatica UI`) redirige al usuario de vuelta al `CatalogoPublico`. |
+
+
+

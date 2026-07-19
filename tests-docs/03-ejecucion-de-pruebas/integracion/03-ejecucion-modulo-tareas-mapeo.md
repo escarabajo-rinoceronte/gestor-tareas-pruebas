@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Reporte de Ejecución de Pruebas: Módulo de Tareas, Mapeo y Validación (Mapping & Validation) <br>
+  <b>Fecha de Elaboración:</b> 15/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Reporte de Ejecución de Pruebas: Módulo de Tareas, Mapeo y Validación (Mapping & Validation)
 
 Este documento registra el proceso de ejecución y la evolución de la cobertura de las pruebas de integración correspondientes al módulo de Tareas y Mapeo, estructurado conforme a las prácticas de documentación técnica. El reporte detalla la medición del estado base, las iteraciones de ampliación de casos de prueba y los resultados de cobertura en su fase final.
@@ -192,3 +209,6 @@ La iteración sobre los casos de prueba resultó en la adición de 55 escenarios
 3. **Lógica de Negocio:** Las pruebas confirmaron que los servicios núcleo operan según las especificaciones técnicas, cubriendo satisfactoriamente validaciones espaciales, transaccionales y de acceso.
 
 El módulo de Mapping & Validation cumple con los criterios técnicos requeridos, evidenciando resiliencia frente a manipulaciones anómalas y peticiones concurrentes.
+
+
+

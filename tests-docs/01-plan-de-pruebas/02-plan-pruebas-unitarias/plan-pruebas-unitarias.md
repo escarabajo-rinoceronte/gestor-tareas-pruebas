@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Plan de Pruebas Unitarias (Fase 1) <br>
+  <b>Fecha de Elaboración:</b> 11/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Plan de Pruebas Unitarias (Fase 1)
 
 **Proyecto:** HOT OSM Tasking Manager  
@@ -35,7 +52,7 @@ Para garantizar el cumplimiento de los hitos documentales y de ejecución, se ha
 ### 4.1. Uso de GitHub Projects
 El tablero dejará de ser un simple repositorio de tareas aisladas para convertirse en el núcleo de trazabilidad operativa. Para lograrlo, la vista Kanban tradicional se complementará obligatoriamente con una vista de Cronograma (Timeline/Roadmap). Cada tarjeta generada en el tablero representará un módulo o épica de prueba y deberá contar obligatoriamente con los campos personalizados de *Esfuerzo Estimado* (en puntos o días), *Prioridad de Negocio*, *Rol Asignado* y *Milestone* (Iteración).
 
-El flujo de los estados en GitHub Projects reflejará el proceso metodológico estipulado por ISO 29119. Las tareas iniciarán en el *Backlog QA*, transitando hacia la fase de *Análisis Estructural*, donde los Test Analysts delimitarán el alcance del módulo. Posteriormente, las tarjetas avanzarán al estado de *Diseño de Pruebas*, habilitando a los Test Designers para estructurar las condiciones lógicas. Una vez finalizado el diseño, la tarea pasará a *Revisión Documental*, estado en el cual el Test Lead auditará la propuesta mediante Pull Requests. Únicamente tras la aprobación, la tarea alcanzará el estado de *Implementación*, donde el código será desarrollado e integrado.
+El flujo de los estados en GitHub Projects reflejará el proceso metodológico estipulado por ISO 29119. Las tareas iniciarán en el *Backlog QA*, transitando hacia la fase de *Análisis Estructural*, donde los Test Analysts delimitarán el alcance del módulo. Posteriormente, las tarjetas avanzarán al estado de *Diseño de Pruebas*, habilitando a los Test Designers para estructurar las condiciones lógicas. Una vez finalizado el diseño, la tarea pasará a *Revisión Documental*, estado en el cual el Test Lead auditará la propuesta mediante Pull Requests. Ãšnicamente tras la aprobación, la tarea alcanzará el estado de *Implementación*, donde el código será desarrollado e integrado.
 
 *(Propósito del diagrama: Estandarizar el flujo de estados de las tarjetas en GitHub Projects, asegurando que el avance del cronograma esté atado a hitos formales de validación documental).*
 
@@ -45,3 +62,6 @@ El flujo de los estados en GitHub Projects reflejará el proceso metodológico e
 La coordinación entre los analistas funcionales y la arquitectura técnica se gestionará mediante ciclos de sincronización semanales. Durante estas iteraciones, el objetivo principal será poblar la matriz de trazabilidad con los hallazgos estructurales. La comunicación y el seguimiento del cronograma dependerán enteramente de las fechas de vencimiento configuradas en los *Milestones* de GitHub.
 
 Cualquier desviación en el esfuerzo estimado por parte de los Test Analysts deberá ser documentada en los comentarios del *Issue* correspondiente, permitiendo al Test Lead ajustar la vista de cronograma de manera dinámica sin afectar la ruta crítica del proyecto. La transición formal hacia la fase de diseño de pruebas detalladas solo ocurrirá cuando los tres dominios funcionales hayan sido completamente delimitados y mapeados contra el código fuente existente en el repositorio.
+
+
+

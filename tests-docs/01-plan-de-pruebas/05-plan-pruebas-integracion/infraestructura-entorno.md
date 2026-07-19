@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Especificación de Infraestructura y Entorno de Pruebas de Integración <br>
+  <b>Fecha de Elaboración:</b> 15/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Especificación de Infraestructura y Entorno de Pruebas de Integración
 
 Este documento detalla la arquitectura técnica, los componentes y el ciclo de vida del entorno requerido para la ejecución automatizada y reproducible de las pruebas de integración del backend del **Tasking Manager**.
@@ -71,3 +88,6 @@ El entorno diseñado localmente se replica 1:1 en GitHub Actions.
 1. Se levantan los servicios de PostgreSQL/PostGIS.
 2. Se inyectan las credenciales.
 3. Se ejecuta el comando `pytest tests/api/integration/` con el plugin `pytest-cov` para generar los artefactos de métricas de cobertura.
+
+
+

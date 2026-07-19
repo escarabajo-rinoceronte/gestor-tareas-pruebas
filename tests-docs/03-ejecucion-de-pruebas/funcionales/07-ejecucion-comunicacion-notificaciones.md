@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — MOD-0007 - Comunicación y Notificaciones <br>
+  <b>Fecha de Elaboración:</b> 23/06/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # MOD-0007 - Comunicación y Notificaciones
 
 ### 7.1. Registrar comentario válido en una tarea
@@ -343,3 +360,6 @@ Se evidencia que el sistema permite revisar la vista previa del comentario exten
 </p>
 
 Se evidencia que el sistema registró correctamente el comentario extenso dentro de la sección de comentarios de la tarea, sin errores visibles ni pérdida de contenido.
+
+
+

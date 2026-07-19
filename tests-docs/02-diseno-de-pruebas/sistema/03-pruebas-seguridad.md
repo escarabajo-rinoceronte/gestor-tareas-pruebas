@@ -1,3 +1,20 @@
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/img/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Especificación Técnica: Pruebas de Seguridad <br>
+  <b>Fecha de Elaboración:</b> 17/07/2026 <br>
+  <b>Arequipa — Perú</b>
+</div>
+
+---
+
 # Especificación Técnica: Pruebas de Seguridad
 **Proyecto:** HOT OSM Tasking Manager
 **Componentes Evaluados:** API REST (FastAPI) y Middleware de Autorización (JWT)
@@ -25,7 +42,7 @@
 | Atributo | Escenario 1: GeoJSON SQL Injection (OWASP A03:2021 - Injection) |
 | :--- | :--- |
 | **Endpoint Objetivo** | `POST /api/v2/projects/` |
-| **Vector de Ataque (Carga Útil)** | `{"type": "FeatureCollection", "features": [{"geometry": {"type": "Polygon", "coordinates": [[[0,0]...]]'; DROP TABLE projects CASCADE;--}}]}` |
+| **Vector de Ataque (Carga Ãštil)** | `{"type": "FeatureCollection", "features": [{"geometry": {"type": "Polygon", "coordinates": [[[0,0]...]]'; DROP TABLE projects CASCADE;--}}]}` |
 | **Justificación Técnica** | GeoAlchemy2 aplica mapeos directos entre cadenas GeoJSON y tipos geométricos binarios de PostGIS. La carencia de validación estricta de tipos de datos de entrada habilita el encadenamiento de comandos SQL destructivos (SQLi) a nivel del driver DBAPI. |
 | **Criterio de Validación** | Pydantic intercepta el payload deforme antes del ruteador asíncrono, devolviendo `422 Unprocessable Entity`. La traza no alcanza el *statement compiler* de SQLAlchemy ni genera transacciones nulas en la BD. |
 
@@ -34,7 +51,7 @@
 | Atributo | Escenario 2: Broken Object Level Auth - BOLA (OWASP A01:2021) |
 | :--- | :--- |
 | **Endpoint Objetivo** | `POST /api/v2/tasks/{id}/validate/` |
-| **Vector de Ataque (Carga Útil)** | Ejecución de la solicitud HTTP adjuntando el JWT asignado exclusivamente al rol raso `e2e_mapper`. |
+| **Vector de Ataque (Carga Ãštil)** | Ejecución de la solicitud HTTP adjuntando el JWT asignado exclusivamente al rol raso `e2e_mapper`. |
 | **Justificación Técnica** | Medir la fiabilidad del decorador de roles y de los *claims* en FastAPI. Si la validación ocurre a nivel de vista (*frontend* React) sin correlato backend, los usuarios base podrían validar sus propias áreas alterando la integridad cartográfica del proyecto. |
 | **Criterio de Validación** | El middleware decodifica el JWT, comprueba la ausencia del *claim* necesario (`Validator`) y bloquea inmediatamente el acceso, emitiendo un HTTP `403 Forbidden` limpio. |
 
@@ -43,7 +60,7 @@
 | Atributo | Escenario 3: Exposición de Entornos Debug (OWASP A05:2021) |
 | :--- | :--- |
 | **Endpoint Objetivo** | Mapeo de Puertos de Contenedores Host (`localhost`). |
-| **Vector de Ataque (Carga Útil)** | Escaneo de *binds* mediante `nmap -p 5678,5000 localhost` bajo flag `TARGET_TAG=prod`. |
+| **Vector de Ataque (Carga Ãštil)** | Escaneo de *binds* mediante `nmap -p 5678,5000 localhost` bajo flag `TARGET_TAG=prod`. |
 | **Justificación Técnica** | La imagen Docker despliega *DebugPy* (puerto 5678) habilitando inyección directa en memoria al intérprete de Python. Su filtración en redes expuestas confiere a un atacante capacidades absolutas de RCE (Remote Code Execution) evadiendo todas las reglas API. |
 | **Criterio de Validación** | El puerto 5678 responde `closed` o `filtered` al escáner TCP; nula disponibilidad del *socket* fuera del modo `debug`. |
 
@@ -63,3 +80,6 @@
 | **Vulnerabilidades Graves (CVSS >= 7.0)** | >= 1 hallazgo validado de Inyección SQL, Ejecución Remota o BOLA. | Suspensión obligatoria del *merge* hacia *main*. Recreación empírica y manual del Payload Ofensivo por QA para descartar falsos positivos de ZAP antes de reportar a Ingeniería. |
 | **Filtración de Credenciales Clave** | Identificación de *passwords* de PostgreSQL, URLs privadas, o JWT *Secrets* en texto plano. | Emisión de alerta P1: Bloqueo de despliegue, rotación obligatoria de los secretos expuestos y reescritura forzada del historial Git involucrado. |
 | **Fuzzing: Stacktraces y Caídas** | El servidor devuelve respuestas HTTP `500` con el volcado completo de la pila (Stacktrace de Python) o el contenedor se detiene (*Crash*). | Las trazas revelan arquitectura interna (paths, nombres de base de datos) a un atacante. FastAPI debe enmascarar excepciones genéricas (`{"detail": "Internal Server Error"}`) bajo perfiles de producción. |
+
+
+
