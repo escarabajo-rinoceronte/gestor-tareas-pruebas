@@ -72,9 +72,9 @@
 
 #### 3.3 Integración (Backend)
 
-*   [[ejecucion integracion modulo tareas mapeo]]
-*   [[ejecucion integracion modulo usuarios]]
-*   [[ejecucion integracion modulo proyectos]]
+*   [[03 ejecucion modulo tareas mapeo]]
+*   [[04 ejecucion modulo usuarios autenticacion]]
+*   [[integration projects module]]
 
 #### 3.4 Sistema (E2E)
 
