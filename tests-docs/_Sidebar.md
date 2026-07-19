@@ -18,6 +18,7 @@
 *   [[plan pruebas funcionales]]
 *   [[plan pruebas integracion]]
 *   [[plan pruebas sistema]]
+*   [[plan pruebas aceptacion]]
 
 ---
 
@@ -55,6 +56,10 @@
 *   [[02 flujo validacion]]
 *   [[03 flujo administracion]]
 
+#### 2.5 AceptaciÃ³n
+
+*   [[01 aceptacion modulos 01 03]]
+
 ---
 
 ## 3. Ejecución de Pruebas
@@ -83,3 +88,7 @@
 #### 3.4 Sistema (E2E)
 
 *   [[ejecucion pruebas sistema]]
+
+#### 3.5 AceptaciÃ³n
+
+*   [[01 ejecucion pruebas aceptacion modulos 01 03]]
