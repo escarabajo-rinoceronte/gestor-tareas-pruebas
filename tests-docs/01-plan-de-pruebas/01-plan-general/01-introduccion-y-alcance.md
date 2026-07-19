@@ -1,52 +1,20 @@
-﻿<style>
-  .cover-page {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 60px 50px;
-    font-family: 'Georgia', 'Times New Roman', serif;
-    text-align: center;
-    color: #1a1a1a;
-    border-top: 4px solid #8B0000;
-    border-bottom: 4px solid #8B0000;
-  }
-  .cover-page .institucion { font-size: 20px; font-weight: 700; letter-spacing: 0.05em; margin: 0 0 6px; text-transform: uppercase; }
-  .cover-page .facultad, .cover-page .escuela { font-size: 14px; font-weight: 400; color: #444; margin: 0 0 4px; line-height: 1.4; }
-  .cover-page .logo-wrap { margin: 32px auto; width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; }
-  .cover-page .logo-wrap img { max-width: 100%; max-height: 100%; }
-  .cover-page .ficha { display: inline-block; text-align: left; margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px; }
-  .cover-page .ficha table { border-collapse: collapse; }
-  .cover-page .ficha td { padding: 6px 14px 6px 0; font-size: 13px; vertical-align: top; }
-  .cover-page .ficha td.label { color: #777; font-weight: 600; white-space: nowrap; text-transform: uppercase; font-size: 11px; letter-spacing: 0.03em; }
-  .cover-page .ubicacion { margin-top: 36px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8B0000; }
-</style>
-
-<div class="cover-page">
-  <p class="institucion">Universidad Nacional de San Agustín</p>
-  <p class="facultad">Facultad de Ingeniería de Producción y Servicios</p>
-  <p class="escuela">Escuela Profesional de Ingeniería de Sistemas</p>
-
-  <div class="logo-wrap">
-    <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" />
-  </div>
-
-  <div class="ficha">
-    <table>
-      <tr><td class="label">Curso</td><td>Pruebas de Software</td></tr>
-      <tr><td class="label">Docente</td><td>Ing. Robert Edison Arisaca Mamani</td></tr>
-      <tr><td class="label">Semestre</td><td>VII</td></tr>
-      <tr><td class="label">Proyecto</td><td>HOT Tasking Manager — Plan Maestro de Pruebas: IntroducciÃ³n y Alcance</td></tr>
-      <tr><td class="label">Fecha</td><td>11/06/2026</td></tr>
-    </table>
-  </div>
-
-  <p class="ubicacion">Arequipa — Perú</p>
+﻿<div align="center">
+  <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
+  <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
+  <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
+  <br>
+  <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" width="200"/>
+  <br><br>
+  <b>Curso:</b> Pruebas de Software <br>
+  <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
+  <b>Semestre:</b> VII <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Plan Maestro de Pruebas: IntroducciÃ³n y Alcance <br>
+  <b>Fecha de Elaboración:</b> 11/06/2026 <br>
+  <b>Arequipa — Perú</b>
 </div>
-
-<br><br>
 
 ---
 
-<br><br>
 # Plan Maestro de Pruebas: IntroducciÃ³n y Alcance
 
 **Proyecto:** HOT OSM Tasking Manager  
@@ -106,5 +74,6 @@ Para cumplir con el ciclo de vida del estÃ¡ndar, el proyecto se dividirÃ¡ en
 *   **Riesgos Globales:**
     *   *Riesgo:* Cambios abruptos en las APIs externas (OSM, Ohsome) pueden romper las pruebas de integraciÃ³n. 
     *   *MitigaciÃ³n:* Implementar contratos de prueba (Contract Testing) y uso extensivo de Mocks durante las Fases 1 y 2.
+
 
 
