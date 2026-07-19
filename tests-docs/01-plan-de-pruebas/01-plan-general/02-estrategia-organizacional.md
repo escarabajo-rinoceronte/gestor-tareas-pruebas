@@ -1,108 +1,158 @@
+﻿<style>
+  .cover-page {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    text-align: center;
+    color: #1a1a1a;
+    border-top: 4px solid #8B0000;
+    border-bottom: 4px solid #8B0000;
+  }
+  .cover-page .institucion { font-size: 20px; font-weight: 700; letter-spacing: 0.05em; margin: 0 0 6px; text-transform: uppercase; }
+  .cover-page .facultad, .cover-page .escuela { font-size: 14px; font-weight: 400; color: #444; margin: 0 0 4px; line-height: 1.4; }
+  .cover-page .logo-wrap { margin: 32px auto; width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; }
+  .cover-page .logo-wrap img { max-width: 100%; max-height: 100%; }
+  .cover-page .ficha { display: inline-block; text-align: left; margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px; }
+  .cover-page .ficha table { border-collapse: collapse; }
+  .cover-page .ficha td { padding: 6px 14px 6px 0; font-size: 13px; vertical-align: top; }
+  .cover-page .ficha td.label { color: #777; font-weight: 600; white-space: nowrap; text-transform: uppercase; font-size: 11px; letter-spacing: 0.03em; }
+  .cover-page .ubicacion { margin-top: 36px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8B0000; }
+</style>
+
+<div class="cover-page">
+  <p class="institucion">Universidad Nacional de San Agustín</p>
+  <p class="facultad">Facultad de Ingeniería de Producción y Servicios</p>
+  <p class="escuela">Escuela Profesional de Ingeniería de Sistemas</p>
+
+  <div class="logo-wrap">
+    <img src="/tests-docs/logo-unsa.png" alt="Logo UNSA" />
+  </div>
+
+  <div class="ficha">
+    <table>
+      <tr><td class="label">Curso</td><td>Pruebas de Software</td></tr>
+      <tr><td class="label">Docente</td><td>Ing. Robert Edison Arisaca Mamani</td></tr>
+      <tr><td class="label">Semestre</td><td>VII</td></tr>
+      <tr><td class="label">Proyecto</td><td>HOT Tasking Manager — Plan Maestro de Pruebas: Estrategia Organizacional</td></tr>
+      <tr><td class="label">Fecha</td><td>11/06/2026</td></tr>
+    </table>
+  </div>
+
+  <p class="ubicacion">Arequipa — Perú</p>
+</div>
+
+<br><br>
+
+---
+
+<br><br>
 # Plan Maestro de Pruebas: Estrategia Organizacional
 
 **Proyecto:** HOT OSM Tasking Manager  
-**Estándar de Referencia:** ISO/IEC/IEEE 29119-2 (Procesos de Pruebas) y 29119-3  
+**EstÃ¡ndar de Referencia:** ISO/IEC/IEEE 29119-2 (Procesos de Pruebas) y 29119-3  
 
 ## 1. Estrategia General de Pruebas
-El proyecto adopta un enfoque de pruebas estructurado de **"Abajo hacia Arriba" (Bottom-Up)** combinado con una filosofía **Shift-Left Testing**. Esto implica que la calidad se inyecta desde la fase de desarrollo mediante metodologías como TDD (Test-Driven Development) y BDD (Behavior-Driven Development), minimizando el descubrimiento de defectos en las fases tardías de UI/E2E.
+El proyecto adopta un enfoque de pruebas estructurado de **"Abajo hacia Arriba" (Bottom-Up)** combinado con una filosofÃ­a **Shift-Left Testing**. Esto implica que la calidad se inyecta desde la fase de desarrollo mediante metodologÃ­as como TDD (Test-Driven Development) y BDD (Behavior-Driven Development), minimizando el descubrimiento de defectos en las fases tardÃ­as de UI/E2E.
 
 ### 1.1. Ciclo de Vida Organizacional de las Pruebas
-Todas las pruebas, independientemente de su nivel (Unitaria, Integración, Sistema), seguirán el siguiente flujo estándar estipulado por el equipo QA.
+Todas las pruebas, independientemente de su nivel (Unitaria, IntegraciÃ³n, Sistema), seguirÃ¡n el siguiente flujo estÃ¡ndar estipulado por el equipo QA.
 
 ![Flujo de trabajo con Wiki](/tests-docs/01-plan-de-pruebas/01-plan-general/img/workflow-wiki.png) 
 
-*(Propósito del diagrama: Establecer la regla inquebrantable de que ninguna prueba se codifica sin antes haber sido diseñada y aprobada en la Wiki de QA).*
+*(PropÃ³sito del diagrama: Establecer la regla inquebrantable de que ninguna prueba se codifica sin antes haber sido diseÃ±ada y aprobada en la Wiki de QA).*
 
-## 2. Organización del Equipo y Responsabilidades
-El equipo opera en un esquema progresivo. La fase de planeación inicial se ejecuta con el **Core QA Team (3 miembros)**, escalando a 6 miembros para las fases posteriores. Las responsabilidades se especifican en la siguiente tabla:
+## 2. OrganizaciÃ³n del Equipo y Responsabilidades
+El equipo opera en un esquema progresivo. La fase de planeaciÃ³n inicial se ejecuta con el **Core QA Team (3 miembros)**, escalando a 6 miembros para las fases posteriores. Las responsabilidades se especifican en la siguiente tabla:
 
-| Rol | Integrantes | Justificación |
+| Rol | Integrantes | JustificaciÃ³n |
 | --- | ---: | --- |
 | **Test Lead** | 1 | Responsable de coordinar al equipo, supervisar el cumplimiento de hitos, gestionar el tablero de trabajo, validar entregables y realizar el seguimiento general del avance del proyecto. |
-| **Test Analyst** | 2 | Encargados de analizar el software, identificar funcionalidades y determinar los elementos que serán considerados dentro del plan de pruebas. |
-| **Test Design** | 2 | Responsables de diseñar los casos de prueba, definiendo entradas, pasos de ejecución, resultados esperados y criterios de aceptación correspondientes. |
-| **Test Architect** | 1 | Define la estructura técnica del proceso de pruebas, la organización del repositorio y la estrategia de pruebas; además, brinda soporte en tareas relacionadas con CI/CD y GitHub Actions cuando sea requerido. |
+| **Test Analyst** | 2 | Encargados de analizar el software, identificar funcionalidades y determinar los elementos que serÃ¡n considerados dentro del plan de pruebas. |
+| **Test Design** | 2 | Responsables de diseÃ±ar los casos de prueba, definiendo entradas, pasos de ejecuciÃ³n, resultados esperados y criterios de aceptaciÃ³n correspondientes. |
+| **Test Architect** | 1 | Define la estructura tÃ©cnica del proceso de pruebas, la organizaciÃ³n del repositorio y la estrategia de pruebas; ademÃ¡s, brinda soporte en tareas relacionadas con CI/CD y GitHub Actions cuando sea requerido. |
 
-## 3. Control Documental y Criterios de Revisión
-Para garantizar la integridad, consistencia y auditabilidad del Plan de Pruebas, se adopta un enfoque de Docs-as-Code (Documentación como Código). Toda la estructura de /tests-docs reside en un repositorio Git, lo que permite control de versiones, revisión por pares y trazabilidad histórica.
+## 3. Control Documental y Criterios de RevisiÃ³n
+Para garantizar la integridad, consistencia y auditabilidad del Plan de Pruebas, se adopta un enfoque de Docs-as-Code (DocumentaciÃ³n como CÃ³digo). Toda la estructura de /tests-docs reside en un repositorio Git, lo que permite control de versiones, revisiÃ³n por pares y trazabilidad histÃ³rica.
 
-### 3.1. Flujo de Revisión por Pares (Peer Review)
-Dado que la documentación es compartida por todo el equipo, queda **estrictamente prohibida la edición directa (commit directo)** sobre la rama principal (en este caso `develop`) de la documentación.
+### 3.1. Flujo de RevisiÃ³n por Pares (Peer Review)
+Dado que la documentaciÃ³n es compartida por todo el equipo, queda **estrictamente prohibida la ediciÃ³n directa (commit directo)** sobre la rama principal (en este caso `develop`) de la documentaciÃ³n.
 
 El flujo de trabajo colaborativo debe seguir estos pasos:
-1.  **Creación de Rama:** El integrante que deba documentar una nueva suite o modificar un plan creará una rama específica (ej. `docs/suite-core-services`).
+1.  **CreaciÃ³n de Rama:** El integrante que deba documentar una nueva suite o modificar un plan crearÃ¡ una rama especÃ­fica (ej. `docs/suite-core-services`).
 2.  **Desarrollo Documental:** Se redacta el contenido utilizando las plantillas obligatorias ubicadas en `.github/`.
-3.  **Pull Request (PR):** Se abre un PR solicitando la integración de los cambios.
-4.  **Revisión Obligatoria:** El PR requiere la aprobación de al menos un revisor calificado.
-    *   *Regla de Aprobación:* El Test Lead es el aprobador principal de los planes maestros y estrategias.
-    *   *Aprobación Delegada:* Para cambios en especificaciones de diseño (Suites), los Test Analyst pueden realizar revisiones cruzadas.
+3.  **Pull Request (PR):** Se abre un PR solicitando la integraciÃ³n de los cambios.
+4.  **RevisiÃ³n Obligatoria:** El PR requiere la aprobaciÃ³n de al menos un revisor calificado.
+    *   *Regla de AprobaciÃ³n:* El Test Lead es el aprobador principal de los planes maestros y estrategias.
+    *   *AprobaciÃ³n Delegada:* Para cambios en especificaciones de diseÃ±o (Suites), los Test Analyst pueden realizar revisiones cruzadas.
 
-### 3.2. Criterios de Aceptación Documental (DoD de QA)
-Un Pull Request documental solo será aprobado si cumple los siguientes criterios:
+### 3.2. Criterios de AceptaciÃ³n Documental (DoD de QA)
+Un Pull Request documental solo serÃ¡ aprobado si cumple los siguientes criterios:
 *   **Consistencia Estructural:** Utiliza la plantilla oficial sin alterar las secciones obligatorias.
-*   **Trazabilidad Garantizada:** Todos los hipervínculos a requisitos (Épicas/Issues) y a scripts de código (`.py`, `.js`) son funcionales y precisos.
-*   **Cero Ambigüedad:** Los pasos de las pruebas o condiciones lógicas están redactados de forma determinista (un único resultado esperado claro).
-*   **Alineamiento ISO:** Las técnicas de diseño (*Valores Límite*, *Particiones de Equivalencia*) están explícitamente declaradas.
+*   **Trazabilidad Garantizada:** Todos los hipervÃ­nculos a requisitos (Ã‰picas/Issues) y a scripts de cÃ³digo (`.py`, `.js`) son funcionales y precisos.
+*   **Cero AmbigÃ¼edad:** Los pasos de las pruebas o condiciones lÃ³gicas estÃ¡n redactados de forma determinista (un Ãºnico resultado esperado claro).
+*   **Alineamiento ISO:** Las tÃ©cnicas de diseÃ±o (*Valores LÃ­mite*, *Particiones de Equivalencia*) estÃ¡n explÃ­citamente declaradas.
 
-### 3.3. Versionado de la Documentación (SemVer)
-El versionado del Plan de Pruebas no sigue las versiones del software, sino su propio ciclo de madurez basándose en **Versionado Semántico (SemVer - X.Y.Z)**:
+### 3.3. Versionado de la DocumentaciÃ³n (SemVer)
+El versionado del Plan de Pruebas no sigue las versiones del software, sino su propio ciclo de madurez basÃ¡ndose en **Versionado SemÃ¡ntico (SemVer - X.Y.Z)**:
 
-*   **Cambio Mayor (X.0.0):** Se incrementa cuando hay un cambio de paradigma o se inicia una nueva gran fase del estándar.
-    *   *Ejemplo:* Pasar de la Fase de Pruebas Unitarias a la Fase de Pruebas de Integración (versión `1.x.x` a `2.0.0`).
+*   **Cambio Mayor (X.0.0):** Se incrementa cuando hay un cambio de paradigma o se inicia una nueva gran fase del estÃ¡ndar.
+    *   *Ejemplo:* Pasar de la Fase de Pruebas Unitarias a la Fase de Pruebas de IntegraciÃ³n (versiÃ³n `1.x.x` a `2.0.0`).
 *   **Cambio Menor (0.Y.0):** Se incrementa al agregar nuevas suites de pruebas o realizar adiciones funcionales significativas a un plan existente, sin alterar lo que ya estaba documentado.
-    *   *Ejemplo:* Se documenta por primera vez la suite de validación de tareas (`1.0.0` a `1.1.0`).
-*   **Parche (0.0.Z):** Se utiliza para correcciones ortográficas, actualización de enlaces rotos, formateo Markdown o clarificación de términos.
-    *   *Ejemplo:* Corregir la URL de un hipervínculo en el Plan Maestro (`1.1.0` a `1.1.1`).
+    *   *Ejemplo:* Se documenta por primera vez la suite de validaciÃ³n de tareas (`1.0.0` a `1.1.0`).
+*   **Parche (0.0.Z):** Se utiliza para correcciones ortogrÃ¡ficas, actualizaciÃ³n de enlaces rotos, formateo Markdown o clarificaciÃ³n de tÃ©rminos.
+    *   *Ejemplo:* Corregir la URL de un hipervÃ­nculo en el Plan Maestro (`1.1.0` a `1.1.1`).
 
-La trazabilidad histórica (quién, cuándo y por qué modificó un documento) queda registrada inmutablemente en el historial de *commits* de Git, sirviendo como registro de auditoría legal y de calidad.
+La trazabilidad histÃ³rica (quiÃ©n, cuÃ¡ndo y por quÃ© modificÃ³ un documento) queda registrada inmutablemente en el historial de *commits* de Git, sirviendo como registro de auditorÃ­a legal y de calidad.
 
-## 4. Trazabilidad y Métricas Core
+## 4. Trazabilidad y MÃ©tricas Core
 
-Para cumplir con la **Parte 4 (Medición y Técnicas)** y **Parte 2 (Procesos de Control)** del estándar ISO/IEC/IEEE 29119, el equipo establece un modelo matemático y relacional para medir la calidad del producto y la eficiencia del propio proceso de testing.
+Para cumplir con la **Parte 4 (MediciÃ³n y TÃ©cnicas)** y **Parte 2 (Procesos de Control)** del estÃ¡ndar ISO/IEC/IEEE 29119, el equipo establece un modelo matemÃ¡tico y relacional para medir la calidad del producto y la eficiencia del propio proceso de testing.
 
 ### 4.1. El Ecosistema de Trazabilidad Bidireccional
-La trazabilidad es el eje central del QA profesional. Asegura que ningún requisito de Tasking Manager carezca de cobertura de pruebas, y que ninguna prueba exista sin justificación de negocio.
+La trazabilidad es el eje central del QA profesional. Asegura que ningÃºn requisito de Tasking Manager carezca de cobertura de pruebas, y que ninguna prueba exista sin justificaciÃ³n de negocio.
 
 Se establece la siguiente cadena de trazabilidad bidireccional (registrada en `matriz-trazabilidad-unitaria.md`):
-1.  **Requisito de Negocio / Épica** (Origen en GitHub Projects).
-2.  **Módulo de Código** (Archivo fuente en `hotosm/tasking-manager`).
-3.  **Especificación de Diseño de Prueba** (Caso documentado en la Wiki `/tests-docs`).
+1.  **Requisito de Negocio / Ã‰pica** (Origen en GitHub Projects).
+2.  **MÃ³dulo de CÃ³digo** (Archivo fuente en `hotosm/tasking-manager`).
+3.  **EspecificaciÃ³n de DiseÃ±o de Prueba** (Caso documentado en la Wiki `/tests-docs`).
 4.  **Test Script Automatizado** (Prueba automatizada en el repositorio).
-5.  **Evidencia de Ejecución** (Log o reporte de CI/CD).
+5.  **Evidencia de EjecuciÃ³n** (Log o reporte de CI/CD).
 
-### 4.2. Métricas de Cobertura Base (ISO/IEC/IEEE 29119-4)
-El estándar internacional exige medir la efectividad de las técnicas de diseño de pruebas empleadas. Para ello, define una fórmula universal que el equipo aplicará obligatoriamente.
+### 4.2. MÃ©tricas de Cobertura Base (ISO/IEC/IEEE 29119-4)
+El estÃ¡ndar internacional exige medir la efectividad de las tÃ©cnicas de diseÃ±o de pruebas empleadas. Para ello, define una fÃ³rmula universal que el equipo aplicarÃ¡ obligatoriamente.
 
-**Fórmula de Cobertura de Diseño:**
+**FÃ³rmula de Cobertura de DiseÃ±o:**
 
 ```math
-$$ Cobertura\ de\ Diseño\ (\%) = \left( \frac{N}{T} \right) \times 100 $$
+$$ Cobertura\ de\ DiseÃ±o\ (\%) = \left( \frac{N}{T} \right) \times 100 $$
 ```
 
-*   **T** (Total de Elementos de Cobertura Identificados): Representa el número total de escenarios o condiciones que *deberían* probarse según el análisis de caja negra (por ejemplo, el total de valores límite identificados en un módulo).
-*   **N** (Elementos Cubiertos / Ejecutados): Representa el número de esos escenarios que efectivamente tienen un caso de prueba documentado y ejecutado.
+*   **T** (Total de Elementos de Cobertura Identificados): Representa el nÃºmero total de escenarios o condiciones que *deberÃ­an* probarse segÃºn el anÃ¡lisis de caja negra (por ejemplo, el total de valores lÃ­mite identificados en un mÃ³dulo).
+*   **N** (Elementos Cubiertos / Ejecutados): Representa el nÃºmero de esos escenarios que efectivamente tienen un caso de prueba documentado y ejecutado.
 
-*Ejemplo de aplicación:* Si al analizar el módulo de "Creación de Tareas" se identifican 20 combinaciones posibles usando tablas de decisión ($T=20$), pero solo se han automatizado y ejecutado 15 ($N=15$), la cobertura de diseño de esa técnica es del **75%**.
+*Ejemplo de aplicaciÃ³n:* Si al analizar el mÃ³dulo de "CreaciÃ³n de Tareas" se identifican 20 combinaciones posibles usando tablas de decisiÃ³n ($T=20$), pero solo se han automatizado y ejecutado 15 ($N=15$), la cobertura de diseÃ±o de esa tÃ©cnica es del **75%**.
 
-### 4.3. Métricas de Ejecución y Calidad del Software
-Adicionalmente a la cobertura de diseño de la ISO, el equipo recolectará y analizará las siguientes métricas de ejecución al finalizar cada ciclo de pruebas:
+### 4.3. MÃ©tricas de EjecuciÃ³n y Calidad del Software
+Adicionalmente a la cobertura de diseÃ±o de la ISO, el equipo recolectarÃ¡ y analizarÃ¡ las siguientes mÃ©tricas de ejecuciÃ³n al finalizar cada ciclo de pruebas:
 
 **Cobertura de Pruebas Unitarias (Code Coverage):**
-*   *Definición:* Porcentaje de líneas lógicas de código fuente ejecutadas por los scripts de prueba.
-*   *Fórmula:* $(Líneas\ de\ código\ ejecutadas / Líneas\ totales\ del\ módulo) \times 100$.
-*   *Herramienta:* Generado automáticamente por herramientas de CI (en este caso se usará Coverage.py). Umbral mínimo aceptable: **80%**.
+*   *DefiniciÃ³n:* Porcentaje de lÃ­neas lÃ³gicas de cÃ³digo fuente ejecutadas por los scripts de prueba.
+*   *FÃ³rmula:* $(LÃ­neas\ de\ cÃ³digo\ ejecutadas / LÃ­neas\ totales\ del\ mÃ³dulo) \times 100$.
+*   *Herramienta:* Generado automÃ¡ticamente por herramientas de CI (en este caso se usarÃ¡ Coverage.py). Umbral mÃ­nimo aceptable: **80%**.
 
-**Tasa de Ejecución de Pruebas:**
-*   *Definición:* Refleja el estado operacional de la suite de pruebas.
+**Tasa de EjecuciÃ³n de Pruebas:**
+*   *DefiniciÃ³n:* Refleja el estado operacional de la suite de pruebas.
 *   *Desglose:*
-    *   % Éxito (Passed): $(Pruebas Exitosas / Total Ejecutadas) \times 100$.
+    *   % Ã‰xito (Passed): $(Pruebas Exitosas / Total Ejecutadas) \times 100$.
     *   % Fallo (Failed): $(Pruebas Fallidas / Total Ejecutadas) \times 100$.
-    *   % Bloqueadas (Blocked): Pruebas que no pudieron ejecutarse por dependencias caídas o errores de entorno.
+    *   % Bloqueadas (Blocked): Pruebas que no pudieron ejecutarse por dependencias caÃ­das o errores de entorno.
 
 **Densidad de Defectos (Defect Density):**
-*   *Definición:* Indica la madurez y fragilidad de un módulo de código específico.
-*   *Fórmula:* $Total\ de\ Bugs\ Confirmados / Tamaño\ del\ Módulo$.
-*   *Propósito:* Identificar qué componentes del Tasking Manager (por ejemplo, Lógica espacial vs. Autenticación) concentran la mayor cantidad de errores (Hotspots) para reasignar esfuerzos de QA en futuras iteraciones.
+*   *DefiniciÃ³n:* Indica la madurez y fragilidad de un mÃ³dulo de cÃ³digo especÃ­fico.
+*   *FÃ³rmula:* $Total\ de\ Bugs\ Confirmados / TamaÃ±o\ del\ MÃ³dulo$.
+*   *PropÃ³sito:* Identificar quÃ© componentes del Tasking Manager (por ejemplo, LÃ³gica espacial vs. AutenticaciÃ³n) concentran la mayor cantidad de errores (Hotspots) para reasignar esfuerzos de QA en futuras iteraciones.
 
-## 5. Estrategia de Evolución del Plan
-Este plan es un artefacto vivo. Se ha programado una sesión de reevaluación (Test Strategy Review) al finalizar el ciclo de Pruebas de Integración (Fase 2) para incorporar los procesos metodológicos de los 3 nuevos integrantes y adaptar la estrategia hacia las pruebas de Sistema (Fase 3).
+## 5. Estrategia de EvoluciÃ³n del Plan
+Este plan es un artefacto vivo. Se ha programado una sesiÃ³n de reevaluaciÃ³n (Test Strategy Review) al finalizar el ciclo de Pruebas de IntegraciÃ³n (Fase 2) para incorporar los procesos metodolÃ³gicos de los 3 nuevos integrantes y adaptar la estrategia hacia las pruebas de Sistema (Fase 3).
+
