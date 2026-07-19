@@ -163,72 +163,41 @@ async def get_project_tasks(
 
 @router.delete("/{project_id}/tasks/")
 @requires("authenticated")
-async def delete(request: Request, project_id):
+async def delete(request: Request, project_id: int, db: Database = Depends(get_db)):
     """
     Delete a list of tasks from a project
-    ---
-    tags:
-        - tasks
-    produces:
-        - application/json
-    parameters:
-        - in: header
-            name: Authorization
-            description: Base64 encoded session token
-            required: true
-            type: string
-            default: Token sessionTokenHere==
-        - name: project_id
-            in: path
-            description: Project ID the task is associated with
-            required: true
-            type: integer
-            default: 1
-        - in: body
-            name: body
-            required: true
-            description: JSON object with a list of tasks to delete
-            schema:
-                properties:
-                    tasks:
-                        type: array
-                        items:
-                            type: integer
-                        default: [ 1, 2 ]
-    responses:
-        200:
-            description: Task(s) deleted
-        400:
-            description: Bad request
-        403:
-            description: Forbidden
-        404:
-            description: Project or Task Not Found
-        500:
-            description: Internal Server Error
     """
     user_id = request.user.display_name
-    user = UserService.get_user_by_id(user_id)
+    user = await UserService.get_user_by_id(int(user_id), db)
     if user.role != UserRole.ADMIN.value:
-        return {
-            "Error": "This endpoint action is restricted to ADMIN users.",
-            "SubCode": "OnlyAdminAccess",
-        }, 403
+        return JSONResponse(
+            content={
+                "Error": "This endpoint action is restricted to ADMIN users.",
+                "SubCode": "OnlyAdminAccess",
+            },
+            status_code=403
+        )
 
-    tasks_ids = await request.json().get("tasks")
+    json_payload = await request.json()
+    tasks_ids = json_payload.get("tasks")
     if tasks_ids is None:
-        return {"Error": "Tasks ids not provided", "SubCode": "InvalidData"}, 400
+        return JSONResponse(content={"Error": "Tasks ids not provided", "SubCode": "InvalidData"}, status_code=400)
     if isinstance(tasks_ids, list) is False:
-        return {
-            "Error": "Tasks were not provided as a list",
-            "SubCode": "InvalidData",
-        }, 400
+        return JSONResponse(
+            content={
+                "Error": "Tasks were not provided as a list",
+                "SubCode": "InvalidData",
+            },
+            status_code=400
+        )
 
     try:
+        # Assuming ProjectService.delete_tasks is sync in this context or we need to pass db if it's updated
+        # Actually ProjectService.delete_tasks isn't async based on grep
         ProjectService.delete_tasks(project_id, tasks_ids)
-        return {"Success": "Task(s) deleted"}, 200
+        return JSONResponse(content={"Success": "Task(s) deleted"}, status_code=200)
     except ProjectServiceError as e:
-        return {"Error": str(e)}, 403
+        return JSONResponse(content={"Error": str(e)}, status_code=403)
 
 
 @router.get("/{project_id}/tasks/queries/xml/")
@@ -399,20 +368,23 @@ async def tasks_aoi(request: Request, project_id: int):
             description: Internal Server Error
     """
     try:
-        grid_dto = GridDTO(request.get_json())
-        grid_dto.validate()
+        json_payload = await request.json()
+        grid_dto = GridDTO(**json_payload)
     except Exception as e:
         logger.error(f"error validating request: {str(e)}")
-        return {
-            "Error": "Unable to fetch tiles interesecting AOI",
-            "SubCode": "InvalidData",
-        }, 400
+        return JSONResponse(
+            content={
+                "Error": "Unable to fetch tiles interesecting AOI",
+                "SubCode": "InvalidData",
+            },
+            status_code=400
+        )
 
     try:
         grid = GridService.trim_grid_to_aoi(grid_dto)
-        return grid, 200
+        return JSONResponse(content=grid, status_code=200)
     except InvalidGeoJson as e:
-        return {"Error": str(e).split("-")[1], "SubCode": str(e).split("-")[0]}, 400
+        return JSONResponse(content={"Error": str(e).split("-")[1], "SubCode": str(e).split("-")[0]}, status_code=400)
 
 
 @router.get("/{project_id}/tasks/queries/mapped/")
