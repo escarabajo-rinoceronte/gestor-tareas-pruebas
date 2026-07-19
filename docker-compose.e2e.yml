@@ -16,8 +16,6 @@ services:
       - 5434:5432
 
   tm-backend:
-    ports:
-      - 5000:5000
     volumes:
       - ./scripts:/usr/src/app/scripts
       - ./frontend:/usr/src/app/frontend

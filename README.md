@@ -1,100 +1,123 @@
-# Tasking Manager
+# HITO 2 — Pruebas de Software: Escarabajo Rinoceronte
 
-[![DPG Badge](https://img.shields.io/badge/Verified-DPG-3333AB?logo=data:image/svg%2bxml;base64,PHN2ZyB3aWR0aD0iMzEiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAzMSAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE0LjIwMDggMjEuMzY3OEwxMC4xNzM2IDE4LjAxMjRMMTEuNTIxOSAxNi40MDAzTDEzLjk5MjggMTguNDU5TDE5LjYyNjkgMTIuMjExMUwyMS4xOTA5IDEzLjYxNkwxNC4yMDA4IDIxLjM2NzhaTTI0LjYyNDEgOS4zNTEyN0wyNC44MDcxIDMuMDcyOTdMMTguODgxIDUuMTg2NjJMMTUuMzMxNCAtMi4zMzA4MmUtMDVMMTEuNzgyMSA1LjE4NjYyTDUuODU2MDEgMy4wNzI5N0w2LjAzOTA2IDkuMzUxMjdMMCAxMS4xMTc3TDMuODQ1MjEgMTYuMDg5NUwwIDIxLjA2MTJMNi4wMzkwNiAyMi44Mjc3TDUuODU2MDEgMjkuMTA2TDExLjc4MjEgMjYuOTkyM0wxNS4zMzE0IDMyLjE3OUwxOC44ODEgMjYuOTkyM0wyNC44MDcxIDI5LjEwNkwyNC42MjQxIDIyLjgyNzdMMzAuNjYzMSAyMS4wNjEyTDI2LjgxNzYgMTYuMDg5NUwzMC42NjMxIDExLjExNzdMMjQuNjI0MSA5LjM1MTI3WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==)](https://digitalpublicgoods.net/r/hot-tasking-manager)
-[![hotosm](https://dl.circleci.com/status-badge/img/gh/hotosm/tasking-manager/tree/develop.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/hotosm/tasking-manager/tree/develop)
-[![TM Backend on Quay](https://quay.io/repository/hotosm/tasking-manager/status "Tasking Manager Backend Build")](https://quay.io/repository/hotosm/tasking-manager)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=hotosm_tasking-manager&metric=alert_status)](https://sonarcloud.io/dashboard?id=hotosm_tasking-manager)
+## Universidad Nacional de San Agustín de Arequipa
+### Facultad de Ingeniería de Producción y Servicios
+#### Escuela Profesional de Ingeniería de Sistemas
 
-![tm-landing-page](./docs/images/screenshot.jpg)
+**Asignatura:** Pruebas de Software  
+**Docente:** Ing. Robert Edison Arisaca Mamani  
+**Proyecto:** HOT OSM Tasking Manager  
+**Repositorio:** https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas
 
-The most popular tool for teams to coordinate mapping on OpenStreetMap. With this web application, an area of interest can be defined and divided up into smaller tasks that can be completed rapidly. It shows which areas need to be mapped and which areas need a review for quality assurance. You can see the tool in action: log into the widely used [HOT Tasking Manager](https://tasks.hotosm.org/) and start mapping.
+---
 
-This is Free and Open Source Software. You are welcome to use the code and set up your own instance. The Tasking Manager has been initially designed and built by and for the [Humanitarian OpenStreetMap Team](https://www.hotosm.org/), and is nowadays used by many communities and organizations.
+## Descripción General
 
-## Get involved!
+Este repositorio contiene todos los artefactos producidos durante el **Hito 2** del proyecto de testing sobre **HOT OSM Tasking Manager**, una plataforma de código abierto utilizada mundialmente para coordinar el mapeo colaborativo en respuesta a emergencias humanitarias. El sistema cuenta con un backend en Python/FastAPI y un frontend en React/Vite, desplegados mediante Docker.
 
-* Start by reading our [Code of conduct](docs/developers/code_of_conduct.md)
-* Get familiar with our [contributor guidelines](docs/developers/contributing.md) explaining the different ways in which you can support this project! We need your help!
-* Join the Tasking Manager Collective Meet up - an opportunity to meet other Tasking Manager contributors. The meet ups take place on the second Wednesday of the month at 9:00 or 15:00UTC! Register to receive a calendar invite: https://bit.ly/3s6ntmV or join directly via this link: https://meet.jit.si/TaskingManagerCollectiveMeetUp
-* Read the monthly update blogs on [OSM Discourse](https://community.openstreetmap.org/c/general/38/all).
+El esfuerzo de validación se concentró en tres módulos críticos del negocio: **Ejecución de Mapeo**, **Proceso de Validación** y **Administración de Proyectos**.
 
-## Product Roadmap
+---
 
+## Integrantes y Autoevaluación
 
-✅ Completed: Finished, available on [production instance](https://tasks.hotosm.org)
+| Nombre y Apellidos | Rol en el Sprint | % Esfuerzo Hito 2 |
+|---|---|---|
+| Quispe Arratea, Alexandra Raquel | Documentación QA y Pruebas Funcionales | 90% |
+| Cari Lipe, Paul Andre | Pruebas Automatizadas (Frontend) | 95% |
+| Arias Quispe, Jhonatan David | Pruebas Automatizadas (Frontend) | 90% |
+| Mamani Huarsaya Jorge | Pruebas Automatizadas (Backend) | 100% |
+| Boza Portilla, Yordano Hernan | Pruebas Automatizadas (Backend) | 85% |
+| Mollo Chuquicaña, Dolly Yadhira | Pruebas Funcionales | 85% |
 
-🔄 In Progress: Task or milestone is actively being worked on
+---
 
-📅 Planned: Task or milestone is scheduled for a future date
+## Artefactos del Hito 2
 
+### 1. Plan de Pruebas Unitarias
 
+Documento maestro que establece el alcance, la estrategia de pruebas, las herramientas, la arquitectura de entornos (DEV y QA), las métricas de calidad con umbral mínimo del 85% de cobertura, y los criterios de suspensión y reanudación.
 
-Status | Feature | Release
--------|---------|---------
-✅ | Up-to-date OSM Statistics: Integrated with [ohsome Now](https://stats.now.ohsome.org/) for real-time data insights.| Released in [v4.6.2](https://github.com/hotosm/tasking-manager/releases/tag/v4.6.2).
+- **GitHub Wiki:** https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/plan-pruebas-unitarias
 
+---
 
-### 2024
+### 2. Implementación de Pruebas Unitarias
 
-Status | Feature | Release
--------|---------|---------
-✅ | Downloadable OSM Exports: Export data directly from each project. | Available in[ v4.7.0](https://github.com/hotosm/tasking-manager/releases/tag/v4.7.0).
-✅ | Rapid Editor Upgrade: Enhanced mapping experience with the latest rapid editor updates.| Last updated in [v4.8.2](https://github.com/hotosm/tasking-manager/releases/tag/v4.8.2)
-✅ | Public-Facing Partner Pages: Create and display dedicated pages for partners running remote mapathons.| [v4.8.2](https://github.com/hotosm/tasking-manager/releases/tag/v4.8.2)
-✅ | Downloadable Project List View: Allow users to explore projects via a downloadable list. [View issue](https://github.com/hotosm/tasking-manager/issues/3394).| [v4.8.2](https://github.com/hotosm/tasking-manager/releases/tag/v4.8.2)
-✅ | MapSwipe Stats Integration: Display MapSwipe statistics on Partner Pages.|[v4.8.2](https://github.com/hotosm/tasking-manager/releases/tag/v4.8.2)
+#### Frontend (React/Vite)
 
+Pruebas unitarias implementadas con Jest + React Testing Library sobre los componentes y vistas del frontend. Se desarrolló un script propio (`coverage-rino`) para medir la cobertura de los 3 módulos prioritarios, obteniendo métricas realistas de la lógica de negocio principal.
 
-### 2025
+- **Reporte de Ejecución (Wiki):** https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/01-ejecucion-pruebas-unitarias-frontend
+- **Pruebas ejecutadas:** más de 1,220 casos — **Tasa de éxito: 98.8%**
+- **Cobertura alcanzada:** **85.32%** (Statements, Branches, Functions y Lines)
+- **CI/CD Workflow:** GitHub Actions → `.github/workflows/pr_test_frontend.yml` (se ejecuta automáticamente en cada Pull Request)
+- **GitHub Actions (ejecución):** https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/actions
 
-Status | Feature | Release
--------|---------|---------
-✅ | FastAPI Migration: Improve performance and scalability of Tasking Manager to handle large scale validation and mapping efforts.| [v5 launch 🎉](https://github.com/hotosm/tasking-manager/releases/tag/v5.0.0)
-✅ | iD Editor Latest Features: Integrate the newest features of the iD editor.|[v5.0.5](https://github.com/hotosm/tasking-manager/releases/tag/v5.0.5)
-✅ | Super Mapper: Redefine Mapper Level Milestones | [v5.2.0](https://github.com/hotosm/tasking-manager/releases/tag/v5.2.0)
-✅ | Ability to unlink projects and subsequent team deletion | [v5.3.1](https://github.com/hotosm/tasking-manager/releases/tag/v5.3.1)
-✅ | User account deletion (self-service + admin initiated) | [v5.4.0](https://github.com/hotosm/tasking-manager/releases/tag/v5.4.0)
+#### Backend (FastAPI/Python)
 
-### 2026
+Pruebas unitarias implementadas con `pytest` + `pytest-cov` sobre los módulos Core del backend (Modelos PostGIS y Servicios de Negocio). La estrategia incluyó estabilización de infraestructura de tests, incremento de cobertura en archivos críticos, y análisis de defectos de borde.
 
-Status | Feature | Release
--------|---------|---------
-✅ | Markdown support in Project Q&A | [v5.4.1](https://github.com/hotosm/tasking-manager/releases/tag/v5.4.1)
-✅ | Improved panel arrangement in task contribution section | [v5.4.1](https://github.com/hotosm/tasking-manager/releases/tag/v5.4.1)
-✅ | OSM Practice Projects (sandbox): Enable users to engage in OSM practice projects within Tasking Manager workflow. |[v5.5](https://github.com/hotosm/tasking-manager/releases/tag/v5.5)
-✅ | Complete migration to MapLibre libraries | [v5.5](https://github.com/hotosm/tasking-manager/releases/tag/v5.5)
-✅ | [Digital Public Goods](https://www.digitalpublicgoods.net/registry) badge display | [v5.5](https://github.com/hotosm/tasking-manager/releases/tag/v5.5)
-✅ | Filter by imagery type using API | [v5.5](https://github.com/hotosm/tasking-manager/releases/tag/v5.5)
-✅ | Backend support for messaging all Campaign Contributors | [v5.5](https://github.com/hotosm/tasking-manager/releases/tag/v5.5)
-🔄 | Allow data downloads for sandbox projects through frontend |
-🔄 | Custom data reference layer for sandbox projects |
-🔄 | Choropleth layer to highlight most invalidated tasks |
-🔄 | Dependency & Framework health check |
-🔄 | Additional imagery filter under explore projects section |
-📅 | Expanding Project Types beyond basemap features
-📅 | AI Integration: task assignment, difficulty estimation, and validation
-📅 | External tools Integration: MapSwipe, uMap, Maproulette
-📅 | Latest Translations Update: Keep all content current with the latest translations.
-📅 | Improved Project Sorting & Filtering: Enhance the user experience with better sorting and filtering options.
-📅 | UI/UX Enhancements: Continuous improvements to the user interface and experience.
+- **Diseño de Pruebas (Wiki):** https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/01-seguridad-usuarios-comms
+- **Reporte de Ejecución (Wiki):** https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/02-ejecucion-pruebas-unitarias-backend
+- **Pruebas ejecutadas:** 270 — **263 exitosas (97.4%)**
+- **Cobertura alcanzada:** **~86%** en el Módulo Core (Modelos PostGIS: ~88%, Servicios: ~84%)
 
+---
 
+### 3. Informe de Pruebas Funcionales (Caja Negra)
 
+Pruebas funcionales manuales aplicadas sobre **7 módulos del sistema** en un entorno QA controlado. Se aplicaron técnicas de caja negra: **Partición de Equivalencias (PE)** y **Análisis de Valores Límite (AVL)**, diseñando un total de **128 casos de prueba**.
 
+El equipo elaboró el diseño completo para los 7 módulos y focalizó la **ejecución rigurosa con evidencia** en los **3 módulos priorizados** ⭐ (flujos críticos del negocio), ejecutando **75 casos al 100%** con capturas de pantalla reales como evidencia.
 
-## Developers
+| Módulo | Diseño de Casos | Ejecución con Evidencia |
+|---|---|---|
+| **MOD-01 Autenticación y Perfil** | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/01-autenticacion-perfil) | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/01-ejecucion-auntenticacion-perfil) |
+| **MOD-02 Exploración de Proyectos** | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/02-exploracion-proyectos) | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/02-ejecucion-exploracion-proyectos) |
+| **MOD-03 Ejecución de Mapeo** ⭐ | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/03-ejecucion-de-mapeo) | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/03-ejecucion-ejecucion-de-mapeo) |
+| **MOD-04 Proceso de Validación** ⭐ | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/04-proceso-de-validacion) | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/04-ejecucion-proceso-de-validacion) |
+| **MOD-05 Administración de Proyectos** ⭐ | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/05-administracion-de-proyectos) | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/05-ejecucion-administracion-de-proyectos) |
+| **MOD-06 Gobernanza Organizaciones Equipos** | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/06-gobernanza-organizaciones-equipos) | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/06-ejecucion-gobernanza-organizaciones-equipos) |
+| **MOD-07 Comunicación Notificaciones** | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/07-Comunicacion-notificaciones) | [Wiki](https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/07-ejecucion-comunicacion-notificaciones) |
 
-* [Understand the code](./docs/developers/understanding-the-code.md)
-* [Setup the TM for development](./docs/developers/development-setup.md)
-* [Learn about versions and releases](./docs/developers/versions-and-releases.md)
-* Help us and submit [pull requests](https://github.com/hotosm/tasking-manager/pulls)
+> Los módulos ⭐ representan los flujos críticos del sistema (bloqueo de tareas, validación de mapeo y gestión de proyectos). De los 75 casos ejecutados, **73 pasaron exitosamente (97.3%)** y 2 fallaron, cuyos defectos quedaron documentados. El diseño para los 7 módulos está disponible completo en la Wiki.
 
-## Instances
-* [HOT Tasking Manager (production)](https://tasks.hotosm.org)
-* [HOT Tasking Manager (staging)](https://tasks-stage.hotosm.org)
-* [TeachOSM](https://tasks.teachosm.org/)
-* [OpenStreetMap Indonesia](https://tasks-indonesia.hotosm.org/)
-* [OpenStreetMap US](https://tasks.openstreetmap.us/)
-* [Map My Kerala](https://mapmykerala.in/)
-* [OpenHistoricalMap](https://tasks.openhistoricalmap.org)
-* [Oceania Tasking Manager](https://tasks.smartcitiestransport.com/)
+---
+
+### 4. Plan de Pruebas de Integración
+
+Documento que define la estrategia incremental híbrida para verificar la interacción entre los módulos del sistema, contemplando 8 casos de integración prioritarios con precondiciones, pasos, resultados esperados, cronograma y criterios de salida.
+
+- **GitHub Wiki:** https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/plan-pruebas-integracion
+
+---
+
+### GitHub Projects (Tablero Kanban)
+
+Gestión de issues y seguimiento del sprint bajo metodología ágil. Refleja la planificación, asignación y estado de cada tarea del Sprint 2. Todas las tareas críticas finalizaron con estado **Done**.
+
+- **GitHub Projects:** https://github.com/orgs/escarabajo-rinoceronte/projects/1/views/1
+
+### GitHub Wiki (Documentación completa)
+
+Portal de consulta unificado para todo el ciclo de pruebas (planes, diseños, informes de ejecución y evidencias).
+
+- **Inicio Wiki:** https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki
+
+### GitHub Actions (CI/CD)
+
+El proyecto implementa dos pipelines de automatización:
+
+1. **Pipeline de Pruebas Frontend** (`.github/workflows/pr_test_frontend.yml`): ejecuta la suite de pruebas unitarias automáticamente ante cada Pull Request, actuando como compuerta de calidad obligatoria antes del merge.
+2. **Auto-Sincronización de la Wiki** (`.github/workflows/wiki-sync.yml`): detecta cambios en los informes Markdown y sincroniza la GitHub Wiki automáticamente en cada push a `develop`, incluyendo resolución de rutas de imágenes. Garantiza que la documentación refleje siempre el último estado real del proyecto.
+
+- **Workflows activos:** https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/actions
+
+---
+
+## Notas Técnicas
+
+- La wiki se actualiza **automáticamente** al hacer push a `develop` mediante GitHub Actions.
+- Las pruebas unitarias del frontend se ejecutan automáticamente en cada Pull Request.
+- Método estadístico utilizado en diseño de pruebas funcionales: **Partición de Equivalencias (PE)** y **Análisis de Valores Límite (AVL)**.
