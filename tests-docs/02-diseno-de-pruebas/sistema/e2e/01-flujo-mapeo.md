@@ -8,20 +8,20 @@
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
   <b>Semestre:</b> VII <br>
-  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas E2E â€” Flujo de Mapeo (Backend Real) <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas E2E — Flujo de Mapeo (Backend Real) <br>
   <b>Fecha de Elaboración:</b> 17/07/2026 <br>
   <b>Arequipa — Perú</b>
 </div>
 
 ---
 
-# Diseño de Pruebas E2E â€” Flujo de Mapeo (Backend Real)
+# Diseño de Pruebas E2E — Flujo de Mapeo (Backend Real)
 
 **Versión del Documento:** 1.0  
 **Tipo de Documento:** Diseño de Pruebas de Sistema (Caja Negra)  
 **Caso de Prueba Asociado:** CP-E2E-MAP-001  
-**Módulo Funcional Relacionado:** MOD-03 â€” Ejecución de Mapeo (Tasking)  
-**Escenario Funcional Relacionado:** ESC-3001 â€” Solicitud de Bloqueo e Inicio de Tarea de Mapeo  
+**Módulo Funcional Relacionado:** MOD-03 — Ejecución de Mapeo (Tasking)  
+**Escenario Funcional Relacionado:** ESC-3001 — Solicitud de Bloqueo e Inicio de Tarea de Mapeo  
 **Estándares de referencia:** IEEE 829, ISO/IEC/IEEE 29119
 
 ---
@@ -30,7 +30,7 @@
 
 Este documento describe el diseño de la prueba End-to-End del flujo de mapeo ejecutado contra el backend real de HOT Tasking Manager. El objetivo es validar el "happy path" de un usuario `MAPPER` que inicia sesión, explora proyectos publicados, selecciona una tarea en estado `READY` y la abre en el editor iD, verificando la integración completa frontend-backend-base de datos.
 
-Para el detalle de actores, restricciones y reglas de negocio del módulo de mapeo, referirse al [Diseño de Pruebas Funcionales â€” MOD-03](/tests-docs/02-diseno-de-pruebas/funcionales/03-ejecucion-de-mapeo.md).
+Para el detalle de actores, restricciones y reglas de negocio del módulo de mapeo, referirse al [Diseño de Pruebas Funcionales — MOD-03](/tests-docs/02-diseno-de-pruebas/funcionales/03-ejecucion-de-mapeo.md).
 
 ## 2. Estrategia de Diseño
 

@@ -29,8 +29,8 @@ La prueba de desempeño y carga fue ejecutada exitosamente simulando **50 usuari
 
 El sistema cumplió satisfactoriamente con los Criterios de Aceptación definidos en el Plan de Pruebas:
 
-*   **Regla 1 â€” Velocidad (Latencia):** El 95% de las peticiones fueron respondidas en **1.76 segundos** (`p(95) = 1.76s`), manteniéndose por debajo del umbral máximo exigido de 2 segundos.
-*   **Regla 2 â€” Tasa de Error:** Solo el **0.04%** de las peticiones fallaron, cumpliendo holgadamente el criterio de aceptación que toleraba hasta un 5% de error. (De cada 10,000 peticiones, solo 5 presentaron timeout).
+*   **Regla 1 — Velocidad (Latencia):** El 95% de las peticiones fueron respondidas en **1.76 segundos** (`p(95) = 1.76s`), manteniéndose por debajo del umbral máximo exigido de 2 segundos.
+*   **Regla 2 — Tasa de Error:** Solo el **0.04%** de las peticiones fallaron, cumpliendo holgadamente el criterio de aceptación que toleraba hasta un 5% de error. (De cada 10,000 peticiones, solo 5 presentaron timeout).
 
 ## 2. Evidencia de Ejecución
 

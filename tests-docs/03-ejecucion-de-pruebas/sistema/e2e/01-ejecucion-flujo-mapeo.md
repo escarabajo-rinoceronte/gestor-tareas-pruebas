@@ -8,20 +8,20 @@
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
   <b>Semestre:</b> VII <br>
-  <b>Proyecto:</b> HOT Tasking Manager — Ejecución de Casos de Prueba E2E â€” Flujo de Mapeo (Backend Real) <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Ejecución de Casos de Prueba E2E — Flujo de Mapeo (Backend Real) <br>
   <b>Fecha de Elaboración:</b> 17/07/2026 <br>
   <b>Arequipa — Perú</b>
 </div>
 
 ---
 
-# Ejecución de Casos de Prueba E2E â€” Flujo de Mapeo (Backend Real)
+# Ejecución de Casos de Prueba E2E — Flujo de Mapeo (Backend Real)
 
 **Versión del Documento:** 1.0  
 **Tipo de Documento:** Reporte de Ejecución de Pruebas  
-**Escenario de Prueba:** ESC-3001 â€” Solicitud de Bloqueo e Inicio de Tarea de Mapeo  
+**Escenario de Prueba:** ESC-3001 — Solicitud de Bloqueo e Inicio de Tarea de Mapeo  
 **Caso de Prueba:** CP-E2E-MAP-001  
-**Diseño Asociado:** [Diseño E2E â€” Flujo de Mapeo](/tests-docs/02-diseno-de-pruebas/e2e-backend-real/01-flujo-mapeo.md)  
+**Diseño Asociado:** [Diseño E2E — Flujo de Mapeo](/tests-docs/02-diseno-de-pruebas/e2e-backend-real/01-flujo-mapeo.md)  
 **Plan Asociado:** [Plan de Pruebas E2E contra Backend Real](/tests-docs/01-plan-de-pruebas/05-plan-pruebas-e2e-backend-real/plan-pruebas-e2e-backend-real.md)  
 **Fecha de Ejecución:** 2026-07-15  
 **Responsable:** JhonAQ  
@@ -33,7 +33,7 @@
 
 | Atributo | Valor |
 | :--- | :--- |
-| **Sistema bajo prueba** | HOT Tasking Manager â€” Flujo de mapeo End-to-End |
+| **Sistema bajo prueba** | HOT Tasking Manager — Flujo de mapeo End-to-End |
 | **Tipo de ejecución** | Automatizada |
 | **Herramienta** | Playwright Test |
 | **Navegador** | Chromium |

@@ -8,16 +8,16 @@
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
   <b>Semestre:</b> VII <br>
-  <b>Proyecto:</b> HOT Tasking Manager — Informe Consolidado de Ejecución â€” Pruebas de Sistema <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Informe Consolidado de Ejecución — Pruebas de Sistema <br>
   <b>Fecha de Elaboración:</b> 19/07/2026 <br>
   <b>Arequipa — Perú</b>
 </div>
 
 ---
 
-# Informe Consolidado de Ejecución â€” Pruebas de Sistema
+# Informe Consolidado de Ejecución — Pruebas de Sistema
 
-**Proyecto:** HOT Tasking Manager â€” Sistema de Gestión de Tareas Colaborativas de Mapeo
+**Proyecto:** HOT Tasking Manager — Sistema de Gestión de Tareas Colaborativas de Mapeo
 **Curso:** Pruebas de Software
 **Versión:** 1.0
 **Fecha:** 19 de Julio de 2026
@@ -30,11 +30,11 @@
 
 1. [Resumen Ejecutivo](#1-resumen-ejecutivo)
 2. [Entorno de Ejecución](#2-entorno-de-ejecución)
-3. [Flujo de Mapeo â€” CP-E2E-MAP-001](#3-flujo-de-mapeo--cp-e2e-map-001)
-4. [Flujo de Validación â€” CP-E2E-VAL-001](#4-flujo-de-validación--cp-e2e-val-001)
-5. [Flujo de Administración â€” CP-E2E-ADM-001](#5-flujo-de-administración--cp-e2e-adm-001)
-6. [Prueba de Desempeño y Carga â€” K6](#6-prueba-de-desempeño-y-carga--k6)
-7. [Prueba de Seguridad â€” SonarQube](#7-prueba-de-seguridad--sonarqube)
+3. [Flujo de Mapeo — CP-E2E-MAP-001](#3-flujo-de-mapeo--cp-e2e-map-001)
+4. [Flujo de Validación — CP-E2E-VAL-001](#4-flujo-de-validación--cp-e2e-val-001)
+5. [Flujo de Administración — CP-E2E-ADM-001](#5-flujo-de-administración--cp-e2e-adm-001)
+6. [Prueba de Desempeño y Carga — K6](#6-prueba-de-desempeño-y-carga--k6)
+7. [Prueba de Seguridad — SonarQube](#7-prueba-de-seguridad--sonarqube)
 8. [Resumen de Resultados y Conclusiones](#8-resumen-de-resultados-y-conclusiones)
 
 ---
@@ -45,17 +45,17 @@ Las Pruebas de Sistema del HOT Tasking Manager se ejecutaron sobre un entorno co
 
 | Tipo de Prueba | Herramienta | Responsable | Resultado |
 | :--- | :--- | :--- | :--- |
-| E2E â€” Flujo de Mapeo | Playwright | Jhonatan | âœ… APROBADO |
-| E2E â€” Flujo de Validación | Playwright | Jhonatan | âœ… APROBADO |
-| E2E â€” Flujo de Administración | Playwright | Jhonatan | âœ… APROBADO |
+| E2E — Flujo de Mapeo | Playwright | Jhonatan | âœ… APROBADO |
+| E2E — Flujo de Validación | Playwright | Jhonatan | âœ… APROBADO |
+| E2E — Flujo de Administración | Playwright | Jhonatan | âœ… APROBADO |
 | Desempeño y Carga (50 VUs, 12 min) | Grafana K6 | Alexandra | âœ… APROBADO |
-| Seguridad SAST (76k líneas de código) | SonarCloud + Gitleaks | Alexandra | âœ… EJECUTADO â€” Hallazgos documentados |
+| Seguridad SAST (76k líneas de código) | SonarCloud + Gitleaks | Alexandra | âœ… EJECUTADO — Hallazgos documentados |
 
 ### 1.1. Alcance: Casos de Prueba por Atributo de Calidad (ISO/IEC 25010)
 
 Se seleccionaron **3 atributos de calidad** y se diseñaron y ejecutaron **8 casos de prueba de sistema** en total. Todos son **automatizados y reproducibles** en el pipeline CI/CD.
 
-**Atributo 1 â€” Funcionalidad (E2E con Playwright)**
+**Atributo 1 — Funcionalidad (E2E con Playwright)**
 
 | # | ID | Escenario | Estado |
 | :--- | :--- | :--- | :--- |
@@ -63,14 +63,14 @@ Se seleccionaron **3 atributos de calidad** y se diseñaron y ejecutaron **8 cas
 | 2 | CP-E2E-VAL-001 | Flujo completo de Validación: login â†’ seleccionar tarea MAPPED â†’ validar â†’ enviar | âœ… Ejecutado |
 | 3 | CP-E2E-ADM-001 | Flujo completo de Administración: login â†’ panel manage â†’ crear proyecto â†’ guardar borrador | âœ… Ejecutado |
 
-**Atributo 2 â€” Eficiencia de Desempeño (Grafana K6)**
+**Atributo 2 — Eficiencia de Desempeño (Grafana K6)**
 
 | # | ID | Escenario | Estado |
 | :--- | :--- | :--- | :--- |
-| 4 | PERF-K6-001 | Carga sostenida: 50 usuarios virtuales durante 12 minutos â€” p(95) < 2,000 ms, tasa de error < 5% | âœ… Ejecutado |
-| 5 | PERF-K6-002 | Contención transaccional: 50 VUs compitiendo por la misma tarea â€” verificación de Race Condition prevention (HTTP 403) | âœ… Ejecutado |
+| 4 | PERF-K6-001 | Carga sostenida: 50 usuarios virtuales durante 12 minutos — p(95) < 2,000 ms, tasa de error < 5% | âœ… Ejecutado |
+| 5 | PERF-K6-002 | Contención transaccional: 50 VUs compitiendo por la misma tarea — verificación de Race Condition prevention (HTTP 403) | âœ… Ejecutado |
 
-**Atributo 3 â€” Seguridad (SonarCloud + Gitleaks en GitHub Actions)**
+**Atributo 3 — Seguridad (SonarCloud + Gitleaks en GitHub Actions)**
 
 | # | ID | Escenario | Estado |
 | :--- | :--- | :--- | :--- |
@@ -101,7 +101,7 @@ Se seleccionaron **3 atributos de calidad** y se diseñaron y ejecutaron **8 cas
 
 ---
 
-## 3. Flujo de Mapeo â€” CP-E2E-MAP-001
+## 3. Flujo de Mapeo — CP-E2E-MAP-001
 
 **Responsable:** JhonAQ Â· **Fecha:** 2026-07-15 Â· **Herramienta:** Playwright (Chromium)
 
@@ -163,7 +163,7 @@ El caso CP-E2E-MAP-001 se ejecutó **exitosamente** contra el backend real. El f
 
 ---
 
-## 4. Flujo de Validación â€” CP-E2E-VAL-001
+## 4. Flujo de Validación — CP-E2E-VAL-001
 
 **Responsable:** JhonAQ Â· **Fecha:** 2026-07-15 Â· **Herramienta:** Playwright (Chromium)
 
@@ -225,7 +225,7 @@ El caso CP-E2E-VAL-001 se ejecutó **exitosamente** contra el backend real. El f
 
 ---
 
-## 5. Flujo de Administración â€” CP-E2E-ADM-001
+## 5. Flujo de Administración — CP-E2E-ADM-001
 
 **Responsable:** JhonAQ Â· **Fecha:** 2026-07-15 Â· **Herramienta:** Playwright (Chromium)
 
@@ -285,11 +285,11 @@ El caso CP-E2E-ADM-001 se ejecutó **exitosamente** contra el backend real. El f
 
 ---
 
-## 6. Prueba de Desempeño y Carga â€” K6
+## 6. Prueba de Desempeño y Carga — K6
 
 **Responsable:** Alexandra Â· **Fecha:** 2026-07-19 Â· **Herramienta:** Grafana K6
 **Atributo de calidad (ISO/IEC 25010):** Eficiencia de Desempeño
-**Referencia metodológica:** Myers, "The Art of Software Testing" â€” Pruebas de Estrés y Carga
+**Referencia metodológica:** Myers, "The Art of Software Testing" — Pruebas de Estrés y Carga
 
 ### 6.1. Configuración del Escenario
 
@@ -337,7 +337,7 @@ El caso CP-E2E-ADM-001 se ejecutó **exitosamente** contra el backend real. El f
 
 ### 6.3. Evidencia Visual
 
-![Resultados K6 en consola â€” 100% checks OK, p(95)=1.76s](/tests-docs/03-ejecucion-de-pruebas/sistema/k6-results.jpg)
+![Resultados K6 en consola — 100% checks OK, p(95)=1.76s](/tests-docs/03-ejecucion-de-pruebas/sistema/k6-results.jpg)
 
 ### 6.4. Análisis de Contención Transaccional
 
@@ -345,11 +345,11 @@ El desglose de respuestas HTTP demuestra que el backend maneja la concurrencia e
 
 | Código | Conteo | Interpretación |
 | :--- | :--- | :--- |
-| `lock_200_ok` â€” 1,033 | 1,033 bloqueos exitosos | Un usuario adquirió la tarea correctamente |
-| `lock_403_conflict_or_state` â€” 3,632 | Rechazos controlados | El sistema rechazó correctamente a usuarios tardíos: **Race Condition prevenida** |
+| `lock_200_ok` — 1,033 | 1,033 bloqueos exitosos | Un usuario adquirió la tarea correctamente |
+| `lock_403_conflict_or_state` — 3,632 | Rechazos controlados | El sistema rechazó correctamente a usuarios tardíos: **Race Condition prevenida** |
 | Errores reales | 5 de 10,363 peticiones (0.04%) | Dentro del umbral aceptable |
 
-> El alto número de respuestas 403 **no es un error**: demuestra que el sistema protege correctamente la integridad de los datos â€” dos usuarios nunca pueden apropiarse de la misma tarea simultáneamente.
+> El alto número de respuestas 403 **no es un error**: demuestra que el sistema protege correctamente la integridad de los datos — dos usuarios nunca pueden apropiarse de la misma tarea simultáneamente.
 
 ### 6.5. Hallazgo de Optimización Documentado
 
@@ -361,16 +361,16 @@ Durante las rondas de prueba se identificó un cuello de botella crítico:
 
 ### 6.6. Conclusión
 
-**APROBADO.** El sistema soporta 50 usuarios concurrentes intentando bloquear tareas simultáneamente, con una tasa de error del 0.04% y respondiendo el 95% de las peticiones en menos de 1.76 segundos â€” dentro del umbral de aceptación de 2 segundos definido en el Plan de Pruebas.
+**APROBADO.** El sistema soporta 50 usuarios concurrentes intentando bloquear tareas simultáneamente, con una tasa de error del 0.04% y respondiendo el 95% de las peticiones en menos de 1.76 segundos — dentro del umbral de aceptación de 2 segundos definido en el Plan de Pruebas.
 
 ---
 
-## 7. Prueba de Seguridad â€” SonarQube
+## 7. Prueba de Seguridad — SonarQube
 
 **Responsable:** Alexandra Â· **Fecha:** 2026-07-19
 **Herramientas:** SonarCloud (SAST/SCA) + Gitleaks (Secret Scanning)
 **Atributo de calidad (ISO/IEC 25010):** Seguridad
-**Integración:** GitHub Actions CI/CD (`seguridad-sonarqube.yml`) â€” se ejecuta automáticamente en cada push a `develop`
+**Integración:** GitHub Actions CI/CD (`seguridad-sonarqube.yml`) — se ejecuta automáticamente en cada push a `develop`
 
 ### 7.1. Estrategia de Prueba
 
@@ -379,13 +379,13 @@ Durante las rondas de prueba se identificó un cuello de botella crítico:
 | 1 | **Gitleaks** | Secret Scanning | Detectar tokens, contraseñas o claves API expuestas |
 | 2 | **SonarCloud** | SAST + SCA | Detectar vulnerabilidades, bugs críticos y deuda técnica |
 
-### 7.2. Vista General â€” Organización en SonarCloud
+### 7.2. Vista General — Organización en SonarCloud
 
 El pipeline de CI/CD procesó exitosamente las **76,000 líneas de código** del repositorio real.
 
 ![Vista general de la organización en SonarCloud mostrando el proyecto analizado](/tests-docs/03-ejecucion-de-pruebas/sistema/sonar-01-projects-overview.jpg)
 
-### 7.3. Dashboard del Proyecto â€” Estado de Calidad
+### 7.3. Dashboard del Proyecto — Estado de Calidad
 
 ![Dashboard de estado del proyecto: Quality Gate Failed con 1,595 issues totales](/tests-docs/03-ejecucion-de-pruebas/sistema/sonar-02-project-dashboard.jpg)
 
@@ -397,7 +397,7 @@ El pipeline de CI/CD procesó exitosamente las **76,000 líneas de código** del
 | Quality Gate | âŒ Failed (1 condición) |
 | Open Issues totales | 1,595 |
 | Duplicaciones | 1.2% |
-| Coverage | 0.0% (no se envió reporte de cobertura â€” esperado) |
+| Coverage | 0.0% (no se envió reporte de cobertura — esperado) |
 
 ### 7.4. Snapshot de Seguridad
 
@@ -440,7 +440,7 @@ El pipeline de CI/CD procesó exitosamente las **76,000 líneas de código** del
 | Secret Scanning (Gitleaks) | âœ… Ningún secreto expuesto |
 | Análisis SAST ejecutado | âœ… Exitoso sobre 76k líneas |
 | Vulnerabilidades detectadas | 9 issues (requieren plan de remediación) |
-| Objetivo de la prueba | âœ… **EJECUTADO** â€” Hallazgos documentados para backlog |
+| Objetivo de la prueba | âœ… **EJECUTADO** — Hallazgos documentados para backlog |
 
 ---
 

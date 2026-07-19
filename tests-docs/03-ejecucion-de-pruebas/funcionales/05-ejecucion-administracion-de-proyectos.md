@@ -43,14 +43,14 @@
 | :---------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe aceptar el archivo GeoJSON válido, representar el AOI en el mapa y permitir avanzar al siguiente paso de creación del proyecto. | El sistema aceptó el AOI cargado y permitió avanzar al **Paso 2: Establecer tamaños de tareas**, mostrando el área definida sobre el mapa e indicando la cantidad de tareas generadas inicialmente. |
 
-#### Evidencia CP-MOD5-001 â€” Pantalla inicial de definición de AOI
+#### Evidencia CP-MOD5-001 — Pantalla inicial de definición de AOI
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-001-01-paso1-definir-aoi.png" alt="CP-MOD5-001 - Paso 1 Definir AOI" width="650">
 </p>
 Se observa la pantalla inicial del flujo de creación de proyecto, donde el sistema permite definir el Área de Interés mediante dibujo manual o carga de archivo geográfico.
 
-#### Evidencia CP-MOD5-001 â€” AOI aceptado y avance al Paso 2
+#### Evidencia CP-MOD5-001 — AOI aceptado y avance al Paso 2
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-001-02-aoi-aceptado-paso2.png" alt="CP-MOD5-001 - AOI aceptado y avance al Paso 2" width="650">
@@ -69,7 +69,7 @@ Se observa que el sistema aceptó correctamente el AOI definido y permitió avan
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe generar una grilla o cuadrícula de tareas dentro del AOI definido, mostrar visualmente las tareas generadas y permitir avanzar al siguiente paso del flujo de creación del proyecto. | El sistema generó la cuadrícula de tareas sobre el AOI previamente definido y permitió avanzar al **Paso 3: Recortar la cuadrícula de tareas**. |
 
-#### Evidencia CP-MOD5-002 â€” Grilla inicial generada
+#### Evidencia CP-MOD5-002 — Grilla inicial generada
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-002-01-grilla-inicial.png" alt="CP-MOD5-002 - Grilla inicial generada" width="650">
@@ -77,7 +77,7 @@ Se observa que el sistema aceptó correctamente el AOI definido y permitió avan
 
 Se observa que, después de definir el Área de Interés, el sistema generó una cuadrícula inicial de tareas dentro del AOI. Además, la interfaz muestra la cantidad de tareas que serán creadas y permite ajustar el tamaño general de cada tarea.
 
-#### Evidencia CP-MOD5-002 â€” Avance al paso de recorte de cuadrícula
+#### Evidencia CP-MOD5-002 — Avance al paso de recorte de cuadrícula
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-002-03-avance-siguiente-paso.png" alt="CP-MOD5-002 - Avance al paso de recorte de cuadrícula" width="650">
@@ -97,7 +97,7 @@ Se evidencia que el sistema permitió continuar hacia el **Paso 3: Recortar la c
 | :------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | El sistema debe permitir recortar la cuadrícula de tareas al Área de Interés definida, conservar las tareas válidas dentro del AOI y permitir avanzar al paso de revisión del proyecto. | El sistema procesó correctamente el recorte de la cuadrícula y permitió avanzar al **Paso 4: Revisar**, indicando que el proyecto se creará con **4 tareas**. |
 
-#### Evidencia CP-MOD5-003 â€” Pantalla inicial de recorte de cuadrícula
+#### Evidencia CP-MOD5-003 — Pantalla inicial de recorte de cuadrícula
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-003-01-paso3-recorte-inicial.png" alt="CP-MOD5-003 - Pantalla inicial de recorte de cuadrícula" width="650">
@@ -105,7 +105,7 @@ Se evidencia que el sistema permitió continuar hacia el **Paso 3: Recortar la c
 
 Se observa la pantalla correspondiente al **Paso 3: Recortar la cuadrícula de tareas**, donde el sistema permite conservar las tareas actuales o recortar la cuadrícula para ajustarla al Área de Interés definida.
 
-#### Evidencia CP-MOD5-003 â€” Avance al paso de revisión del proyecto
+#### Evidencia CP-MOD5-003 — Avance al paso de revisión del proyecto
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-003-04-avance-paso4-revisar.png" alt="CP-MOD5-003 - Avance al Paso 4 Revisar" width="300">
@@ -125,7 +125,7 @@ Se evidencia que el sistema procesó correctamente el recorte de la cuadrícula 
 | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir crear el proyecto cuando el AOI, la grilla, el nombre del proyecto y la organización son válidos. Luego debe mostrar una confirmación o redirigir a la pantalla de administración del proyecto creado. | El sistema creó correctamente el proyecto y redirigió a la pantalla **Editar Proyecto**, donde se visualiza el nombre registrado: **Proyecto Arequipa**. |
 
-#### Evidencia CP-MOD5-004 â€” Datos mínimos completados
+#### Evidencia CP-MOD5-004 — Datos mínimos completados
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-004-02-datos-minimos-completos.png" alt="CP-MOD5-004 - Datos mínimos completados" width="300">
@@ -133,7 +133,7 @@ Se evidencia que el sistema procesó correctamente el recorte de la cuadrícula 
 
 Se observa que el usuario completó los datos requeridos para continuar con la creación del proyecto.
 
-#### Evidencia CP-MOD5-004 â€” Proyecto creado correctamente
+#### Evidencia CP-MOD5-004 — Proyecto creado correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-004-03-proyecto-creado-editar.png" alt="CP-MOD5-004 - Proyecto creado correctamente" width="650">
@@ -153,7 +153,7 @@ Se evidencia que el sistema creó correctamente el proyecto y redirigió a la pa
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe rechazar el GeoJSON inválido, impedir su carga como AOI válido y evitar que el usuario avance al siguiente paso del flujo de creación del proyecto. | El sistema no permitió cargar el GeoJSON inválido y mostró un error de validación, evitando que la geometría incorrecta sea aceptada como Área de Interés. |
 
-#### Evidencia CP-MOD5-005 â€” GeoJSON inválido utilizado
+#### Evidencia CP-MOD5-005 — GeoJSON inválido utilizado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-005-01-geojson-invalido-codigo.png" alt="CP-MOD5-005 - GeoJSON inválido utilizado" width="350">
@@ -161,7 +161,7 @@ Se evidencia que el sistema creó correctamente el proyecto y redirigió a la pa
 
 Se observa el contenido del archivo GeoJSON utilizado como dato de prueba. El archivo presenta una geometría inválida, por lo que no cumple con las condiciones necesarias para ser aceptado como Área de Interés del proyecto.
 
-#### Evidencia CP-MOD5-005 â€” Error al cargar GeoJSON inválido
+#### Evidencia CP-MOD5-005 — Error al cargar GeoJSON inválido
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-005-02-error-geojson-invalido.png" alt="CP-MOD5-005 - Error al cargar GeoJSON inválido" width="550">
@@ -185,7 +185,7 @@ Durante la ejecución se comprobó que el sistema valida la entrada geográfica 
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe rechazar el archivo GeoJSON vacío, impedir su carga como AOI válido y evitar que el usuario avance al siguiente paso del flujo de creación. | El sistema no aceptó el archivo GeoJSON vacío y mostró un error de validación, evitando que se defina un Área de Interés sin geometría válida. |
 
-#### Evidencia CP-MOD5-006 â€” Archivo GeoJSON vacío utilizado
+#### Evidencia CP-MOD5-006 — Archivo GeoJSON vacío utilizado
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-006-01-archivo-geojson-vacio.png" alt="CP-MOD5-006 - Archivo GeoJSON vacío utilizado" width="650">
@@ -193,7 +193,7 @@ Durante la ejecución se comprobó que el sistema valida la entrada geográfica 
 
 Se observa el archivo GeoJSON utilizado como dato de prueba, el cual no contiene información geográfica ni geometría válida para definir el Área de Interés.
 
-#### Evidencia CP-MOD5-006 â€” Error al cargar archivo GeoJSON vacío
+#### Evidencia CP-MOD5-006 — Error al cargar archivo GeoJSON vacío
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-006-02-error-archivo-geojson-vacio.png" alt="CP-MOD5-006 - Error al cargar archivo GeoJSON vacío" width="400">
@@ -217,7 +217,7 @@ Durante la ejecución se comprobó que el sistema valida el contenido del archiv
 | :-------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | El sistema debe rechazar el AOI o impedir el avance cuando el área cargada excede las restricciones permitidas para la creación del proyecto. | El sistema cargó la validación correspondiente y no permitió avanzar con el AOI ingresado, evitando continuar el flujo de creación con un área fuera de las restricciones permitidas. |
 
-#### Evidencia CP-MOD5-007 â€” GeoJSON con AOI fuera del área permitida
+#### Evidencia CP-MOD5-007 — GeoJSON con AOI fuera del área permitida
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-007-01-aoi-grande-geojson.png" alt="CP-MOD5-007 - GeoJSON con AOI fuera del área permitida" width="250">
@@ -225,7 +225,7 @@ Durante la ejecución se comprobó que el sistema valida el contenido del archiv
 
 Se observa el contenido del archivo GeoJSON utilizado como dato de prueba. Aunque el archivo tiene una estructura válida, representa un Área de Interés demasiado grande para las restricciones esperadas del sistema.
 
-#### Evidencia CP-MOD5-007 â€” Validación de AOI fuera del área permitida
+#### Evidencia CP-MOD5-007 — Validación de AOI fuera del área permitida
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-007-02-validacion-aoi-grande.png" alt="CP-MOD5-007 - Validación de AOI fuera del área permitida" width="550">
@@ -250,7 +250,7 @@ Durante la ejecución se comprobó que el sistema controla las restricciones del
 | :------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe rechazar el guardado del proyecto si faltan campos obligatorios como descripción, instrucciones o tipo de mapeo, mostrando un mensaje de validación comprensible para el usuario. | El sistema impidió guardar el proyecto y mostró un mensaje de validación indicando que falta información en el idioma predeterminado del proyecto, específicamente **Descripción corta**, **Descripción**, **Instrucciones detalladas** y el campo obligatorio **Tipos de mapeo**. |
 
-#### Evidencia CP-MOD5-008 â€” Proyecto con campos obligatorios incompletos
+#### Evidencia CP-MOD5-008 — Proyecto con campos obligatorios incompletos
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-008-01-proyecto-sin-campos-obligatorios.png" alt="CP-MOD5-008 - Proyecto sin campos obligatorios completos" width="400">
@@ -258,7 +258,7 @@ Durante la ejecución se comprobó que el sistema controla las restricciones del
 
 Se observa la pantalla de edición del proyecto con secciones obligatorias pendientes de completar, como descripción, instrucciones y metadatos.
 
-#### Evidencia CP-MOD5-008 â€” Validación de campos obligatorios
+#### Evidencia CP-MOD5-008 — Validación de campos obligatorios
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-008-02-validacion-campos-obligatorios.png" alt="CP-MOD5-008 - Validación de campos obligatorios" width="300">
@@ -276,9 +276,9 @@ Se evidencia que el sistema bloqueó el guardado del proyecto y mostró un mensa
 
 | Resultado esperado                                                                                                                                          | Resultado obtenido                                                                                                                                                 |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| El sistema debe permitir guardar el proyecto cuando los campos obligatorios se encuentran completos y válidos, mostrando una confirmación de actualización exitosa. | El sistema guardó correctamente la configuración del proyecto y mostró el mensaje **â€œProyecto actualizado correctamente.â€**. |
+| El sistema debe permitir guardar el proyecto cuando los campos obligatorios se encuentran completos y válidos, mostrando una confirmación de actualización exitosa. | El sistema guardó correctamente la configuración del proyecto y mostró el mensaje **“Proyecto actualizado correctamente.â€**. |
 
-#### Evidencia CP-MOD5-009 â€” Campos obligatorios completados
+#### Evidencia CP-MOD5-009 — Campos obligatorios completados
 
 <table>
   <tr>
@@ -301,13 +301,13 @@ Se evidencia que el sistema bloqueó el guardado del proyecto y mostró un mensa
 </table>
 
 Se observa que el usuario completó las secciones obligatorias del proyecto: descripción, instrucciones y metadatos, incluyendo el tipo de mapeo requerido por el sistema.
-#### Evidencia CP-MOD5-009 â€” Proyecto guardado exitosamente
+#### Evidencia CP-MOD5-009 — Proyecto guardado exitosamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-009-04-proyecto-guardado-exitosamente.png" alt="CP-MOD5-009 - Proyecto guardado exitosamente" width="400">
 </p>
 
-Se evidencia que el sistema aceptó la información ingresada y mostró el mensaje **â€œProyecto actualizado correctamente.â€**, confirmando que el proyecto fue guardado sin defectos.
+Se evidencia que el sistema aceptó la información ingresada y mostró el mensaje **“Proyecto actualizado correctamente.â€**, confirmando que el proyecto fue guardado sin defectos.
 ### 5.2.3. Modificación del nombre del proyecto
 
 **CP-MOD5-010**
@@ -320,7 +320,7 @@ Se evidencia que el sistema aceptó la información ingresada y mostró el mensa
 | :------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir modificar el nombre del proyecto, guardar el cambio y mostrar el nuevo nombre correctamente después de la actualización. | El sistema permitió modificar el nombre del proyecto, guardar los cambios y mostrar correctamente el nuevo nombre actualizado. |
 
-#### Evidencia CP-MOD5-010 â€” Nombre inicial del proyecto
+#### Evidencia CP-MOD5-010 — Nombre inicial del proyecto
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-010-01-nombre-proyecto-inicial.png" alt="CP-MOD5-010 - Nombre inicial del proyecto" width="300">
@@ -328,7 +328,7 @@ Se evidencia que el sistema aceptó la información ingresada y mostró el mensa
 
 Se observa el nombre inicial del proyecto antes de realizar la modificación desde la pantalla de edición.
 
-#### Evidencia CP-MOD5-010 â€” Nombre del proyecto modificado
+#### Evidencia CP-MOD5-010 — Nombre del proyecto modificado
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-010-02-nombre-proyecto-modificado.png" alt="CP-MOD5-010 - Nombre del proyecto modificado" width="600">
@@ -336,7 +336,7 @@ Se observa el nombre inicial del proyecto antes de realizar la modificación des
 
 Se evidencia que el usuario ingresó un nuevo nombre válido para el proyecto antes de guardar los cambios.
 
-#### Evidencia CP-MOD5-010 â€” Nombre actualizado guardado correctamente
+#### Evidencia CP-MOD5-010 — Nombre actualizado guardado correctamente
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-010-03-nombre-proyecto-guardado.png" alt="CP-MOD5-010 - Nombre actualizado guardado correctamente" width="300">
@@ -360,7 +360,7 @@ Durante la ejecución se comprobó que el sistema permite editar el nombre de un
 | :-------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir modificar la descripción corta del proyecto, guardar el cambio y mostrar una confirmación de actualización correcta. | El sistema permitió modificar la descripción corta del proyecto y mostró una notificación indicando que los cambios fueron guardados correctamente. |
 
-#### Evidencia CP-MOD5-011 â€” Descripción corta inicial
+#### Evidencia CP-MOD5-011 — Descripción corta inicial
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-011-01-descripcion-corta-inicial.png" alt="CP-MOD5-011 - Descripción corta inicial" width="500">
@@ -368,7 +368,7 @@ Durante la ejecución se comprobó que el sistema permite editar el nombre de un
 
 Se observa la descripción corta del proyecto antes de realizar la modificación.
 
-#### Evidencia CP-MOD5-011 â€” Descripción corta modificada
+#### Evidencia CP-MOD5-011 — Descripción corta modificada
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-011-02-descripcion-corta-modificada.png" alt="CP-MOD5-011 - Descripción corta modificada" width="500">
@@ -376,7 +376,7 @@ Se observa la descripción corta del proyecto antes de realizar la modificación
 
 Se evidencia que el usuario ingresó una nueva descripción corta válida en la pantalla de edición del proyecto.
 
-#### Evidencia CP-MOD5-011 â€” Confirmación de guardado correcto
+#### Evidencia CP-MOD5-011 — Confirmación de guardado correcto
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-011-03-descripcion-corta-guardada.png" alt="CP-MOD5-011 - Confirmación de guardado correcto" width="500">
@@ -400,7 +400,7 @@ Durante la ejecución se comprobó que el sistema permite editar la descripción
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir modificar las instrucciones detalladas del proyecto, guardar los cambios y mantener el contenido actualizado en la sección correspondiente. | El sistema permitió modificar las instrucciones detalladas del proyecto y guardó correctamente los cambios, mostrando el contenido actualizado en la sección correspondiente. |
 
-#### Evidencia CP-MOD5-012 â€” Instrucciones detalladas iniciales
+#### Evidencia CP-MOD5-012 — Instrucciones detalladas iniciales
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-012-01-instrucciones-detalladas-inicial.png" alt="CP-MOD5-012 - Instrucciones detalladas iniciales" width="450">
@@ -408,7 +408,7 @@ Durante la ejecución se comprobó que el sistema permite editar la descripción
 
 Se observa el contenido inicial de las instrucciones detalladas del proyecto antes de realizar la modificación.
 
-#### Evidencia CP-MOD5-012 â€” Instrucciones detalladas modificadas
+#### Evidencia CP-MOD5-012 — Instrucciones detalladas modificadas
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-012-02-instrucciones-detalladas-modificadas.png" alt="CP-MOD5-012 - Instrucciones detalladas modificadas" width="450">
@@ -416,7 +416,7 @@ Se observa el contenido inicial de las instrucciones detalladas del proyecto ant
 
 Se evidencia que el usuario ingresó nuevas instrucciones detalladas válidas desde la pantalla de edición del proyecto.
 
-#### Evidencia CP-MOD5-012 â€” Instrucciones detalladas guardadas correctamente
+#### Evidencia CP-MOD5-012 — Instrucciones detalladas guardadas correctamente
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-012-03-instrucciones-detalladas-guardadas.png" alt="CP-MOD5-012 - Instrucciones detalladas guardadas correctamente" width="650">
@@ -440,7 +440,7 @@ Durante la ejecución se comprobó que el sistema permite editar las instruccion
 | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir guardar la configuración sin realizar cambios, mantener la información existente y no presentar errores durante la operación. | El sistema permitió guardar la configuración del proyecto sin realizar modificaciones visibles y mostró una confirmación de guardado correcto. |
 
-#### Evidencia CP-MOD5-013 â€” Configuración sin modificación
+#### Evidencia CP-MOD5-013 — Configuración sin modificación
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-013-01-configuracion-sin-modificacion.png" alt="CP-MOD5-013 - Configuración sin modificación" width="650">
@@ -448,7 +448,7 @@ Durante la ejecución se comprobó que el sistema permite editar las instruccion
 
 Se observa la pantalla de configuración del proyecto sin modificaciones visibles realizadas por el usuario antes de ejecutar la acción de guardado.
 
-#### Evidencia CP-MOD5-013 â€” Confirmación de guardado sin cambios
+#### Evidencia CP-MOD5-013 — Confirmación de guardado sin cambios
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-013-02-confirmacion-guardado-sin-cambios.png" alt="CP-MOD5-013 - Confirmación de guardado sin cambios" width="650">
@@ -473,7 +473,7 @@ Durante la ejecución se comprobó que el sistema permite guardar la configuraci
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir cambiar el estado del proyecto de **Borrador** a **Publicado**, guardar la modificación y mostrar una confirmación de actualización exitosa. | El sistema permitió seleccionar el estado **Publicado**, guardó correctamente el cambio y mostró la confirmación de actualización del proyecto. |
 
-#### Evidencia CP-MOD5-014 â€” Estado inicial Borrador
+#### Evidencia CP-MOD5-014 — Estado inicial Borrador
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-014-01-estado-borrador.png" alt="CP-MOD5-014 - Estado inicial Borrador" width="450">
@@ -481,7 +481,7 @@ Durante la ejecución se comprobó que el sistema permite guardar la configuraci
 
 Se observa que el proyecto se encuentra inicialmente en estado **Borrador**, antes de realizar la transición de estado.
 
-#### Evidencia CP-MOD5-014 â€” Estado Publicado seleccionado
+#### Evidencia CP-MOD5-014 — Estado Publicado seleccionado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-014-02-estado-publicado-seleccionado.png" alt="CP-MOD5-014 - Estado Publicado seleccionado" width="450">
@@ -489,7 +489,7 @@ Se observa que el proyecto se encuentra inicialmente en estado **Borrador**, ant
 
 Se observa que el usuario seleccionó el estado **Publicado** como nuevo estado del proyecto.
 
-#### Evidencia CP-MOD5-014 â€” Proyecto publicado correctamente
+#### Evidencia CP-MOD5-014 — Proyecto publicado correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-014-03-proyecto-publicado-guardado.png" alt="CP-MOD5-014 - Proyecto publicado correctamente" width="450">
@@ -508,7 +508,7 @@ Se evidencia que el sistema guardó correctamente el cambio de estado y confirm�
 | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe impedir la publicación del proyecto si faltan campos obligatorios, mostrando mensajes de validación sobre la información requerida. | El sistema no permitió publicar el proyecto y mostró un error indicando que faltaba información obligatoria para completar la publicación. |
 
-#### Evidencia CP-MOD5-015 â€” Proyecto en borrador con información incompleta
+#### Evidencia CP-MOD5-015 — Proyecto en borrador con información incompleta
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-015-01-proyecto-borrador-incompleto.png" alt="CP-MOD5-015 - Proyecto en borrador con información incompleta" width="350">
@@ -516,7 +516,7 @@ Se evidencia que el sistema guardó correctamente el cambio de estado y confirm�
 
 Se observa el proyecto en estado de edición/borrador con información obligatoria incompleta antes de intentar su publicación.
 
-#### Evidencia CP-MOD5-015 â€” Intento de publicación del proyecto incompleto
+#### Evidencia CP-MOD5-015 — Intento de publicación del proyecto incompleto
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-015-02-intento-publicacion-incompleta.png" alt="CP-MOD5-015 - Intento de publicación incompleta" width="350">
@@ -524,7 +524,7 @@ Se observa el proyecto en estado de edición/borrador con información obligator
 
 Se evidencia el intento de cambiar el estado del proyecto a publicado sin contar con toda la información obligatoria requerida.
 
-#### Evidencia CP-MOD5-015 â€” Validación por información incompleta
+#### Evidencia CP-MOD5-015 — Validación por información incompleta
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-015-03-validacion-publicacion-incompleta.png" alt="CP-MOD5-015 - Validación por información incompleta" width="450">
@@ -548,7 +548,7 @@ Durante la ejecución se comprobó que el sistema valida la información obligat
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir cambiar el estado del proyecto de Publicado a Borrador, guardar el cambio y mantener el nuevo estado después de la actualización. | El sistema permitió cambiar el estado del proyecto de Publicado a Borrador y guardó correctamente la modificación realizada. |
 
-#### Evidencia CP-MOD5-016 â€” Proyecto en estado publicado
+#### Evidencia CP-MOD5-016 — Proyecto en estado publicado
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-016-01-proyecto-estado-publicado.png" alt="CP-MOD5-016 - Proyecto en estado publicado" width="350">
@@ -556,7 +556,7 @@ Durante la ejecución se comprobó que el sistema valida la información obligat
 
 Se observa que el proyecto se encontraba inicialmente en estado **Publicado** antes de realizar la modificación.
 
-#### Evidencia CP-MOD5-016 â€” Cambio de estado a borrador
+#### Evidencia CP-MOD5-016 — Cambio de estado a borrador
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-016-02-cambio-estado-borrador.png" alt="CP-MOD5-016 - Cambio de estado a borrador" width="350">
@@ -564,7 +564,7 @@ Se observa que el proyecto se encontraba inicialmente en estado **Publicado** an
 
 Se evidencia que el usuario seleccionó el estado **Borrador** desde la pantalla de edición del proyecto.
 
-#### Evidencia CP-MOD5-016 â€” Estado borrador guardado correctamente
+#### Evidencia CP-MOD5-016 — Estado borrador guardado correctamente
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-016-03-estado-borrador-guardado.png" alt="CP-MOD5-016 - Estado borrador guardado correctamente" width="450">
@@ -590,7 +590,7 @@ Durante la ejecución se comprobó que el sistema permite revertir el estado de 
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | El sistema debe permitir modificar los permisos del proyecto, estableciendo niveles mínimos requeridos para mapear y validar, y guardar la configuración correctamente. | El sistema permitió modificar los permisos del proyecto, estableciendo el nivel **INTERMEDIATE** para mapeo y validación. La configuración fue guardada correctamente y permaneció visible en la sección de equipos y permisos. |
 
-#### Evidencia CP-MOD5-017 â€” Pantalla inicial de permisos
+#### Evidencia CP-MOD5-017 — Pantalla inicial de permisos
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-017-01-pantalla-permisos-inicial.png" alt="CP-MOD5-017 - Pantalla inicial de permisos" width="450">
@@ -598,7 +598,7 @@ Durante la ejecución se comprobó que el sistema permite revertir el estado de 
 
 Se observa la sección de permisos del proyecto, donde el sistema permite definir qué usuarios pueden mapear y validar, así como los niveles mínimos requeridos para cada acción.
 
-#### Evidencia CP-MOD5-017 â€” Nivel mínimo de mapeo modificado
+#### Evidencia CP-MOD5-017 — Nivel mínimo de mapeo modificado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-017-02-nivel-mapeo-intermediate.png" alt="CP-MOD5-017 - Nivel mínimo de mapeo modificado" width="550">
@@ -606,7 +606,7 @@ Se observa la sección de permisos del proyecto, donde el sistema permite defini
 
 Se observa que el usuario modificó la configuración de permisos, estableciendo un nivel mínimo requerido para acceder a las acciones del proyecto.
 
-#### Evidencia CP-MOD5-017 â€” Permisos guardados correctamente
+#### Evidencia CP-MOD5-017 — Permisos guardados correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-017-03-permisos-guardados-correctamente.png" alt="CP-MOD5-017 - Permisos guardados correctamente" width="550">
@@ -626,7 +626,7 @@ Se evidencia que el sistema guardó correctamente la configuración de permisos,
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir activar la privacidad del proyecto, guardar la configuración y mantener activa la opción **Proyecto privado** después de guardar. | El sistema permitió activar la opción **Proyecto privado**, guardó correctamente el cambio y mantuvo la configuración aplicada en la sección de permisos del proyecto. |
 
-#### Evidencia CP-MOD5-018 â€” Privacidad inicial del proyecto
+#### Evidencia CP-MOD5-018 — Privacidad inicial del proyecto
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-018-01-privacidad-inicial.png" alt="CP-MOD5-018 - Privacidad inicial del proyecto" width="650">
@@ -634,7 +634,7 @@ Se evidencia que el sistema guardó correctamente la configuración de permisos,
 
 Se observa la sección de privacidad del proyecto antes de realizar la modificación, donde la opción **Proyecto privado** se encuentra inicialmente desactivada.
 
-#### Evidencia CP-MOD5-018 â€” Proyecto privado activado
+#### Evidencia CP-MOD5-018 — Proyecto privado activado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-018-02-proyecto-privado-activado.png" alt="CP-MOD5-018 - Proyecto privado activado" width="650">
@@ -642,7 +642,7 @@ Se observa la sección de privacidad del proyecto antes de realizar la modificac
 
 Se observa que el usuario activó la opción **Proyecto privado**, modificando la configuración de acceso al proyecto.
 
-#### Evidencia CP-MOD5-018 â€” Privacidad guardada correctamente
+#### Evidencia CP-MOD5-018 — Privacidad guardada correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-018-03-privacidad-guardada-correctamente.png" alt="CP-MOD5-018 - Privacidad guardada correctamente" width="400">
@@ -663,7 +663,7 @@ Se evidencia que el sistema guardó correctamente la configuración de privacida
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir seleccionar un nuevo propietario válido del proyecto y transferir la propiedad cuando el usuario seleccionado tiene permisos suficientes dentro de Tasking Manager. | El sistema permitió seleccionar otro administrador de Tasking Manager perteneciente a la organización y realizar correctamente la transferencia de propiedad del proyecto. |
 
-#### Evidencia CP-MOD5-019 â€” Formulario de transferencia de propiedad
+#### Evidencia CP-MOD5-019 — Formulario de transferencia de propiedad
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-019-01-formulario-transferencia-propiedad.png" alt="CP-MOD5-019 - Formulario de transferencia de propiedad" width="650">
@@ -671,7 +671,7 @@ Se evidencia que el sistema guardó correctamente la configuración de privacida
 
 Se observa la sección de transferencia de propiedad del proyecto. El sistema muestra una advertencia indicando que esta acción no se puede deshacer, lo cual informa al usuario sobre el impacto de la operación antes de ejecutarla.
 
-#### Evidencia CP-MOD5-019 â€” Selección de nuevo propietario
+#### Evidencia CP-MOD5-019 — Selección de nuevo propietario
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-019-02-admin-tm-seleccionado.png" alt="CP-MOD5-019 - Administrador seleccionado como nuevo propietario" width="650">
@@ -679,7 +679,7 @@ Se observa la sección de transferencia de propiedad del proyecto. El sistema mu
 
 Se observa que el usuario seleccionó como nuevo propietario a otro administrador de Tasking Manager perteneciente a la organización, cumpliendo la condición requerida para realizar la transferencia.
 
-#### Evidencia CP-MOD5-019 â€” Propiedad transferida correctamente
+#### Evidencia CP-MOD5-019 — Propiedad transferida correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-019-03-propiedad-transferida-correctamente.png" alt="CP-MOD5-019 - Propiedad transferida correctamente" width="650">
@@ -698,7 +698,7 @@ Se evidencia que el sistema ejecutó correctamente la transferencia de propiedad
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir seleccionar una dificultad válida para el proyecto, guardar el cambio y mantener la dificultad actualizada después de la modificación. | El sistema permitió modificar la dificultad del proyecto y guardó correctamente el cambio realizado. |
 
-#### Evidencia CP-MOD5-020 â€” Dificultad inicial del proyecto
+#### Evidencia CP-MOD5-020 — Dificultad inicial del proyecto
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-020-01-dificultad-inicial.png" alt="CP-MOD5-020 - Dificultad inicial del proyecto" width="450">
@@ -706,7 +706,7 @@ Se evidencia que el sistema ejecutó correctamente la transferencia de propiedad
 
 Se observa la dificultad inicial configurada en el proyecto antes de realizar la modificación.
 
-#### Evidencia CP-MOD5-020 â€” Dificultad modificada
+#### Evidencia CP-MOD5-020 — Dificultad modificada
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-020-02-dificultad-modificada.png" alt="CP-MOD5-020 - Dificultad modificada" width="450">
@@ -714,7 +714,7 @@ Se observa la dificultad inicial configurada en el proyecto antes de realizar la
 
 Se evidencia que el usuario seleccionó una nueva dificultad válida desde la pantalla de edición del proyecto.
 
-#### Evidencia CP-MOD5-020 â€” Dificultad guardada correctamente
+#### Evidencia CP-MOD5-020 — Dificultad guardada correctamente
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-020-03-dificultad-guardada.png" alt="CP-MOD5-020 - Dificultad guardada correctamente" width="250">
@@ -738,7 +738,7 @@ Durante la ejecución se comprobó que el sistema permite modificar la dificulta
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir seleccionar una prioridad válida para el proyecto, guardar el cambio y mantener la prioridad actualizada después de la modificación. | El sistema permitió modificar la prioridad del proyecto y guardó correctamente el cambio realizado. |
 
-#### Evidencia CP-MOD5-021 â€” Prioridad inicial del proyecto
+#### Evidencia CP-MOD5-021 — Prioridad inicial del proyecto
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-021-01-prioridad-inicial.png" alt="CP-MOD5-021 - Prioridad inicial del proyecto" width="550">
@@ -746,7 +746,7 @@ Durante la ejecución se comprobó que el sistema permite modificar la dificulta
 
 Se observa la prioridad inicial configurada en el proyecto antes de realizar la modificación.
 
-#### Evidencia CP-MOD5-021 â€” Prioridad modificada
+#### Evidencia CP-MOD5-021 — Prioridad modificada
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-021-02-prioridad-modificada.png" alt="CP-MOD5-021 - Prioridad modificada" width="550">
@@ -754,7 +754,7 @@ Se observa la prioridad inicial configurada en el proyecto antes de realizar la 
 
 Se evidencia que el usuario seleccionó una nueva prioridad válida desde la pantalla de edición del proyecto.
 
-#### Evidencia CP-MOD5-021 â€” Prioridad guardada correctamente
+#### Evidencia CP-MOD5-021 — Prioridad guardada correctamente
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-021-03-prioridad-guardada.png" alt="CP-MOD5-021 - Prioridad guardada correctamente" width="650">
@@ -778,7 +778,7 @@ Durante la ejecución se comprobó que el sistema permite modificar la prioridad
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir iniciar el flujo de clonación desde un proyecto existente, conservar la información base del proyecto original y generar un nuevo proyecto independiente. | El sistema inició correctamente el flujo de clonación del proyecto **#1 Proyecto Arequipa** y generó un nuevo proyecto clonado identificado como **#3 Proyecto Arequipa**, visible en el listado de proyectos. |
 
-#### Evidencia CP-MOD5-022 â€” Opción de clonar proyecto
+#### Evidencia CP-MOD5-022 — Opción de clonar proyecto
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-022-01-opcion-clonar-proyecto.png" alt="CP-MOD5-022 - Opción de clonar proyecto" width="650">
@@ -786,7 +786,7 @@ Durante la ejecución se comprobó que el sistema permite modificar la prioridad
 
 Se observa la opción que permite iniciar la clonación de un proyecto existente desde las acciones disponibles para el proyecto.
 
-#### Evidencia CP-MOD5-022 â€” Flujo de clonación iniciado
+#### Evidencia CP-MOD5-022 — Flujo de clonación iniciado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-022-02-flujo-clonacion-iniciado.png" alt="CP-MOD5-022 - Flujo de clonación iniciado" width="350">
@@ -794,7 +794,7 @@ Se observa la opción que permite iniciar la clonación de un proyecto existente
 
 Se evidencia que el sistema inició el flujo de clonación e indicó que el nuevo proyecto será un clon del proyecto **#1 Proyecto Arequipa**.
 
-#### Evidencia CP-MOD5-022 â€” Revisión del proyecto clonado
+#### Evidencia CP-MOD5-022 — Revisión del proyecto clonado
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-022-03-revision-proyecto-clonado.png" alt="CP-MOD5-022 - Revisión del proyecto clonado" width="450">
@@ -802,7 +802,7 @@ Se evidencia que el sistema inició el flujo de clonación e indicó que el nuev
 
 Se observa el paso de revisión del proyecto clonado antes de finalizar su creación.
 
-#### Evidencia CP-MOD5-022 â€” Proyecto clonado creado correctamente
+#### Evidencia CP-MOD5-022 — Proyecto clonado creado correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-022-04-proyecto-clonado-creado.png" alt="CP-MOD5-022 - Proyecto clonado creado correctamente" width="450">
@@ -822,7 +822,7 @@ Se evidencia que el sistema creó correctamente un nuevo proyecto clonado. En el
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir eliminar un proyecto mediante una acción controlada, mostrar una confirmación o advertencia antes de ejecutar la operación y redirigir al usuario a una vista adecuada después de eliminarlo. | El sistema eliminó correctamente el proyecto seleccionado y redirigió al usuario a la vista de gestión de proyectos, confirmando que la operación fue ejecutada correctamente. |
 
-#### Evidencia CP-MOD5-023 â€” Opción de eliminar proyecto
+#### Evidencia CP-MOD5-023 — Opción de eliminar proyecto
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-023-01-opcion-eliminar-proyecto.png" alt="CP-MOD5-023 - Opción de eliminar proyecto" width="650">
@@ -830,7 +830,7 @@ Se evidencia que el sistema creó correctamente un nuevo proyecto clonado. En el
 
 Se observa la opción disponible para eliminar el proyecto desde la sección de acciones. Esta funcionalidad permite al usuario autorizado iniciar una operación sensible sobre el proyecto.
 
-#### Evidencia CP-MOD5-023 â€” Confirmación de eliminación
+#### Evidencia CP-MOD5-023 — Confirmación de eliminación
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-023-02-confirmacion-eliminacion.png" alt="CP-MOD5-023 - Confirmación de eliminación" width="650">
@@ -838,7 +838,7 @@ Se observa la opción disponible para eliminar el proyecto desde la sección de 
 
 Se observa la confirmación o advertencia previa a la eliminación del proyecto, lo cual permite evitar una eliminación accidental.
 
-#### Evidencia CP-MOD5-023 â€” Proyecto eliminado y redirección a gestión de proyectos
+#### Evidencia CP-MOD5-023 — Proyecto eliminado y redirección a gestión de proyectos
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-023-03-proyecto-eliminado-vista-gestion.png" alt="CP-MOD5-023 - Proyecto eliminado y redirección" width="650">
@@ -858,7 +858,7 @@ Se evidencia que el sistema eliminó correctamente el proyecto y redirigió al u
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe permitir seleccionar una fuente de imágenes válida para el proyecto, guardar la configuración y mantener visible la opción seleccionada. | El sistema permitió seleccionar la fuente de imágenes **Bing**, guardó correctamente la configuración y mostró el mensaje de actualización exitosa del proyecto. |
 
-#### Evidencia CP-MOD5-024 â€” Pantalla inicial de imágenes
+#### Evidencia CP-MOD5-024 — Pantalla inicial de imágenes
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-024-01-pantalla-imagenes-inicial.png" alt="CP-MOD5-024 - Pantalla inicial de imágenes" width="650">
@@ -866,7 +866,7 @@ Se evidencia que el sistema eliminó correctamente el proyecto y redirigió al u
 
 Se observa la sección **Imágenes** del proyecto, donde el sistema presenta distintas fuentes de imágenes disponibles para configurar el mapeo del proyecto, tales como Bing, Mapbox Satellite, ESRI World Imagery y Maxar Standard.
 
-#### Evidencia CP-MOD5-024 â€” Fuente Bing seleccionada y guardada correctamente
+#### Evidencia CP-MOD5-024 — Fuente Bing seleccionada y guardada correctamente
 
 <p align="center">
   <img src="/tests-docs/03-ejecucion-de-pruebas/funcionales/img/MOD-0005-administracion-proyectos/CP-MOD5-024-02-fuente-bing-guardada-correctamente.png" alt="CP-MOD5-024 - Fuente Bing guardada correctamente" width="550">
@@ -885,7 +885,7 @@ Se evidencia que el usuario seleccionó la fuente de imágenes **Bing** y que el
 | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | El sistema debe mostrar una confirmación antes de eliminar el proyecto, permitir cancelar la operación y mantener el proyecto disponible sin cambios. | El sistema permitió cancelar la eliminación del proyecto correctamente. Después de cancelar, el proyecto no fue eliminado y continuó disponible en el sistema. |
 
-#### Evidencia CP-MOD5-025 â€” Opción de eliminar proyecto
+#### Evidencia CP-MOD5-025 — Opción de eliminar proyecto
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-025-01-opcion-eliminar-proyecto.png" alt="CP-MOD5-025 - Opción de eliminar proyecto" width="450">
@@ -893,7 +893,7 @@ Se evidencia que el usuario seleccionó la fuente de imágenes **Bing** y que el
 
 Se observa la opción disponible para iniciar la eliminación del proyecto desde la interfaz de administración.
 
-#### Evidencia CP-MOD5-025 â€” Confirmación de eliminación
+#### Evidencia CP-MOD5-025 — Confirmación de eliminación
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-025-02-confirmacion-eliminacion.png" alt="CP-MOD5-025 - Confirmación de eliminación" width="450">
@@ -901,7 +901,7 @@ Se observa la opción disponible para iniciar la eliminación del proyecto desde
 
 Se evidencia que el sistema muestra una ventana o mensaje de confirmación antes de ejecutar la eliminación del proyecto.
 
-#### Evidencia CP-MOD5-025 â€” Cancelación de eliminación
+#### Evidencia CP-MOD5-025 — Cancelación de eliminación
 
 <p align="center">
   <img src="./img/MOD-0005-administracion-proyectos/CP-MOD5-025-03-cancelacion-eliminacion.png" alt="CP-MOD5-025 - Cancelación de eliminación" width="300">

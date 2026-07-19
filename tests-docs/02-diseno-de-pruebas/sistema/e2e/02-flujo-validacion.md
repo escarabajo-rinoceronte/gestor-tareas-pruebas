@@ -8,20 +8,20 @@
   <b>Curso:</b> Pruebas de Software <br>
   <b>Docente:</b> Ing. Robert Edison Arisaca Mamani <br>
   <b>Semestre:</b> VII <br>
-  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas E2E â€” Flujo de Validación (Backend Real) <br>
+  <b>Proyecto:</b> HOT Tasking Manager — Diseño de Pruebas E2E — Flujo de Validación (Backend Real) <br>
   <b>Fecha de Elaboración:</b> 17/07/2026 <br>
   <b>Arequipa — Perú</b>
 </div>
 
 ---
 
-# Diseño de Pruebas E2E â€” Flujo de Validación (Backend Real)
+# Diseño de Pruebas E2E — Flujo de Validación (Backend Real)
 
 **Versión del Documento:** 1.0  
 **Tipo de Documento:** Diseño de Pruebas de Sistema (Caja Negra)  
 **Caso de Prueba Asociado:** CP-E2E-VAL-001  
-**Módulo Funcional Relacionado:** MOD-04 â€” Validación de Tareas  
-**Escenario Funcional Relacionado:** ESC-4001 â€” Solicitud de Bloqueo y Validación de Tarea Mapeada  
+**Módulo Funcional Relacionado:** MOD-04 — Validación de Tareas  
+**Escenario Funcional Relacionado:** ESC-4001 — Solicitud de Bloqueo y Validación de Tarea Mapeada  
 **Estándares de referencia:** IEEE 829, ISO/IEC/IEEE 29119
 
 ---
