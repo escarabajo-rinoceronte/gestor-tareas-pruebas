@@ -80,10 +80,13 @@ jobs:
           fi
 
           # ---------- Construir payload JSON ----------
+          # Enviamos tanto textMessage.text (doc oficial) como text (algunas
+          # instalaciones de Evolution API / Evolution Manager esperan este
+          # campo a nivel superior). El servidor usará el que reconozca.
           payload=$(jq -n \
             --arg number "$WHATSAPP_GROUP_ID" \
             --arg text "$message" \
-            '{number: $number, textMessage: {text: $text}}')
+            '{number: $number, textMessage: {text: $text}, text: $text}')
 
           echo "Payload: $payload"
 
