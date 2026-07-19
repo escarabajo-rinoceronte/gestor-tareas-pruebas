@@ -1,25 +1,29 @@
-from backend.models.postgis.project_info import ProjectInfo
 import pytest
-from unittest.mock import AsyncMock, patch
+import datetime
+from unittest.mock import AsyncMock, patch, MagicMock
 from fastapi import HTTPException
-from backend.models.dtos.project_dto import LockedTasksForUser
+from backend.exceptions import NotFound
+from backend.models.dtos.project_dto import (
+    LockedTasksForUser,
+    ProjectSummary,
+    ProjectUserStatsDTO,
+    ProjectDTO
+)
 from backend.models.postgis.task import Task
+from backend.models.postgis.project import Project, ProjectInfo
 from backend.models.postgis.mapping_level import MappingLevel
 from backend.services.messaging.smtp_service import SMTPService
 from backend.services.project_service import (
     MappingNotAllowed,
-    Project,
     ProjectAdminService,
     ProjectService,
     ProjectStatus,
     UserService,
     ValidatingNotAllowed,
+    ProjectServiceError,
 )
 from backend.models.postgis.statuses import MappingPermission, ValidationPermission
-
-from tests.api.helpers.test_helpers import (
-    create_canned_user,
-)
+from tests.api.helpers.test_helpers import create_canned_user, create_canned_project
 
 
 @pytest.mark.anyio
@@ -514,4 +518,172 @@ class TestProjectService:
 
         with pytest.raises(ValueError, match="Project can only be updated by admins or by the owner"):
             await ProjectAdminService.update_project(dto, unauthorized_user_id, self.db)
+
+    async def test_get_project_privacy_and_status_not_found(self):
+        """Valida que se lance NotFound si el proyecto no existe al consultar privacidad."""
+        with pytest.raises(NotFound):
+            await ProjectService.get_project_privacy_and_status(99999, self.db)
+
+    @patch.object(Project, "get_project_total_contributions", return_value=5)
+    @patch.object(Project, "get_active_mappers", return_value=2)
+    @patch.object(Project, "get_project_campaigns", return_value=[])
+    @patch.object(Project, "get_dto_for_locale")
+    @patch.object(Project, "get_project_summary")
+    async def test_get_project_summary_calculation(self, mock_summary, mock_info, mock_camp, mock_mappers, mock_contribs):
+        """Valida el cálculo manual de porcentajes de finalización en el resumen del proyecto."""
+        # Arrange
+        # Usamos MagicMock y definimos los atributos directamente para que la lógica project.attribute funcione
+        mock_row = MagicMock()
+        mock_row.id = 1
+        mock_row.actual_tasks_mapped = 10
+        mock_row.actual_tasks_validated = 5
+        mock_row.actual_total_tasks = 20
+        mock_row.actual_tasks_bad_imagery = 0
+        mock_row.status = 1
+        mock_row.priority = 1
+        mock_row.difficulty = 1
+        mock_row.mapping_permission = 1
+        mock_row.validation_permission = 1
+        mock_row.default_locale = "en"
+        mock_row.centroid = '{"type": "Point", "coordinates": [0,0]}'
+
+        # También configuramos __getitem__ por si el modelo usa acceso tipo dict['key']
+        mock_row.__getitem__.side_effect = lambda key: getattr(mock_row, key, None)
+
+        # Configuramos el retorno del DTO base
+        mock_summary.return_value = ProjectSummary(
+            project_id=1,
+            mapping_editors=["ID"],
+            validation_editors=["ID"]
+        )
+
+        # Mock de fetch_one de la base de datos
+        with patch.object(self.db, "fetch_one", return_value=mock_row):
+            # Act
+            summary = await ProjectService.get_project_summary(1, self.db)
+
+            # Assert:
+            # percent_mapped: (10 + 5) / 20 * 100 = 75%
+            # percent_validated: 5 / 20 * 100 = 25%
+            assert summary.percent_mapped == 75
+            assert summary.percent_validated == 25
+
+    async def test_favorite_logic_flow(self):
+        """Valida la lógica de favoritos y manejo de errores al desmarcar si no existe."""
+        _, test_user, project_id = await create_canned_project(self.db)
+
+        # Test: Marcar como favorito
+        await ProjectService.favorite(project_id, test_user.id, self.db)
+        assert await ProjectService.is_favorited(project_id, test_user.id, self.db) is True
+
+        # Test: Desmarcar
+        await ProjectService.unfavorite(project_id, test_user.id, self.db)
+        assert await ProjectService.is_favorited(project_id, test_user.id, self.db) is False
+
+    async def test_get_contribs_by_day_logic(self):
+        """Prueba la agregación de contribuciones diarias."""
+        # Arrange
+        mock_project = MagicMock()
+        mock_project.total_tasks = 100
+
+        today = datetime.datetime.utcnow().date()
+        mock_history = [
+            {"day": today, "action_text": "MAPPED", "task_id": 1},
+            {"day": today, "action_text": "VALIDATED", "task_id": 2}
+        ]
+
+        with patch.object(ProjectService, "get_project_by_id", return_value=mock_project):
+            with patch.object(self.db, "fetch_all", return_value=mock_history):
+                contribs = await ProjectService.get_contribs_by_day(1, self.db)
+                assert len(contribs.stats) >= 1
+                assert contribs.stats[0].mapped == 2 # 1 mapped + 1 validated (que implica mapped)
+
+    async def test_get_active_projects_structure(self):
+        """Valida que la recuperación de proyectos activos devuelva un FeatureCollection válido."""
+        # Act
+        result = await ProjectService.get_active_projects(24, self.db)
+
+        # Assert
+        assert result["type"] == "FeatureCollection"
+        assert isinstance(result["features"], list)
+
+    async def test_get_project_priority_areas_empty(self):
+        """Verifica que un proyecto sin áreas de prioridad devuelva una lista vacía."""
+        from tests.api.helpers.test_helpers import create_canned_project
+        _, _, project_id = await create_canned_project(self.db)
+
+        areas = await ProjectService.get_project_priority_areas(project_id, self.db)
+        assert areas == []
+
+    @patch.object(ProjectService, "get_project_by_id")
+    async def test_get_project_dto_for_mapper_denied(self, mock_get_prj):
+        """Valida que un usuario anónimo sea rechazado para un DRAFT."""
+        stub_project = MagicMock()
+        stub_project.id = 101
+        stub_project.private = False
+        stub_project.status = ProjectStatus.DRAFT.value
+        mock_get_prj.return_value = stub_project
+
+        with pytest.raises(ProjectServiceError):
+            await ProjectService.get_project_dto_for_mapper(101, None, self.db)
+
+    @patch.object(UserService, "get_user_by_username")
+    @patch.object(Project, "get_project_user_stats")
+    async def test_get_project_user_stats(self, mock_get_stats, mock_get_user):
+        """Cubre el cálculo de tiempos en segundos y flujo de estadísticas."""
+        # Arrange
+        # Mockeamos el usuario para que tenga el atributo .id que el backend espera
+        mock_user = MagicMock()
+        mock_user.id = 123
+        mock_get_user.return_value = mock_user
+
+        # Mockeamos el retorno de las estadísticas del modelo
+        mock_get_stats.return_value = ProjectUserStatsDTO(
+            timeSpentMapping=5400, # 1.5 horas
+            timeSpentValidating=5400,
+            totalTimeSpent=10800
+        )
+
+        # Act
+        with patch.object(ProjectService, "exists", return_value=True):
+            stats = await ProjectService.get_project_user_stats(1, "mapper_user", self.db)
+
+            # Assert
+            assert stats.time_spent_mapping == 5400
+            assert stats.total_time_spent == 10800
+
+    async def test_get_active_projects_interval_logic(self):
+        """Cubre las ramas de recuperación de proyectos con actividad reciente."""
+        mock_ids = [{"project_id": 1}, {"project_id": 2}]
+        mock_details = [
+            {"id": 1, "mapping_types": [1], "geometry": '{"type": "MultiPolygon", "coordinates": []}'}
+        ]
+
+        with patch.object(self.db, "fetch_all") as mock_fetch:
+            mock_fetch.side_effect = [mock_ids, mock_details]
+            result = await ProjectService.get_active_projects(12, self.db)
+            assert result["type"] == "FeatureCollection"
+            assert len(result["features"]) == 1
+
+    @patch("backend.services.project_service.db_connection")
+    @patch.object(SMTPService, "send_email_to_contributors_on_project_progress")
+    async def test_send_email_progress_already_sent(self, mock_email, mock_db_conn):
+        """Valida que no se envíe email si ya fue enviado o si la DB no está lista."""
+        # Configuramos el mock de db_connection para que no explote
+        mock_db_conn.database.connection.return_value.__aenter__.return_value = self.db
+
+        mock_prj = MagicMock()
+        mock_prj.progress_email_sent = True
+        mock_prj.tasks_mapped = 50
+        mock_prj.total_tasks = 100
+
+        with patch.object(ProjectService, "get_project_by_id", return_value=mock_prj):
+            await ProjectService.send_email_on_project_progress(1)
+            mock_email.assert_not_called()
+
+    async def test_get_project_priority_areas_not_found(self):
+        """Verifica el manejo de error si el proyecto no existe al buscar áreas."""
+        with patch.object(Project, "exists", side_effect=NotFound):
+            with pytest.raises(NotFound):
+                await ProjectService.get_project_priority_areas(1, self.db)
 
