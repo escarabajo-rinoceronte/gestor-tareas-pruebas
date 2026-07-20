@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
   <h3>UNIVERSIDAD NACIONAL DE SAN AGUSTÍN</h3>
   <h4>FACULTAD DE INGENIERÍA DE PRODUCCIÓN Y SERVICIOS</h4>
   <h4>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h4>
@@ -117,6 +117,12 @@ Ejecución de pruebas de sistema automatizadas integradas al pipeline CI/CD. Los
 
 ---
 
+### Plus: Integración de Bot de WhatsApp (Notificaciones Ágiles)
+
+Como valor agregado para el Hito 3, se desarrolló e integró un **Bot de WhatsApp** vía la *Evolution API* (`notify-whatsapp.yml`). El bot está diseñado para **escuchar cualquier Workflow de GitHub Actions** que se dispare en el repositorio. Al finalizar la ejecución de un pipeline (como pruebas, sonar o despliegues), el bot captura los resultados y envía automáticamente un resumen detallado al grupo de WhatsApp del equipo, indicando el estado final (éxito/fallo) y el autor del *commit*, manteniendo así una visibilidad en tiempo real de la Integración Continua.
+
+---
+
 ### GitHub Projects (Tablero Kanban)
 
 Gestión de issues y seguimiento del sprint bajo metodología ágil. Refleja la planificación, asignación y estado de cada tarea del Hito 3. Todas las tareas críticas finalizaron con estado **Done**.
@@ -133,10 +139,11 @@ Portal de consulta unificado para todo el ciclo de pruebas (planes, diseños, in
 
 El proyecto implementa pipelines de automatización clave utilizando GitHub Actions. Esto garantiza que la calidad, la seguridad y la documentación se validen de forma continua en cada cambio:
 
-1. **Pipeline de Pruebas Frontend** (pr_test_frontend.yml): Ejecuta automáticamente la suite de pruebas unitarias de React ante cada Pull Request, actuando como compuerta de calidad obligatoria antes del merge.
-2. **Pipeline de Pruebas Backend** (pr_test_backend.yml): Ejecuta validaciones de formato (PEP8), pruebas unitarias y pruebas de integración levantando automáticamente contenedores efímeros (PostGIS) en cada PR.
-3. **Pruebas de Seguridad** (seguridad-sonarqube.yml): Automatiza el análisis de seguridad SAST ejecutando Gitleaks (escaneo de secretos) y SonarCloud en cada push a las ramas principales.
-4. **Auto-Sincronización de la Wiki** (wiki-sync.yml): Detecta cambios en los informes Markdown y sincroniza la GitHub Wiki automáticamente en cada push a develop, incluyendo resolución de rutas de imágenes. Garantiza que la documentación refleje siempre el último estado real del proyecto sin intervención manual.
+1. **Pipeline de Pruebas Frontend** (`pr_test_frontend.yml`): Ejecuta automáticamente la suite de pruebas unitarias de React ante cada Pull Request, actuando como compuerta de calidad obligatoria antes del merge.
+2. **Pipeline de Pruebas Backend** (`pr_test_backend.yml`): Ejecuta validaciones de formato (PEP8), pruebas unitarias y pruebas de integración levantando automáticamente contenedores efímeros (PostGIS) en cada PR.
+3. **Pruebas de Sistema (Seguridad)** (`seguridad-sonarqube.yml`): Automatiza el análisis de seguridad SAST ejecutando `Gitleaks` (escaneo de secretos) y `SonarCloud` en cada push a las ramas principales.
+4. **Notificaciones por WhatsApp** (`notify-whatsapp.yml`): Escucha cualquier Workflow que se dispare en el repositorio y, al finalizar, envía un resumen amigable con el estado de ejecución y el autor directo al canal de WhatsApp del equipo.
+5. **Auto-Sincronización de la Wiki** (`wiki-sync.yml`): Detecta cambios en los informes Markdown y sincroniza la GitHub Wiki automáticamente en cada push a develop, incluyendo resolución de rutas de imágenes. Garantiza que la documentación refleje siempre el último estado real del proyecto sin intervención manual.
 
 ---
 

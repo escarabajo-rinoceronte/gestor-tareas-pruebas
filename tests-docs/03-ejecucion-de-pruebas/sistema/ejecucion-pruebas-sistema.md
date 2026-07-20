@@ -21,8 +21,8 @@
 **Curso:** Pruebas de Software
 **Versión:** 1.0
 **Fecha:** 19 de Julio de 2026
-**Responsables:** Jhonatan (E2E) Â· Alexandra (Desempeño y Seguridad)
-**Estándares:** IEEE 829 Â· ISO/IEC/IEEE 29119 Â· ISO/IEC 25010
+**Responsables:** Jhonatan (E2E) · Alexandra (Desempeño y Seguridad)
+**Estándares:** IEEE 829 · ISO/IEC/IEEE 29119 · ISO/IEC 25010
 
 ---
 
@@ -59,9 +59,9 @@ Se seleccionaron **3 atributos de calidad** y se diseñaron y ejecutaron **8 cas
 
 | # | ID | Escenario | Estado |
 | :--- | :--- | :--- | :--- |
-| 1 | CP-E2E-MAP-001 | Flujo completo de Mapeo: login â†’ explorar â†’ seleccionar tarea READY â†’ abrir editor iD | ✅ Ejecutado |
-| 2 | CP-E2E-VAL-001 | Flujo completo de Validación: login â†’ seleccionar tarea MAPPED â†’ validar â†’ enviar | ✅ Ejecutado |
-| 3 | CP-E2E-ADM-001 | Flujo completo de Administración: login â†’ panel manage â†’ crear proyecto â†’ guardar borrador | ✅ Ejecutado |
+| 1 | CP-E2E-MAP-001 | Flujo completo de Mapeo: login → explorar → seleccionar tarea READY → abrir editor iD | ✅ Ejecutado |
+| 2 | CP-E2E-VAL-001 | Flujo completo de Validación: login → seleccionar tarea MAPPED → validar → enviar | ✅ Ejecutado |
+| 3 | CP-E2E-ADM-001 | Flujo completo de Administración: login → panel manage → crear proyecto → guardar borrador | ✅ Ejecutado |
 
 **Atributo 2 — Eficiencia de Desempeño (Grafana K6)**
 
@@ -88,7 +88,7 @@ Se seleccionaron **3 atributos de calidad** y se diseñaron y ejecutaron **8 cas
 | Docker Desktop | v2.0+ |
 | Imagen backend | `ghcr.io/hotosm/tasking-manager/backend:main` |
 | Base de datos | PostGIS 14-3.3 (`DB_MAX_CONNECTIONS=30`) |
-| Proxy inverso | Traefik v3.6.1 (`localhost:3000 â†’ backend:5000`) |
+| Proxy inverso | Traefik v3.6.1 (`localhost:3000 → backend:5000`) |
 | Node.js | v18.x |
 | Yarn | 1.22.22 |
 | Playwright | Configurado en `frontend/package.json` |
@@ -103,7 +103,7 @@ Se seleccionaron **3 atributos de calidad** y se diseñaron y ejecutaron **8 cas
 
 ## 3. Flujo de Mapeo — CP-E2E-MAP-001
 
-**Responsable:** JhonAQ Â· **Fecha:** 2026-07-15 Â· **Herramienta:** Playwright (Chromium)
+**Responsable:** JhonAQ · **Fecha:** 2026-07-15 · **Herramienta:** Playwright (Chromium)
 
 ### 3.1. Datos de Prueba
 
@@ -118,7 +118,7 @@ Se seleccionaron **3 atributos de calidad** y se diseñaron y ejecutaron **8 cas
 
 | ID | Descripción | Tipo | Estado | Defectos |
 | :--- | :--- | :--- | :--- | :--- |
-| **CP-E2E-MAP-001** | Flujo completo de mapeo con backend real: login â†’ explorar proyecto â†’ seleccionar tarea READY â†’ abrir editor iD. | Automatizado | ✅ Exitoso | Ninguno |
+| **CP-E2E-MAP-001** | Flujo completo de mapeo con backend real: login → explorar proyecto → seleccionar tarea READY → abrir editor iD. | Automatizado | ✅ Exitoso | Ninguno |
 
 ### 3.3. Resultado Esperado vs. Obtenido
 
@@ -165,7 +165,7 @@ El caso CP-E2E-MAP-001 se ejecutó **exitosamente** contra el backend real. El f
 
 ## 4. Flujo de Validación — CP-E2E-VAL-001
 
-**Responsable:** JhonAQ Â· **Fecha:** 2026-07-15 Â· **Herramienta:** Playwright (Chromium)
+**Responsable:** JhonAQ · **Fecha:** 2026-07-15 · **Herramienta:** Playwright (Chromium)
 
 ### 4.1. Datos de Prueba
 
@@ -180,7 +180,7 @@ El caso CP-E2E-MAP-001 se ejecutó **exitosamente** contra el backend real. El f
 
 | ID | Descripción | Tipo | Estado | Defectos |
 | :--- | :--- | :--- | :--- | :--- |
-| **CP-E2E-VAL-001** | Flujo completo de validación con backend real: login â†’ seleccionar tarea MAPPED â†’ bloquear para validación â†’ seleccionar VALIDATED â†’ enviar. | Automatizado | ✅ Exitoso | Ninguno |
+| **CP-E2E-VAL-001** | Flujo completo de validación con backend real: login → seleccionar tarea MAPPED → bloquear para validación → seleccionar VALIDATED → enviar. | Automatizado | ✅ Exitoso | Ninguno |
 
 ### 4.3. Resultado Esperado vs. Obtenido
 
@@ -227,7 +227,7 @@ El caso CP-E2E-VAL-001 se ejecutó **exitosamente** contra el backend real. El f
 
 ## 5. Flujo de Administración — CP-E2E-ADM-001
 
-**Responsable:** JhonAQ Â· **Fecha:** 2026-07-15 Â· **Herramienta:** Playwright (Chromium)
+**Responsable:** JhonAQ · **Fecha:** 2026-07-15 · **Herramienta:** Playwright (Chromium)
 
 ### 5.1. Datos de Prueba
 
@@ -242,7 +242,7 @@ El caso CP-E2E-VAL-001 se ejecutó **exitosamente** contra el backend real. El f
 
 | ID | Descripción | Tipo | Estado | Defectos |
 | :--- | :--- | :--- | :--- | :--- |
-| **CP-E2E-ADM-001** | Flujo completo de creación de proyecto con backend real: login â†’ panel manage â†’ wizard de creación â†’ guardar borrador. | Automatizado | ✅ Exitoso | Ninguno |
+| **CP-E2E-ADM-001** | Flujo completo de creación de proyecto con backend real: login → panel manage → wizard de creación → guardar borrador. | Automatizado | ✅ Exitoso | Ninguno |
 
 ### 5.3. Resultado Esperado vs. Obtenido
 
@@ -287,7 +287,7 @@ El caso CP-E2E-ADM-001 se ejecutó **exitosamente** contra el backend real. El f
 
 ## 6. Prueba de Desempeño y Carga — K6
 
-**Responsable:** Alexandra Â· **Fecha:** 2026-07-19 Â· **Herramienta:** Grafana K6
+**Responsable:** Alexandra · **Fecha:** 2026-07-19 · **Herramienta:** Grafana K6
 **Atributo de calidad (ISO/IEC 25010):** Eficiencia de Desempeño
 **Referencia metodológica:** Myers, "The Art of Software Testing" — Pruebas de Estrés y Carga
 
@@ -367,7 +367,7 @@ Durante las rondas de prueba se identificó un cuello de botella crítico:
 
 ## 7. Prueba de Seguridad — SonarQube
 
-**Responsable:** Alexandra Â· **Fecha:** 2026-07-19
+**Responsable:** Alexandra · **Fecha:** 2026-07-19
 **Herramientas:** SonarCloud (SAST/SCA) + Gitleaks (Secret Scanning)
 **Atributo de calidad (ISO/IEC 25010):** Seguridad
 **Integración:** GitHub Actions CI/CD (`seguridad-sonarqube.yml`) — se ejecuta automáticamente en cada push a `develop`
@@ -453,7 +453,7 @@ El pipeline de CI/CD procesó exitosamente las **76,000 líneas de código** del
 | CP-E2E-MAP-001 | E2E Funcional | Jhonatan | Todos los pasos exitosos + métricas < umbral | ✅ APROBADO |
 | CP-E2E-VAL-001 | E2E Funcional | Jhonatan | Todos los pasos exitosos + métricas < umbral | ✅ APROBADO |
 | CP-E2E-ADM-001 | E2E Funcional | Jhonatan | Todos los pasos exitosos + métricas < umbral | ✅ APROBADO |
-| PERF-K6-001 | Desempeño/Carga | Alexandra | p(95) < 2000ms Â· rate < 5% | ✅ APROBADO |
+| PERF-K6-001 | Desempeño/Carga | Alexandra | p(95) < 2000ms · rate < 5% | ✅ APROBADO |
 | SEC-SONAR-001 | Seguridad SAST | Alexandra | Pipeline ejecutado, hallazgos documentados | ✅ EJECUTADO |
 
 ### 8.2. Defectos Encontrados
