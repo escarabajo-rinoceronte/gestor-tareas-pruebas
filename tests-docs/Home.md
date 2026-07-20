@@ -65,8 +65,17 @@ Pruebas unitarias implementadas con Jest + React Testing Library sobre los compo
 
 Pruebas unitarias implementadas con pytest + pytest-cov sobre los módulos Core del backend (Modelos PostGIS y Servicios de Negocio). La estrategia incluyó estabilización de infraestructura de tests, incremento de cobertura en archivos críticos, y análisis de defectos de borde.
 
-- **Diseño de Pruebas (Wiki):** https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/01-seguridad-usuarios-comms
-- **Reporte de Ejecución (Wiki):** https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/02-ejecucion-pruebas-unitarias-backend
+* **Plan de Pruebas Unitarias por Módulo (Wiki):**
+
+  * Seguridad, Usuarios y Comunicación: https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/01-seguridad-usuarios-comms
+  * Servicios Core de Negocio: https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/02-servicios-core-negocio
+  * Modelos de Dominio, DTO y PostGIS: https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/03-modelos-dominio-dto-postgis
+
+* **Ejecución de Pruebas Unitarias por Módulo (Wiki):**
+
+  * Servicios Core de Negocio: https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/02-ejecucion-pruebas-unitarias-backend-servicios-core
+  * Seguridad, Usuarios y Comunicación: https://github.com/escarabajo-rinoceronte/gestor-tareas-pruebas/wiki/03-ejecucion-pruebas-unitarias-backend-seguridad-usuarios-comunicacion
+
 - **Pruebas ejecutadas:** 270 — **263 exitosas (97.4%)**
 - **Cobertura alcanzada:** **~86%** en el Módulo Core (Modelos PostGIS: ~88%, Servicios: ~84%)
 

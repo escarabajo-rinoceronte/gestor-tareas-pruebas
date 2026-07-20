@@ -56,7 +56,7 @@
 *   [[02 flujo validacion]]
 *   [[03 flujo administracion]]
 
-#### 2.5 AceptaciÃ³n
+#### 2.5 Aceptacion
 
 *   [[01 aceptacion modulos 01 03]]
 
@@ -67,7 +67,8 @@
 #### 3.1 Unitarias
 
 *   [[01 ejecucion pruebas unitarias frontend]]
-*   [[02 ejecucion pruebas unitarias backend]]
+*   [[02 ejecucion pruebas unitarias backend servicios core]]
+*   [[03 ejecucion pruebas unitarias backend seguridad usuarios comunicacion]]
 
 #### 3.2 Funcionales (MOD priorizados)
 
@@ -89,6 +90,6 @@
 
 *   [[ejecucion pruebas sistema]]
 
-#### 3.5 AceptaciÃ³n
+#### 3.5 Aceptacion
 
 *   [[01 ejecucion pruebas aceptacion modulos 01 03]]
