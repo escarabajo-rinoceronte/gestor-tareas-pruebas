@@ -138,10 +138,26 @@ A continuación, se documentan los nuevos escenarios diseñados para subsanar lo
 | **TC-PRJ-008** | COND-CORE-02 | `project_service.py` | **Resumen de Proyecto:** Cálculo de porcentajes reales frente a estimados en el `ProjectSummary`. | Porcentajes coherentes | Exitoso |
 | **TC-PRJ-009** | N/A | `project_service.py` | **Estadísticas de Usuario:** Cálculo de tiempos (H:M:S) a segundos. | Segundos correctos | **Exitoso** |
 | **TC-PRJ-010** | COND-CORE-04 | `project_service.py` | **Emailing:** Prevención de spam si el correo ya fue enviado. | `assert_not_called` | **Exitoso** |
-
-
-
-*(Nota: Las nuevas suites automatizadas como `test_project_search_service.py`, `test_team_service.py` y `test_project_admin_service.py` adoptarán estos escenarios como objetivo central durante su expansión).*
+| **TC-TEA-003** | COND-CORE-05 | `team_service.py` | **Búsqueda:** Filtrar por organización. | Lista de equipos | **Exitoso** |
+| **TC-TEA-004** | COND-CORE-03 | `team_service.py` | **Solicitud de Unión:** Unirse a equipo con `JoinMethod.ANY` (activación automática) vs `BY_REQUEST`. | Estado `active` correcto | Exitoso |
+| **TC-TEA-005** | COND-CORE-07 | `team_service.py` | **Desvinculación Protegida:** Intentar desvincular el único equipo de Project Managers de un proyecto. | Bloqueo (JSONResponse 403) | Exitoso |
+| **TC-TEA-006** | COND-CORE-05 | `team_service.py` | **Permisos Jerárquicos:** Verificar que un Manager de Organización puede gestionar equipos de su incumbencia sin ser miembro. | `is_user_team_manager` -> True | Exitoso |
+| **TC-TEA-007** | COND-CORE-06 | `team_service.py` | **Cambio de Rol:** Actualizar el rol de un equipo dentro de un proyecto (ej. de MAPPER a VALIDATOR). | Persistencia en `project_teams` | Exitoso |
+| **TC-TEA-008** | COND-CORE-04 | `team_service.py` | **Paginación:** Listar equipos con parámetros de paginación y opción `omit_members`. | DTO con objeto `Pagination` | Exitoso |
+| **TC-TEA-009** | COND-CORE-03 | `team_service.py` | **Gestión de Solicitudes:** Rechazar una solicitud de unión (borrado de registro `team_members`). | Registro eliminado | Exitoso |
+| **TC-TEA-010** | COND-CORE-03 | `team_service.py` | **Mensajería:** Envío masivo a miembros. | `_push_messages` ejecutado | **Exitoso** |
+| **TC-TEA-011** | COND-CORE-05 | `team_service.py` | **Permisos:** Validar que un ADMIN global es reconocido como manager de cualquier equipo. | `is_user_team_manager` -> True | Exitoso |
+| **TC-TEA-012** | COND-CORE-03 | `team_service.py` | **Restricción de Unión:** Intentar unirse a un equipo con `JoinMethod.BY_INVITE`. | `TeamServiceError` (400) | Exitoso |
+| **TC-TEA-013** | COND-CORE-05 | `team_service.py` | **Actualización de Miembro:** Cambiar el rol de un miembro que ya existe en el equipo. | Registro actualizado (200) | Exitoso |
+| **TC-TEA-014** | COND-CORE-07 | `team_service.py` | **Salvaguarda de Mapeo:** Impedir desvincular el único equipo de mapeadores si el proyecto tiene permisos restringidos. | JSONResponse (403) | Exitoso |
+| **TC-TEA-015** | COND-CORE-07 | `team_service.py` | **Salvaguarda de Validación:** Impedir desvincular el único equipo de validadores si el proyecto tiene permisos restringidos. | JSONResponse (403) | Exitoso |
+| **TC-TEA-016** | COND-CORE-04 | `team_service.py` | **Búsqueda Dinámica:** Filtrar equipos por solicitudes de unión pendientes (`member_request`). | Lista filtrada | Exitoso |
+| **TC-TEA-017** | COND-CORE-07 | `team_service.py` | **Desvinculación Masiva:** Probar el endpoint de unassign masivo de equipos. | Success (200) | Exitoso |
+| **TC-TEA-018** | COND-CORE-07 | `team_service.py` | **Desvinculación Atómica:** Ejecución directa del método `unlink_team` tras verificar la existencia del vínculo. | Retorna `True` y elimina registro | **Exitoso** |
+| **TC-TEA-019** | COND-CORE-02 | `team_service.py` | **Proyecto Inexistente:** Validar `ensure_unlink_allowed` con un ID de proyecto aleatorio. Justificación: Cobertura de la rama `if not project_row`. | JSONResponse (404) | **Exitoso** |
+| **TC-TEA-020** | COND-CORE-02 | `team_service.py` | **Vínculo Inexistente:** Intentar desvincular un equipo que no pertenece al proyecto. Justificación: Cobertura de la rama `if not project_team_row`. | JSONResponse (404) | **Exitoso** |
+| **TC-TEA-021** | COND-CORE-06 | `team_service.py` | **Activación de Miembro:** Cambio de estado de un miembro de `active=False` a `active=True`. Justificación: Ejercitar el método `activate_team_member`. | Estado actualizado en DB | **Exitoso** |
+| **TC-TEA-022** | COND-CORE-04 | `team_service.py` | **Historial de Proyectos:** Recuperación de metadatos de proyectos asociados a un equipo. Justificación: Ejercitar el método `get_projects_by_team_id`. | Lista de nombres e IDs | **Exitoso** |
 
 
 ## 4. Métricas Base de Cobertura de Diseño
