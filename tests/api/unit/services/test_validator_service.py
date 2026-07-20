@@ -302,3 +302,38 @@ class TestValidatorService:
         
         assert len(result) == 1
         assert result[0].count == 5
+
+    @patch("backend.models.postgis.task.Task.lock_task_for_validating")
+    async def test_rollback_on_integrity_error(self, mock_lock_task):
+        """Valida que ante una falla al bloquear una tarea en lote, se realice un rollback."""
+        from backend.services.validator_service import ValidatorService
+        from backend.models.dtos.validator_dto import LockForValidationDTO
+        from backend.models.postgis.task import Task
+        from tests.api.helpers.test_helpers import create_canned_project
+        import pytest
+        
+        project, user, project_id = await create_canned_project(self.db)
+        
+        # Mapear dos tareas (estado 2) para que pasen las validaciones
+        await self.db.execute("UPDATE tasks SET task_status = 2 WHERE id IN (1, 2) AND project_id = :pid", {"pid": project_id})
+        
+        dto = LockForValidationDTO(project_id=project_id, task_ids=[1, 2], user_id=user.id)
+        
+        original_lock = Task.lock_task_for_validating
+        call_count = 0
+        
+        async def mock_lock(task_id, proj_id, usr_id, db):
+            nonlocal call_count
+            call_count += 1
+            if call_count == 2:
+                raise Exception("DB Error")
+            return await original_lock(task_id, proj_id, usr_id, db)
+            
+        mock_lock_task.side_effect = mock_lock
+        
+        with pytest.raises(Exception, match="DB Error"):
+            await ValidatorService.lock_tasks_for_validation(dto, self.db)
+            
+        # Comprobar que la tarea 1 no quedó bloqueada (su estado debe ser 2, no 3)
+        task_1 = await Task.get(1, project_id, self.db)
+        assert task_1.task_status == 2, "La tarea 1 no hizo rollback y quedó bloqueada."

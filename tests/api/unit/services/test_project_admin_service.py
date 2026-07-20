@@ -1,7 +1,7 @@
 from backend.models.postgis.statuses import TaskStatus
 import pytest
 import json
-from unittest.mock import AsyncMock
+from unittest.mock import AsyncMock, patch
 
 from backend.models.dtos.project_dto import ProjectInfoDTO
 from backend.models.postgis.task import Task
@@ -12,6 +12,7 @@ from backend.services.project_admin_service import (
     ProjectAdminService,
     ProjectAdminServiceError,
 )
+from backend.services.users.user_service import UserService
 from tests.api.helpers.test_helpers import create_canned_project
 
 
@@ -171,3 +172,11 @@ class TestProjectAdminService:
 
         assert row.tasks_mapped == 0
         assert row.tasks_validated == 0
+
+    @patch.object(UserService, "is_user_an_admin", return_value=True)
+    async def test_delete_project_with_tasks(self, mock_is_admin):
+        """Valida que no se pueda eliminar un proyecto que tiene tareas mapeadas."""
+        test_project, test_user, project_id = await create_canned_project(self.db)
+
+        with pytest.raises(ProjectAdminServiceError, match="HasMappedTasks"):
+            await ProjectAdminService.delete_project(project_id, test_user.id, self.db)
