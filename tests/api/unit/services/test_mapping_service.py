@@ -390,3 +390,26 @@ class TestMappingService:
             {"pid": project_id}
         )
         assert history_exists == 1
+
+    @patch.object(ProjectService, "is_user_permitted_to_map")
+    async def test_lock_task_already_locked(self, mock_mapping_permitted):
+        """Valida que un usuario no pueda bloquear una tarea que ya está bloqueada por otro usuario."""
+        project, user1, project_id = await create_canned_project(self.db)
+        user2 = await return_canned_user(self.db, "USER2", 12345)
+        user2 = await create_canned_user(self.db, user2)
+        
+        # Bloquear la tarea con user1
+        query = """
+            UPDATE tasks SET task_status = :status, locked_by = :locked_by 
+            WHERE id = 1 AND project_id = :project_id
+        """
+        await self.db.execute(query=query, values={"status": TaskStatus.LOCKED_FOR_MAPPING.value, "locked_by": user1.id, "project_id": project_id})
+        
+        mock_mapping_permitted.return_value = True, "User allowed to map"
+        lock_task_dto = LockTaskDTO(
+            project_id=project_id, task_id=1, user_id=user2.id
+        )
+        
+        # Act / Assert
+        with pytest.raises(MappingServiceError, match="InvalidTaskState"):
+            await MappingService.lock_task_for_mapping(lock_task_dto, self.db)

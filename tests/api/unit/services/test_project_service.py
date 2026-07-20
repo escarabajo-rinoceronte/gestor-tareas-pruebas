@@ -468,3 +468,50 @@ class TestProjectService:
 
         # Assert
         assert not mock_send_email.called
+
+    async def test_create_project_invalid_geojson(self):
+        """Valida que un GeoJSON con geometría inválida sea rechazado al adjuntar tareas."""
+        from backend.services.project_admin_service import (
+            InvalidGeoJson,
+            ProjectAdminService,
+        )
+
+        invalid_geojson = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [[-4.0, 56.0], [-3.9, 56.1]],
+                    },
+                    "properties": {},
+                }
+            ],
+        }
+
+        test_project = Project()
+
+        with pytest.raises(InvalidGeoJson):
+            await ProjectAdminService._attach_tasks_to_project(
+                test_project, invalid_geojson, self.db
+            )
+
+    @patch.object(ProjectAdminService, "is_user_action_permitted_on_project", return_value=False)
+    async def test_unauthorized_mutation(self, mock_permitted):
+        """Valida que la actualización de un proyecto por un usuario sin permisos sea rechazada."""
+        from backend.models.dtos.project_dto import ProjectDTO
+        from tests.api.helpers.test_helpers import create_canned_project
+
+        test_project, test_user, project_id = await create_canned_project(self.db)
+
+        dto = ProjectDTO.model_construct(
+            project_id=project_id,
+            project_status="DRAFT",
+        )
+
+        unauthorized_user_id = test_user.id + 9999
+
+        with pytest.raises(ValueError, match="Project can only be updated by admins or by the owner"):
+            await ProjectAdminService.update_project(dto, unauthorized_user_id, self.db)
+

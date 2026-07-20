@@ -69,3 +69,31 @@ class TestTeamService:
             self.test_team.id, self.test_user.id, self.db
         )
         assert not is_active
+
+    async def test_add_member_unauthorized(self, db_connection_fixture):
+        """Valida que un usuario sin privilegios falle al intentar validarse como manager."""
+        from backend.services.team_service import TeamService
+        
+        # El usuario no forma parte de ningún equipo en el proyecto 1
+        is_member = await TeamService.check_team_membership(
+            1, [1], self.test_user.id, self.db
+        )
+        assert not is_member
+
+    async def test_delete_team_relational_integrity(self, db_connection_fixture):
+        """Valida protección contra el borrado de equipos vinculados a proyectos."""
+        from backend.services.team_service import TeamService
+        from tests.api.helpers.test_helpers import create_canned_project
+        
+        # Crear proyecto ficticio
+        project, user, project_id = await create_canned_project(self.db)
+        
+        # Vincular equipo al proyecto
+        await TeamService.add_team_project(self.test_team.id, project_id, "MAPPER", self.db)
+        
+        # Intentar borrar el equipo, debe retornar JSONResponse con 400
+        response = await TeamService.delete_team(self.test_team.id, self.db)
+        assert response.status_code == 400
+        import json
+        body = json.loads(response.body)
+        assert "Team has projects, cannot be deleted" in body["Error"]
