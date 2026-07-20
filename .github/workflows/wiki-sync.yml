@@ -1,4 +1,4 @@
-name: 📚 Sync Tests-Docs to Wiki
+name: Sync Tests-Docs to Wiki
 
 on:
   push:
@@ -26,7 +26,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       # ─────────────────────────────────────────────
       # 2. Clonar la Wiki como repo git separado.
@@ -138,6 +138,11 @@ jobs:
       # ─────────────────────────────────────────────
       - name: Commit and push to Wiki
         run: |
+
+          # Obtener la fecha del último commit que modificó específicamente la carpeta tests-docs/
+          DIRECTORY_DATE=$(git log -1 --format=%cI -- tests-docs/)
+          echo "The last modification into tests-docs/ was: $DIRECTORY_DATE"
+
           cd wiki-repo
 
           git config user.name "github-actions[bot]"
@@ -149,6 +154,9 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes detected in wiki. Skipping push."
           else
+            export GIT_AUTHOR_DATE="$DIRECTORY_DATE"
+            export GIT_COMMITTER_DATE="$DIRECTORY_DATE"
+
             # Mensaje de commit con referencia al commit del repo principal
             git commit -m "docs(wiki): sync from tests-docs @ ${{ github.sha }} | by ${{ github.actor }} on ${{ github.ref_name }}"
 
